@@ -1,0 +1,2719 @@
+﻿<?xml version="1.0"?>
+<DTS:Executable xmlns:DTS="www.microsoft.com/SqlServer/Dts"
+  DTS:refId="Package"
+  DTS:CreationDate="8/2/2016 8:33:49 AM"
+  DTS:CreationName="Microsoft.Package"
+  DTS:CreatorComputerName="RHUMPHRYS-10733"
+  DTS:CreatorName="ALTARUM\rhumphrys"
+  DTS:DTSID="{AA7C3EA2-8860-4535-93B4-1D60EE9AE86C}"
+  DTS:ExecutableType="Microsoft.Package"
+  DTS:LastModifiedProductVersion="12.0.2430.0"
+  DTS:LocaleID="1033"
+  DTS:ObjectName="address_normalizer"
+  DTS:PackageType="5"
+  DTS:VersionBuild="427"
+  DTS:VersionGUID="{8C63F34F-0C57-438C-9309-713D3079F17E}">
+  <DTS:Property
+    DTS:Name="PackageFormatVersion">8</DTS:Property>
+  <DTS:ConnectionManagers>
+    <DTS:ConnectionManager
+      DTS:refId="Package.ConnectionManagers[204.106.31.182.mergeTest.ray]"
+      DTS:CreationName="OLEDB"
+      DTS:DTSID="{85494F2C-0CED-4808-8B52-6A926935BA33}"
+      DTS:ObjectName="204.106.31.182.mergeTest.ray">
+      <DTS:ObjectData>
+        <DTS:ConnectionManager
+          DTS:ConnectionString="Data Source=204.106.31.182;User ID=ray;Initial Catalog=mergeTest;Provider=SQLNCLI11.1;Persist Security Info=True;Auto Translate=False;">
+          <DTS:Password
+            DTS:Name="Password"
+            Sensitive="1"
+            Encrypted="1">AQAAANCMnd8BFdERjHoAwE/Cl+sBAAAAiPMY6INijkeX4g5HQayNbQAAAAAIAAAARABUAFMAAAADZgAAwAAAABAAAAD2jpQVzXK+jg90K2WlSphyAAAAAASAAACgAAAAEAAAAEvTR5c1Fn3A8BpZQoRDmX4IAAAAfV1uA5KyzN0UAAAAl3DWlcDRz40UFyU6APQqJwFGj+o</DTS:Password>
+        </DTS:ConnectionManager>
+      </DTS:ObjectData>
+    </DTS:ConnectionManager>
+  </DTS:ConnectionManagers>
+  <DTS:Variables />
+  <DTS:Executables>
+    <DTS:Executable
+      DTS:refId="Package\Data Flow Task"
+      DTS:CreationName="Microsoft.Pipeline"
+      DTS:Description="Data Flow Task"
+      DTS:DTSID="{46298F7C-4BD2-460E-BF58-7D01CE0717E4}"
+      DTS:ExecutableType="Microsoft.Pipeline"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="Data Flow Task"
+      DTS:TaskContact="Performs high-performance data extraction, transformation and loading;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1">
+      <DTS:Variables />
+      <DTS:ObjectData>
+        <pipeline
+          version="1">
+          <components>
+            <component
+              refId="Package\Data Flow Task\address tester"
+              componentClassID="Microsoft.OLEDBSource"
+              contactInfo="OLE DB Source;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;7"
+              description="OLE DB Source"
+              name="address tester"
+              usesDispositions="true"
+              version="7">
+              <properties>
+                <property
+                  dataType="System.Int32"
+                  description="The number of seconds before a command times out.  A value of 0 indicates an infinite time-out."
+                  name="CommandTimeout">0</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies the name of the database object used to open a rowset."
+                  name="OpenRowset">[dbo].[parsedTypes]</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies the variable that contains the name of the database object used to open a rowset."
+                  name="OpenRowsetVariable"></property>
+                <property
+                  dataType="System.String"
+                  description="The SQL command to be executed."
+                  name="SqlCommand"
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor"></property>
+                <property
+                  dataType="System.String"
+                  description="The variable that contains the SQL command to be executed."
+                  name="SqlCommandVariable"></property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the column code page to use when code page information is unavailable from the data source."
+                  name="DefaultCodePage">1252</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Forces the use of the DefaultCodePage property value when describing character data."
+                  name="AlwaysUseDefaultCodePage">false</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the mode used to access the database."
+                  name="AccessMode"
+                  typeConverter="AccessMode">0</property>
+                <property
+                  dataType="System.String"
+                  description="The mappings between the parameters in the SQL command and variables."
+                  name="ParameterMapping"></property>
+              </properties>
+              <connections>
+                <connection
+                  refId="Package\Data Flow Task\address tester.Connections[OleDbConnection]"
+                  connectionManagerID="Package.ConnectionManagers[204.106.31.182.mergeTest.ray]"
+                  connectionManagerRefId="Package.ConnectionManagers[204.106.31.182.mergeTest.ray]"
+                  description="The OLE DB runtime connection used to access the database."
+                  name="OleDbConnection" />
+              </connections>
+              <outputs>
+                <output
+                  refId="Package\Data Flow Task\address tester.Outputs[OLE DB Source Output]"
+                  name="OLE DB Source Output">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Data Flow Task\address tester.Outputs[OLE DB Source Output].Columns[csz]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Data Flow Task\address tester.Outputs[OLE DB Source Output].ExternalColumns[csz]"
+                      length="255"
+                      lineageId="Package\Data Flow Task\address tester.Outputs[OLE DB Source Output].Columns[csz]"
+                      name="csz"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Data Flow Task\address tester.Outputs[OLE DB Source Output].Columns[address_number]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Data Flow Task\address tester.Outputs[OLE DB Source Output].ExternalColumns[address_number]"
+                      length="10"
+                      lineageId="Package\Data Flow Task\address tester.Outputs[OLE DB Source Output].Columns[address_number]"
+                      name="address_number"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Data Flow Task\address tester.Outputs[OLE DB Source Output].Columns[address_dir]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Data Flow Task\address tester.Outputs[OLE DB Source Output].ExternalColumns[address_dir]"
+                      length="5"
+                      lineageId="Package\Data Flow Task\address tester.Outputs[OLE DB Source Output].Columns[address_dir]"
+                      name="address_dir"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Data Flow Task\address tester.Outputs[OLE DB Source Output].Columns[address_street]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Data Flow Task\address tester.Outputs[OLE DB Source Output].ExternalColumns[address_street]"
+                      length="120"
+                      lineageId="Package\Data Flow Task\address tester.Outputs[OLE DB Source Output].Columns[address_street]"
+                      name="address_street"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Data Flow Task\address tester.Outputs[OLE DB Source Output].Columns[address_street_type]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Data Flow Task\address tester.Outputs[OLE DB Source Output].ExternalColumns[address_street_type]"
+                      length="5"
+                      lineageId="Package\Data Flow Task\address tester.Outputs[OLE DB Source Output].Columns[address_street_type]"
+                      name="address_street_type"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Data Flow Task\address tester.Outputs[OLE DB Source Output].Columns[address_aptno]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Data Flow Task\address tester.Outputs[OLE DB Source Output].ExternalColumns[address_aptno]"
+                      length="5"
+                      lineageId="Package\Data Flow Task\address tester.Outputs[OLE DB Source Output].Columns[address_aptno]"
+                      name="address_aptno"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Data Flow Task\address tester.Outputs[OLE DB Source Output].Columns[address_pobox]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Data Flow Task\address tester.Outputs[OLE DB Source Output].ExternalColumns[address_pobox]"
+                      length="5"
+                      lineageId="Package\Data Flow Task\address tester.Outputs[OLE DB Source Output].Columns[address_pobox]"
+                      name="address_pobox"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Data Flow Task\address tester.Outputs[OLE DB Source Output].Columns[address_city]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Data Flow Task\address tester.Outputs[OLE DB Source Output].ExternalColumns[address_city]"
+                      length="150"
+                      lineageId="Package\Data Flow Task\address tester.Outputs[OLE DB Source Output].Columns[address_city]"
+                      name="address_city"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Data Flow Task\address tester.Outputs[OLE DB Source Output].Columns[address_state]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Data Flow Task\address tester.Outputs[OLE DB Source Output].ExternalColumns[address_state]"
+                      length="10"
+                      lineageId="Package\Data Flow Task\address tester.Outputs[OLE DB Source Output].Columns[address_state]"
+                      name="address_state"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Data Flow Task\address tester.Outputs[OLE DB Source Output].Columns[address_zip]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Data Flow Task\address tester.Outputs[OLE DB Source Output].ExternalColumns[address_zip]"
+                      length="255"
+                      lineageId="Package\Data Flow Task\address tester.Outputs[OLE DB Source Output].Columns[address_zip]"
+                      name="address_zip"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Data Flow Task\address tester.Outputs[OLE DB Source Output].Columns[token]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Data Flow Task\address tester.Outputs[OLE DB Source Output].ExternalColumns[token]"
+                      length="50"
+                      lineageId="Package\Data Flow Task\address tester.Outputs[OLE DB Source Output].Columns[token]"
+                      name="token"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Data Flow Task\address tester.Outputs[OLE DB Source Output].Columns[FirstStPosition]"
+                      dataType="i4"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Data Flow Task\address tester.Outputs[OLE DB Source Output].ExternalColumns[FirstStPosition]"
+                      lineageId="Package\Data Flow Task\address tester.Outputs[OLE DB Source Output].Columns[FirstStPosition]"
+                      name="FirstStPosition"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Data Flow Task\address tester.Outputs[OLE DB Source Output].Columns[FirstBlvdPosition]"
+                      dataType="i4"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Data Flow Task\address tester.Outputs[OLE DB Source Output].ExternalColumns[FirstBlvdPosition]"
+                      lineageId="Package\Data Flow Task\address tester.Outputs[OLE DB Source Output].Columns[FirstBlvdPosition]"
+                      name="FirstBlvdPosition"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Data Flow Task\address tester.Outputs[OLE DB Source Output].Columns[FirstlnPosition]"
+                      dataType="i4"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Data Flow Task\address tester.Outputs[OLE DB Source Output].ExternalColumns[FirstlnPosition]"
+                      lineageId="Package\Data Flow Task\address tester.Outputs[OLE DB Source Output].Columns[FirstlnPosition]"
+                      name="FirstlnPosition"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Data Flow Task\address tester.Outputs[OLE DB Source Output].Columns[FirstrdPosition]"
+                      dataType="i4"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Data Flow Task\address tester.Outputs[OLE DB Source Output].ExternalColumns[FirstrdPosition]"
+                      lineageId="Package\Data Flow Task\address tester.Outputs[OLE DB Source Output].Columns[FirstrdPosition]"
+                      name="FirstrdPosition"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Data Flow Task\address tester.Outputs[OLE DB Source Output].Columns[FirstCircle1Position]"
+                      dataType="i4"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Data Flow Task\address tester.Outputs[OLE DB Source Output].ExternalColumns[FirstCircle1Position]"
+                      lineageId="Package\Data Flow Task\address tester.Outputs[OLE DB Source Output].Columns[FirstCircle1Position]"
+                      name="FirstCircle1Position"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Data Flow Task\address tester.Outputs[OLE DB Source Output].Columns[FirstDrivePosition]"
+                      dataType="i4"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Data Flow Task\address tester.Outputs[OLE DB Source Output].ExternalColumns[FirstDrivePosition]"
+                      lineageId="Package\Data Flow Task\address tester.Outputs[OLE DB Source Output].Columns[FirstDrivePosition]"
+                      name="FirstDrivePosition"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Data Flow Task\address tester.Outputs[OLE DB Source Output].Columns[FirstCircle2Position]"
+                      dataType="i4"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Data Flow Task\address tester.Outputs[OLE DB Source Output].ExternalColumns[FirstCircle2Position]"
+                      lineageId="Package\Data Flow Task\address tester.Outputs[OLE DB Source Output].Columns[FirstCircle2Position]"
+                      name="FirstCircle2Position"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Data Flow Task\address tester.Outputs[OLE DB Source Output].Columns[FirstTrailPosition]"
+                      dataType="i4"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Data Flow Task\address tester.Outputs[OLE DB Source Output].ExternalColumns[FirstTrailPosition]"
+                      lineageId="Package\Data Flow Task\address tester.Outputs[OLE DB Source Output].Columns[FirstTrailPosition]"
+                      name="FirstTrailPosition"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Data Flow Task\address tester.Outputs[OLE DB Source Output].Columns[FirstpkwyPosition]"
+                      dataType="i4"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Data Flow Task\address tester.Outputs[OLE DB Source Output].ExternalColumns[FirstpkwyPosition]"
+                      lineageId="Package\Data Flow Task\address tester.Outputs[OLE DB Source Output].Columns[FirstpkwyPosition]"
+                      name="FirstpkwyPosition"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Data Flow Task\address tester.Outputs[OLE DB Source Output].Columns[FirstsqPosition]"
+                      dataType="i4"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Data Flow Task\address tester.Outputs[OLE DB Source Output].ExternalColumns[FirstsqPosition]"
+                      lineageId="Package\Data Flow Task\address tester.Outputs[OLE DB Source Output].Columns[FirstsqPosition]"
+                      name="FirstsqPosition"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Data Flow Task\address tester.Outputs[OLE DB Source Output].Columns[FirstcourtPosition]"
+                      dataType="i4"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Data Flow Task\address tester.Outputs[OLE DB Source Output].ExternalColumns[FirstcourtPosition]"
+                      lineageId="Package\Data Flow Task\address tester.Outputs[OLE DB Source Output].Columns[FirstcourtPosition]"
+                      name="FirstcourtPosition"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Data Flow Task\address tester.Outputs[OLE DB Source Output].Columns[FirstavePosition]"
+                      dataType="i4"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Data Flow Task\address tester.Outputs[OLE DB Source Output].ExternalColumns[FirstavePosition]"
+                      lineageId="Package\Data Flow Task\address tester.Outputs[OLE DB Source Output].Columns[FirstavePosition]"
+                      name="FirstavePosition"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Data Flow Task\address tester.Outputs[OLE DB Source Output].Columns[FirsthwyPosition]"
+                      dataType="i4"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Data Flow Task\address tester.Outputs[OLE DB Source Output].ExternalColumns[FirsthwyPosition]"
+                      lineageId="Package\Data Flow Task\address tester.Outputs[OLE DB Source Output].Columns[FirsthwyPosition]"
+                      name="FirsthwyPosition"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Data Flow Task\address tester.Outputs[OLE DB Source Output].Columns[FirstStreetType]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Data Flow Task\address tester.Outputs[OLE DB Source Output].ExternalColumns[FirstStreetType]"
+                      length="4"
+                      lineageId="Package\Data Flow Task\address tester.Outputs[OLE DB Source Output].Columns[FirstStreetType]"
+                      name="FirstStreetType"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Data Flow Task\address tester.Outputs[OLE DB Source Output].Columns[FirstBlvdType]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Data Flow Task\address tester.Outputs[OLE DB Source Output].ExternalColumns[FirstBlvdType]"
+                      length="5"
+                      lineageId="Package\Data Flow Task\address tester.Outputs[OLE DB Source Output].Columns[FirstBlvdType]"
+                      name="FirstBlvdType"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Data Flow Task\address tester.Outputs[OLE DB Source Output].Columns[FirstDriveType]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Data Flow Task\address tester.Outputs[OLE DB Source Output].ExternalColumns[FirstDriveType]"
+                      length="5"
+                      lineageId="Package\Data Flow Task\address tester.Outputs[OLE DB Source Output].Columns[FirstDriveType]"
+                      name="FirstDriveType"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Data Flow Task\address tester.Outputs[OLE DB Source Output].Columns[FirstLaneType]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Data Flow Task\address tester.Outputs[OLE DB Source Output].ExternalColumns[FirstLaneType]"
+                      length="5"
+                      lineageId="Package\Data Flow Task\address tester.Outputs[OLE DB Source Output].Columns[FirstLaneType]"
+                      name="FirstLaneType"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Data Flow Task\address tester.Outputs[OLE DB Source Output].Columns[FirstCircle1Type]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Data Flow Task\address tester.Outputs[OLE DB Source Output].ExternalColumns[FirstCircle1Type]"
+                      length="5"
+                      lineageId="Package\Data Flow Task\address tester.Outputs[OLE DB Source Output].Columns[FirstCircle1Type]"
+                      name="FirstCircle1Type"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Data Flow Task\address tester.Outputs[OLE DB Source Output].Columns[FirstCircle2Type]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Data Flow Task\address tester.Outputs[OLE DB Source Output].ExternalColumns[FirstCircle2Type]"
+                      length="4"
+                      lineageId="Package\Data Flow Task\address tester.Outputs[OLE DB Source Output].Columns[FirstCircle2Type]"
+                      name="FirstCircle2Type"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Data Flow Task\address tester.Outputs[OLE DB Source Output].Columns[FirstRoadType]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Data Flow Task\address tester.Outputs[OLE DB Source Output].ExternalColumns[FirstRoadType]"
+                      length="4"
+                      lineageId="Package\Data Flow Task\address tester.Outputs[OLE DB Source Output].Columns[FirstRoadType]"
+                      name="FirstRoadType"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Data Flow Task\address tester.Outputs[OLE DB Source Output].Columns[FirstAveType]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Data Flow Task\address tester.Outputs[OLE DB Source Output].ExternalColumns[FirstAveType]"
+                      length="4"
+                      lineageId="Package\Data Flow Task\address tester.Outputs[OLE DB Source Output].Columns[FirstAveType]"
+                      name="FirstAveType"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Data Flow Task\address tester.Outputs[OLE DB Source Output].Columns[FirstPkwyType]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Data Flow Task\address tester.Outputs[OLE DB Source Output].ExternalColumns[FirstPkwyType]"
+                      length="4"
+                      lineageId="Package\Data Flow Task\address tester.Outputs[OLE DB Source Output].Columns[FirstPkwyType]"
+                      name="FirstPkwyType"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Data Flow Task\address tester.Outputs[OLE DB Source Output].Columns[FirstTrailType]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Data Flow Task\address tester.Outputs[OLE DB Source Output].ExternalColumns[FirstTrailType]"
+                      length="4"
+                      lineageId="Package\Data Flow Task\address tester.Outputs[OLE DB Source Output].Columns[FirstTrailType]"
+                      name="FirstTrailType"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Data Flow Task\address tester.Outputs[OLE DB Source Output].Columns[FirstSqType]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Data Flow Task\address tester.Outputs[OLE DB Source Output].ExternalColumns[FirstSqType]"
+                      length="4"
+                      lineageId="Package\Data Flow Task\address tester.Outputs[OLE DB Source Output].Columns[FirstSqType]"
+                      name="FirstSqType"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Data Flow Task\address tester.Outputs[OLE DB Source Output].Columns[FirstCourtType]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Data Flow Task\address tester.Outputs[OLE DB Source Output].ExternalColumns[FirstCourtType]"
+                      length="4"
+                      lineageId="Package\Data Flow Task\address tester.Outputs[OLE DB Source Output].Columns[FirstCourtType]"
+                      name="FirstCourtType"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Data Flow Task\address tester.Outputs[OLE DB Source Output].Columns[FirsthwyType]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Data Flow Task\address tester.Outputs[OLE DB Source Output].ExternalColumns[FirsthwyType]"
+                      length="4"
+                      lineageId="Package\Data Flow Task\address tester.Outputs[OLE DB Source Output].Columns[FirsthwyType]"
+                      name="FirsthwyType"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Data Flow Task\address tester.Outputs[OLE DB Source Output].Columns[RawID]"
+                      dataType="i4"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Data Flow Task\address tester.Outputs[OLE DB Source Output].ExternalColumns[RawID]"
+                      lineageId="Package\Data Flow Task\address tester.Outputs[OLE DB Source Output].Columns[RawID]"
+                      name="RawID"
+                      truncationRowDisposition="FailComponent" />
+                  </outputColumns>
+                  <externalMetadataColumns
+                    isUsed="True">
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task\address tester.Outputs[OLE DB Source Output].ExternalColumns[csz]"
+                      codePage="1252"
+                      dataType="str"
+                      length="255"
+                      name="csz" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task\address tester.Outputs[OLE DB Source Output].ExternalColumns[address_number]"
+                      codePage="1252"
+                      dataType="str"
+                      length="10"
+                      name="address_number" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task\address tester.Outputs[OLE DB Source Output].ExternalColumns[address_dir]"
+                      codePage="1252"
+                      dataType="str"
+                      length="5"
+                      name="address_dir" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task\address tester.Outputs[OLE DB Source Output].ExternalColumns[address_street]"
+                      codePage="1252"
+                      dataType="str"
+                      length="120"
+                      name="address_street" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task\address tester.Outputs[OLE DB Source Output].ExternalColumns[address_street_type]"
+                      codePage="1252"
+                      dataType="str"
+                      length="5"
+                      name="address_street_type" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task\address tester.Outputs[OLE DB Source Output].ExternalColumns[address_aptno]"
+                      codePage="1252"
+                      dataType="str"
+                      length="5"
+                      name="address_aptno" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task\address tester.Outputs[OLE DB Source Output].ExternalColumns[address_pobox]"
+                      codePage="1252"
+                      dataType="str"
+                      length="5"
+                      name="address_pobox" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task\address tester.Outputs[OLE DB Source Output].ExternalColumns[address_city]"
+                      codePage="1252"
+                      dataType="str"
+                      length="150"
+                      name="address_city" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task\address tester.Outputs[OLE DB Source Output].ExternalColumns[address_state]"
+                      codePage="1252"
+                      dataType="str"
+                      length="10"
+                      name="address_state" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task\address tester.Outputs[OLE DB Source Output].ExternalColumns[address_zip]"
+                      codePage="1252"
+                      dataType="str"
+                      length="255"
+                      name="address_zip" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task\address tester.Outputs[OLE DB Source Output].ExternalColumns[token]"
+                      codePage="1252"
+                      dataType="str"
+                      length="50"
+                      name="token" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task\address tester.Outputs[OLE DB Source Output].ExternalColumns[FirstStPosition]"
+                      dataType="i4"
+                      name="FirstStPosition" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task\address tester.Outputs[OLE DB Source Output].ExternalColumns[FirstBlvdPosition]"
+                      dataType="i4"
+                      name="FirstBlvdPosition" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task\address tester.Outputs[OLE DB Source Output].ExternalColumns[FirstlnPosition]"
+                      dataType="i4"
+                      name="FirstlnPosition" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task\address tester.Outputs[OLE DB Source Output].ExternalColumns[FirstrdPosition]"
+                      dataType="i4"
+                      name="FirstrdPosition" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task\address tester.Outputs[OLE DB Source Output].ExternalColumns[FirstCircle1Position]"
+                      dataType="i4"
+                      name="FirstCircle1Position" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task\address tester.Outputs[OLE DB Source Output].ExternalColumns[FirstDrivePosition]"
+                      dataType="i4"
+                      name="FirstDrivePosition" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task\address tester.Outputs[OLE DB Source Output].ExternalColumns[FirstCircle2Position]"
+                      dataType="i4"
+                      name="FirstCircle2Position" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task\address tester.Outputs[OLE DB Source Output].ExternalColumns[FirstTrailPosition]"
+                      dataType="i4"
+                      name="FirstTrailPosition" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task\address tester.Outputs[OLE DB Source Output].ExternalColumns[FirstpkwyPosition]"
+                      dataType="i4"
+                      name="FirstpkwyPosition" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task\address tester.Outputs[OLE DB Source Output].ExternalColumns[FirstsqPosition]"
+                      dataType="i4"
+                      name="FirstsqPosition" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task\address tester.Outputs[OLE DB Source Output].ExternalColumns[FirstcourtPosition]"
+                      dataType="i4"
+                      name="FirstcourtPosition" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task\address tester.Outputs[OLE DB Source Output].ExternalColumns[FirstavePosition]"
+                      dataType="i4"
+                      name="FirstavePosition" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task\address tester.Outputs[OLE DB Source Output].ExternalColumns[FirsthwyPosition]"
+                      dataType="i4"
+                      name="FirsthwyPosition" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task\address tester.Outputs[OLE DB Source Output].ExternalColumns[FirstStreetType]"
+                      dataType="wstr"
+                      length="4"
+                      name="FirstStreetType" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task\address tester.Outputs[OLE DB Source Output].ExternalColumns[FirstBlvdType]"
+                      dataType="wstr"
+                      length="5"
+                      name="FirstBlvdType" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task\address tester.Outputs[OLE DB Source Output].ExternalColumns[FirstDriveType]"
+                      dataType="wstr"
+                      length="5"
+                      name="FirstDriveType" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task\address tester.Outputs[OLE DB Source Output].ExternalColumns[FirstLaneType]"
+                      dataType="wstr"
+                      length="5"
+                      name="FirstLaneType" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task\address tester.Outputs[OLE DB Source Output].ExternalColumns[FirstCircle1Type]"
+                      dataType="wstr"
+                      length="5"
+                      name="FirstCircle1Type" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task\address tester.Outputs[OLE DB Source Output].ExternalColumns[FirstCircle2Type]"
+                      dataType="wstr"
+                      length="4"
+                      name="FirstCircle2Type" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task\address tester.Outputs[OLE DB Source Output].ExternalColumns[FirstRoadType]"
+                      dataType="wstr"
+                      length="4"
+                      name="FirstRoadType" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task\address tester.Outputs[OLE DB Source Output].ExternalColumns[FirstAveType]"
+                      dataType="wstr"
+                      length="4"
+                      name="FirstAveType" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task\address tester.Outputs[OLE DB Source Output].ExternalColumns[FirstPkwyType]"
+                      dataType="wstr"
+                      length="4"
+                      name="FirstPkwyType" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task\address tester.Outputs[OLE DB Source Output].ExternalColumns[FirstTrailType]"
+                      dataType="wstr"
+                      length="4"
+                      name="FirstTrailType" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task\address tester.Outputs[OLE DB Source Output].ExternalColumns[FirstSqType]"
+                      dataType="wstr"
+                      length="4"
+                      name="FirstSqType" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task\address tester.Outputs[OLE DB Source Output].ExternalColumns[FirstCourtType]"
+                      dataType="wstr"
+                      length="4"
+                      name="FirstCourtType" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task\address tester.Outputs[OLE DB Source Output].ExternalColumns[FirsthwyType]"
+                      dataType="wstr"
+                      length="4"
+                      name="FirsthwyType" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task\address tester.Outputs[OLE DB Source Output].ExternalColumns[RawID]"
+                      dataType="i4"
+                      name="RawID" />
+                  </externalMetadataColumns>
+                </output>
+                <output
+                  refId="Package\Data Flow Task\address tester.Outputs[OLE DB Source Error Output]"
+                  isErrorOut="true"
+                  name="OLE DB Source Error Output">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Data Flow Task\address tester.Outputs[OLE DB Source Error Output].Columns[RawID]"
+                      dataType="i4"
+                      lineageId="Package\Data Flow Task\address tester.Outputs[OLE DB Source Error Output].Columns[RawID]"
+                      name="RawID" />
+                    <outputColumn
+                      refId="Package\Data Flow Task\address tester.Outputs[OLE DB Source Error Output].Columns[csz]"
+                      codePage="1252"
+                      dataType="str"
+                      length="255"
+                      lineageId="Package\Data Flow Task\address tester.Outputs[OLE DB Source Error Output].Columns[csz]"
+                      name="csz" />
+                    <outputColumn
+                      refId="Package\Data Flow Task\address tester.Outputs[OLE DB Source Error Output].Columns[address_number]"
+                      codePage="1252"
+                      dataType="str"
+                      length="10"
+                      lineageId="Package\Data Flow Task\address tester.Outputs[OLE DB Source Error Output].Columns[address_number]"
+                      name="address_number" />
+                    <outputColumn
+                      refId="Package\Data Flow Task\address tester.Outputs[OLE DB Source Error Output].Columns[address_dir]"
+                      codePage="1252"
+                      dataType="str"
+                      length="5"
+                      lineageId="Package\Data Flow Task\address tester.Outputs[OLE DB Source Error Output].Columns[address_dir]"
+                      name="address_dir" />
+                    <outputColumn
+                      refId="Package\Data Flow Task\address tester.Outputs[OLE DB Source Error Output].Columns[address_street]"
+                      codePage="1252"
+                      dataType="str"
+                      length="120"
+                      lineageId="Package\Data Flow Task\address tester.Outputs[OLE DB Source Error Output].Columns[address_street]"
+                      name="address_street" />
+                    <outputColumn
+                      refId="Package\Data Flow Task\address tester.Outputs[OLE DB Source Error Output].Columns[address_street_type]"
+                      codePage="1252"
+                      dataType="str"
+                      length="5"
+                      lineageId="Package\Data Flow Task\address tester.Outputs[OLE DB Source Error Output].Columns[address_street_type]"
+                      name="address_street_type" />
+                    <outputColumn
+                      refId="Package\Data Flow Task\address tester.Outputs[OLE DB Source Error Output].Columns[address_aptno]"
+                      codePage="1252"
+                      dataType="str"
+                      length="5"
+                      lineageId="Package\Data Flow Task\address tester.Outputs[OLE DB Source Error Output].Columns[address_aptno]"
+                      name="address_aptno" />
+                    <outputColumn
+                      refId="Package\Data Flow Task\address tester.Outputs[OLE DB Source Error Output].Columns[address_pobox]"
+                      codePage="1252"
+                      dataType="str"
+                      length="5"
+                      lineageId="Package\Data Flow Task\address tester.Outputs[OLE DB Source Error Output].Columns[address_pobox]"
+                      name="address_pobox" />
+                    <outputColumn
+                      refId="Package\Data Flow Task\address tester.Outputs[OLE DB Source Error Output].Columns[address_city]"
+                      codePage="1252"
+                      dataType="str"
+                      length="150"
+                      lineageId="Package\Data Flow Task\address tester.Outputs[OLE DB Source Error Output].Columns[address_city]"
+                      name="address_city" />
+                    <outputColumn
+                      refId="Package\Data Flow Task\address tester.Outputs[OLE DB Source Error Output].Columns[address_state]"
+                      codePage="1252"
+                      dataType="str"
+                      length="10"
+                      lineageId="Package\Data Flow Task\address tester.Outputs[OLE DB Source Error Output].Columns[address_state]"
+                      name="address_state" />
+                    <outputColumn
+                      refId="Package\Data Flow Task\address tester.Outputs[OLE DB Source Error Output].Columns[address_zip]"
+                      codePage="1252"
+                      dataType="str"
+                      length="255"
+                      lineageId="Package\Data Flow Task\address tester.Outputs[OLE DB Source Error Output].Columns[address_zip]"
+                      name="address_zip" />
+                    <outputColumn
+                      refId="Package\Data Flow Task\address tester.Outputs[OLE DB Source Error Output].Columns[token]"
+                      codePage="1252"
+                      dataType="str"
+                      length="50"
+                      lineageId="Package\Data Flow Task\address tester.Outputs[OLE DB Source Error Output].Columns[token]"
+                      name="token" />
+                    <outputColumn
+                      refId="Package\Data Flow Task\address tester.Outputs[OLE DB Source Error Output].Columns[FirstStPosition]"
+                      dataType="i4"
+                      lineageId="Package\Data Flow Task\address tester.Outputs[OLE DB Source Error Output].Columns[FirstStPosition]"
+                      name="FirstStPosition" />
+                    <outputColumn
+                      refId="Package\Data Flow Task\address tester.Outputs[OLE DB Source Error Output].Columns[FirstBlvdPosition]"
+                      dataType="i4"
+                      lineageId="Package\Data Flow Task\address tester.Outputs[OLE DB Source Error Output].Columns[FirstBlvdPosition]"
+                      name="FirstBlvdPosition" />
+                    <outputColumn
+                      refId="Package\Data Flow Task\address tester.Outputs[OLE DB Source Error Output].Columns[FirstlnPosition]"
+                      dataType="i4"
+                      lineageId="Package\Data Flow Task\address tester.Outputs[OLE DB Source Error Output].Columns[FirstlnPosition]"
+                      name="FirstlnPosition" />
+                    <outputColumn
+                      refId="Package\Data Flow Task\address tester.Outputs[OLE DB Source Error Output].Columns[FirstrdPosition]"
+                      dataType="i4"
+                      lineageId="Package\Data Flow Task\address tester.Outputs[OLE DB Source Error Output].Columns[FirstrdPosition]"
+                      name="FirstrdPosition" />
+                    <outputColumn
+                      refId="Package\Data Flow Task\address tester.Outputs[OLE DB Source Error Output].Columns[FirstCircle1Position]"
+                      dataType="i4"
+                      lineageId="Package\Data Flow Task\address tester.Outputs[OLE DB Source Error Output].Columns[FirstCircle1Position]"
+                      name="FirstCircle1Position" />
+                    <outputColumn
+                      refId="Package\Data Flow Task\address tester.Outputs[OLE DB Source Error Output].Columns[FirstDrivePosition]"
+                      dataType="i4"
+                      lineageId="Package\Data Flow Task\address tester.Outputs[OLE DB Source Error Output].Columns[FirstDrivePosition]"
+                      name="FirstDrivePosition" />
+                    <outputColumn
+                      refId="Package\Data Flow Task\address tester.Outputs[OLE DB Source Error Output].Columns[FirstCircle2Position]"
+                      dataType="i4"
+                      lineageId="Package\Data Flow Task\address tester.Outputs[OLE DB Source Error Output].Columns[FirstCircle2Position]"
+                      name="FirstCircle2Position" />
+                    <outputColumn
+                      refId="Package\Data Flow Task\address tester.Outputs[OLE DB Source Error Output].Columns[FirstTrailPosition]"
+                      dataType="i4"
+                      lineageId="Package\Data Flow Task\address tester.Outputs[OLE DB Source Error Output].Columns[FirstTrailPosition]"
+                      name="FirstTrailPosition" />
+                    <outputColumn
+                      refId="Package\Data Flow Task\address tester.Outputs[OLE DB Source Error Output].Columns[FirstpkwyPosition]"
+                      dataType="i4"
+                      lineageId="Package\Data Flow Task\address tester.Outputs[OLE DB Source Error Output].Columns[FirstpkwyPosition]"
+                      name="FirstpkwyPosition" />
+                    <outputColumn
+                      refId="Package\Data Flow Task\address tester.Outputs[OLE DB Source Error Output].Columns[FirstsqPosition]"
+                      dataType="i4"
+                      lineageId="Package\Data Flow Task\address tester.Outputs[OLE DB Source Error Output].Columns[FirstsqPosition]"
+                      name="FirstsqPosition" />
+                    <outputColumn
+                      refId="Package\Data Flow Task\address tester.Outputs[OLE DB Source Error Output].Columns[FirstcourtPosition]"
+                      dataType="i4"
+                      lineageId="Package\Data Flow Task\address tester.Outputs[OLE DB Source Error Output].Columns[FirstcourtPosition]"
+                      name="FirstcourtPosition" />
+                    <outputColumn
+                      refId="Package\Data Flow Task\address tester.Outputs[OLE DB Source Error Output].Columns[FirstavePosition]"
+                      dataType="i4"
+                      lineageId="Package\Data Flow Task\address tester.Outputs[OLE DB Source Error Output].Columns[FirstavePosition]"
+                      name="FirstavePosition" />
+                    <outputColumn
+                      refId="Package\Data Flow Task\address tester.Outputs[OLE DB Source Error Output].Columns[FirsthwyPosition]"
+                      dataType="i4"
+                      lineageId="Package\Data Flow Task\address tester.Outputs[OLE DB Source Error Output].Columns[FirsthwyPosition]"
+                      name="FirsthwyPosition" />
+                    <outputColumn
+                      refId="Package\Data Flow Task\address tester.Outputs[OLE DB Source Error Output].Columns[FirstStreetType]"
+                      dataType="wstr"
+                      length="4"
+                      lineageId="Package\Data Flow Task\address tester.Outputs[OLE DB Source Error Output].Columns[FirstStreetType]"
+                      name="FirstStreetType" />
+                    <outputColumn
+                      refId="Package\Data Flow Task\address tester.Outputs[OLE DB Source Error Output].Columns[FirstBlvdType]"
+                      dataType="wstr"
+                      length="5"
+                      lineageId="Package\Data Flow Task\address tester.Outputs[OLE DB Source Error Output].Columns[FirstBlvdType]"
+                      name="FirstBlvdType" />
+                    <outputColumn
+                      refId="Package\Data Flow Task\address tester.Outputs[OLE DB Source Error Output].Columns[FirstDriveType]"
+                      dataType="wstr"
+                      length="5"
+                      lineageId="Package\Data Flow Task\address tester.Outputs[OLE DB Source Error Output].Columns[FirstDriveType]"
+                      name="FirstDriveType" />
+                    <outputColumn
+                      refId="Package\Data Flow Task\address tester.Outputs[OLE DB Source Error Output].Columns[FirstLaneType]"
+                      dataType="wstr"
+                      length="5"
+                      lineageId="Package\Data Flow Task\address tester.Outputs[OLE DB Source Error Output].Columns[FirstLaneType]"
+                      name="FirstLaneType" />
+                    <outputColumn
+                      refId="Package\Data Flow Task\address tester.Outputs[OLE DB Source Error Output].Columns[FirstCircle1Type]"
+                      dataType="wstr"
+                      length="5"
+                      lineageId="Package\Data Flow Task\address tester.Outputs[OLE DB Source Error Output].Columns[FirstCircle1Type]"
+                      name="FirstCircle1Type" />
+                    <outputColumn
+                      refId="Package\Data Flow Task\address tester.Outputs[OLE DB Source Error Output].Columns[FirstCircle2Type]"
+                      dataType="wstr"
+                      length="4"
+                      lineageId="Package\Data Flow Task\address tester.Outputs[OLE DB Source Error Output].Columns[FirstCircle2Type]"
+                      name="FirstCircle2Type" />
+                    <outputColumn
+                      refId="Package\Data Flow Task\address tester.Outputs[OLE DB Source Error Output].Columns[FirstRoadType]"
+                      dataType="wstr"
+                      length="4"
+                      lineageId="Package\Data Flow Task\address tester.Outputs[OLE DB Source Error Output].Columns[FirstRoadType]"
+                      name="FirstRoadType" />
+                    <outputColumn
+                      refId="Package\Data Flow Task\address tester.Outputs[OLE DB Source Error Output].Columns[FirstAveType]"
+                      dataType="wstr"
+                      length="4"
+                      lineageId="Package\Data Flow Task\address tester.Outputs[OLE DB Source Error Output].Columns[FirstAveType]"
+                      name="FirstAveType" />
+                    <outputColumn
+                      refId="Package\Data Flow Task\address tester.Outputs[OLE DB Source Error Output].Columns[FirstPkwyType]"
+                      dataType="wstr"
+                      length="4"
+                      lineageId="Package\Data Flow Task\address tester.Outputs[OLE DB Source Error Output].Columns[FirstPkwyType]"
+                      name="FirstPkwyType" />
+                    <outputColumn
+                      refId="Package\Data Flow Task\address tester.Outputs[OLE DB Source Error Output].Columns[FirstTrailType]"
+                      dataType="wstr"
+                      length="4"
+                      lineageId="Package\Data Flow Task\address tester.Outputs[OLE DB Source Error Output].Columns[FirstTrailType]"
+                      name="FirstTrailType" />
+                    <outputColumn
+                      refId="Package\Data Flow Task\address tester.Outputs[OLE DB Source Error Output].Columns[FirstSqType]"
+                      dataType="wstr"
+                      length="4"
+                      lineageId="Package\Data Flow Task\address tester.Outputs[OLE DB Source Error Output].Columns[FirstSqType]"
+                      name="FirstSqType" />
+                    <outputColumn
+                      refId="Package\Data Flow Task\address tester.Outputs[OLE DB Source Error Output].Columns[FirstCourtType]"
+                      dataType="wstr"
+                      length="4"
+                      lineageId="Package\Data Flow Task\address tester.Outputs[OLE DB Source Error Output].Columns[FirstCourtType]"
+                      name="FirstCourtType" />
+                    <outputColumn
+                      refId="Package\Data Flow Task\address tester.Outputs[OLE DB Source Error Output].Columns[FirsthwyType]"
+                      dataType="wstr"
+                      length="4"
+                      lineageId="Package\Data Flow Task\address tester.Outputs[OLE DB Source Error Output].Columns[FirsthwyType]"
+                      name="FirsthwyType" />
+                    <outputColumn
+                      refId="Package\Data Flow Task\address tester.Outputs[OLE DB Source Error Output].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\Data Flow Task\address tester.Outputs[OLE DB Source Error Output].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\Data Flow Task\address tester.Outputs[OLE DB Source Error Output].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\Data Flow Task\address tester.Outputs[OLE DB Source Error Output].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+            <component
+              refId="Package\Data Flow Task\Errors"
+              componentClassID="Microsoft.Multicast"
+              contactInfo="Multicast;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;0"
+              description="Distributes every input row to every row in one or more outputs. For example, branch your data flow to make a copy of data so that some values can be masked before sharing with external partners."
+              name="Errors">
+              <inputs>
+                <input
+                  refId="Package\Data Flow Task\Errors.Inputs[Multicast Input 1]"
+                  name="Multicast Input 1">
+                  <externalMetadataColumns />
+                </input>
+              </inputs>
+              <outputs>
+                <output
+                  refId="Package\Data Flow Task\Errors.Outputs[Multicast Output 1]"
+                  dangling="true"
+                  deleteOutputOnPathDetached="true"
+                  name="Multicast Output 1"
+                  synchronousInputId="Package\Data Flow Task\Errors.Inputs[Multicast Input 1]">
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+            <component
+              refId="Package\Data Flow Task\Extract Street Type"
+              componentClassID="Microsoft.DerivedColumn"
+              contactInfo="Derived Column;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;0"
+              description="Creates new column values by applying expressions to transformation input columns. Create new columns or overwrite existing ones. For example, concatenate the values from the 'first name' and 'last name' column to make a 'full name' column."
+              name="Extract Street Type"
+              usesDispositions="true">
+              <inputs>
+                <input
+                  refId="Package\Data Flow Task\Extract Street Type.Inputs[Derived Column Input]"
+                  description="Input to the Derived Column Transformation"
+                  name="Derived Column Input">
+                  <inputColumns>
+                    <inputColumn
+                      refId="Package\Data Flow Task\Extract Street Type.Inputs[Derived Column Input].Columns[csz]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="255"
+                      cachedName="csz"
+                      lineageId="Package\Data Flow Task\address tester.Outputs[OLE DB Source Output].Columns[csz]" />
+                    <inputColumn
+                      refId="Package\Data Flow Task\Extract Street Type.Inputs[Derived Column Input].Columns[FirstStPosition]"
+                      cachedDataType="i4"
+                      cachedName="FirstStPosition"
+                      lineageId="Package\Data Flow Task\new cols and pointers.Outputs[Derived Column Output].Columns[FirstStPosition]" />
+                    <inputColumn
+                      refId="Package\Data Flow Task\Extract Street Type.Inputs[Derived Column Input].Columns[FirstBlvdPosition]"
+                      cachedDataType="i4"
+                      cachedName="FirstBlvdPosition"
+                      lineageId="Package\Data Flow Task\new cols and pointers.Outputs[Derived Column Output].Columns[FirstBlvdPosition]" />
+                    <inputColumn
+                      refId="Package\Data Flow Task\Extract Street Type.Inputs[Derived Column Input].Columns[FirstDrivePosition]"
+                      cachedDataType="i4"
+                      cachedName="FirstDrivePosition"
+                      lineageId="Package\Data Flow Task\new cols and pointers.Outputs[Derived Column Output].Columns[FirstDrivePosition]" />
+                    <inputColumn
+                      refId="Package\Data Flow Task\Extract Street Type.Inputs[Derived Column Input].Columns[FirstlnPosition]"
+                      cachedDataType="i4"
+                      cachedName="FirstlnPosition"
+                      lineageId="Package\Data Flow Task\new cols and pointers.Outputs[Derived Column Output].Columns[FirstlnPosition]" />
+                    <inputColumn
+                      refId="Package\Data Flow Task\Extract Street Type.Inputs[Derived Column Input].Columns[FirstCircle1Position]"
+                      cachedDataType="i4"
+                      cachedName="FirstCircle1Position"
+                      lineageId="Package\Data Flow Task\new cols and pointers.Outputs[Derived Column Output].Columns[FirstCircle1Position]" />
+                    <inputColumn
+                      refId="Package\Data Flow Task\Extract Street Type.Inputs[Derived Column Input].Columns[FirstCircle2Position]"
+                      cachedDataType="i4"
+                      cachedName="FirstCircle2Position"
+                      lineageId="Package\Data Flow Task\new cols and pointers.Outputs[Derived Column Output].Columns[FirstCircle2Position]" />
+                    <inputColumn
+                      refId="Package\Data Flow Task\Extract Street Type.Inputs[Derived Column Input].Columns[FirstrdPosition]"
+                      cachedDataType="i4"
+                      cachedName="FirstrdPosition"
+                      lineageId="Package\Data Flow Task\new cols and pointers.Outputs[Derived Column Output].Columns[FirstrdPosition]" />
+                    <inputColumn
+                      refId="Package\Data Flow Task\Extract Street Type.Inputs[Derived Column Input].Columns[FirstpkwyPosition]"
+                      cachedDataType="i4"
+                      cachedName="FirstpkwyPosition"
+                      lineageId="Package\Data Flow Task\new cols and pointers.Outputs[Derived Column Output].Columns[FirstpkwyPosition]" />
+                    <inputColumn
+                      refId="Package\Data Flow Task\Extract Street Type.Inputs[Derived Column Input].Columns[FirstavePosition]"
+                      cachedDataType="i4"
+                      cachedName="FirstavePosition"
+                      lineageId="Package\Data Flow Task\new cols and pointers.Outputs[Derived Column Output].Columns[FirstavePosition]" />
+                    <inputColumn
+                      refId="Package\Data Flow Task\Extract Street Type.Inputs[Derived Column Input].Columns[FirstTrailPosition]"
+                      cachedDataType="i4"
+                      cachedName="FirstTrailPosition"
+                      lineageId="Package\Data Flow Task\new cols and pointers.Outputs[Derived Column Output].Columns[FirstTrailPosition]" />
+                    <inputColumn
+                      refId="Package\Data Flow Task\Extract Street Type.Inputs[Derived Column Input].Columns[FirstsqPosition]"
+                      cachedDataType="i4"
+                      cachedName="FirstsqPosition"
+                      lineageId="Package\Data Flow Task\new cols and pointers.Outputs[Derived Column Output].Columns[FirstsqPosition]" />
+                    <inputColumn
+                      refId="Package\Data Flow Task\Extract Street Type.Inputs[Derived Column Input].Columns[FirstcourtPosition]"
+                      cachedDataType="i4"
+                      cachedName="FirstcourtPosition"
+                      lineageId="Package\Data Flow Task\new cols and pointers.Outputs[Derived Column Output].Columns[FirstcourtPosition]" />
+                    <inputColumn
+                      refId="Package\Data Flow Task\Extract Street Type.Inputs[Derived Column Input].Columns[FirsthwyPosition]"
+                      cachedDataType="i4"
+                      cachedName="FirsthwyPosition"
+                      lineageId="Package\Data Flow Task\new cols and pointers.Outputs[Derived Column Output].Columns[FirsthwyPosition]" />
+                  </inputColumns>
+                  <externalMetadataColumns />
+                </input>
+              </inputs>
+              <outputs>
+                <output
+                  refId="Package\Data Flow Task\Extract Street Type.Outputs[Derived Column Output]"
+                  description="Default Output of the Derived Column Transformation"
+                  exclusionGroup="1"
+                  name="Derived Column Output"
+                  synchronousInputId="Package\Data Flow Task\Extract Street Type.Inputs[Derived Column Input]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Data Flow Task\Extract Street Type.Outputs[Derived Column Output].Columns[FirstStreetType]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Computation"
+                      errorRowDisposition="RedirectRow"
+                      length="4"
+                      lineageId="Package\Data Flow Task\Extract Street Type.Outputs[Derived Column Output].Columns[FirstStreetType]"
+                      name="FirstStreetType"
+                      truncationRowDisposition="RedirectRow">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.String"
+                          description="Derived Column Expression"
+                          name="Expression">(#{Package\Data Flow Task\new cols and pointers.Outputs[Derived Column Output].Columns[FirstStPosition]} &gt; 0) ? [TRIM]([SUBSTRING](#{Package\Data Flow Task\address tester.Outputs[OLE DB Source Output].Columns[csz]},#{Package\Data Flow Task\new cols and pointers.Outputs[Derived Column Output].Columns[FirstStPosition]},4)) : ""</property>
+                        <property
+                          containsID="true"
+                          dataType="System.String"
+                          description="Derived Column Friendly Expression"
+                          expressionType="Notify"
+                          name="FriendlyExpression">(FirstStPosition &gt; 0) ? TRIM(SUBSTRING(csz,FirstStPosition,4)) : ""</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\Data Flow Task\Extract Street Type.Outputs[Derived Column Output].Columns[FirstBlvdType]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Computation"
+                      errorRowDisposition="RedirectRow"
+                      length="5"
+                      lineageId="Package\Data Flow Task\Extract Street Type.Outputs[Derived Column Output].Columns[FirstBlvdType]"
+                      name="FirstBlvdType"
+                      truncationRowDisposition="RedirectRow">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.String"
+                          description="Derived Column Expression"
+                          name="Expression">(#{Package\Data Flow Task\new cols and pointers.Outputs[Derived Column Output].Columns[FirstBlvdPosition]} &gt; 0) ? [TRIM]([SUBSTRING](#{Package\Data Flow Task\address tester.Outputs[OLE DB Source Output].Columns[csz]},#{Package\Data Flow Task\new cols and pointers.Outputs[Derived Column Output].Columns[FirstBlvdPosition]},5)) : ""</property>
+                        <property
+                          containsID="true"
+                          dataType="System.String"
+                          description="Derived Column Friendly Expression"
+                          expressionType="Notify"
+                          name="FriendlyExpression">(FirstBlvdPosition &gt; 0) ? TRIM(SUBSTRING(csz,FirstBlvdPosition,5)) : ""</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\Data Flow Task\Extract Street Type.Outputs[Derived Column Output].Columns[FirstDriveType]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Computation"
+                      errorRowDisposition="FailComponent"
+                      length="5"
+                      lineageId="Package\Data Flow Task\Extract Street Type.Outputs[Derived Column Output].Columns[FirstDriveType]"
+                      name="FirstDriveType"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.String"
+                          description="Derived Column Expression"
+                          name="Expression">(#{Package\Data Flow Task\new cols and pointers.Outputs[Derived Column Output].Columns[FirstDrivePosition]} &gt; 0) ? [TRIM]([SUBSTRING](#{Package\Data Flow Task\address tester.Outputs[OLE DB Source Output].Columns[csz]},#{Package\Data Flow Task\new cols and pointers.Outputs[Derived Column Output].Columns[FirstDrivePosition]},5)) : ""</property>
+                        <property
+                          containsID="true"
+                          dataType="System.String"
+                          description="Derived Column Friendly Expression"
+                          expressionType="Notify"
+                          name="FriendlyExpression">(FirstDrivePosition &gt; 0) ? TRIM(SUBSTRING(csz,FirstDrivePosition,5)) : ""</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\Data Flow Task\Extract Street Type.Outputs[Derived Column Output].Columns[FirstLaneType]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Computation"
+                      errorRowDisposition="FailComponent"
+                      length="5"
+                      lineageId="Package\Data Flow Task\Extract Street Type.Outputs[Derived Column Output].Columns[FirstLaneType]"
+                      name="FirstLaneType"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.String"
+                          description="Derived Column Expression"
+                          name="Expression">(#{Package\Data Flow Task\new cols and pointers.Outputs[Derived Column Output].Columns[FirstlnPosition]} &gt; 0) ? [TRIM]([SUBSTRING](#{Package\Data Flow Task\address tester.Outputs[OLE DB Source Output].Columns[csz]},#{Package\Data Flow Task\new cols and pointers.Outputs[Derived Column Output].Columns[FirstlnPosition]},5)) : ""</property>
+                        <property
+                          containsID="true"
+                          dataType="System.String"
+                          description="Derived Column Friendly Expression"
+                          expressionType="Notify"
+                          name="FriendlyExpression">(FirstlnPosition &gt; 0) ? TRIM(SUBSTRING(csz,FirstlnPosition,5)) : ""</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\Data Flow Task\Extract Street Type.Outputs[Derived Column Output].Columns[FirstCircle1Type]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Computation"
+                      errorRowDisposition="FailComponent"
+                      length="5"
+                      lineageId="Package\Data Flow Task\Extract Street Type.Outputs[Derived Column Output].Columns[FirstCircle1Type]"
+                      name="FirstCircle1Type"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.String"
+                          description="Derived Column Expression"
+                          name="Expression">(#{Package\Data Flow Task\new cols and pointers.Outputs[Derived Column Output].Columns[FirstCircle1Position]} &gt; 0) ? [TRIM]([SUBSTRING](#{Package\Data Flow Task\address tester.Outputs[OLE DB Source Output].Columns[csz]},#{Package\Data Flow Task\new cols and pointers.Outputs[Derived Column Output].Columns[FirstCircle1Position]},5)) : ""</property>
+                        <property
+                          containsID="true"
+                          dataType="System.String"
+                          description="Derived Column Friendly Expression"
+                          expressionType="Notify"
+                          name="FriendlyExpression">(FirstCircle1Position &gt; 0) ? TRIM(SUBSTRING(csz,FirstCircle1Position,5)) : ""</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\Data Flow Task\Extract Street Type.Outputs[Derived Column Output].Columns[FirstCircle2Type]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Computation"
+                      errorRowDisposition="FailComponent"
+                      length="4"
+                      lineageId="Package\Data Flow Task\Extract Street Type.Outputs[Derived Column Output].Columns[FirstCircle2Type]"
+                      name="FirstCircle2Type"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.String"
+                          description="Derived Column Expression"
+                          name="Expression">(#{Package\Data Flow Task\new cols and pointers.Outputs[Derived Column Output].Columns[FirstCircle2Position]} &gt; 0) ? [TRIM]([SUBSTRING](#{Package\Data Flow Task\address tester.Outputs[OLE DB Source Output].Columns[csz]},#{Package\Data Flow Task\new cols and pointers.Outputs[Derived Column Output].Columns[FirstCircle2Position]},4)) : ""</property>
+                        <property
+                          containsID="true"
+                          dataType="System.String"
+                          description="Derived Column Friendly Expression"
+                          expressionType="Notify"
+                          name="FriendlyExpression">(FirstCircle2Position &gt; 0) ? TRIM(SUBSTRING(csz,FirstCircle2Position,4)) : ""</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\Data Flow Task\Extract Street Type.Outputs[Derived Column Output].Columns[FirstRoadType]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Computation"
+                      errorRowDisposition="FailComponent"
+                      length="4"
+                      lineageId="Package\Data Flow Task\Extract Street Type.Outputs[Derived Column Output].Columns[FirstRoadType]"
+                      name="FirstRoadType"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.String"
+                          description="Derived Column Expression"
+                          name="Expression">(#{Package\Data Flow Task\new cols and pointers.Outputs[Derived Column Output].Columns[FirstrdPosition]} &gt; 0) ? [TRIM]([SUBSTRING](#{Package\Data Flow Task\address tester.Outputs[OLE DB Source Output].Columns[csz]},#{Package\Data Flow Task\new cols and pointers.Outputs[Derived Column Output].Columns[FirstrdPosition]},4)) : ""</property>
+                        <property
+                          containsID="true"
+                          dataType="System.String"
+                          description="Derived Column Friendly Expression"
+                          expressionType="Notify"
+                          name="FriendlyExpression">(FirstrdPosition &gt; 0) ? TRIM(SUBSTRING(csz,FirstrdPosition,4)) : ""</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\Data Flow Task\Extract Street Type.Outputs[Derived Column Output].Columns[FirstAveType]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Computation"
+                      errorRowDisposition="FailComponent"
+                      length="4"
+                      lineageId="Package\Data Flow Task\Extract Street Type.Outputs[Derived Column Output].Columns[FirstAveType]"
+                      name="FirstAveType"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.String"
+                          description="Derived Column Expression"
+                          name="Expression">(#{Package\Data Flow Task\new cols and pointers.Outputs[Derived Column Output].Columns[FirstavePosition]} &gt; 0) ? [TRIM]([SUBSTRING](#{Package\Data Flow Task\address tester.Outputs[OLE DB Source Output].Columns[csz]},#{Package\Data Flow Task\new cols and pointers.Outputs[Derived Column Output].Columns[FirstavePosition]},4)) : ""</property>
+                        <property
+                          containsID="true"
+                          dataType="System.String"
+                          description="Derived Column Friendly Expression"
+                          expressionType="Notify"
+                          name="FriendlyExpression">(FirstavePosition &gt; 0) ? TRIM(SUBSTRING(csz,FirstavePosition,4)) : ""</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\Data Flow Task\Extract Street Type.Outputs[Derived Column Output].Columns[FirstPkwyType]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Computation"
+                      errorRowDisposition="FailComponent"
+                      length="4"
+                      lineageId="Package\Data Flow Task\Extract Street Type.Outputs[Derived Column Output].Columns[FirstPkwyType]"
+                      name="FirstPkwyType"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.String"
+                          description="Derived Column Expression"
+                          name="Expression">(#{Package\Data Flow Task\new cols and pointers.Outputs[Derived Column Output].Columns[FirstpkwyPosition]} &gt; 0) ? [TRIM]([SUBSTRING](#{Package\Data Flow Task\address tester.Outputs[OLE DB Source Output].Columns[csz]},#{Package\Data Flow Task\new cols and pointers.Outputs[Derived Column Output].Columns[FirstpkwyPosition]},4)) : ""</property>
+                        <property
+                          containsID="true"
+                          dataType="System.String"
+                          description="Derived Column Friendly Expression"
+                          expressionType="Notify"
+                          name="FriendlyExpression">(FirstpkwyPosition &gt; 0) ? TRIM(SUBSTRING(csz,FirstpkwyPosition,4)) : ""</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\Data Flow Task\Extract Street Type.Outputs[Derived Column Output].Columns[FirstTrailType]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Computation"
+                      errorRowDisposition="FailComponent"
+                      length="4"
+                      lineageId="Package\Data Flow Task\Extract Street Type.Outputs[Derived Column Output].Columns[FirstTrailType]"
+                      name="FirstTrailType"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.String"
+                          description="Derived Column Expression"
+                          name="Expression">(#{Package\Data Flow Task\new cols and pointers.Outputs[Derived Column Output].Columns[FirstTrailPosition]} &gt; 0) ? [TRIM]([SUBSTRING](#{Package\Data Flow Task\address tester.Outputs[OLE DB Source Output].Columns[csz]},#{Package\Data Flow Task\new cols and pointers.Outputs[Derived Column Output].Columns[FirstTrailPosition]},4)) : ""</property>
+                        <property
+                          containsID="true"
+                          dataType="System.String"
+                          description="Derived Column Friendly Expression"
+                          expressionType="Notify"
+                          name="FriendlyExpression">(FirstTrailPosition &gt; 0) ? TRIM(SUBSTRING(csz,FirstTrailPosition,4)) : ""</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\Data Flow Task\Extract Street Type.Outputs[Derived Column Output].Columns[FirstSqType]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Computation"
+                      errorRowDisposition="FailComponent"
+                      length="4"
+                      lineageId="Package\Data Flow Task\Extract Street Type.Outputs[Derived Column Output].Columns[FirstSqType]"
+                      name="FirstSqType"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.String"
+                          description="Derived Column Expression"
+                          name="Expression">(#{Package\Data Flow Task\new cols and pointers.Outputs[Derived Column Output].Columns[FirstsqPosition]} &gt; 0) ? [TRIM]([SUBSTRING](#{Package\Data Flow Task\address tester.Outputs[OLE DB Source Output].Columns[csz]},#{Package\Data Flow Task\new cols and pointers.Outputs[Derived Column Output].Columns[FirstsqPosition]},4)) : ""</property>
+                        <property
+                          containsID="true"
+                          dataType="System.String"
+                          description="Derived Column Friendly Expression"
+                          expressionType="Notify"
+                          name="FriendlyExpression">(FirstsqPosition &gt; 0) ? TRIM(SUBSTRING(csz,FirstsqPosition,4)) : ""</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\Data Flow Task\Extract Street Type.Outputs[Derived Column Output].Columns[FirstCourtType]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Computation"
+                      errorRowDisposition="FailComponent"
+                      length="4"
+                      lineageId="Package\Data Flow Task\Extract Street Type.Outputs[Derived Column Output].Columns[FirstCourtType]"
+                      name="FirstCourtType"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.String"
+                          description="Derived Column Expression"
+                          name="Expression">(#{Package\Data Flow Task\new cols and pointers.Outputs[Derived Column Output].Columns[FirstcourtPosition]} &gt; 0) ? [TRIM]([SUBSTRING](#{Package\Data Flow Task\address tester.Outputs[OLE DB Source Output].Columns[csz]},#{Package\Data Flow Task\new cols and pointers.Outputs[Derived Column Output].Columns[FirstcourtPosition]},4)) : ""</property>
+                        <property
+                          containsID="true"
+                          dataType="System.String"
+                          description="Derived Column Friendly Expression"
+                          expressionType="Notify"
+                          name="FriendlyExpression">(FirstcourtPosition &gt; 0) ? TRIM(SUBSTRING(csz,FirstcourtPosition,4)) : ""</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\Data Flow Task\Extract Street Type.Outputs[Derived Column Output].Columns[FirsthwyType]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Computation"
+                      errorRowDisposition="FailComponent"
+                      length="4"
+                      lineageId="Package\Data Flow Task\Extract Street Type.Outputs[Derived Column Output].Columns[FirsthwyType]"
+                      name="FirsthwyType"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.String"
+                          description="Derived Column Expression"
+                          name="Expression">(#{Package\Data Flow Task\new cols and pointers.Outputs[Derived Column Output].Columns[FirsthwyPosition]} &gt; 0) ? [TRIM]([SUBSTRING](#{Package\Data Flow Task\address tester.Outputs[OLE DB Source Output].Columns[csz]},#{Package\Data Flow Task\new cols and pointers.Outputs[Derived Column Output].Columns[FirsthwyPosition]},4)) : ""</property>
+                        <property
+                          containsID="true"
+                          dataType="System.String"
+                          description="Derived Column Friendly Expression"
+                          expressionType="Notify"
+                          name="FriendlyExpression">(FirsthwyPosition &gt; 0) ? TRIM(SUBSTRING(csz,FirsthwyPosition,4)) : ""</property>
+                      </properties>
+                    </outputColumn>
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+                <output
+                  refId="Package\Data Flow Task\Extract Street Type.Outputs[Derived Column Error Output]"
+                  description="Error Output of the Derived Column Transformation"
+                  exclusionGroup="1"
+                  isErrorOut="true"
+                  name="Derived Column Error Output"
+                  synchronousInputId="Package\Data Flow Task\Extract Street Type.Inputs[Derived Column Input]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Data Flow Task\Extract Street Type.Outputs[Derived Column Error Output].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\Data Flow Task\Extract Street Type.Outputs[Derived Column Error Output].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\Data Flow Task\Extract Street Type.Outputs[Derived Column Error Output].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\Data Flow Task\Extract Street Type.Outputs[Derived Column Error Output].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+            <component
+              refId="Package\Data Flow Task\new cols and pointers"
+              componentClassID="Microsoft.DerivedColumn"
+              contactInfo="Derived Column;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;0"
+              description="Creates new column values by applying expressions to transformation input columns. Create new columns or overwrite existing ones. For example, concatenate the values from the 'first name' and 'last name' column to make a 'full name' column."
+              name="new cols and pointers"
+              usesDispositions="true">
+              <inputs>
+                <input
+                  refId="Package\Data Flow Task\new cols and pointers.Inputs[Derived Column Input]"
+                  description="Input to the Derived Column Transformation"
+                  name="Derived Column Input">
+                  <inputColumns>
+                    <inputColumn
+                      refId="Package\Data Flow Task\new cols and pointers.Inputs[Derived Column Input].Columns[csz]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="255"
+                      cachedName="csz"
+                      lineageId="Package\Data Flow Task\address tester.Outputs[OLE DB Source Output].Columns[csz]" />
+                  </inputColumns>
+                  <externalMetadataColumns />
+                </input>
+              </inputs>
+              <outputs>
+                <output
+                  refId="Package\Data Flow Task\new cols and pointers.Outputs[Derived Column Output]"
+                  description="Default Output of the Derived Column Transformation"
+                  exclusionGroup="1"
+                  name="Derived Column Output"
+                  synchronousInputId="Package\Data Flow Task\new cols and pointers.Inputs[Derived Column Input]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Data Flow Task\new cols and pointers.Outputs[Derived Column Output].Columns[FirstStPosition]"
+                      dataType="i4"
+                      errorOrTruncationOperation="Computation"
+                      errorRowDisposition="RedirectRow"
+                      lineageId="Package\Data Flow Task\new cols and pointers.Outputs[Derived Column Output].Columns[FirstStPosition]"
+                      name="FirstStPosition"
+                      truncationRowDisposition="RedirectRow">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.String"
+                          description="Derived Column Expression"
+                          name="Expression">[FINDSTRING](#{Package\Data Flow Task\address tester.Outputs[OLE DB Source Output].Columns[csz]},[UPPER](" st "),1)</property>
+                        <property
+                          containsID="true"
+                          dataType="System.String"
+                          description="Derived Column Friendly Expression"
+                          expressionType="Notify"
+                          name="FriendlyExpression">FINDSTRING(csz,UPPER(" st "),1)</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\Data Flow Task\new cols and pointers.Outputs[Derived Column Output].Columns[FirstBlvdPosition]"
+                      dataType="i4"
+                      errorOrTruncationOperation="Computation"
+                      errorRowDisposition="RedirectRow"
+                      lineageId="Package\Data Flow Task\new cols and pointers.Outputs[Derived Column Output].Columns[FirstBlvdPosition]"
+                      name="FirstBlvdPosition"
+                      truncationRowDisposition="RedirectRow">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.String"
+                          description="Derived Column Expression"
+                          name="Expression">[FINDSTRING](#{Package\Data Flow Task\address tester.Outputs[OLE DB Source Output].Columns[csz]},[UPPER](" blvd "),1)</property>
+                        <property
+                          containsID="true"
+                          dataType="System.String"
+                          description="Derived Column Friendly Expression"
+                          expressionType="Notify"
+                          name="FriendlyExpression">FINDSTRING(csz,UPPER(" blvd "),1)</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\Data Flow Task\new cols and pointers.Outputs[Derived Column Output].Columns[FirstlnPosition]"
+                      dataType="i4"
+                      errorOrTruncationOperation="Computation"
+                      errorRowDisposition="RedirectRow"
+                      lineageId="Package\Data Flow Task\new cols and pointers.Outputs[Derived Column Output].Columns[FirstlnPosition]"
+                      name="FirstlnPosition"
+                      truncationRowDisposition="RedirectRow">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.String"
+                          description="Derived Column Expression"
+                          name="Expression">[FINDSTRING](#{Package\Data Flow Task\address tester.Outputs[OLE DB Source Output].Columns[csz]},[UPPER](" ln "),1)</property>
+                        <property
+                          containsID="true"
+                          dataType="System.String"
+                          description="Derived Column Friendly Expression"
+                          expressionType="Notify"
+                          name="FriendlyExpression">FINDSTRING(csz,UPPER(" ln "),1)</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\Data Flow Task\new cols and pointers.Outputs[Derived Column Output].Columns[FirstrdPosition]"
+                      dataType="i4"
+                      errorOrTruncationOperation="Computation"
+                      errorRowDisposition="RedirectRow"
+                      lineageId="Package\Data Flow Task\new cols and pointers.Outputs[Derived Column Output].Columns[FirstrdPosition]"
+                      name="FirstrdPosition"
+                      truncationRowDisposition="RedirectRow">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.String"
+                          description="Derived Column Expression"
+                          name="Expression">[FINDSTRING](#{Package\Data Flow Task\address tester.Outputs[OLE DB Source Output].Columns[csz]},[UPPER](" rd "),1)</property>
+                        <property
+                          containsID="true"
+                          dataType="System.String"
+                          description="Derived Column Friendly Expression"
+                          expressionType="Notify"
+                          name="FriendlyExpression">FINDSTRING(csz,UPPER(" rd "),1)</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\Data Flow Task\new cols and pointers.Outputs[Derived Column Output].Columns[FirstCircle1Position]"
+                      dataType="i4"
+                      errorOrTruncationOperation="Computation"
+                      errorRowDisposition="RedirectRow"
+                      lineageId="Package\Data Flow Task\new cols and pointers.Outputs[Derived Column Output].Columns[FirstCircle1Position]"
+                      name="FirstCircle1Position"
+                      truncationRowDisposition="RedirectRow">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.String"
+                          description="Derived Column Expression"
+                          name="Expression">[FINDSTRING](#{Package\Data Flow Task\address tester.Outputs[OLE DB Source Output].Columns[csz]},[UPPER](" cir "),1)</property>
+                        <property
+                          containsID="true"
+                          dataType="System.String"
+                          description="Derived Column Friendly Expression"
+                          expressionType="Notify"
+                          name="FriendlyExpression">FINDSTRING(csz,UPPER(" cir "),1)</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\Data Flow Task\new cols and pointers.Outputs[Derived Column Output].Columns[FirstDrivePosition]"
+                      dataType="i4"
+                      errorOrTruncationOperation="Computation"
+                      errorRowDisposition="RedirectRow"
+                      lineageId="Package\Data Flow Task\new cols and pointers.Outputs[Derived Column Output].Columns[FirstDrivePosition]"
+                      name="FirstDrivePosition"
+                      truncationRowDisposition="RedirectRow">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.String"
+                          description="Derived Column Expression"
+                          name="Expression">[FINDSTRING](#{Package\Data Flow Task\address tester.Outputs[OLE DB Source Output].Columns[csz]},[UPPER](" dr "),1)</property>
+                        <property
+                          containsID="true"
+                          dataType="System.String"
+                          description="Derived Column Friendly Expression"
+                          expressionType="Notify"
+                          name="FriendlyExpression">FINDSTRING(csz,UPPER(" dr "),1)</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\Data Flow Task\new cols and pointers.Outputs[Derived Column Output].Columns[FirstCircle2Position]"
+                      dataType="i4"
+                      errorOrTruncationOperation="Computation"
+                      errorRowDisposition="RedirectRow"
+                      lineageId="Package\Data Flow Task\new cols and pointers.Outputs[Derived Column Output].Columns[FirstCircle2Position]"
+                      name="FirstCircle2Position"
+                      truncationRowDisposition="RedirectRow">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.String"
+                          description="Derived Column Expression"
+                          name="Expression">[FINDSTRING](#{Package\Data Flow Task\address tester.Outputs[OLE DB Source Output].Columns[csz]},[UPPER](" ci"),1)</property>
+                        <property
+                          containsID="true"
+                          dataType="System.String"
+                          description="Derived Column Friendly Expression"
+                          expressionType="Notify"
+                          name="FriendlyExpression">FINDSTRING(csz,UPPER(" ci"),1)</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\Data Flow Task\new cols and pointers.Outputs[Derived Column Output].Columns[FirstTrailPosition]"
+                      dataType="i4"
+                      errorOrTruncationOperation="Computation"
+                      errorRowDisposition="RedirectRow"
+                      lineageId="Package\Data Flow Task\new cols and pointers.Outputs[Derived Column Output].Columns[FirstTrailPosition]"
+                      name="FirstTrailPosition"
+                      truncationRowDisposition="RedirectRow">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.String"
+                          description="Derived Column Expression"
+                          name="Expression">[FINDSTRING](#{Package\Data Flow Task\address tester.Outputs[OLE DB Source Output].Columns[csz]},[UPPER](" trl "),1)</property>
+                        <property
+                          containsID="true"
+                          dataType="System.String"
+                          description="Derived Column Friendly Expression"
+                          expressionType="Notify"
+                          name="FriendlyExpression">FINDSTRING(csz,UPPER(" trl "),1)</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\Data Flow Task\new cols and pointers.Outputs[Derived Column Output].Columns[FirstpkwyPosition]"
+                      dataType="i4"
+                      errorOrTruncationOperation="Computation"
+                      errorRowDisposition="RedirectRow"
+                      lineageId="Package\Data Flow Task\new cols and pointers.Outputs[Derived Column Output].Columns[FirstpkwyPosition]"
+                      name="FirstpkwyPosition"
+                      truncationRowDisposition="RedirectRow">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.String"
+                          description="Derived Column Expression"
+                          name="Expression">[FINDSTRING](#{Package\Data Flow Task\address tester.Outputs[OLE DB Source Output].Columns[csz]},[UPPER](" pkwy "),1)</property>
+                        <property
+                          containsID="true"
+                          dataType="System.String"
+                          description="Derived Column Friendly Expression"
+                          expressionType="Notify"
+                          name="FriendlyExpression">FINDSTRING(csz,UPPER(" pkwy "),1)</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\Data Flow Task\new cols and pointers.Outputs[Derived Column Output].Columns[FirstsqPosition]"
+                      dataType="i4"
+                      errorOrTruncationOperation="Computation"
+                      errorRowDisposition="RedirectRow"
+                      lineageId="Package\Data Flow Task\new cols and pointers.Outputs[Derived Column Output].Columns[FirstsqPosition]"
+                      name="FirstsqPosition"
+                      truncationRowDisposition="RedirectRow">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.String"
+                          description="Derived Column Expression"
+                          name="Expression">[FINDSTRING](#{Package\Data Flow Task\address tester.Outputs[OLE DB Source Output].Columns[csz]},[UPPER](" sq "),1)</property>
+                        <property
+                          containsID="true"
+                          dataType="System.String"
+                          description="Derived Column Friendly Expression"
+                          expressionType="Notify"
+                          name="FriendlyExpression">FINDSTRING(csz,UPPER(" sq "),1)</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\Data Flow Task\new cols and pointers.Outputs[Derived Column Output].Columns[FirstcourtPosition]"
+                      dataType="i4"
+                      errorOrTruncationOperation="Computation"
+                      errorRowDisposition="RedirectRow"
+                      lineageId="Package\Data Flow Task\new cols and pointers.Outputs[Derived Column Output].Columns[FirstcourtPosition]"
+                      name="FirstcourtPosition"
+                      truncationRowDisposition="RedirectRow">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.String"
+                          description="Derived Column Expression"
+                          name="Expression">[FINDSTRING](#{Package\Data Flow Task\address tester.Outputs[OLE DB Source Output].Columns[csz]},[UPPER](" ct "),1)</property>
+                        <property
+                          containsID="true"
+                          dataType="System.String"
+                          description="Derived Column Friendly Expression"
+                          expressionType="Notify"
+                          name="FriendlyExpression">FINDSTRING(csz,UPPER(" ct "),1)</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\Data Flow Task\new cols and pointers.Outputs[Derived Column Output].Columns[FirstavePosition]"
+                      dataType="i4"
+                      errorOrTruncationOperation="Computation"
+                      errorRowDisposition="RedirectRow"
+                      lineageId="Package\Data Flow Task\new cols and pointers.Outputs[Derived Column Output].Columns[FirstavePosition]"
+                      name="FirstavePosition"
+                      truncationRowDisposition="RedirectRow">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.String"
+                          description="Derived Column Expression"
+                          name="Expression">[FINDSTRING](#{Package\Data Flow Task\address tester.Outputs[OLE DB Source Output].Columns[csz]},[UPPER](" ave "),1)</property>
+                        <property
+                          containsID="true"
+                          dataType="System.String"
+                          description="Derived Column Friendly Expression"
+                          expressionType="Notify"
+                          name="FriendlyExpression">FINDSTRING(csz,UPPER(" ave "),1)</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\Data Flow Task\new cols and pointers.Outputs[Derived Column Output].Columns[FirsthwyPosition]"
+                      dataType="i4"
+                      errorOrTruncationOperation="Computation"
+                      errorRowDisposition="RedirectRow"
+                      lineageId="Package\Data Flow Task\new cols and pointers.Outputs[Derived Column Output].Columns[FirsthwyPosition]"
+                      name="FirsthwyPosition"
+                      truncationRowDisposition="RedirectRow">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.String"
+                          description="Derived Column Expression"
+                          name="Expression">[FINDSTRING](#{Package\Data Flow Task\address tester.Outputs[OLE DB Source Output].Columns[csz]},[UPPER](" hwy "),1)</property>
+                        <property
+                          containsID="true"
+                          dataType="System.String"
+                          description="Derived Column Friendly Expression"
+                          expressionType="Notify"
+                          name="FriendlyExpression">FINDSTRING(csz,UPPER(" hwy "),1)</property>
+                      </properties>
+                    </outputColumn>
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+                <output
+                  refId="Package\Data Flow Task\new cols and pointers.Outputs[Derived Column Error Output]"
+                  description="Error Output of the Derived Column Transformation"
+                  exclusionGroup="1"
+                  isErrorOut="true"
+                  name="Derived Column Error Output"
+                  synchronousInputId="Package\Data Flow Task\new cols and pointers.Inputs[Derived Column Input]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Data Flow Task\new cols and pointers.Outputs[Derived Column Error Output].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\Data Flow Task\new cols and pointers.Outputs[Derived Column Error Output].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\Data Flow Task\new cols and pointers.Outputs[Derived Column Error Output].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\Data Flow Task\new cols and pointers.Outputs[Derived Column Error Output].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+            <component
+              refId="Package\Data Flow Task\set street type"
+              componentClassID="Microsoft.DerivedColumn"
+              contactInfo="Derived Column;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;0"
+              description="Creates new column values by applying expressions to transformation input columns. Create new columns or overwrite existing ones. For example, concatenate the values from the 'first name' and 'last name' column to make a 'full name' column."
+              name="set street type"
+              usesDispositions="true">
+              <inputs>
+                <input
+                  refId="Package\Data Flow Task\set street type.Inputs[Derived Column Input]"
+                  description="Input to the Derived Column Transformation"
+                  name="Derived Column Input">
+                  <inputColumns>
+                    <inputColumn
+                      refId="Package\Data Flow Task\set street type.Inputs[Derived Column Input].Columns[address_street_type]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="5"
+                      cachedName="address_street_type"
+                      errorOrTruncationOperation="Computation"
+                      errorRowDisposition="FailComponent"
+                      lineageId="Package\Data Flow Task\address tester.Outputs[OLE DB Source Output].Columns[address_street_type]"
+                      truncationRowDisposition="FailComponent"
+                      usageType="readWrite">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.String"
+                          description="Derived Column Expression"
+                          name="Expression">[ISNULL](#{Package\Data Flow Task\address tester.Outputs[OLE DB Source Output].Columns[address_street_type]}) ? #{Package\Data Flow Task\Extract Street Type.Outputs[Derived Column Output].Columns[FirstStreetType]} : "N/A"</property>
+                        <property
+                          containsID="true"
+                          dataType="System.String"
+                          description="Derived Column Friendly Expression"
+                          expressionType="Notify"
+                          name="FriendlyExpression">ISNULL(address_street_type) ? FirstStreetType : "N/A"</property>
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\Data Flow Task\set street type.Inputs[Derived Column Input].Columns[FirstStreetType]"
+                      cachedDataType="wstr"
+                      cachedLength="4"
+                      cachedName="FirstStreetType"
+                      lineageId="Package\Data Flow Task\Extract Street Type.Outputs[Derived Column Output].Columns[FirstStreetType]" />
+                  </inputColumns>
+                  <externalMetadataColumns />
+                </input>
+              </inputs>
+              <outputs>
+                <output
+                  refId="Package\Data Flow Task\set street type.Outputs[Derived Column Output]"
+                  description="Default Output of the Derived Column Transformation"
+                  exclusionGroup="1"
+                  name="Derived Column Output"
+                  synchronousInputId="Package\Data Flow Task\set street type.Inputs[Derived Column Input]">
+                  <externalMetadataColumns />
+                </output>
+                <output
+                  refId="Package\Data Flow Task\set street type.Outputs[Derived Column Error Output]"
+                  description="Error Output of the Derived Column Transformation"
+                  exclusionGroup="1"
+                  isErrorOut="true"
+                  name="Derived Column Error Output"
+                  synchronousInputId="Package\Data Flow Task\set street type.Inputs[Derived Column Input]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Data Flow Task\set street type.Outputs[Derived Column Error Output].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\Data Flow Task\set street type.Outputs[Derived Column Error Output].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\Data Flow Task\set street type.Outputs[Derived Column Error Output].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\Data Flow Task\set street type.Outputs[Derived Column Error Output].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+            <component
+              refId="Package\Data Flow Task\Type Errors"
+              componentClassID="Microsoft.Multicast"
+              contactInfo="Multicast;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;0"
+              description="Distributes every input row to every row in one or more outputs. For example, branch your data flow to make a copy of data so that some values can be masked before sharing with external partners."
+              name="Type Errors">
+              <inputs>
+                <input
+                  refId="Package\Data Flow Task\Type Errors.Inputs[Multicast Input 1]"
+                  name="Multicast Input 1">
+                  <externalMetadataColumns />
+                </input>
+              </inputs>
+              <outputs>
+                <output
+                  refId="Package\Data Flow Task\Type Errors.Outputs[Multicast Output 1]"
+                  dangling="true"
+                  deleteOutputOnPathDetached="true"
+                  name="Multicast Output 1"
+                  synchronousInputId="Package\Data Flow Task\Type Errors.Inputs[Multicast Input 1]">
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+            <component
+              refId="Package\Data Flow Task\Update tmpStaging Adress tbl"
+              componentClassID="Microsoft.OLEDBDestination"
+              contactInfo="OLE DB Destination;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;4"
+              description="OLE DB Destination"
+              name="Update tmpStaging Adress tbl"
+              usesDispositions="true"
+              version="4">
+              <properties>
+                <property
+                  dataType="System.Int32"
+                  description="The number of seconds before a command times out.  A value of 0 indicates an infinite time-out."
+                  name="CommandTimeout">0</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies the name of the database object used to open a rowset."
+                  name="OpenRowset">[parsedTypes]</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies the variable that contains the name of the database object used to open a rowset."
+                  name="OpenRowsetVariable"></property>
+                <property
+                  dataType="System.String"
+                  description="The SQL command to be executed."
+                  name="SqlCommand"
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor"></property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the column code page to use when code page information is unavailable from the data source."
+                  name="DefaultCodePage">1252</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Forces the use of the DefaultCodePage property value when describing character data."
+                  name="AlwaysUseDefaultCodePage">false</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the mode used to access the database."
+                  name="AccessMode"
+                  typeConverter="AccessMode">3</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Indicates whether the values supplied for identity columns will be copied to the destination. If false, values for identity columns will be auto-generated at the destination. Applies only if fast load is turned on."
+                  name="FastLoadKeepIdentity">false</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Indicates whether the columns containing null will have null inserted in the destination. If false, columns containing null will have their default values inserted at the destination. Applies only if fast load is turned on."
+                  name="FastLoadKeepNulls">false</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies options to be used with fast load.  Applies only if fast load is turned on."
+                  name="FastLoadOptions">TABLOCK,CHECK_CONSTRAINTS</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies when commits are issued during data insertion.  A value of 0 specifies that one commit will be issued at the end of data insertion.  Applies only if fast load is turned on."
+                  name="FastLoadMaxInsertCommitSize">2147483647</property>
+              </properties>
+              <connections>
+                <connection
+                  refId="Package\Data Flow Task\Update tmpStaging Adress tbl.Connections[OleDbConnection]"
+                  connectionManagerID="Package.ConnectionManagers[204.106.31.182.mergeTest.ray]"
+                  connectionManagerRefId="Package.ConnectionManagers[204.106.31.182.mergeTest.ray]"
+                  description="The OLE DB runtime connection used to access the database."
+                  name="OleDbConnection" />
+              </connections>
+              <inputs>
+                <input
+                  refId="Package\Data Flow Task\Update tmpStaging Adress tbl.Inputs[OLE DB Destination Input]"
+                  errorOrTruncationOperation="Insert"
+                  errorRowDisposition="RedirectRow"
+                  hasSideEffects="true"
+                  name="OLE DB Destination Input">
+                  <inputColumns>
+                    <inputColumn
+                      refId="Package\Data Flow Task\Update tmpStaging Adress tbl.Inputs[OLE DB Destination Input].Columns[csz]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="255"
+                      cachedName="csz"
+                      externalMetadataColumnId="Package\Data Flow Task\Update tmpStaging Adress tbl.Inputs[OLE DB Destination Input].ExternalColumns[csz]"
+                      lineageId="Package\Data Flow Task\address tester.Outputs[OLE DB Source Output].Columns[csz]" />
+                    <inputColumn
+                      refId="Package\Data Flow Task\Update tmpStaging Adress tbl.Inputs[OLE DB Destination Input].Columns[address_number]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="10"
+                      cachedName="address_number"
+                      externalMetadataColumnId="Package\Data Flow Task\Update tmpStaging Adress tbl.Inputs[OLE DB Destination Input].ExternalColumns[address_number]"
+                      lineageId="Package\Data Flow Task\address tester.Outputs[OLE DB Source Output].Columns[address_number]" />
+                    <inputColumn
+                      refId="Package\Data Flow Task\Update tmpStaging Adress tbl.Inputs[OLE DB Destination Input].Columns[address_dir]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="5"
+                      cachedName="address_dir"
+                      externalMetadataColumnId="Package\Data Flow Task\Update tmpStaging Adress tbl.Inputs[OLE DB Destination Input].ExternalColumns[address_dir]"
+                      lineageId="Package\Data Flow Task\address tester.Outputs[OLE DB Source Output].Columns[address_dir]" />
+                    <inputColumn
+                      refId="Package\Data Flow Task\Update tmpStaging Adress tbl.Inputs[OLE DB Destination Input].Columns[address_street]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="120"
+                      cachedName="address_street"
+                      externalMetadataColumnId="Package\Data Flow Task\Update tmpStaging Adress tbl.Inputs[OLE DB Destination Input].ExternalColumns[address_street]"
+                      lineageId="Package\Data Flow Task\address tester.Outputs[OLE DB Source Output].Columns[address_street]" />
+                    <inputColumn
+                      refId="Package\Data Flow Task\Update tmpStaging Adress tbl.Inputs[OLE DB Destination Input].Columns[address_street_type]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="5"
+                      cachedName="address_street_type"
+                      externalMetadataColumnId="Package\Data Flow Task\Update tmpStaging Adress tbl.Inputs[OLE DB Destination Input].ExternalColumns[address_street_type]"
+                      lineageId="Package\Data Flow Task\address tester.Outputs[OLE DB Source Output].Columns[address_street_type]" />
+                    <inputColumn
+                      refId="Package\Data Flow Task\Update tmpStaging Adress tbl.Inputs[OLE DB Destination Input].Columns[address_aptno]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="5"
+                      cachedName="address_aptno"
+                      externalMetadataColumnId="Package\Data Flow Task\Update tmpStaging Adress tbl.Inputs[OLE DB Destination Input].ExternalColumns[address_aptno]"
+                      lineageId="Package\Data Flow Task\address tester.Outputs[OLE DB Source Output].Columns[address_aptno]" />
+                    <inputColumn
+                      refId="Package\Data Flow Task\Update tmpStaging Adress tbl.Inputs[OLE DB Destination Input].Columns[address_pobox]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="5"
+                      cachedName="address_pobox"
+                      externalMetadataColumnId="Package\Data Flow Task\Update tmpStaging Adress tbl.Inputs[OLE DB Destination Input].ExternalColumns[address_pobox]"
+                      lineageId="Package\Data Flow Task\address tester.Outputs[OLE DB Source Output].Columns[address_pobox]" />
+                    <inputColumn
+                      refId="Package\Data Flow Task\Update tmpStaging Adress tbl.Inputs[OLE DB Destination Input].Columns[address_city]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="150"
+                      cachedName="address_city"
+                      externalMetadataColumnId="Package\Data Flow Task\Update tmpStaging Adress tbl.Inputs[OLE DB Destination Input].ExternalColumns[address_city]"
+                      lineageId="Package\Data Flow Task\address tester.Outputs[OLE DB Source Output].Columns[address_city]" />
+                    <inputColumn
+                      refId="Package\Data Flow Task\Update tmpStaging Adress tbl.Inputs[OLE DB Destination Input].Columns[address_state]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="10"
+                      cachedName="address_state"
+                      externalMetadataColumnId="Package\Data Flow Task\Update tmpStaging Adress tbl.Inputs[OLE DB Destination Input].ExternalColumns[address_state]"
+                      lineageId="Package\Data Flow Task\address tester.Outputs[OLE DB Source Output].Columns[address_state]" />
+                    <inputColumn
+                      refId="Package\Data Flow Task\Update tmpStaging Adress tbl.Inputs[OLE DB Destination Input].Columns[address_zip]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="255"
+                      cachedName="address_zip"
+                      externalMetadataColumnId="Package\Data Flow Task\Update tmpStaging Adress tbl.Inputs[OLE DB Destination Input].ExternalColumns[address_zip]"
+                      lineageId="Package\Data Flow Task\address tester.Outputs[OLE DB Source Output].Columns[address_zip]" />
+                    <inputColumn
+                      refId="Package\Data Flow Task\Update tmpStaging Adress tbl.Inputs[OLE DB Destination Input].Columns[token]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="50"
+                      cachedName="token"
+                      externalMetadataColumnId="Package\Data Flow Task\Update tmpStaging Adress tbl.Inputs[OLE DB Destination Input].ExternalColumns[token]"
+                      lineageId="Package\Data Flow Task\address tester.Outputs[OLE DB Source Output].Columns[token]" />
+                    <inputColumn
+                      refId="Package\Data Flow Task\Update tmpStaging Adress tbl.Inputs[OLE DB Destination Input].Columns[FirstStPosition]"
+                      cachedDataType="i4"
+                      cachedName="FirstStPosition"
+                      externalMetadataColumnId="Package\Data Flow Task\Update tmpStaging Adress tbl.Inputs[OLE DB Destination Input].ExternalColumns[FirstStPosition]"
+                      lineageId="Package\Data Flow Task\new cols and pointers.Outputs[Derived Column Output].Columns[FirstStPosition]" />
+                    <inputColumn
+                      refId="Package\Data Flow Task\Update tmpStaging Adress tbl.Inputs[OLE DB Destination Input].Columns[FirstBlvdPosition]"
+                      cachedDataType="i4"
+                      cachedName="FirstBlvdPosition"
+                      externalMetadataColumnId="Package\Data Flow Task\Update tmpStaging Adress tbl.Inputs[OLE DB Destination Input].ExternalColumns[FirstBlvdPosition]"
+                      lineageId="Package\Data Flow Task\new cols and pointers.Outputs[Derived Column Output].Columns[FirstBlvdPosition]" />
+                    <inputColumn
+                      refId="Package\Data Flow Task\Update tmpStaging Adress tbl.Inputs[OLE DB Destination Input].Columns[FirstlnPosition]"
+                      cachedDataType="i4"
+                      cachedName="FirstlnPosition"
+                      externalMetadataColumnId="Package\Data Flow Task\Update tmpStaging Adress tbl.Inputs[OLE DB Destination Input].ExternalColumns[FirstlnPosition]"
+                      lineageId="Package\Data Flow Task\new cols and pointers.Outputs[Derived Column Output].Columns[FirstlnPosition]" />
+                    <inputColumn
+                      refId="Package\Data Flow Task\Update tmpStaging Adress tbl.Inputs[OLE DB Destination Input].Columns[FirstrdPosition]"
+                      cachedDataType="i4"
+                      cachedName="FirstrdPosition"
+                      externalMetadataColumnId="Package\Data Flow Task\Update tmpStaging Adress tbl.Inputs[OLE DB Destination Input].ExternalColumns[FirstrdPosition]"
+                      lineageId="Package\Data Flow Task\new cols and pointers.Outputs[Derived Column Output].Columns[FirstrdPosition]" />
+                    <inputColumn
+                      refId="Package\Data Flow Task\Update tmpStaging Adress tbl.Inputs[OLE DB Destination Input].Columns[FirstCircle1Position]"
+                      cachedDataType="i4"
+                      cachedName="FirstCircle1Position"
+                      externalMetadataColumnId="Package\Data Flow Task\Update tmpStaging Adress tbl.Inputs[OLE DB Destination Input].ExternalColumns[FirstCircle1Position]"
+                      lineageId="Package\Data Flow Task\new cols and pointers.Outputs[Derived Column Output].Columns[FirstCircle1Position]" />
+                    <inputColumn
+                      refId="Package\Data Flow Task\Update tmpStaging Adress tbl.Inputs[OLE DB Destination Input].Columns[FirstDrivePosition]"
+                      cachedDataType="i4"
+                      cachedName="FirstDrivePosition"
+                      externalMetadataColumnId="Package\Data Flow Task\Update tmpStaging Adress tbl.Inputs[OLE DB Destination Input].ExternalColumns[FirstDrivePosition]"
+                      lineageId="Package\Data Flow Task\new cols and pointers.Outputs[Derived Column Output].Columns[FirstDrivePosition]" />
+                    <inputColumn
+                      refId="Package\Data Flow Task\Update tmpStaging Adress tbl.Inputs[OLE DB Destination Input].Columns[FirstCircle2Position]"
+                      cachedDataType="i4"
+                      cachedName="FirstCircle2Position"
+                      externalMetadataColumnId="Package\Data Flow Task\Update tmpStaging Adress tbl.Inputs[OLE DB Destination Input].ExternalColumns[FirstCircle2Position]"
+                      lineageId="Package\Data Flow Task\new cols and pointers.Outputs[Derived Column Output].Columns[FirstCircle2Position]" />
+                    <inputColumn
+                      refId="Package\Data Flow Task\Update tmpStaging Adress tbl.Inputs[OLE DB Destination Input].Columns[FirstTrailPosition]"
+                      cachedDataType="i4"
+                      cachedName="FirstTrailPosition"
+                      externalMetadataColumnId="Package\Data Flow Task\Update tmpStaging Adress tbl.Inputs[OLE DB Destination Input].ExternalColumns[FirstTrailPosition]"
+                      lineageId="Package\Data Flow Task\new cols and pointers.Outputs[Derived Column Output].Columns[FirstTrailPosition]" />
+                    <inputColumn
+                      refId="Package\Data Flow Task\Update tmpStaging Adress tbl.Inputs[OLE DB Destination Input].Columns[FirstpkwyPosition]"
+                      cachedDataType="i4"
+                      cachedName="FirstpkwyPosition"
+                      externalMetadataColumnId="Package\Data Flow Task\Update tmpStaging Adress tbl.Inputs[OLE DB Destination Input].ExternalColumns[FirstpkwyPosition]"
+                      lineageId="Package\Data Flow Task\new cols and pointers.Outputs[Derived Column Output].Columns[FirstpkwyPosition]" />
+                    <inputColumn
+                      refId="Package\Data Flow Task\Update tmpStaging Adress tbl.Inputs[OLE DB Destination Input].Columns[FirstsqPosition]"
+                      cachedDataType="i4"
+                      cachedName="FirstsqPosition"
+                      externalMetadataColumnId="Package\Data Flow Task\Update tmpStaging Adress tbl.Inputs[OLE DB Destination Input].ExternalColumns[FirstsqPosition]"
+                      lineageId="Package\Data Flow Task\new cols and pointers.Outputs[Derived Column Output].Columns[FirstsqPosition]" />
+                    <inputColumn
+                      refId="Package\Data Flow Task\Update tmpStaging Adress tbl.Inputs[OLE DB Destination Input].Columns[FirstcourtPosition]"
+                      cachedDataType="i4"
+                      cachedName="FirstcourtPosition"
+                      externalMetadataColumnId="Package\Data Flow Task\Update tmpStaging Adress tbl.Inputs[OLE DB Destination Input].ExternalColumns[FirstcourtPosition]"
+                      lineageId="Package\Data Flow Task\new cols and pointers.Outputs[Derived Column Output].Columns[FirstcourtPosition]" />
+                    <inputColumn
+                      refId="Package\Data Flow Task\Update tmpStaging Adress tbl.Inputs[OLE DB Destination Input].Columns[FirstavePosition]"
+                      cachedDataType="i4"
+                      cachedName="FirstavePosition"
+                      externalMetadataColumnId="Package\Data Flow Task\Update tmpStaging Adress tbl.Inputs[OLE DB Destination Input].ExternalColumns[FirstavePosition]"
+                      lineageId="Package\Data Flow Task\new cols and pointers.Outputs[Derived Column Output].Columns[FirstavePosition]" />
+                    <inputColumn
+                      refId="Package\Data Flow Task\Update tmpStaging Adress tbl.Inputs[OLE DB Destination Input].Columns[FirsthwyPosition]"
+                      cachedDataType="i4"
+                      cachedName="FirsthwyPosition"
+                      externalMetadataColumnId="Package\Data Flow Task\Update tmpStaging Adress tbl.Inputs[OLE DB Destination Input].ExternalColumns[FirsthwyPosition]"
+                      lineageId="Package\Data Flow Task\new cols and pointers.Outputs[Derived Column Output].Columns[FirsthwyPosition]" />
+                    <inputColumn
+                      refId="Package\Data Flow Task\Update tmpStaging Adress tbl.Inputs[OLE DB Destination Input].Columns[FirstStreetType]"
+                      cachedDataType="wstr"
+                      cachedLength="4"
+                      cachedName="FirstStreetType"
+                      externalMetadataColumnId="Package\Data Flow Task\Update tmpStaging Adress tbl.Inputs[OLE DB Destination Input].ExternalColumns[FirstStreetType]"
+                      lineageId="Package\Data Flow Task\Extract Street Type.Outputs[Derived Column Output].Columns[FirstStreetType]" />
+                    <inputColumn
+                      refId="Package\Data Flow Task\Update tmpStaging Adress tbl.Inputs[OLE DB Destination Input].Columns[FirstBlvdType]"
+                      cachedDataType="wstr"
+                      cachedLength="5"
+                      cachedName="FirstBlvdType"
+                      externalMetadataColumnId="Package\Data Flow Task\Update tmpStaging Adress tbl.Inputs[OLE DB Destination Input].ExternalColumns[FirstBlvdType]"
+                      lineageId="Package\Data Flow Task\Extract Street Type.Outputs[Derived Column Output].Columns[FirstBlvdType]" />
+                    <inputColumn
+                      refId="Package\Data Flow Task\Update tmpStaging Adress tbl.Inputs[OLE DB Destination Input].Columns[FirstDriveType]"
+                      cachedDataType="wstr"
+                      cachedLength="5"
+                      cachedName="FirstDriveType"
+                      externalMetadataColumnId="Package\Data Flow Task\Update tmpStaging Adress tbl.Inputs[OLE DB Destination Input].ExternalColumns[FirstDriveType]"
+                      lineageId="Package\Data Flow Task\Extract Street Type.Outputs[Derived Column Output].Columns[FirstDriveType]" />
+                    <inputColumn
+                      refId="Package\Data Flow Task\Update tmpStaging Adress tbl.Inputs[OLE DB Destination Input].Columns[FirstLaneType]"
+                      cachedDataType="wstr"
+                      cachedLength="5"
+                      cachedName="FirstLaneType"
+                      externalMetadataColumnId="Package\Data Flow Task\Update tmpStaging Adress tbl.Inputs[OLE DB Destination Input].ExternalColumns[FirstLaneType]"
+                      lineageId="Package\Data Flow Task\Extract Street Type.Outputs[Derived Column Output].Columns[FirstLaneType]" />
+                    <inputColumn
+                      refId="Package\Data Flow Task\Update tmpStaging Adress tbl.Inputs[OLE DB Destination Input].Columns[FirstCircle1Type]"
+                      cachedDataType="wstr"
+                      cachedLength="5"
+                      cachedName="FirstCircle1Type"
+                      externalMetadataColumnId="Package\Data Flow Task\Update tmpStaging Adress tbl.Inputs[OLE DB Destination Input].ExternalColumns[FirstCircle1Type]"
+                      lineageId="Package\Data Flow Task\Extract Street Type.Outputs[Derived Column Output].Columns[FirstCircle1Type]" />
+                    <inputColumn
+                      refId="Package\Data Flow Task\Update tmpStaging Adress tbl.Inputs[OLE DB Destination Input].Columns[FirstCircle2Type]"
+                      cachedDataType="wstr"
+                      cachedLength="4"
+                      cachedName="FirstCircle2Type"
+                      externalMetadataColumnId="Package\Data Flow Task\Update tmpStaging Adress tbl.Inputs[OLE DB Destination Input].ExternalColumns[FirstCircle2Type]"
+                      lineageId="Package\Data Flow Task\Extract Street Type.Outputs[Derived Column Output].Columns[FirstCircle2Type]" />
+                    <inputColumn
+                      refId="Package\Data Flow Task\Update tmpStaging Adress tbl.Inputs[OLE DB Destination Input].Columns[FirstRoadType]"
+                      cachedDataType="wstr"
+                      cachedLength="4"
+                      cachedName="FirstRoadType"
+                      externalMetadataColumnId="Package\Data Flow Task\Update tmpStaging Adress tbl.Inputs[OLE DB Destination Input].ExternalColumns[FirstRoadType]"
+                      lineageId="Package\Data Flow Task\Extract Street Type.Outputs[Derived Column Output].Columns[FirstRoadType]" />
+                    <inputColumn
+                      refId="Package\Data Flow Task\Update tmpStaging Adress tbl.Inputs[OLE DB Destination Input].Columns[FirstAveType]"
+                      cachedDataType="wstr"
+                      cachedLength="4"
+                      cachedName="FirstAveType"
+                      externalMetadataColumnId="Package\Data Flow Task\Update tmpStaging Adress tbl.Inputs[OLE DB Destination Input].ExternalColumns[FirstAveType]"
+                      lineageId="Package\Data Flow Task\Extract Street Type.Outputs[Derived Column Output].Columns[FirstAveType]" />
+                    <inputColumn
+                      refId="Package\Data Flow Task\Update tmpStaging Adress tbl.Inputs[OLE DB Destination Input].Columns[FirstPkwyType]"
+                      cachedDataType="wstr"
+                      cachedLength="4"
+                      cachedName="FirstPkwyType"
+                      externalMetadataColumnId="Package\Data Flow Task\Update tmpStaging Adress tbl.Inputs[OLE DB Destination Input].ExternalColumns[FirstPkwyType]"
+                      lineageId="Package\Data Flow Task\Extract Street Type.Outputs[Derived Column Output].Columns[FirstPkwyType]" />
+                    <inputColumn
+                      refId="Package\Data Flow Task\Update tmpStaging Adress tbl.Inputs[OLE DB Destination Input].Columns[FirstTrailType]"
+                      cachedDataType="wstr"
+                      cachedLength="4"
+                      cachedName="FirstTrailType"
+                      externalMetadataColumnId="Package\Data Flow Task\Update tmpStaging Adress tbl.Inputs[OLE DB Destination Input].ExternalColumns[FirstTrailType]"
+                      lineageId="Package\Data Flow Task\Extract Street Type.Outputs[Derived Column Output].Columns[FirstTrailType]" />
+                    <inputColumn
+                      refId="Package\Data Flow Task\Update tmpStaging Adress tbl.Inputs[OLE DB Destination Input].Columns[FirstSqType]"
+                      cachedDataType="wstr"
+                      cachedLength="4"
+                      cachedName="FirstSqType"
+                      externalMetadataColumnId="Package\Data Flow Task\Update tmpStaging Adress tbl.Inputs[OLE DB Destination Input].ExternalColumns[FirstSqType]"
+                      lineageId="Package\Data Flow Task\Extract Street Type.Outputs[Derived Column Output].Columns[FirstSqType]" />
+                    <inputColumn
+                      refId="Package\Data Flow Task\Update tmpStaging Adress tbl.Inputs[OLE DB Destination Input].Columns[FirstCourtType]"
+                      cachedDataType="wstr"
+                      cachedLength="4"
+                      cachedName="FirstCourtType"
+                      externalMetadataColumnId="Package\Data Flow Task\Update tmpStaging Adress tbl.Inputs[OLE DB Destination Input].ExternalColumns[FirstCourtType]"
+                      lineageId="Package\Data Flow Task\Extract Street Type.Outputs[Derived Column Output].Columns[FirstCourtType]" />
+                    <inputColumn
+                      refId="Package\Data Flow Task\Update tmpStaging Adress tbl.Inputs[OLE DB Destination Input].Columns[FirsthwyType]"
+                      cachedDataType="wstr"
+                      cachedLength="4"
+                      cachedName="FirsthwyType"
+                      externalMetadataColumnId="Package\Data Flow Task\Update tmpStaging Adress tbl.Inputs[OLE DB Destination Input].ExternalColumns[FirsthwyType]"
+                      lineageId="Package\Data Flow Task\Extract Street Type.Outputs[Derived Column Output].Columns[FirsthwyType]" />
+                  </inputColumns>
+                  <externalMetadataColumns
+                    isUsed="True">
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task\Update tmpStaging Adress tbl.Inputs[OLE DB Destination Input].ExternalColumns[csz]"
+                      codePage="1252"
+                      dataType="str"
+                      length="255"
+                      name="csz" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task\Update tmpStaging Adress tbl.Inputs[OLE DB Destination Input].ExternalColumns[address_number]"
+                      codePage="1252"
+                      dataType="str"
+                      length="10"
+                      name="address_number" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task\Update tmpStaging Adress tbl.Inputs[OLE DB Destination Input].ExternalColumns[address_dir]"
+                      codePage="1252"
+                      dataType="str"
+                      length="5"
+                      name="address_dir" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task\Update tmpStaging Adress tbl.Inputs[OLE DB Destination Input].ExternalColumns[address_street]"
+                      codePage="1252"
+                      dataType="str"
+                      length="120"
+                      name="address_street" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task\Update tmpStaging Adress tbl.Inputs[OLE DB Destination Input].ExternalColumns[address_street_type]"
+                      codePage="1252"
+                      dataType="str"
+                      length="5"
+                      name="address_street_type" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task\Update tmpStaging Adress tbl.Inputs[OLE DB Destination Input].ExternalColumns[address_aptno]"
+                      codePage="1252"
+                      dataType="str"
+                      length="5"
+                      name="address_aptno" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task\Update tmpStaging Adress tbl.Inputs[OLE DB Destination Input].ExternalColumns[address_pobox]"
+                      codePage="1252"
+                      dataType="str"
+                      length="5"
+                      name="address_pobox" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task\Update tmpStaging Adress tbl.Inputs[OLE DB Destination Input].ExternalColumns[address_city]"
+                      codePage="1252"
+                      dataType="str"
+                      length="150"
+                      name="address_city" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task\Update tmpStaging Adress tbl.Inputs[OLE DB Destination Input].ExternalColumns[address_state]"
+                      codePage="1252"
+                      dataType="str"
+                      length="10"
+                      name="address_state" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task\Update tmpStaging Adress tbl.Inputs[OLE DB Destination Input].ExternalColumns[address_zip]"
+                      codePage="1252"
+                      dataType="str"
+                      length="255"
+                      name="address_zip" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task\Update tmpStaging Adress tbl.Inputs[OLE DB Destination Input].ExternalColumns[token]"
+                      codePage="1252"
+                      dataType="str"
+                      length="50"
+                      name="token" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task\Update tmpStaging Adress tbl.Inputs[OLE DB Destination Input].ExternalColumns[FirstStPosition]"
+                      dataType="i4"
+                      name="FirstStPosition" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task\Update tmpStaging Adress tbl.Inputs[OLE DB Destination Input].ExternalColumns[FirstBlvdPosition]"
+                      dataType="i4"
+                      name="FirstBlvdPosition" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task\Update tmpStaging Adress tbl.Inputs[OLE DB Destination Input].ExternalColumns[FirstlnPosition]"
+                      dataType="i4"
+                      name="FirstlnPosition" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task\Update tmpStaging Adress tbl.Inputs[OLE DB Destination Input].ExternalColumns[FirstrdPosition]"
+                      dataType="i4"
+                      name="FirstrdPosition" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task\Update tmpStaging Adress tbl.Inputs[OLE DB Destination Input].ExternalColumns[FirstCircle1Position]"
+                      dataType="i4"
+                      name="FirstCircle1Position" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task\Update tmpStaging Adress tbl.Inputs[OLE DB Destination Input].ExternalColumns[FirstDrivePosition]"
+                      dataType="i4"
+                      name="FirstDrivePosition" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task\Update tmpStaging Adress tbl.Inputs[OLE DB Destination Input].ExternalColumns[FirstCircle2Position]"
+                      dataType="i4"
+                      name="FirstCircle2Position" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task\Update tmpStaging Adress tbl.Inputs[OLE DB Destination Input].ExternalColumns[FirstTrailPosition]"
+                      dataType="i4"
+                      name="FirstTrailPosition" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task\Update tmpStaging Adress tbl.Inputs[OLE DB Destination Input].ExternalColumns[FirstpkwyPosition]"
+                      dataType="i4"
+                      name="FirstpkwyPosition" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task\Update tmpStaging Adress tbl.Inputs[OLE DB Destination Input].ExternalColumns[FirstsqPosition]"
+                      dataType="i4"
+                      name="FirstsqPosition" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task\Update tmpStaging Adress tbl.Inputs[OLE DB Destination Input].ExternalColumns[FirstcourtPosition]"
+                      dataType="i4"
+                      name="FirstcourtPosition" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task\Update tmpStaging Adress tbl.Inputs[OLE DB Destination Input].ExternalColumns[FirstavePosition]"
+                      dataType="i4"
+                      name="FirstavePosition" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task\Update tmpStaging Adress tbl.Inputs[OLE DB Destination Input].ExternalColumns[FirsthwyPosition]"
+                      dataType="i4"
+                      name="FirsthwyPosition" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task\Update tmpStaging Adress tbl.Inputs[OLE DB Destination Input].ExternalColumns[FirstStreetType]"
+                      dataType="wstr"
+                      length="4"
+                      name="FirstStreetType" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task\Update tmpStaging Adress tbl.Inputs[OLE DB Destination Input].ExternalColumns[FirstBlvdType]"
+                      dataType="wstr"
+                      length="5"
+                      name="FirstBlvdType" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task\Update tmpStaging Adress tbl.Inputs[OLE DB Destination Input].ExternalColumns[FirstDriveType]"
+                      dataType="wstr"
+                      length="5"
+                      name="FirstDriveType" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task\Update tmpStaging Adress tbl.Inputs[OLE DB Destination Input].ExternalColumns[FirstLaneType]"
+                      dataType="wstr"
+                      length="5"
+                      name="FirstLaneType" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task\Update tmpStaging Adress tbl.Inputs[OLE DB Destination Input].ExternalColumns[FirstCircle1Type]"
+                      dataType="wstr"
+                      length="5"
+                      name="FirstCircle1Type" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task\Update tmpStaging Adress tbl.Inputs[OLE DB Destination Input].ExternalColumns[FirstCircle2Type]"
+                      dataType="wstr"
+                      length="4"
+                      name="FirstCircle2Type" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task\Update tmpStaging Adress tbl.Inputs[OLE DB Destination Input].ExternalColumns[FirstRoadType]"
+                      dataType="wstr"
+                      length="4"
+                      name="FirstRoadType" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task\Update tmpStaging Adress tbl.Inputs[OLE DB Destination Input].ExternalColumns[FirstAveType]"
+                      dataType="wstr"
+                      length="4"
+                      name="FirstAveType" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task\Update tmpStaging Adress tbl.Inputs[OLE DB Destination Input].ExternalColumns[FirstPkwyType]"
+                      dataType="wstr"
+                      length="4"
+                      name="FirstPkwyType" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task\Update tmpStaging Adress tbl.Inputs[OLE DB Destination Input].ExternalColumns[FirstTrailType]"
+                      dataType="wstr"
+                      length="4"
+                      name="FirstTrailType" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task\Update tmpStaging Adress tbl.Inputs[OLE DB Destination Input].ExternalColumns[FirstSqType]"
+                      dataType="wstr"
+                      length="4"
+                      name="FirstSqType" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task\Update tmpStaging Adress tbl.Inputs[OLE DB Destination Input].ExternalColumns[FirstCourtType]"
+                      dataType="wstr"
+                      length="4"
+                      name="FirstCourtType" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task\Update tmpStaging Adress tbl.Inputs[OLE DB Destination Input].ExternalColumns[FirsthwyType]"
+                      dataType="wstr"
+                      length="4"
+                      name="FirsthwyType" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task\Update tmpStaging Adress tbl.Inputs[OLE DB Destination Input].ExternalColumns[RawID]"
+                      dataType="i4"
+                      name="RawID" />
+                  </externalMetadataColumns>
+                </input>
+              </inputs>
+              <outputs>
+                <output
+                  refId="Package\Data Flow Task\Update tmpStaging Adress tbl.Outputs[OLE DB Destination Error Output]"
+                  exclusionGroup="1"
+                  isErrorOut="true"
+                  name="OLE DB Destination Error Output"
+                  synchronousInputId="Package\Data Flow Task\Update tmpStaging Adress tbl.Inputs[OLE DB Destination Input]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Data Flow Task\Update tmpStaging Adress tbl.Outputs[OLE DB Destination Error Output].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\Data Flow Task\Update tmpStaging Adress tbl.Outputs[OLE DB Destination Error Output].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\Data Flow Task\Update tmpStaging Adress tbl.Outputs[OLE DB Destination Error Output].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\Data Flow Task\Update tmpStaging Adress tbl.Outputs[OLE DB Destination Error Output].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+          </components>
+          <paths>
+            <path
+              refId="Package\Data Flow Task.Paths[Derived Column Error Output]"
+              endId="Package\Data Flow Task\Errors.Inputs[Multicast Input 1]"
+              name="Derived Column Error Output"
+              startId="Package\Data Flow Task\new cols and pointers.Outputs[Derived Column Error Output]" />
+            <path
+              refId="Package\Data Flow Task.Paths[Derived Column Error Output1]"
+              endId="Package\Data Flow Task\Type Errors.Inputs[Multicast Input 1]"
+              name="Derived Column Error Output"
+              startId="Package\Data Flow Task\Extract Street Type.Outputs[Derived Column Error Output]" />
+            <path
+              refId="Package\Data Flow Task.Paths[Derived Column Output]"
+              endId="Package\Data Flow Task\Extract Street Type.Inputs[Derived Column Input]"
+              name="Derived Column Output"
+              startId="Package\Data Flow Task\new cols and pointers.Outputs[Derived Column Output]" />
+            <path
+              refId="Package\Data Flow Task.Paths[Derived Column Output1]"
+              endId="Package\Data Flow Task\set street type.Inputs[Derived Column Input]"
+              name="Derived Column Output"
+              startId="Package\Data Flow Task\Extract Street Type.Outputs[Derived Column Output]" />
+            <path
+              refId="Package\Data Flow Task.Paths[Derived Column Output2]"
+              endId="Package\Data Flow Task\Update tmpStaging Adress tbl.Inputs[OLE DB Destination Input]"
+              name="Derived Column Output"
+              startId="Package\Data Flow Task\set street type.Outputs[Derived Column Output]" />
+            <path
+              refId="Package\Data Flow Task.Paths[OLE DB Source Output]"
+              endId="Package\Data Flow Task\new cols and pointers.Inputs[Derived Column Input]"
+              name="OLE DB Source Output"
+              startId="Package\Data Flow Task\address tester.Outputs[OLE DB Source Output]" />
+          </paths>
+        </pipeline>
+      </DTS:ObjectData>
+    </DTS:Executable>
+    <DTS:Executable
+      DTS:refId="Package\Update Street Type"
+      DTS:CreationName="Microsoft.ExecuteSQLTask"
+      DTS:Description="Execute SQL Task"
+      DTS:DTSID="{F51163CB-2420-40FC-9917-7268F38AEFC8}"
+      DTS:ExecutableType="Microsoft.ExecuteSQLTask"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="Update Street Type"
+      DTS:TaskContact="Execute SQL Task; Microsoft Corporation; SQL Server 2014; © 2014 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
+      DTS:ThreadHint="0">
+      <DTS:Variables />
+      <DTS:ObjectData>
+        <SQLTask:SqlTaskData
+          SQLTask:Connection="{85494F2C-0CED-4808-8B52-6A926935BA33}"
+          SQLTask:SqlStatementSource="Update parsedTypes set address_street_type = FirstStreetType where address_street_type = ' '                         &#xA;Update parsedTypes set address_street_type = FirstBlvdType   where address_street_type = ' ' &#xA;Update parsedTypes set address_street_type = [FirstStreetType] where address_street_type = ' ' &#xA;Update parsedTypes set address_street_type = [FirstBlvdType] where address_street_type = ' ' &#xA;Update parsedTypes set address_street_type = [FirstDriveType] where address_street_type = ' ' &#xA;Update parsedTypes set address_street_type = [FirstLaneType] where address_street_type = ' ' &#xA;Update parsedTypes set address_street_type = [FirstCircle1Type] where address_street_type = ' ' &#xA;Update parsedTypes set address_street_type = [FirstCircle2Type] where address_street_type = ' ' &#xA;Update parsedTypes set address_street_type = [FirstAveType] where address_street_type = ' ' &#xA;Update parsedTypes set address_street_type = [FirstPkwyType] where address_street_type = ' ' &#xA;Update parsedTypes set address_street_type = [FirstTrailType] where address_street_type = ' ' &#xA;Update parsedTypes set address_street_type = [FirstSqType] where address_street_type = ' ' &#xA;Update parsedTypes set address_street_type = [FirstCourtType] where address_street_type = ' ' &#xA;Update parsedTypes set address_street_type = [FirsthwyType] where address_street_type = ' ' &#xA;Update parsedTypes set address_street_type = [FirstroadType] where address_street_type = ' ' &#xA;Update parsedTypes set address_street_type = substring(FirstroadType,1,2) where address_street_type = 'DR A'&#xA;Update parsedTypes set address_street_type = substring(FirstroadType,1,2) where address_street_type = 'DR S'&#xA;Update parsedTypes set address_street_type = 'N/A' where address_street_type = ' '" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask" />
+      </DTS:ObjectData>
+    </DTS:Executable>
+  </DTS:Executables>
+  <DTS:PrecedenceConstraints>
+    <DTS:PrecedenceConstraint
+      DTS:refId="Package.PrecedenceConstraints[Constraint]"
+      DTS:CreationName=""
+      DTS:DTSID="{392C0AF0-E6DB-4AB8-AA63-24653ED131F9}"
+      DTS:From="Package\Data Flow Task"
+      DTS:LogicalAnd="True"
+      DTS:ObjectName="Constraint"
+      DTS:To="Package\Update Street Type" />
+  </DTS:PrecedenceConstraints>
+  <DTS:DesignTimeProperties><![CDATA[<?xml version="1.0"?>
+<!--This CDATA section contains the layout information of the package. The section includes information such as (x,y) coordinates, width, and height.-->
+<!--If you manually edit this section and make a mistake, you can delete it. -->
+<!--The package will still be able to load normally but the previous layout information will be lost and the designer will automatically re-arrange the elements on the design surface.-->
+<Objects
+  Version="sql12">
+  <!--Each node below will contain properties that do not affect runtime behavior.-->
+  <Package
+    design-time-name="Package">
+    <LayoutInfo>
+      <GraphLayout
+        Capacity="4" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml">
+        <NodeLayout
+          Size="153,42"
+          Id="Package\Data Flow Task"
+          TopLeft="60,15" />
+        <NodeLayout
+          Size="172,42"
+          Id="Package\Update Street Type"
+          TopLeft="88,95" />
+        <EdgeLayout
+          Id="Package.PrecedenceConstraints[Constraint]"
+          TopLeft="136.5,57">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="37.5,38"
+              Start="0,0"
+              End="37.5,30.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,15" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,15"
+                    Point2="0,19"
+                    Point3="4,19" />
+                  <mssgle:LineSegment
+                    End="33.5,19" />
+                  <mssgle:CubicBezierSegment
+                    Point1="33.5,19"
+                    Point2="37.5,19"
+                    Point3="37.5,23" />
+                  <mssgle:LineSegment
+                    End="37.5,30.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+      </GraphLayout>
+    </LayoutInfo>
+  </Package>
+  <TaskHost
+    design-time-name="Package\Data Flow Task">
+    <LayoutInfo>
+      <GraphLayout
+        Capacity="16" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:mssgm="clr-namespace:Microsoft.SqlServer.Graph.Model;assembly=Microsoft.SqlServer.Graph">
+        <NodeLayout
+          Size="172,42"
+          Id="Package\Data Flow Task\Extract Street Type"
+          TopLeft="41,92" />
+        <NodeLayout
+          Size="221,42"
+          Id="Package\Data Flow Task\Update tmpStaging Adress tbl"
+          TopLeft="245,164" />
+        <NodeLayout
+          Size="109,42"
+          Id="Package\Data Flow Task\Errors"
+          TopLeft="693,94" />
+        <NodeLayout
+          Size="135,42"
+          Id="Package\Data Flow Task\Type Errors"
+          TopLeft="511,99" />
+        <NodeLayout
+          Size="184,42"
+          Id="Package\Data Flow Task\new cols and pointers"
+          TopLeft="239,13" />
+        <NodeLayout
+          Size="148,42"
+          Id="Package\Data Flow Task\address tester"
+          TopLeft="29,15" />
+        <NodeLayout
+          Size="149,42"
+          Id="Package\Data Flow Task\set street type"
+          TopLeft="52,164" />
+        <EdgeLayout
+          Id="Package\Data Flow Task.Paths[OLE DB Source Output]"
+          TopLeft="177,35">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="62,0"
+              Start="0,0"
+              End="54.5,0">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="54.5,0" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\Data Flow Task.Paths[Derived Column Output2]"
+          TopLeft="201,185">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="44,0"
+              Start="0,0"
+              End="36.5,0">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="36.5,0" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\Data Flow Task.Paths[Derived Column Output1]"
+          TopLeft="126.75,134">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,30"
+              Start="0,0"
+              End="0,22.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,22.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\Data Flow Task.Paths[Derived Column Output]"
+          TopLeft="301.666666666667,55">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="-174.666666666667,37"
+              Start="0,0"
+              End="-174.666666666667,29.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,10.9913793103448" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,10.9913793103448"
+                    Point2="0,14.9913793103448"
+                    Point3="-4,14.9913793103448" />
+                  <mssgle:LineSegment
+                    End="-170.666666666667,14.9913793103448" />
+                  <mssgle:CubicBezierSegment
+                    Point1="-170.666666666667,14.9913793103448"
+                    Point2="-174.666666666667,14.9913793103448"
+                    Point3="-174.666666666667,18.9913793103448" />
+                  <mssgle:LineSegment
+                    End="-174.666666666667,29.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\Data Flow Task.Paths[Derived Column Error Output1]"
+          TopLeft="213,116.5">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="298,0"
+              Start="0,0"
+              End="290.5,0">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="290.5,0" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <mssgm:EdgeLabel
+              BoundingBox="80.28861328125,5,129.9227734375,11.609375"
+              RelativePosition="Any" />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\Data Flow Task.Paths[Derived Column Error Output]"
+          TopLeft="360.333333333333,55">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="387.166666666667,39"
+              Start="0,0"
+              End="387.166666666667,31.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,11.801724137931" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,11.801724137931"
+                    Point2="0,15.801724137931"
+                    Point3="4,15.801724137931" />
+                  <mssgle:LineSegment
+                    End="383.166666666667,15.801724137931" />
+                  <mssgle:CubicBezierSegment
+                    Point1="383.166666666667,15.801724137931"
+                    Point2="387.166666666667,15.801724137931"
+                    Point3="387.166666666667,19.801724137931" />
+                  <mssgle:LineSegment
+                    End="387.166666666667,31.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <mssgm:EdgeLabel
+              BoundingBox="128.621946614583,20.801724137931,129.9227734375,11.609375"
+              RelativePosition="Any" />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+      </GraphLayout>
+    </LayoutInfo>
+  </TaskHost>
+  <PipelineComponentMetadata
+    design-time-name="Package\Data Flow Task\Update tmpStaging Adress tbl">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+      <Property>
+        <Name>TableInfoObjectType</Name>
+        <Value
+          type="q2:string">Table</Value>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+  <PipelineComponentMetadata
+    design-time-name="Package\Data Flow Task\address tester">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+      <Property>
+        <Name>TableInfoObjectType</Name>
+        <Value
+          type="q2:string">Table</Value>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+</Objects>]]></DTS:DesignTimeProperties>
+</DTS:Executable>

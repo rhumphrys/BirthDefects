@@ -1,0 +1,14 @@
+﻿<?xml version="1.0"?>
+<DTS:ConnectionManager xmlns:DTS="www.microsoft.com/SqlServer/Dts"
+  DTS:ObjectName="204.106.31.182.Birth Defects.ray"
+  DTS:DTSID="{506BD3FC-B704-4632-85C7-1A5F22E302C2}"
+  DTS:CreationName="OLEDB">
+  <DTS:ObjectData>
+    <DTS:ConnectionManager
+      DTS:ConnectionString="Data Source=204.106.31.182;User ID=ray;Initial Catalog=Birth Defects;Provider=SQLNCLI11.1;Persist Security Info=True;Auto Translate=False;">
+      <DTS:Password
+        DTS:Name="Password"
+        Sensitive="1">AQAAANCMnd8BFdERjHoAwE/Cl+sBAAAAmVOjgQmt0E6pYXuH9MeQqAAAAAACAAAAAAADZgAAwAAAABAAAAD7wH4dBMEkovCzfOyJZfGxAAAAAASAAACgAAAAEAAAALAEKP0laV0hqZ3yMCMfxdBwAAAAmetIl82H5UkFd5VO8dJdqMEVWkWRlur+U8bicZnpIuHrM0wYBopgcQU7/F/H86PwWMFQA8DFueG6pygmL4OEziYH5n+CZ/sPTnNsIMUKQKhN2ICjTo4XC22yrbrwr7p5PL43UvazjD1+2i2NyXARIBQAAAA99eZlilfF6MEqPssrR0Ffkxi+Tg==</DTS:Password>
+    </DTS:ConnectionManager>
+  </DTS:ObjectData>
+</DTS:ConnectionManager>
