@@ -1,0 +1,1435 @@
+﻿<?xml version="1.0"?>
+<DTS:Executable xmlns:DTS="www.microsoft.com/SqlServer/Dts"
+  DTS:refId="Package"
+  DTS:CreationDate="3/14/2016 3:40:11 PM"
+  DTS:CreationName="Microsoft.Package"
+  DTS:CreatorComputerName="RAY-PC"
+  DTS:CreatorName="Ray-PC\Ray"
+  DTS:DTSID="{0F827818-1A73-4945-9DB1-EED7A657FB0E}"
+  DTS:ExecutableType="Microsoft.Package"
+  DTS:LastModifiedProductVersion="12.0.2430.0"
+  DTS:LocaleID="1033"
+  DTS:ObjectName="Phase 2 Matching"
+  DTS:PackageType="5"
+  DTS:VersionBuild="68"
+  DTS:VersionGUID="{5B919106-3CA7-496F-AD06-215F0658643A}">
+  <DTS:Property
+    DTS:Name="PackageFormatVersion">8</DTS:Property>
+  <DTS:ConnectionManagers>
+    <DTS:ConnectionManager
+      DTS:refId="Package.ConnectionManagers[LocalHost.Matching]"
+      DTS:CreationName="OLEDB"
+      DTS:DTSID="{8AEA328F-5D0E-4724-9BE9-7BCB5A004B55}"
+      DTS:ObjectName="LocalHost.Matching">
+      <DTS:ObjectData>
+        <DTS:ConnectionManager
+          DTS:ConnectionString="Data Source=.;Initial Catalog=Matching;Provider=SQLNCLI11.1;Integrated Security=SSPI;Auto Translate=False;" />
+      </DTS:ObjectData>
+    </DTS:ConnectionManager>
+  </DTS:ConnectionManagers>
+  <DTS:Variables>
+    <DTS:Variable
+      DTS:CreationName=""
+      DTS:DTSID="{789924D8-BE50-4205-BC55-D7C7E4F3E7CC}"
+      DTS:IncludeInDebugDump="6789"
+      DTS:Namespace="User"
+      DTS:ObjectName="NotKnownMasterID">
+      <DTS:VariableValue
+        DTS:DataType="3">0</DTS:VariableValue>
+    </DTS:Variable>
+  </DTS:Variables>
+  <DTS:Executables>
+    <DTS:Executable
+      DTS:refId="Package\Phase 2 - Match"
+      DTS:CreationName="Microsoft.Pipeline"
+      DTS:Description="Data Flow Task"
+      DTS:DTSID="{D897EFA5-A1EC-4947-B7CC-D0A81FBA4A23}"
+      DTS:ExecutableType="Microsoft.Pipeline"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="Phase 2 - Match"
+      DTS:TaskContact="Performs high-performance data extraction, transformation and loading;Microsoft Corporation; Microsoft SQL Server; (C) 2007 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1">
+      <DTS:Variables />
+      <DTS:ObjectData>
+        <pipeline
+          version="1">
+          <components>
+            <component
+              refId="Package\Phase 2 - Match\Connect to MBDR"
+              componentClassID="Microsoft.OLEDBSource"
+              contactInfo="OLE DB Source;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;7"
+              description="OLE DB Source"
+              name="Connect to MBDR"
+              usesDispositions="true"
+              version="7">
+              <properties>
+                <property
+                  dataType="System.Int32"
+                  description="The number of seconds before a command times out.  A value of 0 indicates an infinite time-out."
+                  name="CommandTimeout">0</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies the name of the database object used to open a rowset."
+                  name="OpenRowset">[dbo].[Phase1NonMatches]</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies the variable that contains the name of the database object used to open a rowset."
+                  name="OpenRowsetVariable"></property>
+                <property
+                  dataType="System.String"
+                  description="The SQL command to be executed."
+                  name="SqlCommand"
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor"></property>
+                <property
+                  dataType="System.String"
+                  description="The variable that contains the SQL command to be executed."
+                  name="SqlCommandVariable"></property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the column code page to use when code page information is unavailable from the data source."
+                  name="DefaultCodePage">1252</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Forces the use of the DefaultCodePage property value when describing character data."
+                  name="AlwaysUseDefaultCodePage">false</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the mode used to access the database."
+                  name="AccessMode"
+                  typeConverter="AccessMode">0</property>
+                <property
+                  dataType="System.String"
+                  description="The mappings between the parameters in the SQL command and variables."
+                  name="ParameterMapping"></property>
+              </properties>
+              <connections>
+                <connection
+                  refId="Package\Phase 2 - Match\Connect to MBDR.Connections[OleDbConnection]"
+                  connectionManagerID="Package.ConnectionManagers[LocalHost.Matching]"
+                  connectionManagerRefId="Package.ConnectionManagers[LocalHost.Matching]"
+                  description="The OLE DB runtime connection used to access the database."
+                  name="OleDbConnection" />
+              </connections>
+              <outputs>
+                <output
+                  refId="Package\Phase 2 - Match\Connect to MBDR.Outputs[OLE DB Source Output]"
+                  name="OLE DB Source Output">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Phase 2 - Match\Connect to MBDR.Outputs[OLE DB Source Output].Columns[id]"
+                      dataType="i4"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Phase 2 - Match\Connect to MBDR.Outputs[OLE DB Source Output].ExternalColumns[id]"
+                      lineageId="Package\Phase 2 - Match\Connect to MBDR.Outputs[OLE DB Source Output].Columns[id]"
+                      name="id"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Phase 2 - Match\Connect to MBDR.Outputs[OLE DB Source Output].Columns[first_name]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Phase 2 - Match\Connect to MBDR.Outputs[OLE DB Source Output].ExternalColumns[first_name]"
+                      length="50"
+                      lineageId="Package\Phase 2 - Match\Connect to MBDR.Outputs[OLE DB Source Output].Columns[first_name]"
+                      name="first_name"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Phase 2 - Match\Connect to MBDR.Outputs[OLE DB Source Output].Columns[last_name]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Phase 2 - Match\Connect to MBDR.Outputs[OLE DB Source Output].ExternalColumns[last_name]"
+                      length="50"
+                      lineageId="Package\Phase 2 - Match\Connect to MBDR.Outputs[OLE DB Source Output].Columns[last_name]"
+                      name="last_name"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Phase 2 - Match\Connect to MBDR.Outputs[OLE DB Source Output].Columns[gender]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Phase 2 - Match\Connect to MBDR.Outputs[OLE DB Source Output].ExternalColumns[gender]"
+                      length="50"
+                      lineageId="Package\Phase 2 - Match\Connect to MBDR.Outputs[OLE DB Source Output].Columns[gender]"
+                      name="gender"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Phase 2 - Match\Connect to MBDR.Outputs[OLE DB Source Output].Columns[medrecnumber]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Phase 2 - Match\Connect to MBDR.Outputs[OLE DB Source Output].ExternalColumns[medrecnumber]"
+                      length="50"
+                      lineageId="Package\Phase 2 - Match\Connect to MBDR.Outputs[OLE DB Source Output].Columns[medrecnumber]"
+                      name="medrecnumber"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Phase 2 - Match\Connect to MBDR.Outputs[OLE DB Source Output].Columns[ssn]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Phase 2 - Match\Connect to MBDR.Outputs[OLE DB Source Output].ExternalColumns[ssn]"
+                      length="50"
+                      lineageId="Package\Phase 2 - Match\Connect to MBDR.Outputs[OLE DB Source Output].Columns[ssn]"
+                      name="ssn"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Phase 2 - Match\Connect to MBDR.Outputs[OLE DB Source Output].Columns[dobx]"
+                      dataType="dbDate"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Phase 2 - Match\Connect to MBDR.Outputs[OLE DB Source Output].ExternalColumns[dobx]"
+                      lineageId="Package\Phase 2 - Match\Connect to MBDR.Outputs[OLE DB Source Output].Columns[dobx]"
+                      name="dobx"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Phase 2 - Match\Connect to MBDR.Outputs[OLE DB Source Output].Columns[MBDR_MatchScore]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Phase 2 - Match\Connect to MBDR.Outputs[OLE DB Source Output].ExternalColumns[MBDR_MatchScore]"
+                      length="23"
+                      lineageId="Package\Phase 2 - Match\Connect to MBDR.Outputs[OLE DB Source Output].Columns[MBDR_MatchScore]"
+                      name="MBDR_MatchScore"
+                      truncationRowDisposition="FailComponent" />
+                  </outputColumns>
+                  <externalMetadataColumns
+                    isUsed="True">
+                    <externalMetadataColumn
+                      refId="Package\Phase 2 - Match\Connect to MBDR.Outputs[OLE DB Source Output].ExternalColumns[id]"
+                      dataType="i4"
+                      name="id" />
+                    <externalMetadataColumn
+                      refId="Package\Phase 2 - Match\Connect to MBDR.Outputs[OLE DB Source Output].ExternalColumns[first_name]"
+                      codePage="1252"
+                      dataType="str"
+                      length="50"
+                      name="first_name" />
+                    <externalMetadataColumn
+                      refId="Package\Phase 2 - Match\Connect to MBDR.Outputs[OLE DB Source Output].ExternalColumns[last_name]"
+                      codePage="1252"
+                      dataType="str"
+                      length="50"
+                      name="last_name" />
+                    <externalMetadataColumn
+                      refId="Package\Phase 2 - Match\Connect to MBDR.Outputs[OLE DB Source Output].ExternalColumns[gender]"
+                      codePage="1252"
+                      dataType="str"
+                      length="50"
+                      name="gender" />
+                    <externalMetadataColumn
+                      refId="Package\Phase 2 - Match\Connect to MBDR.Outputs[OLE DB Source Output].ExternalColumns[medrecnumber]"
+                      codePage="1252"
+                      dataType="str"
+                      length="50"
+                      name="medrecnumber" />
+                    <externalMetadataColumn
+                      refId="Package\Phase 2 - Match\Connect to MBDR.Outputs[OLE DB Source Output].ExternalColumns[ssn]"
+                      codePage="1252"
+                      dataType="str"
+                      length="50"
+                      name="ssn" />
+                    <externalMetadataColumn
+                      refId="Package\Phase 2 - Match\Connect to MBDR.Outputs[OLE DB Source Output].ExternalColumns[dobx]"
+                      dataType="dbDate"
+                      name="dobx" />
+                    <externalMetadataColumn
+                      refId="Package\Phase 2 - Match\Connect to MBDR.Outputs[OLE DB Source Output].ExternalColumns[MBDR_MatchScore]"
+                      dataType="wstr"
+                      length="23"
+                      name="MBDR_MatchScore" />
+                  </externalMetadataColumns>
+                </output>
+                <output
+                  refId="Package\Phase 2 - Match\Connect to MBDR.Outputs[OLE DB Source Error Output]"
+                  isErrorOut="true"
+                  name="OLE DB Source Error Output">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Phase 2 - Match\Connect to MBDR.Outputs[OLE DB Source Error Output].Columns[id]"
+                      dataType="i4"
+                      lineageId="Package\Phase 2 - Match\Connect to MBDR.Outputs[OLE DB Source Error Output].Columns[id]"
+                      name="id" />
+                    <outputColumn
+                      refId="Package\Phase 2 - Match\Connect to MBDR.Outputs[OLE DB Source Error Output].Columns[first_name]"
+                      codePage="1252"
+                      dataType="str"
+                      length="50"
+                      lineageId="Package\Phase 2 - Match\Connect to MBDR.Outputs[OLE DB Source Error Output].Columns[first_name]"
+                      name="first_name" />
+                    <outputColumn
+                      refId="Package\Phase 2 - Match\Connect to MBDR.Outputs[OLE DB Source Error Output].Columns[last_name]"
+                      codePage="1252"
+                      dataType="str"
+                      length="50"
+                      lineageId="Package\Phase 2 - Match\Connect to MBDR.Outputs[OLE DB Source Error Output].Columns[last_name]"
+                      name="last_name" />
+                    <outputColumn
+                      refId="Package\Phase 2 - Match\Connect to MBDR.Outputs[OLE DB Source Error Output].Columns[gender]"
+                      codePage="1252"
+                      dataType="str"
+                      length="50"
+                      lineageId="Package\Phase 2 - Match\Connect to MBDR.Outputs[OLE DB Source Error Output].Columns[gender]"
+                      name="gender" />
+                    <outputColumn
+                      refId="Package\Phase 2 - Match\Connect to MBDR.Outputs[OLE DB Source Error Output].Columns[medrecnumber]"
+                      codePage="1252"
+                      dataType="str"
+                      length="50"
+                      lineageId="Package\Phase 2 - Match\Connect to MBDR.Outputs[OLE DB Source Error Output].Columns[medrecnumber]"
+                      name="medrecnumber" />
+                    <outputColumn
+                      refId="Package\Phase 2 - Match\Connect to MBDR.Outputs[OLE DB Source Error Output].Columns[ssn]"
+                      codePage="1252"
+                      dataType="str"
+                      length="50"
+                      lineageId="Package\Phase 2 - Match\Connect to MBDR.Outputs[OLE DB Source Error Output].Columns[ssn]"
+                      name="ssn" />
+                    <outputColumn
+                      refId="Package\Phase 2 - Match\Connect to MBDR.Outputs[OLE DB Source Error Output].Columns[dobx]"
+                      dataType="dbDate"
+                      lineageId="Package\Phase 2 - Match\Connect to MBDR.Outputs[OLE DB Source Error Output].Columns[dobx]"
+                      name="dobx" />
+                    <outputColumn
+                      refId="Package\Phase 2 - Match\Connect to MBDR.Outputs[OLE DB Source Error Output].Columns[MBDR_MatchScore]"
+                      dataType="wstr"
+                      length="23"
+                      lineageId="Package\Phase 2 - Match\Connect to MBDR.Outputs[OLE DB Source Error Output].Columns[MBDR_MatchScore]"
+                      name="MBDR_MatchScore" />
+                    <outputColumn
+                      refId="Package\Phase 2 - Match\Connect to MBDR.Outputs[OLE DB Source Error Output].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\Phase 2 - Match\Connect to MBDR.Outputs[OLE DB Source Error Output].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\Phase 2 - Match\Connect to MBDR.Outputs[OLE DB Source Error Output].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\Phase 2 - Match\Connect to MBDR.Outputs[OLE DB Source Error Output].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+            <component
+              refId="Package\Phase 2 - Match\MBDR vs Phase1NonMatches"
+              componentClassID="Microsoft.Lookup"
+              contactInfo="Lookup;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;6"
+              description="Joins additional columns to the data flow by looking up values in a table. For example, join to the 'employee id' column the employees table to get 'hire date' and 'employee name'. We recommend this transformation when the lookup table can fit into memory."
+              name="MBDR vs Phase1NonMatches"
+              usesDispositions="true"
+              version="6">
+              <properties>
+                <property
+                  dataType="System.String"
+                  description="Specifies the SQL statement that generates the lookup table."
+                  expressionType="Notify"
+                  name="SqlCommand"
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor">select * from [dbo].[MBDR_Reference_table]</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies a SQL statement that uses parameters to generate the lookup table."
+                  expressionType="Notify"
+                  name="SqlCommandParam"
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor">select * from (select * from [dbo].[MBDR_Reference_table]) [refTable]
+where [refTable].[first_name] = ? and [refTable].[last_name] = ? and [refTable].[gender] = ?</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the type of connection used to access the reference dataset."
+                  name="ConnectionType"
+                  typeConverter="LookupConnectionType">0</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the cache type of the lookup table."
+                  name="CacheType"
+                  typeConverter="CacheType">0</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies how the Lookup transformation handles rows without matching entries in the reference data set."
+                  name="NoMatchBehavior"
+                  typeConverter="LookupNoMatchBehavior">1</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the percentage of the cache that is allocated for rows with no matching entries in the reference dataset."
+                  name="NoMatchCachePercentage">0</property>
+                <property
+                  dataType="System.Int32"
+                  description="Maximum Memory Usage for Reference Cache on a 32 bit platform."
+                  name="MaxMemoryUsage">25</property>
+                <property
+                  dataType="System.Int64"
+                  description="Maximum Memory Usage for Reference Cache on a 64 bit platform."
+                  name="MaxMemoryUsage64">25</property>
+                <property
+                  dataType="System.String"
+                  description="Indicates whether to reference metadata in an XML format."
+                  name="ReferenceMetadataXml">&lt;referenceMetadata&gt;&lt;referenceColumns&gt;&lt;referenceColumn name="id" dataType="DT_I4" length="0" precision="0" scale="0" codePage="0"/&gt;&lt;referenceColumn name="first_name" dataType="DT_STR" length="50" precision="0" scale="0" codePage="1252"/&gt;&lt;referenceColumn name="last_name" dataType="DT_STR" length="50" precision="0" scale="0" codePage="1252"/&gt;&lt;referenceColumn name="gender" dataType="DT_STR" length="50" precision="0" scale="0" codePage="1252"/&gt;&lt;referenceColumn name="medrecnumber" dataType="DT_STR" length="50" precision="0" scale="0" codePage="1252"/&gt;&lt;referenceColumn name="ssn" dataType="DT_STR" length="50" precision="0" scale="0" codePage="1252"/&gt;&lt;referenceColumn name="dobx" dataType="DT_DBDATE" length="0" precision="0" scale="0" codePage="0"/&gt;&lt;/referenceColumns&gt;&lt;/referenceMetadata&gt;</property>
+                <property
+                  containsID="true"
+                  dataType="System.String"
+                  description="Specifies the list of lineage identifiers that map to the parameters that the SQL statement in the SQLCommand property uses. Entries in the list are separated by semicolons."
+                  name="ParameterMap">#{Package\Phase 2 - Match\Connect to MBDR.Outputs[OLE DB Source Output].Columns[first_name]};#{Package\Phase 2 - Match\Connect to MBDR.Outputs[OLE DB Source Output].Columns[last_name]};#{Package\Phase 2 - Match\Connect to MBDR.Outputs[OLE DB Source Output].Columns[gender]};</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the column code page to use when code page information is unavailable from the data source."
+                  name="DefaultCodePage">1252</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Determines whether duplicate keys in the reference data should be treated as errors when full cache mode is used."
+                  name="TreatDuplicateKeysAsError">false</property>
+              </properties>
+              <connections>
+                <connection
+                  refId="Package\Phase 2 - Match\MBDR vs Phase1NonMatches.Connections[OleDbConnection]"
+                  connectionManagerID="Package.ConnectionManagers[LocalHost.Matching]"
+                  connectionManagerRefId="Package.ConnectionManagers[LocalHost.Matching]"
+                  description="Connection manager used to access lookup data."
+                  name="OleDbConnection" />
+              </connections>
+              <inputs>
+                <input
+                  refId="Package\Phase 2 - Match\MBDR vs Phase1NonMatches.Inputs[Lookup Input]"
+                  name="Lookup Input">
+                  <inputColumns>
+                    <inputColumn
+                      refId="Package\Phase 2 - Match\MBDR vs Phase1NonMatches.Inputs[Lookup Input].Columns[gender]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="50"
+                      cachedName="gender"
+                      lineageId="Package\Phase 2 - Match\Connect to MBDR.Outputs[OLE DB Source Output].Columns[gender]">
+                      <properties>
+                        <property
+                          dataType="System.String"
+                          description="Specifies the column in the reference table that a column joins."
+                          name="JoinToReferenceColumn">gender</property>
+                        <property
+                          dataType="System.Null"
+                          description="Specifies the column in the reference table from which a column is copied."
+                          name="CopyFromReferenceColumn" />
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\Phase 2 - Match\MBDR vs Phase1NonMatches.Inputs[Lookup Input].Columns[last_name]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="50"
+                      cachedName="last_name"
+                      lineageId="Package\Phase 2 - Match\Connect to MBDR.Outputs[OLE DB Source Output].Columns[last_name]">
+                      <properties>
+                        <property
+                          dataType="System.String"
+                          description="Specifies the column in the reference table that a column joins."
+                          name="JoinToReferenceColumn">last_name</property>
+                        <property
+                          dataType="System.Null"
+                          description="Specifies the column in the reference table from which a column is copied."
+                          name="CopyFromReferenceColumn" />
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\Phase 2 - Match\MBDR vs Phase1NonMatches.Inputs[Lookup Input].Columns[first_name]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="50"
+                      cachedName="first_name"
+                      lineageId="Package\Phase 2 - Match\Connect to MBDR.Outputs[OLE DB Source Output].Columns[first_name]">
+                      <properties>
+                        <property
+                          dataType="System.String"
+                          description="Specifies the column in the reference table that a column joins."
+                          name="JoinToReferenceColumn">first_name</property>
+                        <property
+                          dataType="System.Null"
+                          description="Specifies the column in the reference table from which a column is copied."
+                          name="CopyFromReferenceColumn" />
+                      </properties>
+                    </inputColumn>
+                  </inputColumns>
+                  <externalMetadataColumns />
+                </input>
+              </inputs>
+              <outputs>
+                <output
+                  refId="Package\Phase 2 - Match\MBDR vs Phase1NonMatches.Outputs[Lookup Match Output]"
+                  errorOrTruncationOperation="Lookup"
+                  exclusionGroup="1"
+                  name="Lookup Match Output"
+                  synchronousInputId="Package\Phase 2 - Match\MBDR vs Phase1NonMatches.Inputs[Lookup Input]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Phase 2 - Match\MBDR vs Phase1NonMatches.Outputs[Lookup Match Output].Columns[MBDR_first_name]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Copy Column"
+                      length="50"
+                      lineageId="Package\Phase 2 - Match\MBDR vs Phase1NonMatches.Outputs[Lookup Match Output].Columns[MBDR_first_name]"
+                      name="MBDR_first_name"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          dataType="System.String"
+                          description="Specifies the column in the reference table from which a column is copied."
+                          name="CopyFromReferenceColumn">first_name</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\Phase 2 - Match\MBDR vs Phase1NonMatches.Outputs[Lookup Match Output].Columns[MBDR_last_name]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Copy Column"
+                      length="50"
+                      lineageId="Package\Phase 2 - Match\MBDR vs Phase1NonMatches.Outputs[Lookup Match Output].Columns[MBDR_last_name]"
+                      name="MBDR_last_name"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          dataType="System.String"
+                          description="Specifies the column in the reference table from which a column is copied."
+                          name="CopyFromReferenceColumn">last_name</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\Phase 2 - Match\MBDR vs Phase1NonMatches.Outputs[Lookup Match Output].Columns[MBDR_medrecnumber]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Copy Column"
+                      length="50"
+                      lineageId="Package\Phase 2 - Match\MBDR vs Phase1NonMatches.Outputs[Lookup Match Output].Columns[MBDR_medrecnumber]"
+                      name="MBDR_medrecnumber"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          dataType="System.String"
+                          description="Specifies the column in the reference table from which a column is copied."
+                          name="CopyFromReferenceColumn">medrecnumber</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\Phase 2 - Match\MBDR vs Phase1NonMatches.Outputs[Lookup Match Output].Columns[MBDR_ssn]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Copy Column"
+                      length="50"
+                      lineageId="Package\Phase 2 - Match\MBDR vs Phase1NonMatches.Outputs[Lookup Match Output].Columns[MBDR_ssn]"
+                      name="MBDR_ssn"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          dataType="System.String"
+                          description="Specifies the column in the reference table from which a column is copied."
+                          name="CopyFromReferenceColumn">ssn</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\Phase 2 - Match\MBDR vs Phase1NonMatches.Outputs[Lookup Match Output].Columns[MBDR_dobx]"
+                      dataType="dbDate"
+                      errorOrTruncationOperation="Copy Column"
+                      lineageId="Package\Phase 2 - Match\MBDR vs Phase1NonMatches.Outputs[Lookup Match Output].Columns[MBDR_dobx]"
+                      name="MBDR_dobx"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          dataType="System.String"
+                          description="Specifies the column in the reference table from which a column is copied."
+                          name="CopyFromReferenceColumn">dobx</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\Phase 2 - Match\MBDR vs Phase1NonMatches.Outputs[Lookup Match Output].Columns[MBDR_id]"
+                      dataType="i4"
+                      errorOrTruncationOperation="Copy Column"
+                      lineageId="Package\Phase 2 - Match\MBDR vs Phase1NonMatches.Outputs[Lookup Match Output].Columns[MBDR_id]"
+                      name="MBDR_id"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          dataType="System.String"
+                          description="Specifies the column in the reference table from which a column is copied."
+                          name="CopyFromReferenceColumn">id</property>
+                      </properties>
+                    </outputColumn>
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+                <output
+                  refId="Package\Phase 2 - Match\MBDR vs Phase1NonMatches.Outputs[Lookup No Match Output]"
+                  description="The Lookup output that handles rows with no matching entries in the reference dataset. Use this output when the NoMatchBehavior property is set to &quot;Send rows with no matching entries to the no match output.&quot;"
+                  exclusionGroup="1"
+                  name="Lookup No Match Output"
+                  synchronousInputId="Package\Phase 2 - Match\MBDR vs Phase1NonMatches.Inputs[Lookup Input]">
+                  <externalMetadataColumns />
+                </output>
+                <output
+                  refId="Package\Phase 2 - Match\MBDR vs Phase1NonMatches.Outputs[Lookup Error Output]"
+                  exclusionGroup="1"
+                  isErrorOut="true"
+                  name="Lookup Error Output"
+                  synchronousInputId="Package\Phase 2 - Match\MBDR vs Phase1NonMatches.Inputs[Lookup Input]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Phase 2 - Match\MBDR vs Phase1NonMatches.Outputs[Lookup Error Output].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\Phase 2 - Match\MBDR vs Phase1NonMatches.Outputs[Lookup Error Output].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\Phase 2 - Match\MBDR vs Phase1NonMatches.Outputs[Lookup Error Output].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\Phase 2 - Match\MBDR vs Phase1NonMatches.Outputs[Lookup Error Output].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+            <component
+              refId="Package\Phase 2 - Match\Phase 2 Matches"
+              componentClassID="Microsoft.SQLServerDestination"
+              contactInfo="SQL Server Destination;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;5"
+              description="SQL Server Destination"
+              name="Phase 2 Matches"
+              version="5">
+              <properties>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the column code page to use when code page information is unavailable from the data source."
+                  name="DefaultCodePage">1252</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Forces the use of the DefaultCodePage property value when describing character data."
+                  name="AlwaysUseDefaultCodePage">false</property>
+                <property
+                  dataType="System.String"
+                  description="The name of the database object to copy data into."
+                  expressionType="Notify"
+                  name="BulkInsertTableName">[Phase3Matches]</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Specifies that any constraints on the destination object are checked during the data copy operation. Corresponds to the bulk insert CHECK_CONSTRAINTS option."
+                  name="BulkInsertCheckConstraints">true</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the number of the first row to copy. Corresponds to the bulk insert FIRSTROW option."
+                  expressionType="Notify"
+                  name="BulkInsertFirstRow">-1</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Specifies that any insert triggers defined on the destination object will execute during the data copy. Corresponds to the bulk insert FIRE_TRIGGERS option."
+                  name="BulkInsertFireTriggers">false</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Indicates whether the values supplied for identity columns will be copied to the destination. If false, values for identity columns will be auto-generated at the destination. Corresponds to the bulk insert KEEPIDENTITY option."
+                  name="BulkInsertKeepIdentity">false</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Indicates whether the columns containing null will have null copied to the destination. If false, columns containing null will have their default values inserted at the destination. Applies only if fast load is turned on."
+                  name="BulkInsertKeepNulls">false</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the number of the last row to copy. Corresponds to the bulk insert LASTROW option."
+                  expressionType="Notify"
+                  name="BulkInsertLastRow">-1</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the maximum number of syntax errors and compilation errors that can occur before the data copy operation is canceled. Each row that cannot be copied is ignored and counted as one error. Corresponds to the bulk insert MAXERRORS option."
+                  name="BulkInsertMaxErrors">-1</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies how the data to be copied is sorted. Corresponds to the bulk insert ORDER option."
+                  expressionType="Notify"
+                  name="BulkInsertOrder"></property>
+                <property
+                  dataType="System.Boolean"
+                  description="Specifies that a table-level lock is acquired for the duration of the data copy operation. Corresponds to the bulk insert TABLOCK option."
+                  name="BulkInsertTablock">true</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies in seconds the amount of time the SQL Destination adapter will wait before terminating if there is no data available for insertion.  A timeout value of 0 means the SQL Destination adapter will not time out."
+                  expressionType="Notify"
+                  name="Timeout">30</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies when commits are issued during data insertion.  A value of 0 specifies that one commit will be issued at the end of data insertion."
+                  name="MaxInsertCommitSize">0</property>
+              </properties>
+              <connections>
+                <connection
+                  refId="Package\Phase 2 - Match\Phase 2 Matches.Connections[OleDbConnection]"
+                  connectionManagerID="Package.ConnectionManagers[LocalHost.Matching]"
+                  connectionManagerRefId="Package.ConnectionManagers[LocalHost.Matching]"
+                  description="The OLE DB runtime connection used to access the database."
+                  name="OleDbConnection" />
+              </connections>
+              <inputs>
+                <input
+                  refId="Package\Phase 2 - Match\Phase 2 Matches.Inputs[SQL Server Destination Input]"
+                  hasSideEffects="true"
+                  name="SQL Server Destination Input">
+                  <inputColumns>
+                    <inputColumn
+                      refId="Package\Phase 2 - Match\Phase 2 Matches.Inputs[SQL Server Destination Input].Columns[MBDR_RecordID]"
+                      cachedDataType="i4"
+                      cachedName="MBDR_RecordID"
+                      externalMetadataColumnId="Package\Phase 2 - Match\Phase 2 Matches.Inputs[SQL Server Destination Input].ExternalColumns[MBDR_RecordID]"
+                      lineageId="Package\Phase 2 - Match\Process Phase 2 Matches.Outputs[Derived Column Output].Columns[MBDR_RecordID]" />
+                    <inputColumn
+                      refId="Package\Phase 2 - Match\Phase 2 Matches.Inputs[SQL Server Destination Input].Columns[MBDR_ClusterID]"
+                      cachedDataType="i4"
+                      cachedName="MBDR_ClusterID"
+                      externalMetadataColumnId="Package\Phase 2 - Match\Phase 2 Matches.Inputs[SQL Server Destination Input].ExternalColumns[MBDR_ClusterID]"
+                      lineageId="Package\Phase 2 - Match\Process Phase 2 Matches.Outputs[Derived Column Output].Columns[MBDR_ClusterID]" />
+                    <inputColumn
+                      refId="Package\Phase 2 - Match\Phase 2 Matches.Inputs[SQL Server Destination Input].Columns[MBDR_RuleID]"
+                      cachedDataType="wstr"
+                      cachedLength="1"
+                      cachedName="MBDR_RuleID"
+                      externalMetadataColumnId="Package\Phase 2 - Match\Phase 2 Matches.Inputs[SQL Server Destination Input].ExternalColumns[MBDR_RuleID]"
+                      lineageId="Package\Phase 2 - Match\Process Phase 2 Matches.Outputs[Derived Column Output].Columns[MBDR_RuleID]" />
+                  </inputColumns>
+                  <externalMetadataColumns
+                    isUsed="True">
+                    <externalMetadataColumn
+                      refId="Package\Phase 2 - Match\Phase 2 Matches.Inputs[SQL Server Destination Input].ExternalColumns[id]"
+                      dataType="i4"
+                      name="id" />
+                    <externalMetadataColumn
+                      refId="Package\Phase 2 - Match\Phase 2 Matches.Inputs[SQL Server Destination Input].ExternalColumns[first_name]"
+                      codePage="1252"
+                      dataType="str"
+                      length="50"
+                      name="first_name" />
+                    <externalMetadataColumn
+                      refId="Package\Phase 2 - Match\Phase 2 Matches.Inputs[SQL Server Destination Input].ExternalColumns[last_name]"
+                      codePage="1252"
+                      dataType="str"
+                      length="50"
+                      name="last_name" />
+                    <externalMetadataColumn
+                      refId="Package\Phase 2 - Match\Phase 2 Matches.Inputs[SQL Server Destination Input].ExternalColumns[gender]"
+                      codePage="1252"
+                      dataType="str"
+                      length="50"
+                      name="gender" />
+                    <externalMetadataColumn
+                      refId="Package\Phase 2 - Match\Phase 2 Matches.Inputs[SQL Server Destination Input].ExternalColumns[medrecnumber]"
+                      codePage="1252"
+                      dataType="str"
+                      length="50"
+                      name="medrecnumber" />
+                    <externalMetadataColumn
+                      refId="Package\Phase 2 - Match\Phase 2 Matches.Inputs[SQL Server Destination Input].ExternalColumns[ssn]"
+                      codePage="1252"
+                      dataType="str"
+                      length="50"
+                      name="ssn" />
+                    <externalMetadataColumn
+                      refId="Package\Phase 2 - Match\Phase 2 Matches.Inputs[SQL Server Destination Input].ExternalColumns[dobx]"
+                      dataType="dbDate"
+                      name="dobx" />
+                    <externalMetadataColumn
+                      refId="Package\Phase 2 - Match\Phase 2 Matches.Inputs[SQL Server Destination Input].ExternalColumns[MBDR_RecordID]"
+                      dataType="i4"
+                      name="MBDR_RecordID" />
+                    <externalMetadataColumn
+                      refId="Package\Phase 2 - Match\Phase 2 Matches.Inputs[SQL Server Destination Input].ExternalColumns[MBDR_ClusterID]"
+                      dataType="i4"
+                      name="MBDR_ClusterID" />
+                    <externalMetadataColumn
+                      refId="Package\Phase 2 - Match\Phase 2 Matches.Inputs[SQL Server Destination Input].ExternalColumns[MBDR_RuleID]"
+                      dataType="wstr"
+                      length="1"
+                      name="MBDR_RuleID" />
+                    <externalMetadataColumn
+                      refId="Package\Phase 2 - Match\Phase 2 Matches.Inputs[SQL Server Destination Input].ExternalColumns[Connect to MBDR.MBDR_MatchScore]"
+                      dataType="wstr"
+                      length="23"
+                      name="Connect to MBDR.MBDR_MatchScore" />
+                    <externalMetadataColumn
+                      refId="Package\Phase 2 - Match\Phase 2 Matches.Inputs[SQL Server Destination Input].ExternalColumns[MBDR_first_name]"
+                      codePage="1252"
+                      dataType="str"
+                      length="50"
+                      name="MBDR_first_name" />
+                    <externalMetadataColumn
+                      refId="Package\Phase 2 - Match\Phase 2 Matches.Inputs[SQL Server Destination Input].ExternalColumns[MBDR_last_name]"
+                      codePage="1252"
+                      dataType="str"
+                      length="50"
+                      name="MBDR_last_name" />
+                    <externalMetadataColumn
+                      refId="Package\Phase 2 - Match\Phase 2 Matches.Inputs[SQL Server Destination Input].ExternalColumns[MBDR_medrecnumber]"
+                      codePage="1252"
+                      dataType="str"
+                      length="50"
+                      name="MBDR_medrecnumber" />
+                    <externalMetadataColumn
+                      refId="Package\Phase 2 - Match\Phase 2 Matches.Inputs[SQL Server Destination Input].ExternalColumns[MBDR_ssn]"
+                      codePage="1252"
+                      dataType="str"
+                      length="50"
+                      name="MBDR_ssn" />
+                    <externalMetadataColumn
+                      refId="Package\Phase 2 - Match\Phase 2 Matches.Inputs[SQL Server Destination Input].ExternalColumns[MBDR_dobx]"
+                      dataType="dbDate"
+                      name="MBDR_dobx" />
+                    <externalMetadataColumn
+                      refId="Package\Phase 2 - Match\Phase 2 Matches.Inputs[SQL Server Destination Input].ExternalColumns[MBDR_id]"
+                      dataType="i4"
+                      name="MBDR_id" />
+                    <externalMetadataColumn
+                      refId="Package\Phase 2 - Match\Phase 2 Matches.Inputs[SQL Server Destination Input].ExternalColumns[Phase 3 Matches.MBDR_MatchScore]"
+                      dataType="wstr"
+                      length="13"
+                      name="Phase 3 Matches.MBDR_MatchScore" />
+                  </externalMetadataColumns>
+                </input>
+              </inputs>
+            </component>
+            <component
+              refId="Package\Phase 2 - Match\Phase 2 Non Matches"
+              componentClassID="Microsoft.SQLServerDestination"
+              contactInfo="SQL Server Destination;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;5"
+              description="SQL Server Destination"
+              name="Phase 2 Non Matches"
+              version="5">
+              <properties>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the column code page to use when code page information is unavailable from the data source."
+                  name="DefaultCodePage">1252</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Forces the use of the DefaultCodePage property value when describing character data."
+                  name="AlwaysUseDefaultCodePage">false</property>
+                <property
+                  dataType="System.String"
+                  description="The name of the database object to copy data into."
+                  expressionType="Notify"
+                  name="BulkInsertTableName">[Phase3NonMatches]</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Specifies that any constraints on the destination object are checked during the data copy operation. Corresponds to the bulk insert CHECK_CONSTRAINTS option."
+                  name="BulkInsertCheckConstraints">true</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the number of the first row to copy. Corresponds to the bulk insert FIRSTROW option."
+                  expressionType="Notify"
+                  name="BulkInsertFirstRow">-1</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Specifies that any insert triggers defined on the destination object will execute during the data copy. Corresponds to the bulk insert FIRE_TRIGGERS option."
+                  name="BulkInsertFireTriggers">false</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Indicates whether the values supplied for identity columns will be copied to the destination. If false, values for identity columns will be auto-generated at the destination. Corresponds to the bulk insert KEEPIDENTITY option."
+                  name="BulkInsertKeepIdentity">false</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Indicates whether the columns containing null will have null copied to the destination. If false, columns containing null will have their default values inserted at the destination. Applies only if fast load is turned on."
+                  name="BulkInsertKeepNulls">false</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the number of the last row to copy. Corresponds to the bulk insert LASTROW option."
+                  expressionType="Notify"
+                  name="BulkInsertLastRow">-1</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the maximum number of syntax errors and compilation errors that can occur before the data copy operation is canceled. Each row that cannot be copied is ignored and counted as one error. Corresponds to the bulk insert MAXERRORS option."
+                  name="BulkInsertMaxErrors">-1</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies how the data to be copied is sorted. Corresponds to the bulk insert ORDER option."
+                  expressionType="Notify"
+                  name="BulkInsertOrder"></property>
+                <property
+                  dataType="System.Boolean"
+                  description="Specifies that a table-level lock is acquired for the duration of the data copy operation. Corresponds to the bulk insert TABLOCK option."
+                  name="BulkInsertTablock">true</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies in seconds the amount of time the SQL Destination adapter will wait before terminating if there is no data available for insertion.  A timeout value of 0 means the SQL Destination adapter will not time out."
+                  expressionType="Notify"
+                  name="Timeout">30</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies when commits are issued during data insertion.  A value of 0 specifies that one commit will be issued at the end of data insertion."
+                  name="MaxInsertCommitSize">0</property>
+              </properties>
+              <connections>
+                <connection
+                  refId="Package\Phase 2 - Match\Phase 2 Non Matches.Connections[OleDbConnection]"
+                  connectionManagerID="Package.ConnectionManagers[LocalHost.Matching]"
+                  connectionManagerRefId="Package.ConnectionManagers[LocalHost.Matching]"
+                  description="The OLE DB runtime connection used to access the database."
+                  name="OleDbConnection" />
+              </connections>
+              <inputs>
+                <input
+                  refId="Package\Phase 2 - Match\Phase 2 Non Matches.Inputs[SQL Server Destination Input]"
+                  hasSideEffects="true"
+                  name="SQL Server Destination Input">
+                  <inputColumns>
+                    <inputColumn
+                      refId="Package\Phase 2 - Match\Phase 2 Non Matches.Inputs[SQL Server Destination Input].Columns[id]"
+                      cachedDataType="i4"
+                      cachedName="id"
+                      externalMetadataColumnId="Package\Phase 2 - Match\Phase 2 Non Matches.Inputs[SQL Server Destination Input].ExternalColumns[id]"
+                      lineageId="Package\Phase 2 - Match\Connect to MBDR.Outputs[OLE DB Source Output].Columns[id]" />
+                    <inputColumn
+                      refId="Package\Phase 2 - Match\Phase 2 Non Matches.Inputs[SQL Server Destination Input].Columns[first_name]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="50"
+                      cachedName="first_name"
+                      externalMetadataColumnId="Package\Phase 2 - Match\Phase 2 Non Matches.Inputs[SQL Server Destination Input].ExternalColumns[first_name]"
+                      lineageId="Package\Phase 2 - Match\Connect to MBDR.Outputs[OLE DB Source Output].Columns[first_name]" />
+                    <inputColumn
+                      refId="Package\Phase 2 - Match\Phase 2 Non Matches.Inputs[SQL Server Destination Input].Columns[last_name]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="50"
+                      cachedName="last_name"
+                      externalMetadataColumnId="Package\Phase 2 - Match\Phase 2 Non Matches.Inputs[SQL Server Destination Input].ExternalColumns[last_name]"
+                      lineageId="Package\Phase 2 - Match\Connect to MBDR.Outputs[OLE DB Source Output].Columns[last_name]" />
+                    <inputColumn
+                      refId="Package\Phase 2 - Match\Phase 2 Non Matches.Inputs[SQL Server Destination Input].Columns[gender]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="50"
+                      cachedName="gender"
+                      externalMetadataColumnId="Package\Phase 2 - Match\Phase 2 Non Matches.Inputs[SQL Server Destination Input].ExternalColumns[gender]"
+                      lineageId="Package\Phase 2 - Match\Connect to MBDR.Outputs[OLE DB Source Output].Columns[gender]" />
+                    <inputColumn
+                      refId="Package\Phase 2 - Match\Phase 2 Non Matches.Inputs[SQL Server Destination Input].Columns[medrecnumber]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="50"
+                      cachedName="medrecnumber"
+                      externalMetadataColumnId="Package\Phase 2 - Match\Phase 2 Non Matches.Inputs[SQL Server Destination Input].ExternalColumns[medrecnumber]"
+                      lineageId="Package\Phase 2 - Match\Connect to MBDR.Outputs[OLE DB Source Output].Columns[medrecnumber]" />
+                    <inputColumn
+                      refId="Package\Phase 2 - Match\Phase 2 Non Matches.Inputs[SQL Server Destination Input].Columns[ssn]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="50"
+                      cachedName="ssn"
+                      externalMetadataColumnId="Package\Phase 2 - Match\Phase 2 Non Matches.Inputs[SQL Server Destination Input].ExternalColumns[ssn]"
+                      lineageId="Package\Phase 2 - Match\Connect to MBDR.Outputs[OLE DB Source Output].Columns[ssn]" />
+                    <inputColumn
+                      refId="Package\Phase 2 - Match\Phase 2 Non Matches.Inputs[SQL Server Destination Input].Columns[dobx]"
+                      cachedDataType="dbDate"
+                      cachedName="dobx"
+                      externalMetadataColumnId="Package\Phase 2 - Match\Phase 2 Non Matches.Inputs[SQL Server Destination Input].ExternalColumns[dobx]"
+                      lineageId="Package\Phase 2 - Match\Connect to MBDR.Outputs[OLE DB Source Output].Columns[dobx]" />
+                    <inputColumn
+                      refId="Package\Phase 2 - Match\Phase 2 Non Matches.Inputs[SQL Server Destination Input].Columns[MBDR_MatchScore]"
+                      cachedDataType="wstr"
+                      cachedLength="23"
+                      cachedName="MBDR_MatchScore"
+                      externalMetadataColumnId="Package\Phase 2 - Match\Phase 2 Non Matches.Inputs[SQL Server Destination Input].ExternalColumns[MBDR_MatchScore]"
+                      lineageId="Package\Phase 2 - Match\Connect to MBDR.Outputs[OLE DB Source Output].Columns[MBDR_MatchScore]" />
+                  </inputColumns>
+                  <externalMetadataColumns
+                    isUsed="True">
+                    <externalMetadataColumn
+                      refId="Package\Phase 2 - Match\Phase 2 Non Matches.Inputs[SQL Server Destination Input].ExternalColumns[id]"
+                      dataType="i4"
+                      name="id" />
+                    <externalMetadataColumn
+                      refId="Package\Phase 2 - Match\Phase 2 Non Matches.Inputs[SQL Server Destination Input].ExternalColumns[first_name]"
+                      codePage="1252"
+                      dataType="str"
+                      length="50"
+                      name="first_name" />
+                    <externalMetadataColumn
+                      refId="Package\Phase 2 - Match\Phase 2 Non Matches.Inputs[SQL Server Destination Input].ExternalColumns[last_name]"
+                      codePage="1252"
+                      dataType="str"
+                      length="50"
+                      name="last_name" />
+                    <externalMetadataColumn
+                      refId="Package\Phase 2 - Match\Phase 2 Non Matches.Inputs[SQL Server Destination Input].ExternalColumns[gender]"
+                      codePage="1252"
+                      dataType="str"
+                      length="50"
+                      name="gender" />
+                    <externalMetadataColumn
+                      refId="Package\Phase 2 - Match\Phase 2 Non Matches.Inputs[SQL Server Destination Input].ExternalColumns[medrecnumber]"
+                      codePage="1252"
+                      dataType="str"
+                      length="50"
+                      name="medrecnumber" />
+                    <externalMetadataColumn
+                      refId="Package\Phase 2 - Match\Phase 2 Non Matches.Inputs[SQL Server Destination Input].ExternalColumns[ssn]"
+                      codePage="1252"
+                      dataType="str"
+                      length="50"
+                      name="ssn" />
+                    <externalMetadataColumn
+                      refId="Package\Phase 2 - Match\Phase 2 Non Matches.Inputs[SQL Server Destination Input].ExternalColumns[dobx]"
+                      dataType="dbDate"
+                      name="dobx" />
+                    <externalMetadataColumn
+                      refId="Package\Phase 2 - Match\Phase 2 Non Matches.Inputs[SQL Server Destination Input].ExternalColumns[MBDR_MatchScore]"
+                      dataType="wstr"
+                      length="23"
+                      name="MBDR_MatchScore" />
+                  </externalMetadataColumns>
+                </input>
+              </inputs>
+            </component>
+            <component
+              refId="Package\Phase 2 - Match\Phase 2 NonMatches"
+              componentClassID="Microsoft.DerivedColumn"
+              contactInfo="Derived Column;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;0"
+              description="Creates new column values by applying expressions to transformation input columns. Create new columns or overwrite existing ones. For example, concatenate the values from the 'first name' and 'last name' column to make a 'full name' column."
+              name="Phase 2 NonMatches"
+              usesDispositions="true">
+              <inputs>
+                <input
+                  refId="Package\Phase 2 - Match\Phase 2 NonMatches.Inputs[Derived Column Input]"
+                  description="Input to the Derived Column Transformation"
+                  name="Derived Column Input">
+                  <inputColumns>
+                    <inputColumn
+                      refId="Package\Phase 2 - Match\Phase 2 NonMatches.Inputs[Derived Column Input].Columns[MBDR_MatchScore]"
+                      cachedDataType="wstr"
+                      cachedLength="23"
+                      cachedName="MBDR_MatchScore"
+                      errorOrTruncationOperation="Computation"
+                      errorRowDisposition="FailComponent"
+                      lineageId="Package\Phase 2 - Match\Connect to MBDR.Outputs[OLE DB Source Output].Columns[MBDR_MatchScore]"
+                      truncationRowDisposition="FailComponent"
+                      usageType="readWrite">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.String"
+                          description="Derived Column Expression"
+                          name="Expression">"Phase 2 Match Not found"</property>
+                        <property
+                          containsID="true"
+                          dataType="System.String"
+                          description="Derived Column Friendly Expression"
+                          expressionType="Notify"
+                          name="FriendlyExpression">"Phase 2 Match Not found"</property>
+                      </properties>
+                    </inputColumn>
+                  </inputColumns>
+                  <externalMetadataColumns />
+                </input>
+              </inputs>
+              <outputs>
+                <output
+                  refId="Package\Phase 2 - Match\Phase 2 NonMatches.Outputs[Derived Column Output]"
+                  description="Default Output of the Derived Column Transformation"
+                  exclusionGroup="1"
+                  name="Derived Column Output"
+                  synchronousInputId="Package\Phase 2 - Match\Phase 2 NonMatches.Inputs[Derived Column Input]">
+                  <externalMetadataColumns />
+                </output>
+                <output
+                  refId="Package\Phase 2 - Match\Phase 2 NonMatches.Outputs[Derived Column Error Output]"
+                  description="Error Output of the Derived Column Transformation"
+                  exclusionGroup="1"
+                  isErrorOut="true"
+                  name="Derived Column Error Output"
+                  synchronousInputId="Package\Phase 2 - Match\Phase 2 NonMatches.Inputs[Derived Column Input]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Phase 2 - Match\Phase 2 NonMatches.Outputs[Derived Column Error Output].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\Phase 2 - Match\Phase 2 NonMatches.Outputs[Derived Column Error Output].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\Phase 2 - Match\Phase 2 NonMatches.Outputs[Derived Column Error Output].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\Phase 2 - Match\Phase 2 NonMatches.Outputs[Derived Column Error Output].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+            <component
+              refId="Package\Phase 2 - Match\Process Phase 2 Matches"
+              componentClassID="Microsoft.DerivedColumn"
+              contactInfo="Derived Column;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;0"
+              description="Creates new column values by applying expressions to transformation input columns. Create new columns or overwrite existing ones. For example, concatenate the values from the 'first name' and 'last name' column to make a 'full name' column."
+              name="Process Phase 2 Matches"
+              usesDispositions="true">
+              <inputs>
+                <input
+                  refId="Package\Phase 2 - Match\Process Phase 2 Matches.Inputs[Derived Column Input]"
+                  description="Input to the Derived Column Transformation"
+                  name="Derived Column Input">
+                  <inputColumns>
+                    <inputColumn
+                      refId="Package\Phase 2 - Match\Process Phase 2 Matches.Inputs[Derived Column Input].Columns[MBDR_id]"
+                      cachedDataType="i4"
+                      cachedName="MBDR_id"
+                      lineageId="Package\Phase 2 - Match\MBDR vs Phase1NonMatches.Outputs[Lookup Match Output].Columns[MBDR_id]" />
+                  </inputColumns>
+                  <externalMetadataColumns />
+                </input>
+              </inputs>
+              <outputs>
+                <output
+                  refId="Package\Phase 2 - Match\Process Phase 2 Matches.Outputs[Derived Column Output]"
+                  description="Default Output of the Derived Column Transformation"
+                  exclusionGroup="1"
+                  name="Derived Column Output"
+                  synchronousInputId="Package\Phase 2 - Match\Process Phase 2 Matches.Inputs[Derived Column Input]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Phase 2 - Match\Process Phase 2 Matches.Outputs[Derived Column Output].Columns[MBDR_MatchScore]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Computation"
+                      errorRowDisposition="FailComponent"
+                      length="13"
+                      lineageId="Package\Phase 2 - Match\Process Phase 2 Matches.Outputs[Derived Column Output].Columns[MBDR_MatchScore]"
+                      name="MBDR_MatchScore"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.String"
+                          description="Derived Column Expression"
+                          name="Expression">"Phase 2 Match"</property>
+                        <property
+                          containsID="true"
+                          dataType="System.String"
+                          description="Derived Column Friendly Expression"
+                          expressionType="Notify"
+                          name="FriendlyExpression">"Phase 2 Match"</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\Phase 2 - Match\Process Phase 2 Matches.Outputs[Derived Column Output].Columns[MBDR_RecordID]"
+                      dataType="i4"
+                      errorOrTruncationOperation="Computation"
+                      errorRowDisposition="FailComponent"
+                      lineageId="Package\Phase 2 - Match\Process Phase 2 Matches.Outputs[Derived Column Output].Columns[MBDR_RecordID]"
+                      name="MBDR_RecordID"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.String"
+                          description="Derived Column Expression"
+                          name="Expression">#{Package\Phase 2 - Match\MBDR vs Phase1NonMatches.Outputs[Lookup Match Output].Columns[MBDR_id]}</property>
+                        <property
+                          containsID="true"
+                          dataType="System.String"
+                          description="Derived Column Friendly Expression"
+                          expressionType="Notify"
+                          name="FriendlyExpression">MBDR_id</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\Phase 2 - Match\Process Phase 2 Matches.Outputs[Derived Column Output].Columns[MBDR_ClusterID]"
+                      dataType="i4"
+                      errorOrTruncationOperation="Computation"
+                      errorRowDisposition="FailComponent"
+                      lineageId="Package\Phase 2 - Match\Process Phase 2 Matches.Outputs[Derived Column Output].Columns[MBDR_ClusterID]"
+                      name="MBDR_ClusterID"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.String"
+                          description="Derived Column Expression"
+                          name="Expression">#{Package\Phase 2 - Match\MBDR vs Phase1NonMatches.Outputs[Lookup Match Output].Columns[MBDR_id]}</property>
+                        <property
+                          containsID="true"
+                          dataType="System.String"
+                          description="Derived Column Friendly Expression"
+                          expressionType="Notify"
+                          name="FriendlyExpression">MBDR_id</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\Phase 2 - Match\Process Phase 2 Matches.Outputs[Derived Column Output].Columns[MBDR_RuleID]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Computation"
+                      errorRowDisposition="FailComponent"
+                      length="1"
+                      lineageId="Package\Phase 2 - Match\Process Phase 2 Matches.Outputs[Derived Column Output].Columns[MBDR_RuleID]"
+                      name="MBDR_RuleID"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.String"
+                          description="Derived Column Expression"
+                          name="Expression">"2"</property>
+                        <property
+                          containsID="true"
+                          dataType="System.String"
+                          description="Derived Column Friendly Expression"
+                          expressionType="Notify"
+                          name="FriendlyExpression">"2"</property>
+                      </properties>
+                    </outputColumn>
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+                <output
+                  refId="Package\Phase 2 - Match\Process Phase 2 Matches.Outputs[Derived Column Error Output]"
+                  description="Error Output of the Derived Column Transformation"
+                  exclusionGroup="1"
+                  isErrorOut="true"
+                  name="Derived Column Error Output"
+                  synchronousInputId="Package\Phase 2 - Match\Process Phase 2 Matches.Inputs[Derived Column Input]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Phase 2 - Match\Process Phase 2 Matches.Outputs[Derived Column Error Output].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\Phase 2 - Match\Process Phase 2 Matches.Outputs[Derived Column Error Output].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\Phase 2 - Match\Process Phase 2 Matches.Outputs[Derived Column Error Output].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\Phase 2 - Match\Process Phase 2 Matches.Outputs[Derived Column Error Output].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+          </components>
+          <paths>
+            <path
+              refId="Package\Phase 2 - Match.Paths[Derived Column Output]"
+              endId="Package\Phase 2 - Match\Phase 2 Non Matches.Inputs[SQL Server Destination Input]"
+              name="Derived Column Output"
+              startId="Package\Phase 2 - Match\Phase 2 NonMatches.Outputs[Derived Column Output]" />
+            <path
+              refId="Package\Phase 2 - Match.Paths[Derived Column Output1]"
+              endId="Package\Phase 2 - Match\Phase 2 Matches.Inputs[SQL Server Destination Input]"
+              name="Derived Column Output"
+              startId="Package\Phase 2 - Match\Process Phase 2 Matches.Outputs[Derived Column Output]" />
+            <path
+              refId="Package\Phase 2 - Match.Paths[Lookup Match Output]"
+              endId="Package\Phase 2 - Match\Process Phase 2 Matches.Inputs[Derived Column Input]"
+              name="Lookup Match Output"
+              startId="Package\Phase 2 - Match\MBDR vs Phase1NonMatches.Outputs[Lookup Match Output]" />
+            <path
+              refId="Package\Phase 2 - Match.Paths[Lookup No Match Output]"
+              endId="Package\Phase 2 - Match\Phase 2 NonMatches.Inputs[Derived Column Input]"
+              name="Lookup No Match Output"
+              startId="Package\Phase 2 - Match\MBDR vs Phase1NonMatches.Outputs[Lookup No Match Output]" />
+            <path
+              refId="Package\Phase 2 - Match.Paths[OLE DB Source Output]"
+              endId="Package\Phase 2 - Match\MBDR vs Phase1NonMatches.Inputs[Lookup Input]"
+              name="OLE DB Source Output"
+              startId="Package\Phase 2 - Match\Connect to MBDR.Outputs[OLE DB Source Output]" />
+          </paths>
+        </pipeline>
+      </DTS:ObjectData>
+    </DTS:Executable>
+  </DTS:Executables>
+  <DTS:DesignTimeProperties><![CDATA[<?xml version="1.0"?>
+<!--This CDATA section contains the layout information of the package. The section includes information such as (x,y) coordinates, width, and height.-->
+<!--If you manually edit this section and make a mistake, you can delete it. -->
+<!--The package will still be able to load normally but the previous layout information will be lost and the designer will automatically re-arrange the elements on the design surface.-->
+<Objects
+  Version="sql12">
+  <!--Each node below will contain properties that do not affect runtime behavior.-->
+  <Package
+    design-time-name="Package">
+    <LayoutInfo>
+      <GraphLayout
+        Capacity="4" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph">
+        <NodeLayout
+          Size="157,42"
+          Id="Package\Phase 2 - Match"
+          TopLeft="5.5,5.5" />
+      </GraphLayout>
+    </LayoutInfo>
+  </Package>
+  <TaskHost
+    design-time-name="Package\Phase 2 - Match">
+    <LayoutInfo>
+      <GraphLayout
+        Capacity="16" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:mssgm="clr-namespace:Microsoft.SqlServer.Graph.Model;assembly=Microsoft.SqlServer.Graph">
+        <NodeLayout
+          Size="160,42"
+          Id="Package\Phase 2 - Match\Phase 2 Matches"
+          TopLeft="266.5,311.5" />
+        <NodeLayout
+          Size="199,42"
+          Id="Package\Phase 2 - Match\Process Phase 2 Matches"
+          TopLeft="247,209.5" />
+        <NodeLayout
+          Size="217,42"
+          Id="Package\Phase 2 - Match\MBDR vs Phase1NonMatches"
+          TopLeft="238,107.5" />
+        <NodeLayout
+          Size="164,42"
+          Id="Package\Phase 2 - Match\Connect to MBDR"
+          TopLeft="264.5,5.5" />
+        <NodeLayout
+          Size="182,42"
+          Id="Package\Phase 2 - Match\Phase 2 Non Matches"
+          TopLeft="5.50000000000006,311.5" />
+        <NodeLayout
+          Size="179,42"
+          Id="Package\Phase 2 - Match\Phase 2 NonMatches"
+          TopLeft="7.00000000000003,209.5" />
+        <EdgeLayout
+          Id="Package\Phase 2 - Match.Paths[OLE DB Source Output]"
+          TopLeft="346.5,47.5">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,60"
+              Start="0,0"
+              End="0,52.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,52.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\Phase 2 - Match.Paths[Lookup No Match Output]"
+          TopLeft="311.666666666667,149.5">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="-215.166666666667,60"
+              Start="0,0"
+              End="-215.166666666667,52.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,20.263494967978" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,20.263494967978"
+                    Point2="0,24.263494967978"
+                    Point3="-4,24.263494967978" />
+                  <mssgle:LineSegment
+                    End="-211.166666666667,24.263494967978" />
+                  <mssgle:CubicBezierSegment
+                    Point1="-211.166666666667,24.263494967978"
+                    Point2="-215.166666666667,24.263494967978"
+                    Point3="-215.166666666667,28.263494967978" />
+                  <mssgle:LineSegment
+                    End="-215.166666666667,52.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <mssgm:EdgeLabel
+              BoundingBox="-163.389720052083,29.263494967978,111.6127734375,11.609375"
+              RelativePosition="Any" />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\Phase 2 - Match.Paths[Lookup Match Output]"
+          TopLeft="381.333333333333,149.5">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="-34.8333333333333,60"
+              Start="0,0"
+              End="-34.8333333333333,52.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,20.263494967978" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,20.263494967978"
+                    Point2="0,24.263494967978"
+                    Point3="-4,24.263494967978" />
+                  <mssgle:LineSegment
+                    End="-30.8333333333333,24.263494967978" />
+                  <mssgle:CubicBezierSegment
+                    Point1="-30.8333333333333,24.263494967978"
+                    Point2="-34.8333333333333,24.263494967978"
+                    Point3="-34.8333333333333,28.263494967978" />
+                  <mssgle:LineSegment
+                    End="-34.8333333333333,52.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <mssgm:EdgeLabel
+              BoundingBox="-65.6080533854166,29.263494967978,96.3827734375,11.609375"
+              RelativePosition="Any" />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\Phase 2 - Match.Paths[Derived Column Output1]"
+          TopLeft="346.5,251.5">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,60"
+              Start="0,0"
+              End="0,52.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,52.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\Phase 2 - Match.Paths[Derived Column Output]"
+          TopLeft="96.5,251.5">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,60"
+              Start="0,0"
+              End="0,52.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,52.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+      </GraphLayout>
+    </LayoutInfo>
+  </TaskHost>
+</Objects>]]></DTS:DesignTimeProperties>
+</DTS:Executable>

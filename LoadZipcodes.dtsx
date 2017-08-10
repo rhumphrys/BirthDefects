@@ -1,0 +1,1425 @@
+﻿<?xml version="1.0"?>
+<DTS:Executable xmlns:DTS="www.microsoft.com/SqlServer/Dts"
+  DTS:refId="Package"
+  DTS:CreationDate="8/19/2016 12:46:21 PM"
+  DTS:CreationName="Microsoft.Package"
+  DTS:CreatorComputerName="RHUMPHRYS-10733"
+  DTS:CreatorName="ALTARUM\rhumphrys"
+  DTS:DTSID="{E451AA52-1A23-45FF-B80B-CC319FC7A8CE}"
+  DTS:ExecutableType="Microsoft.Package"
+  DTS:LastModifiedProductVersion="12.0.2430.0"
+  DTS:LocaleID="1033"
+  DTS:ObjectName="LoadZipcodes"
+  DTS:PackageType="5"
+  DTS:VersionBuild="14"
+  DTS:VersionGUID="{C6957585-99D6-47E2-B0C7-BBFFD1CD3122}">
+  <DTS:Property
+    DTS:Name="PackageFormatVersion">8</DTS:Property>
+  <DTS:ConnectionManagers>
+    <DTS:ConnectionManager
+      DTS:refId="Package.ConnectionManagers[Excel Connection Manager]"
+      DTS:CreationName="EXCEL"
+      DTS:DTSID="{BE207039-4C2B-48C0-AAE4-B86080BA6786}"
+      DTS:ObjectName="Excel Connection Manager">
+      <DTS:ObjectData>
+        <DTS:ConnectionManager
+          DTS:ConnectionString="Provider=Microsoft.ACE.OLEDB.12.0;Data Source=E:\Birth Defects\BxDef Database\all_michigan_zipcodes.xlsx;Extended Properties=&quot;EXCEL 12.0 XML;HDR=NO&quot;;" />
+      </DTS:ObjectData>
+    </DTS:ConnectionManager>
+    <DTS:ConnectionManager
+      DTS:refId="Package.ConnectionManagers[Flat File Connection Manager]"
+      DTS:CreationName="FLATFILE"
+      DTS:DTSID="{091FC7CB-3897-42C4-94F3-3C2E3D207E3A}"
+      DTS:ObjectName="Flat File Connection Manager">
+      <DTS:ObjectData>
+        <DTS:ConnectionManager
+          DTS:Format="Delimited"
+          DTS:LocaleID="1033"
+          DTS:HeaderRowDelimiter="_x000D__x000A_"
+          DTS:ColumnNamesInFirstDataRow="True"
+          DTS:RowDelimiter=""
+          DTS:TextQualifier="_x0022_"
+          DTS:CodePage="1252"
+          DTS:ConnectionString="E:\zipcodedata.csv">
+          <DTS:FlatFileColumns>
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x002C_"
+              DTS:MaximumWidth="50"
+              DTS:DataType="129"
+              DTS:TextQualified="True"
+              DTS:ObjectName="id"
+              DTS:DTSID="{D575E556-5A84-4691-B579-2CCEB580828D}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x002C_"
+              DTS:MaximumWidth="50"
+              DTS:DataType="129"
+              DTS:TextQualified="True"
+              DTS:ObjectName="layer"
+              DTS:DTSID="{8FC08C60-6C89-414B-86E0-9860954E9FCD}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x002C_"
+              DTS:MaximumWidth="50"
+              DTS:DataType="129"
+              DTS:TextQualified="True"
+              DTS:ObjectName="zipcode"
+              DTS:DTSID="{5F3931DD-18DA-4F85-82E9-CA76686699E2}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x002C_"
+              DTS:MaximumWidth="50"
+              DTS:DataType="129"
+              DTS:TextQualified="True"
+              DTS:ObjectName="po_name"
+              DTS:DTSID="{9DAF8AF8-5A1E-49F7-8915-E0D1851A6CF0}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x002C_"
+              DTS:MaximumWidth="50"
+              DTS:DataType="129"
+              DTS:TextQualified="True"
+              DTS:ObjectName="countycode"
+              DTS:DTSID="{A77429E3-21B6-4A05-BEDC-76245F8B2A4B}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x002C_"
+              DTS:MaximumWidth="50"
+              DTS:DataType="129"
+              DTS:TextQualified="True"
+              DTS:ObjectName="countyname"
+              DTS:DTSID="{291A0AF2-186B-4A7E-B5A0-8609046A29AD}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x002C_"
+              DTS:MaximumWidth="50"
+              DTS:DataType="129"
+              DTS:TextQualified="True"
+              DTS:ObjectName="mcdcode"
+              DTS:DTSID="{739C8DF1-C664-4D9C-9F0F-2633FBC4FEEB}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x002C_"
+              DTS:MaximumWidth="50"
+              DTS:DataType="129"
+              DTS:TextQualified="True"
+              DTS:ObjectName="mcdname"
+              DTS:DTSID="{3E75D97C-418A-4A41-8066-F0F8D314336C}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x002C_"
+              DTS:MaximumWidth="50"
+              DTS:DataType="129"
+              DTS:TextQualified="True"
+              DTS:ObjectName="villcode"
+              DTS:DTSID="{B09825DE-B20E-48B1-90F4-0011493B4889}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x002C_"
+              DTS:MaximumWidth="50"
+              DTS:DataType="129"
+              DTS:TextQualified="True"
+              DTS:ObjectName="villname"
+              DTS:DTSID="{8DDFB2F7-0CC0-4DE0-BB75-74763A72EBC9}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x002C_"
+              DTS:MaximumWidth="50"
+              DTS:DataType="129"
+              DTS:TextQualified="True"
+              DTS:ObjectName="placename"
+              DTS:DTSID="{9D572DC0-4F7E-4A8A-A313-853C13DD3458}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x002C_"
+              DTS:MaximumWidth="50"
+              DTS:DataType="129"
+              DTS:TextQualified="True"
+              DTS:ObjectName="cocode"
+              DTS:DTSID="{48D6FB0A-F727-4C36-B65E-0DBF2053DA06}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x002C_"
+              DTS:MaximumWidth="50"
+              DTS:DataType="129"
+              DTS:TextQualified="True"
+              DTS:ObjectName="rescd"
+              DTS:DTSID="{F788FB11-2278-4852-AAA1-DBD85B4A7965}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x002C_"
+              DTS:MaximumWidth="50"
+              DTS:DataType="129"
+              DTS:TextQualified="True"
+              DTS:ObjectName="mdchcode"
+              DTS:DTSID="{A74AD6EC-49DA-48FE-A2BB-0E66C5C37FE2}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x002C_"
+              DTS:MaximumWidth="50"
+              DTS:DataType="129"
+              DTS:TextQualified="True"
+              DTS:ObjectName="addname"
+              DTS:DTSID="{A75F5495-55FA-433F-BE82-1EE99828ACEE}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x002C_"
+              DTS:MaximumWidth="50"
+              DTS:DataType="129"
+              DTS:TextQualified="True"
+              DTS:ObjectName="addcity"
+              DTS:DTSID="{794C4854-636A-43C2-8E9E-FA9E1AD7A073}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x002C_"
+              DTS:MaximumWidth="50"
+              DTS:DataType="129"
+              DTS:TextQualified="True"
+              DTS:ObjectName="uniquename"
+              DTS:DTSID="{99ED1141-37C7-4AAF-8F2A-0CF9617D350C}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x002C_"
+              DTS:MaximumWidth="50"
+              DTS:DataType="129"
+              DTS:TextQualified="True"
+              DTS:ObjectName="unictyzipn"
+              DTS:DTSID="{F7A54F6A-8FC5-484E-8ADB-F16FE1BC67E6}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x002C_"
+              DTS:MaximumWidth="50"
+              DTS:DataType="129"
+              DTS:TextQualified="True"
+              DTS:ObjectName="cty_zipnam"
+              DTS:DTSID="{7C6918A0-4832-4D61-829C-DE5D75FA99AF}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x000D__x000A_"
+              DTS:MaximumWidth="50"
+              DTS:DataType="129"
+              DTS:TextQualified="True"
+              DTS:ObjectName="uname2zip"
+              DTS:DTSID="{20FB2A3F-F051-47AB-8E44-49D91ADF4B85}"
+              DTS:CreationName="" />
+          </DTS:FlatFileColumns>
+        </DTS:ConnectionManager>
+      </DTS:ObjectData>
+    </DTS:ConnectionManager>
+  </DTS:ConnectionManagers>
+  <DTS:Variables />
+  <DTS:Executables>
+    <DTS:Executable
+      DTS:refId="Package\load michigan zipcodes"
+      DTS:CreationName="Microsoft.Pipeline"
+      DTS:Description="Data Flow Task"
+      DTS:DTSID="{23955C9A-2E96-44A1-BEA2-21714113A1FE}"
+      DTS:ExecutableType="Microsoft.Pipeline"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="load michigan zipcodes"
+      DTS:TaskContact="Performs high-performance data extraction, transformation and loading;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1">
+      <DTS:Variables />
+      <DTS:ObjectData>
+        <pipeline
+          version="1">
+          <components>
+            <component
+              refId="Package\load michigan zipcodes\Flat File Source"
+              componentClassID="Microsoft.FlatFileSource"
+              contactInfo="Flat File Source;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;1"
+              description="Flat File Source"
+              localeId="1033"
+              name="Flat File Source"
+              usesDispositions="true"
+              version="1">
+              <properties>
+                <property
+                  dataType="System.Boolean"
+                  description="Specifies whether zero-length columns are treated as null."
+                  name="RetainNulls">false</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies the name of an output column containing the file name. If no name is specified, no output column containing the file name will be generated."
+                  name="FileNameColumnName"></property>
+              </properties>
+              <connections>
+                <connection
+                  refId="Package\load michigan zipcodes\Flat File Source.Connections[FlatFileConnection]"
+                  connectionManagerID="Package.ConnectionManagers[Flat File Connection Manager]"
+                  connectionManagerRefId="Package.ConnectionManagers[Flat File Connection Manager]"
+                  name="FlatFileConnection" />
+              </connections>
+              <outputs>
+                <output
+                  refId="Package\load michigan zipcodes\Flat File Source.Outputs[Flat File Source Output]"
+                  name="Flat File Source Output">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\load michigan zipcodes\Flat File Source.Outputs[Flat File Source Output].Columns[id]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\load michigan zipcodes\Flat File Source.Outputs[Flat File Source Output].ExternalColumns[id]"
+                      length="50"
+                      lineageId="Package\load michigan zipcodes\Flat File Source.Outputs[Flat File Source Output].Columns[id]"
+                      name="id"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                          name="FastParse">false</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the data is in binary format."
+                          name="UseBinaryFormat">false</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\load michigan zipcodes\Flat File Source.Outputs[Flat File Source Output].Columns[layer]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\load michigan zipcodes\Flat File Source.Outputs[Flat File Source Output].ExternalColumns[layer]"
+                      length="50"
+                      lineageId="Package\load michigan zipcodes\Flat File Source.Outputs[Flat File Source Output].Columns[layer]"
+                      name="layer"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                          name="FastParse">false</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the data is in binary format."
+                          name="UseBinaryFormat">false</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\load michigan zipcodes\Flat File Source.Outputs[Flat File Source Output].Columns[zipcode]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\load michigan zipcodes\Flat File Source.Outputs[Flat File Source Output].ExternalColumns[zipcode]"
+                      length="50"
+                      lineageId="Package\load michigan zipcodes\Flat File Source.Outputs[Flat File Source Output].Columns[zipcode]"
+                      name="zipcode"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                          name="FastParse">false</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the data is in binary format."
+                          name="UseBinaryFormat">false</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\load michigan zipcodes\Flat File Source.Outputs[Flat File Source Output].Columns[po_name]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\load michigan zipcodes\Flat File Source.Outputs[Flat File Source Output].ExternalColumns[po_name]"
+                      length="50"
+                      lineageId="Package\load michigan zipcodes\Flat File Source.Outputs[Flat File Source Output].Columns[po_name]"
+                      name="po_name"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                          name="FastParse">false</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the data is in binary format."
+                          name="UseBinaryFormat">false</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\load michigan zipcodes\Flat File Source.Outputs[Flat File Source Output].Columns[countycode]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\load michigan zipcodes\Flat File Source.Outputs[Flat File Source Output].ExternalColumns[countycode]"
+                      length="50"
+                      lineageId="Package\load michigan zipcodes\Flat File Source.Outputs[Flat File Source Output].Columns[countycode]"
+                      name="countycode"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                          name="FastParse">false</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the data is in binary format."
+                          name="UseBinaryFormat">false</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\load michigan zipcodes\Flat File Source.Outputs[Flat File Source Output].Columns[countyname]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\load michigan zipcodes\Flat File Source.Outputs[Flat File Source Output].ExternalColumns[countyname]"
+                      length="50"
+                      lineageId="Package\load michigan zipcodes\Flat File Source.Outputs[Flat File Source Output].Columns[countyname]"
+                      name="countyname"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                          name="FastParse">false</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the data is in binary format."
+                          name="UseBinaryFormat">false</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\load michigan zipcodes\Flat File Source.Outputs[Flat File Source Output].Columns[mcdcode]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\load michigan zipcodes\Flat File Source.Outputs[Flat File Source Output].ExternalColumns[mcdcode]"
+                      length="50"
+                      lineageId="Package\load michigan zipcodes\Flat File Source.Outputs[Flat File Source Output].Columns[mcdcode]"
+                      name="mcdcode"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                          name="FastParse">false</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the data is in binary format."
+                          name="UseBinaryFormat">false</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\load michigan zipcodes\Flat File Source.Outputs[Flat File Source Output].Columns[mcdname]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\load michigan zipcodes\Flat File Source.Outputs[Flat File Source Output].ExternalColumns[mcdname]"
+                      length="50"
+                      lineageId="Package\load michigan zipcodes\Flat File Source.Outputs[Flat File Source Output].Columns[mcdname]"
+                      name="mcdname"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                          name="FastParse">false</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the data is in binary format."
+                          name="UseBinaryFormat">false</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\load michigan zipcodes\Flat File Source.Outputs[Flat File Source Output].Columns[villcode]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\load michigan zipcodes\Flat File Source.Outputs[Flat File Source Output].ExternalColumns[villcode]"
+                      length="50"
+                      lineageId="Package\load michigan zipcodes\Flat File Source.Outputs[Flat File Source Output].Columns[villcode]"
+                      name="villcode"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                          name="FastParse">false</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the data is in binary format."
+                          name="UseBinaryFormat">false</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\load michigan zipcodes\Flat File Source.Outputs[Flat File Source Output].Columns[villname]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\load michigan zipcodes\Flat File Source.Outputs[Flat File Source Output].ExternalColumns[villname]"
+                      length="50"
+                      lineageId="Package\load michigan zipcodes\Flat File Source.Outputs[Flat File Source Output].Columns[villname]"
+                      name="villname"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                          name="FastParse">false</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the data is in binary format."
+                          name="UseBinaryFormat">false</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\load michigan zipcodes\Flat File Source.Outputs[Flat File Source Output].Columns[placename]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\load michigan zipcodes\Flat File Source.Outputs[Flat File Source Output].ExternalColumns[placename]"
+                      length="50"
+                      lineageId="Package\load michigan zipcodes\Flat File Source.Outputs[Flat File Source Output].Columns[placename]"
+                      name="placename"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                          name="FastParse">false</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the data is in binary format."
+                          name="UseBinaryFormat">false</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\load michigan zipcodes\Flat File Source.Outputs[Flat File Source Output].Columns[cocode]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\load michigan zipcodes\Flat File Source.Outputs[Flat File Source Output].ExternalColumns[cocode]"
+                      length="50"
+                      lineageId="Package\load michigan zipcodes\Flat File Source.Outputs[Flat File Source Output].Columns[cocode]"
+                      name="cocode"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                          name="FastParse">false</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the data is in binary format."
+                          name="UseBinaryFormat">false</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\load michigan zipcodes\Flat File Source.Outputs[Flat File Source Output].Columns[rescd]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\load michigan zipcodes\Flat File Source.Outputs[Flat File Source Output].ExternalColumns[rescd]"
+                      length="50"
+                      lineageId="Package\load michigan zipcodes\Flat File Source.Outputs[Flat File Source Output].Columns[rescd]"
+                      name="rescd"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                          name="FastParse">false</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the data is in binary format."
+                          name="UseBinaryFormat">false</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\load michigan zipcodes\Flat File Source.Outputs[Flat File Source Output].Columns[mdchcode]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\load michigan zipcodes\Flat File Source.Outputs[Flat File Source Output].ExternalColumns[mdchcode]"
+                      length="50"
+                      lineageId="Package\load michigan zipcodes\Flat File Source.Outputs[Flat File Source Output].Columns[mdchcode]"
+                      name="mdchcode"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                          name="FastParse">false</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the data is in binary format."
+                          name="UseBinaryFormat">false</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\load michigan zipcodes\Flat File Source.Outputs[Flat File Source Output].Columns[addname]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\load michigan zipcodes\Flat File Source.Outputs[Flat File Source Output].ExternalColumns[addname]"
+                      length="50"
+                      lineageId="Package\load michigan zipcodes\Flat File Source.Outputs[Flat File Source Output].Columns[addname]"
+                      name="addname"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                          name="FastParse">false</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the data is in binary format."
+                          name="UseBinaryFormat">false</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\load michigan zipcodes\Flat File Source.Outputs[Flat File Source Output].Columns[addcity]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\load michigan zipcodes\Flat File Source.Outputs[Flat File Source Output].ExternalColumns[addcity]"
+                      length="50"
+                      lineageId="Package\load michigan zipcodes\Flat File Source.Outputs[Flat File Source Output].Columns[addcity]"
+                      name="addcity"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                          name="FastParse">false</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the data is in binary format."
+                          name="UseBinaryFormat">false</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\load michigan zipcodes\Flat File Source.Outputs[Flat File Source Output].Columns[uniquename]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\load michigan zipcodes\Flat File Source.Outputs[Flat File Source Output].ExternalColumns[uniquename]"
+                      length="50"
+                      lineageId="Package\load michigan zipcodes\Flat File Source.Outputs[Flat File Source Output].Columns[uniquename]"
+                      name="uniquename"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                          name="FastParse">false</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the data is in binary format."
+                          name="UseBinaryFormat">false</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\load michigan zipcodes\Flat File Source.Outputs[Flat File Source Output].Columns[unictyzipn]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\load michigan zipcodes\Flat File Source.Outputs[Flat File Source Output].ExternalColumns[unictyzipn]"
+                      length="50"
+                      lineageId="Package\load michigan zipcodes\Flat File Source.Outputs[Flat File Source Output].Columns[unictyzipn]"
+                      name="unictyzipn"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                          name="FastParse">false</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the data is in binary format."
+                          name="UseBinaryFormat">false</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\load michigan zipcodes\Flat File Source.Outputs[Flat File Source Output].Columns[cty_zipnam]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\load michigan zipcodes\Flat File Source.Outputs[Flat File Source Output].ExternalColumns[cty_zipnam]"
+                      length="50"
+                      lineageId="Package\load michigan zipcodes\Flat File Source.Outputs[Flat File Source Output].Columns[cty_zipnam]"
+                      name="cty_zipnam"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                          name="FastParse">false</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the data is in binary format."
+                          name="UseBinaryFormat">false</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\load michigan zipcodes\Flat File Source.Outputs[Flat File Source Output].Columns[uname2zip]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\load michigan zipcodes\Flat File Source.Outputs[Flat File Source Output].ExternalColumns[uname2zip]"
+                      length="50"
+                      lineageId="Package\load michigan zipcodes\Flat File Source.Outputs[Flat File Source Output].Columns[uname2zip]"
+                      name="uname2zip"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                          name="FastParse">false</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the data is in binary format."
+                          name="UseBinaryFormat">false</property>
+                      </properties>
+                    </outputColumn>
+                  </outputColumns>
+                  <externalMetadataColumns
+                    isUsed="True">
+                    <externalMetadataColumn
+                      refId="Package\load michigan zipcodes\Flat File Source.Outputs[Flat File Source Output].ExternalColumns[id]"
+                      codePage="1252"
+                      dataType="str"
+                      length="50"
+                      name="id" />
+                    <externalMetadataColumn
+                      refId="Package\load michigan zipcodes\Flat File Source.Outputs[Flat File Source Output].ExternalColumns[layer]"
+                      codePage="1252"
+                      dataType="str"
+                      length="50"
+                      name="layer" />
+                    <externalMetadataColumn
+                      refId="Package\load michigan zipcodes\Flat File Source.Outputs[Flat File Source Output].ExternalColumns[zipcode]"
+                      codePage="1252"
+                      dataType="str"
+                      length="50"
+                      name="zipcode" />
+                    <externalMetadataColumn
+                      refId="Package\load michigan zipcodes\Flat File Source.Outputs[Flat File Source Output].ExternalColumns[po_name]"
+                      codePage="1252"
+                      dataType="str"
+                      length="50"
+                      name="po_name" />
+                    <externalMetadataColumn
+                      refId="Package\load michigan zipcodes\Flat File Source.Outputs[Flat File Source Output].ExternalColumns[countycode]"
+                      codePage="1252"
+                      dataType="str"
+                      length="50"
+                      name="countycode" />
+                    <externalMetadataColumn
+                      refId="Package\load michigan zipcodes\Flat File Source.Outputs[Flat File Source Output].ExternalColumns[countyname]"
+                      codePage="1252"
+                      dataType="str"
+                      length="50"
+                      name="countyname" />
+                    <externalMetadataColumn
+                      refId="Package\load michigan zipcodes\Flat File Source.Outputs[Flat File Source Output].ExternalColumns[mcdcode]"
+                      codePage="1252"
+                      dataType="str"
+                      length="50"
+                      name="mcdcode" />
+                    <externalMetadataColumn
+                      refId="Package\load michigan zipcodes\Flat File Source.Outputs[Flat File Source Output].ExternalColumns[mcdname]"
+                      codePage="1252"
+                      dataType="str"
+                      length="50"
+                      name="mcdname" />
+                    <externalMetadataColumn
+                      refId="Package\load michigan zipcodes\Flat File Source.Outputs[Flat File Source Output].ExternalColumns[villcode]"
+                      codePage="1252"
+                      dataType="str"
+                      length="50"
+                      name="villcode" />
+                    <externalMetadataColumn
+                      refId="Package\load michigan zipcodes\Flat File Source.Outputs[Flat File Source Output].ExternalColumns[villname]"
+                      codePage="1252"
+                      dataType="str"
+                      length="50"
+                      name="villname" />
+                    <externalMetadataColumn
+                      refId="Package\load michigan zipcodes\Flat File Source.Outputs[Flat File Source Output].ExternalColumns[placename]"
+                      codePage="1252"
+                      dataType="str"
+                      length="50"
+                      name="placename" />
+                    <externalMetadataColumn
+                      refId="Package\load michigan zipcodes\Flat File Source.Outputs[Flat File Source Output].ExternalColumns[cocode]"
+                      codePage="1252"
+                      dataType="str"
+                      length="50"
+                      name="cocode" />
+                    <externalMetadataColumn
+                      refId="Package\load michigan zipcodes\Flat File Source.Outputs[Flat File Source Output].ExternalColumns[rescd]"
+                      codePage="1252"
+                      dataType="str"
+                      length="50"
+                      name="rescd" />
+                    <externalMetadataColumn
+                      refId="Package\load michigan zipcodes\Flat File Source.Outputs[Flat File Source Output].ExternalColumns[mdchcode]"
+                      codePage="1252"
+                      dataType="str"
+                      length="50"
+                      name="mdchcode" />
+                    <externalMetadataColumn
+                      refId="Package\load michigan zipcodes\Flat File Source.Outputs[Flat File Source Output].ExternalColumns[addname]"
+                      codePage="1252"
+                      dataType="str"
+                      length="50"
+                      name="addname" />
+                    <externalMetadataColumn
+                      refId="Package\load michigan zipcodes\Flat File Source.Outputs[Flat File Source Output].ExternalColumns[addcity]"
+                      codePage="1252"
+                      dataType="str"
+                      length="50"
+                      name="addcity" />
+                    <externalMetadataColumn
+                      refId="Package\load michigan zipcodes\Flat File Source.Outputs[Flat File Source Output].ExternalColumns[uniquename]"
+                      codePage="1252"
+                      dataType="str"
+                      length="50"
+                      name="uniquename" />
+                    <externalMetadataColumn
+                      refId="Package\load michigan zipcodes\Flat File Source.Outputs[Flat File Source Output].ExternalColumns[unictyzipn]"
+                      codePage="1252"
+                      dataType="str"
+                      length="50"
+                      name="unictyzipn" />
+                    <externalMetadataColumn
+                      refId="Package\load michigan zipcodes\Flat File Source.Outputs[Flat File Source Output].ExternalColumns[cty_zipnam]"
+                      codePage="1252"
+                      dataType="str"
+                      length="50"
+                      name="cty_zipnam" />
+                    <externalMetadataColumn
+                      refId="Package\load michigan zipcodes\Flat File Source.Outputs[Flat File Source Output].ExternalColumns[uname2zip]"
+                      codePage="1252"
+                      dataType="str"
+                      length="50"
+                      name="uname2zip" />
+                  </externalMetadataColumns>
+                </output>
+                <output
+                  refId="Package\load michigan zipcodes\Flat File Source.Outputs[Flat File Source Error Output]"
+                  isErrorOut="true"
+                  name="Flat File Source Error Output">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\load michigan zipcodes\Flat File Source.Outputs[Flat File Source Error Output].Columns[Flat File Source Error Output Column]"
+                      codePage="1252"
+                      dataType="text"
+                      description="Flat File Source Error Output Column"
+                      lineageId="Package\load michigan zipcodes\Flat File Source.Outputs[Flat File Source Error Output].Columns[Flat File Source Error Output Column]"
+                      name="Flat File Source Error Output Column" />
+                    <outputColumn
+                      refId="Package\load michigan zipcodes\Flat File Source.Outputs[Flat File Source Error Output].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\load michigan zipcodes\Flat File Source.Outputs[Flat File Source Error Output].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\load michigan zipcodes\Flat File Source.Outputs[Flat File Source Error Output].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\load michigan zipcodes\Flat File Source.Outputs[Flat File Source Error Output].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+            <component
+              refId="Package\load michigan zipcodes\Multicast"
+              componentClassID="Microsoft.Multicast"
+              contactInfo="Multicast;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;0"
+              description="Distributes every input row to every row in one or more outputs. For example, branch your data flow to make a copy of data so that some values can be masked before sharing with external partners."
+              name="Multicast">
+              <inputs>
+                <input
+                  refId="Package\load michigan zipcodes\Multicast.Inputs[Multicast Input 1]"
+                  name="Multicast Input 1">
+                  <externalMetadataColumns />
+                </input>
+              </inputs>
+              <outputs>
+                <output
+                  refId="Package\load michigan zipcodes\Multicast.Outputs[Multicast Output 1]"
+                  deleteOutputOnPathDetached="true"
+                  name="Multicast Output 1"
+                  synchronousInputId="Package\load michigan zipcodes\Multicast.Inputs[Multicast Input 1]">
+                  <externalMetadataColumns />
+                </output>
+                <output
+                  refId="Package\load michigan zipcodes\Multicast.Outputs[Multicast Output 2]"
+                  dangling="true"
+                  deleteOutputOnPathDetached="true"
+                  name="Multicast Output 2"
+                  synchronousInputId="Package\load michigan zipcodes\Multicast.Inputs[Multicast Input 1]">
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+            <component
+              refId="Package\load michigan zipcodes\OLE DB Destination"
+              componentClassID="Microsoft.OLEDBDestination"
+              contactInfo="OLE DB Destination;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;4"
+              description="OLE DB Destination"
+              name="OLE DB Destination"
+              usesDispositions="true"
+              version="4">
+              <properties>
+                <property
+                  dataType="System.Int32"
+                  description="The number of seconds before a command times out.  A value of 0 indicates an infinite time-out."
+                  name="CommandTimeout">0</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies the name of the database object used to open a rowset."
+                  name="OpenRowset">[geocodes]</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies the variable that contains the name of the database object used to open a rowset."
+                  name="OpenRowsetVariable"></property>
+                <property
+                  dataType="System.String"
+                  description="The SQL command to be executed."
+                  name="SqlCommand"
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor"></property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the column code page to use when code page information is unavailable from the data source."
+                  name="DefaultCodePage">1252</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Forces the use of the DefaultCodePage property value when describing character data."
+                  name="AlwaysUseDefaultCodePage">false</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the mode used to access the database."
+                  name="AccessMode"
+                  typeConverter="AccessMode">3</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Indicates whether the values supplied for identity columns will be copied to the destination. If false, values for identity columns will be auto-generated at the destination. Applies only if fast load is turned on."
+                  name="FastLoadKeepIdentity">false</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Indicates whether the columns containing null will have null inserted in the destination. If false, columns containing null will have their default values inserted at the destination. Applies only if fast load is turned on."
+                  name="FastLoadKeepNulls">false</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies options to be used with fast load.  Applies only if fast load is turned on."
+                  name="FastLoadOptions">TABLOCK,CHECK_CONSTRAINTS</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies when commits are issued during data insertion.  A value of 0 specifies that one commit will be issued at the end of data insertion.  Applies only if fast load is turned on."
+                  name="FastLoadMaxInsertCommitSize">2147483647</property>
+              </properties>
+              <connections>
+                <connection
+                  refId="Package\load michigan zipcodes\OLE DB Destination.Connections[OleDbConnection]"
+                  connectionManagerID="{6A1BC3C1-B3D9-484D-9047-A66377136580}:external"
+                  connectionManagerRefId="Project.ConnectionManagers[204.106.31.182.Birth Defects.ray]"
+                  description="The OLE DB runtime connection used to access the database."
+                  name="OleDbConnection" />
+              </connections>
+              <inputs>
+                <input
+                  refId="Package\load michigan zipcodes\OLE DB Destination.Inputs[OLE DB Destination Input]"
+                  errorOrTruncationOperation="Insert"
+                  errorRowDisposition="FailComponent"
+                  hasSideEffects="true"
+                  name="OLE DB Destination Input">
+                  <inputColumns>
+                    <inputColumn
+                      refId="Package\load michigan zipcodes\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[id]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="50"
+                      cachedName="id"
+                      externalMetadataColumnId="Package\load michigan zipcodes\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[id]"
+                      lineageId="Package\load michigan zipcodes\Flat File Source.Outputs[Flat File Source Output].Columns[id]" />
+                    <inputColumn
+                      refId="Package\load michigan zipcodes\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[layer]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="50"
+                      cachedName="layer"
+                      externalMetadataColumnId="Package\load michigan zipcodes\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[layer]"
+                      lineageId="Package\load michigan zipcodes\Flat File Source.Outputs[Flat File Source Output].Columns[layer]" />
+                    <inputColumn
+                      refId="Package\load michigan zipcodes\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[zipcode]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="50"
+                      cachedName="zipcode"
+                      externalMetadataColumnId="Package\load michigan zipcodes\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[zipcode]"
+                      lineageId="Package\load michigan zipcodes\Flat File Source.Outputs[Flat File Source Output].Columns[zipcode]" />
+                    <inputColumn
+                      refId="Package\load michigan zipcodes\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[po_name]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="50"
+                      cachedName="po_name"
+                      externalMetadataColumnId="Package\load michigan zipcodes\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[po_name]"
+                      lineageId="Package\load michigan zipcodes\Flat File Source.Outputs[Flat File Source Output].Columns[po_name]" />
+                    <inputColumn
+                      refId="Package\load michigan zipcodes\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[countycode]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="50"
+                      cachedName="countycode"
+                      externalMetadataColumnId="Package\load michigan zipcodes\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[countycode]"
+                      lineageId="Package\load michigan zipcodes\Flat File Source.Outputs[Flat File Source Output].Columns[countycode]" />
+                    <inputColumn
+                      refId="Package\load michigan zipcodes\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[countyname]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="50"
+                      cachedName="countyname"
+                      externalMetadataColumnId="Package\load michigan zipcodes\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[countyname]"
+                      lineageId="Package\load michigan zipcodes\Flat File Source.Outputs[Flat File Source Output].Columns[countyname]" />
+                    <inputColumn
+                      refId="Package\load michigan zipcodes\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[mcdcode]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="50"
+                      cachedName="mcdcode"
+                      externalMetadataColumnId="Package\load michigan zipcodes\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[mcdcode]"
+                      lineageId="Package\load michigan zipcodes\Flat File Source.Outputs[Flat File Source Output].Columns[mcdcode]" />
+                    <inputColumn
+                      refId="Package\load michigan zipcodes\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[mcdname]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="50"
+                      cachedName="mcdname"
+                      externalMetadataColumnId="Package\load michigan zipcodes\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[mcdname]"
+                      lineageId="Package\load michigan zipcodes\Flat File Source.Outputs[Flat File Source Output].Columns[mcdname]" />
+                    <inputColumn
+                      refId="Package\load michigan zipcodes\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[villcode]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="50"
+                      cachedName="villcode"
+                      externalMetadataColumnId="Package\load michigan zipcodes\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[villcode]"
+                      lineageId="Package\load michigan zipcodes\Flat File Source.Outputs[Flat File Source Output].Columns[villcode]" />
+                    <inputColumn
+                      refId="Package\load michigan zipcodes\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[villname]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="50"
+                      cachedName="villname"
+                      externalMetadataColumnId="Package\load michigan zipcodes\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[villname]"
+                      lineageId="Package\load michigan zipcodes\Flat File Source.Outputs[Flat File Source Output].Columns[villname]" />
+                    <inputColumn
+                      refId="Package\load michigan zipcodes\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[placename]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="50"
+                      cachedName="placename"
+                      externalMetadataColumnId="Package\load michigan zipcodes\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[placename]"
+                      lineageId="Package\load michigan zipcodes\Flat File Source.Outputs[Flat File Source Output].Columns[placename]" />
+                    <inputColumn
+                      refId="Package\load michigan zipcodes\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[cocode]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="50"
+                      cachedName="cocode"
+                      externalMetadataColumnId="Package\load michigan zipcodes\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[cocode]"
+                      lineageId="Package\load michigan zipcodes\Flat File Source.Outputs[Flat File Source Output].Columns[cocode]" />
+                    <inputColumn
+                      refId="Package\load michigan zipcodes\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[rescd]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="50"
+                      cachedName="rescd"
+                      externalMetadataColumnId="Package\load michigan zipcodes\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[rescd]"
+                      lineageId="Package\load michigan zipcodes\Flat File Source.Outputs[Flat File Source Output].Columns[rescd]" />
+                    <inputColumn
+                      refId="Package\load michigan zipcodes\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[mdchcode]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="50"
+                      cachedName="mdchcode"
+                      externalMetadataColumnId="Package\load michigan zipcodes\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[mdchcode]"
+                      lineageId="Package\load michigan zipcodes\Flat File Source.Outputs[Flat File Source Output].Columns[mdchcode]" />
+                    <inputColumn
+                      refId="Package\load michigan zipcodes\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[addname]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="50"
+                      cachedName="addname"
+                      externalMetadataColumnId="Package\load michigan zipcodes\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[addname]"
+                      lineageId="Package\load michigan zipcodes\Flat File Source.Outputs[Flat File Source Output].Columns[addname]" />
+                    <inputColumn
+                      refId="Package\load michigan zipcodes\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[addcity]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="50"
+                      cachedName="addcity"
+                      externalMetadataColumnId="Package\load michigan zipcodes\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[addcity]"
+                      lineageId="Package\load michigan zipcodes\Flat File Source.Outputs[Flat File Source Output].Columns[addcity]" />
+                    <inputColumn
+                      refId="Package\load michigan zipcodes\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[uniquename]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="50"
+                      cachedName="uniquename"
+                      externalMetadataColumnId="Package\load michigan zipcodes\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[uniquename]"
+                      lineageId="Package\load michigan zipcodes\Flat File Source.Outputs[Flat File Source Output].Columns[uniquename]" />
+                    <inputColumn
+                      refId="Package\load michigan zipcodes\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[unictyzipn]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="50"
+                      cachedName="unictyzipn"
+                      externalMetadataColumnId="Package\load michigan zipcodes\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[unictyzipn]"
+                      lineageId="Package\load michigan zipcodes\Flat File Source.Outputs[Flat File Source Output].Columns[unictyzipn]" />
+                    <inputColumn
+                      refId="Package\load michigan zipcodes\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[cty_zipnam]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="50"
+                      cachedName="cty_zipnam"
+                      externalMetadataColumnId="Package\load michigan zipcodes\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[cty_zipnam]"
+                      lineageId="Package\load michigan zipcodes\Flat File Source.Outputs[Flat File Source Output].Columns[cty_zipnam]" />
+                    <inputColumn
+                      refId="Package\load michigan zipcodes\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[uname2zip]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="50"
+                      cachedName="uname2zip"
+                      externalMetadataColumnId="Package\load michigan zipcodes\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[uname2zip]"
+                      lineageId="Package\load michigan zipcodes\Flat File Source.Outputs[Flat File Source Output].Columns[uname2zip]" />
+                  </inputColumns>
+                  <externalMetadataColumns
+                    isUsed="True">
+                    <externalMetadataColumn
+                      refId="Package\load michigan zipcodes\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[id]"
+                      codePage="1252"
+                      dataType="str"
+                      length="50"
+                      name="id" />
+                    <externalMetadataColumn
+                      refId="Package\load michigan zipcodes\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[layer]"
+                      codePage="1252"
+                      dataType="str"
+                      length="50"
+                      name="layer" />
+                    <externalMetadataColumn
+                      refId="Package\load michigan zipcodes\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[zipcode]"
+                      codePage="1252"
+                      dataType="str"
+                      length="50"
+                      name="zipcode" />
+                    <externalMetadataColumn
+                      refId="Package\load michigan zipcodes\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[po_name]"
+                      codePage="1252"
+                      dataType="str"
+                      length="50"
+                      name="po_name" />
+                    <externalMetadataColumn
+                      refId="Package\load michigan zipcodes\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[countycode]"
+                      codePage="1252"
+                      dataType="str"
+                      length="50"
+                      name="countycode" />
+                    <externalMetadataColumn
+                      refId="Package\load michigan zipcodes\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[countyname]"
+                      codePage="1252"
+                      dataType="str"
+                      length="50"
+                      name="countyname" />
+                    <externalMetadataColumn
+                      refId="Package\load michigan zipcodes\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[mcdcode]"
+                      codePage="1252"
+                      dataType="str"
+                      length="50"
+                      name="mcdcode" />
+                    <externalMetadataColumn
+                      refId="Package\load michigan zipcodes\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[mcdname]"
+                      codePage="1252"
+                      dataType="str"
+                      length="50"
+                      name="mcdname" />
+                    <externalMetadataColumn
+                      refId="Package\load michigan zipcodes\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[villcode]"
+                      codePage="1252"
+                      dataType="str"
+                      length="50"
+                      name="villcode" />
+                    <externalMetadataColumn
+                      refId="Package\load michigan zipcodes\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[villname]"
+                      codePage="1252"
+                      dataType="str"
+                      length="50"
+                      name="villname" />
+                    <externalMetadataColumn
+                      refId="Package\load michigan zipcodes\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[placename]"
+                      codePage="1252"
+                      dataType="str"
+                      length="50"
+                      name="placename" />
+                    <externalMetadataColumn
+                      refId="Package\load michigan zipcodes\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[cocode]"
+                      codePage="1252"
+                      dataType="str"
+                      length="50"
+                      name="cocode" />
+                    <externalMetadataColumn
+                      refId="Package\load michigan zipcodes\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[rescd]"
+                      codePage="1252"
+                      dataType="str"
+                      length="50"
+                      name="rescd" />
+                    <externalMetadataColumn
+                      refId="Package\load michigan zipcodes\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[mdchcode]"
+                      codePage="1252"
+                      dataType="str"
+                      length="50"
+                      name="mdchcode" />
+                    <externalMetadataColumn
+                      refId="Package\load michigan zipcodes\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[addname]"
+                      codePage="1252"
+                      dataType="str"
+                      length="50"
+                      name="addname" />
+                    <externalMetadataColumn
+                      refId="Package\load michigan zipcodes\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[addcity]"
+                      codePage="1252"
+                      dataType="str"
+                      length="50"
+                      name="addcity" />
+                    <externalMetadataColumn
+                      refId="Package\load michigan zipcodes\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[uniquename]"
+                      codePage="1252"
+                      dataType="str"
+                      length="50"
+                      name="uniquename" />
+                    <externalMetadataColumn
+                      refId="Package\load michigan zipcodes\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[unictyzipn]"
+                      codePage="1252"
+                      dataType="str"
+                      length="50"
+                      name="unictyzipn" />
+                    <externalMetadataColumn
+                      refId="Package\load michigan zipcodes\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[cty_zipnam]"
+                      codePage="1252"
+                      dataType="str"
+                      length="50"
+                      name="cty_zipnam" />
+                    <externalMetadataColumn
+                      refId="Package\load michigan zipcodes\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[uname2zip]"
+                      codePage="1252"
+                      dataType="str"
+                      length="50"
+                      name="uname2zip" />
+                  </externalMetadataColumns>
+                </input>
+              </inputs>
+              <outputs>
+                <output
+                  refId="Package\load michigan zipcodes\OLE DB Destination.Outputs[OLE DB Destination Error Output]"
+                  exclusionGroup="1"
+                  isErrorOut="true"
+                  name="OLE DB Destination Error Output"
+                  synchronousInputId="Package\load michigan zipcodes\OLE DB Destination.Inputs[OLE DB Destination Input]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\load michigan zipcodes\OLE DB Destination.Outputs[OLE DB Destination Error Output].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\load michigan zipcodes\OLE DB Destination.Outputs[OLE DB Destination Error Output].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\load michigan zipcodes\OLE DB Destination.Outputs[OLE DB Destination Error Output].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\load michigan zipcodes\OLE DB Destination.Outputs[OLE DB Destination Error Output].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+          </components>
+          <paths>
+            <path
+              refId="Package\load michigan zipcodes.Paths[Flat File Source Output]"
+              endId="Package\load michigan zipcodes\Multicast.Inputs[Multicast Input 1]"
+              name="Flat File Source Output"
+              startId="Package\load michigan zipcodes\Flat File Source.Outputs[Flat File Source Output]" />
+            <path
+              refId="Package\load michigan zipcodes.Paths[Multicast Output 1]"
+              endId="Package\load michigan zipcodes\OLE DB Destination.Inputs[OLE DB Destination Input]"
+              name="Multicast Output 1"
+              startId="Package\load michigan zipcodes\Multicast.Outputs[Multicast Output 1]" />
+          </paths>
+        </pipeline>
+      </DTS:ObjectData>
+    </DTS:Executable>
+  </DTS:Executables>
+  <DTS:DesignTimeProperties><![CDATA[<?xml version="1.0"?>
+<!--This CDATA section contains the layout information of the package. The section includes information such as (x,y) coordinates, width, and height.-->
+<!--If you manually edit this section and make a mistake, you can delete it. -->
+<!--The package will still be able to load normally but the previous layout information will be lost and the designer will automatically re-arrange the elements on the design surface.-->
+<Objects
+  Version="sql12">
+  <!--Each node below will contain properties that do not affect runtime behavior.-->
+  <Package
+    design-time-name="Package">
+    <LayoutInfo>
+      <GraphLayout
+        Capacity="4" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph">
+        <NodeLayout
+          Size="190,42"
+          Id="Package\load michigan zipcodes"
+          TopLeft="164,38" />
+      </GraphLayout>
+    </LayoutInfo>
+  </Package>
+  <TaskHost
+    design-time-name="Package\load michigan zipcodes">
+    <LayoutInfo>
+      <GraphLayout
+        Capacity="8" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:mssgm="clr-namespace:Microsoft.SqlServer.Graph.Model;assembly=Microsoft.SqlServer.Graph">
+        <NodeLayout
+          Size="153,42"
+          Id="Package\load michigan zipcodes\Flat File Source"
+          TopLeft="119,37" />
+        <NodeLayout
+          Size="122,42"
+          Id="Package\load michigan zipcodes\Multicast"
+          TopLeft="225,133" />
+        <EdgeLayout
+          Id="Package\load michigan zipcodes.Paths[Flat File Source Output]"
+          TopLeft="195.5,79">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="90.5,54"
+              Start="0,0"
+              End="90.5,46.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,23" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,23"
+                    Point2="0,27"
+                    Point3="4,27" />
+                  <mssgle:LineSegment
+                    End="86.5,27" />
+                  <mssgle:CubicBezierSegment
+                    Point1="86.5,27"
+                    Point2="90.5,27"
+                    Point3="90.5,31" />
+                  <mssgle:LineSegment
+                    End="90.5,46.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <mssgm:EdgeLabel
+              BoundingBox="37.25,32,16,16"
+              RelativePosition="Any" />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <NodeLayout
+          Size="173,42"
+          Id="Package\load michigan zipcodes\OLE DB Destination"
+          TopLeft="225,245" />
+        <EdgeLayout
+          Id="Package\load michigan zipcodes.Paths[Multicast Output 1]"
+          TopLeft="286,175">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="25.5,70"
+              Start="0,0"
+              End="25.5,62.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,31" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,31"
+                    Point2="0,35"
+                    Point3="4,35" />
+                  <mssgle:LineSegment
+                    End="21.5,35" />
+                  <mssgle:CubicBezierSegment
+                    Point1="21.5,35"
+                    Point2="25.5,35"
+                    Point3="25.5,39" />
+                  <mssgle:LineSegment
+                    End="25.5,62.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+      </GraphLayout>
+    </LayoutInfo>
+  </TaskHost>
+  <PipelineComponentMetadata
+    design-time-name="Package\load michigan zipcodes\OLE DB Destination">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+      <Property>
+        <Name>TableInfoObjectType</Name>
+        <Value
+          type="q2:string">Table</Value>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+</Objects>]]></DTS:DesignTimeProperties>
+</DTS:Executable>

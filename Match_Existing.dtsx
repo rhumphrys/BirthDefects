@@ -1,0 +1,1037 @@
+﻿<?xml version="1.0"?>
+<DTS:Executable xmlns:DTS="www.microsoft.com/SqlServer/Dts"
+  DTS:refId="Package"
+  DTS:CreationDate="9/23/2016 5:31:05 AM"
+  DTS:CreationName="Microsoft.Package"
+  DTS:CreatorComputerName="RHUMPHRYS-10733"
+  DTS:CreatorName="ALTARUM\rhumphrys"
+  DTS:DTSID="{8C28E7A4-9D31-43DF-9BF7-7DBF64AB1595}"
+  DTS:ExecutableType="Microsoft.Package"
+  DTS:LastModifiedProductVersion="12.0.5000.0"
+  DTS:LocaleID="1033"
+  DTS:ObjectName="Match_Existing"
+  DTS:PackageType="5"
+  DTS:VersionBuild="29"
+  DTS:VersionGUID="{4B3AB890-852E-4FD4-A56F-09F45C588870}">
+  <DTS:Property
+    DTS:Name="PackageFormatVersion">8</DTS:Property>
+  <DTS:ConnectionManagers>
+    <DTS:ConnectionManager
+      DTS:refId="Package.ConnectionManagers[Excel Connection Manager]"
+      DTS:CreationName="EXCEL"
+      DTS:DTSID="{6DA392B2-B9A3-4BBC-B417-AC7A2A565AC6}"
+      DTS:ObjectName="Excel Connection Manager">
+      <DTS:ObjectData>
+        <DTS:ConnectionManager
+          DTS:ConnectionString="Provider=Microsoft.Jet.OLEDB.4.0;Data Source=R:\Birth Defects\tmpmatch.xls;Extended Properties=&quot;EXCEL 8.0;HDR=YES&quot;;" />
+      </DTS:ObjectData>
+    </DTS:ConnectionManager>
+  </DTS:ConnectionManagers>
+  <DTS:Variables />
+  <DTS:Executables>
+    <DTS:Executable
+      DTS:refId="Package\Match 1"
+      DTS:CreationName="Microsoft.ExecuteSQLTask"
+      DTS:Description="Execute SQL Task"
+      DTS:DTSID="{18C01C87-61AC-477D-9EDD-F76A6E1E7C7D}"
+      DTS:ExecutableType="Microsoft.ExecuteSQLTask"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="Match 1"
+      DTS:TaskContact="Execute SQL Task; Microsoft Corporation; SQL Server 2014; © 2014 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
+      DTS:ThreadHint="0">
+      <DTS:Variables />
+      <DTS:ObjectData>
+        <SQLTask:SqlTaskData
+          SQLTask:Connection="{6A1BC3C1-B3D9-484D-9047-A66377136580}"
+          SQLTask:SqlStatementSource="-- Update&#xA;UPDATE [dbo].[BirthDefectInput_Totint]  &#xA;&#x9;SET [Link_Status] = 'Linked',&#xA;&#x9;    [Link_Step]   = 'Match Phase 1: new cases',&#xA;        [Link_BXDEF_RPTID] = Birth_Defect_Reports.BXDEF_RPTID,&#xA;        [Link_DateTime] = getdate(),&#xA;        [Link_BirthDefectsEntityID] = Birth_Defect_Reports.BirthDefectsEntityID&#xA;FROM [dbo].[BirthDefectInput_Totint]   &#xA;    INNER JOIN dbo.Birth_Defect_Reports   &#xA;    ON     (UPPER(BirthDefectInput_Totint.baby_last_name) = UPPER(birth_Defect_Reports.Child_lastName) AND &#xA;            UPPER(BirthDefectInput_Totint.baby_first_name)    = UPPER(Birth_Defect_Reports.Child_FirstName) AND &#xA;            UPPER(BirthDefectInput_Totint.baby_middle_init)   = UPPER(Birth_Defect_Reports.Child_Midinit) AND &#xA;            BirthDefectInput_Totint.Child_birth_month  = Birth_Defect_Reports.Child_Birth_Month AND &#xA;            BirthDefectInput_Totint.Child_birth_day    = Birth_Defect_Reports.Child_Birth_Day AND &#xA;            BirthDefectInput_Totint.Child_birth_year   = Birth_Defect_Reports.Child_Birth_Year  AND &#xA;            BirthDefectInput_Totint.[sex]              = Birth_Defect_Reports.[Child_Gender]  AND &#xA;&#x9;&#x9;&#x9;BirthDefectInput_Totint.[Mother_ssn]       = Birth_Defect_Reports.[Mother_ssn] AND&#xA;&#x9;&#x9;&#x9;(UPPER(BirthDefectInput_Totint.[Mother_last_name]) = UPPER(Birth_Defect_Reports.[Mother_last_name]) and&#xA;&#x9;&#x9;&#x9;&#x9;Birth_Defect_Reports.[Mother_last_name] IS NOT NULL or  Birth_Defect_Reports.[Mother_last_name] != '')); " xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask" />
+      </DTS:ObjectData>
+    </DTS:Executable>
+    <DTS:Executable
+      DTS:refId="Package\Match 10"
+      DTS:CreationName="Microsoft.ExecuteSQLTask"
+      DTS:Description="Execute SQL Task"
+      DTS:DTSID="{cf6db7a5-1f3a-492a-b63e-093297a4faf8}"
+      DTS:ExecutableType="Microsoft.ExecuteSQLTask"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="Match 10"
+      DTS:TaskContact="Execute SQL Task; Microsoft Corporation; SQL Server 2014; © 2014 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
+      DTS:ThreadHint="0">
+      <DTS:Variables />
+      <DTS:ObjectData>
+        <SQLTask:SqlTaskData
+          SQLTask:Connection="{6A1BC3C1-B3D9-484D-9047-A66377136580}"
+          SQLTask:SqlStatementSource="UPDATE [dbo].[BirthDefectInput_Totint]  &#xA; SET [Link_Status] = 'Linked',&#xA;     [Link_Step]   = 'Match Step 10: new cases',&#xA;        [Link_BXDEF_RPTID] = Birth_Defect_Reports.BXDEF_RPTID,&#xA;        [Link_DateTime] = getdate(),&#xA;        [Link_BirthDefectsEntityID] = Birth_Defect_Reports.BirthDefectsEntityID&#xA;FROM [dbo].[BirthDefectInput_Totint]   &#xA;    INNER JOIN dbo.Birth_Defect_Reports   &#xA;    ON     ( UPPER(BirthDefectInput_Totint.baby_first_name)    = UPPER(Birth_Defect_Reports.Child_FirstName) and&#xA;   (UPPER(BirthDefectInput_Totint.[Mother_last_name]) = UPPER(Birth_Defect_Reports.[Mother_last_name]) and&#xA;   Birth_Defect_Reports.[Mother_last_name] IS NOT NULL or  Birth_Defect_Reports.[Mother_last_name] != '') and&#xA;   BirthDefectInput_Totint.[Mother_ssn]       = Birth_Defect_Reports.[Mother_ssn] AND &#xA;            BirthDefectInput_Totint.Child_birth_month  = Birth_Defect_Reports.Child_Birth_Month AND &#xA;            BirthDefectInput_Totint.Child_birth_day    = Birth_Defect_Reports.Child_Birth_Day AND &#xA;            BirthDefectInput_Totint.Child_birth_year   = Birth_Defect_Reports.Child_Birth_Year  AND &#xA;            BirthDefectInput_Totint.[sex]              = Birth_Defect_Reports.[Child_Gender]&#xA; );   &#xA;" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask" />
+      </DTS:ObjectData>
+    </DTS:Executable>
+    <DTS:Executable
+      DTS:refId="Package\Match 11"
+      DTS:CreationName="Microsoft.ExecuteSQLTask"
+      DTS:Description="Execute SQL Task"
+      DTS:DTSID="{ebd6bcc7-c84d-4304-a9c2-0d59e502d4fc}"
+      DTS:ExecutableType="Microsoft.ExecuteSQLTask"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="Match 11"
+      DTS:TaskContact="Execute SQL Task; Microsoft Corporation; SQL Server 2014; © 2014 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
+      DTS:ThreadHint="0">
+      <DTS:Variables />
+      <DTS:ObjectData>
+        <SQLTask:SqlTaskData
+          SQLTask:Connection="{6A1BC3C1-B3D9-484D-9047-A66377136580}"
+          SQLTask:SqlStatementSource="UPDATE [dbo].[BirthDefectInput_Totint]  &#xA; SET [Link_Status] = 'Linked',&#xA;     [Link_Step]   = 'Match Step 11: new cases',&#xA;        [Link_BXDEF_RPTID] = Birth_Defect_Reports.BXDEF_RPTID,&#xA;        [Link_DateTime] = getdate(),&#xA;        [Link_BirthDefectsEntityID] = Birth_Defect_Reports.BirthDefectsEntityID&#xA;FROM [dbo].[BirthDefectInput_Totint]   &#xA;    INNER JOIN dbo.Birth_Defect_Reports   &#xA;    ON     ( UPPER(BirthDefectInput_Totint.baby_first_name)    = UPPER(Birth_Defect_Reports.Child_FirstName) and&#xA;   (UPPER(BirthDefectInput_Totint.[Mother_last_name]) = UPPER(Birth_Defect_Reports.[Mother_last_name]) and&#xA;   Birth_Defect_Reports.[Mother_last_name] IS NOT NULL or  Birth_Defect_Reports.[Mother_last_name] != '') and&#xA;   BirthDefectInput_Totint.[Mother_ssn]       = Birth_Defect_Reports.[Mother_ssn] AND &#xA;            BirthDefectInput_Totint.Child_birth_month  = Birth_Defect_Reports.Child_Birth_Month AND &#xA;            BirthDefectInput_Totint.Child_birth_day    = Birth_Defect_Reports.Child_Birth_Day AND &#xA;            BirthDefectInput_Totint.Child_birth_year   = Birth_Defect_Reports.Child_Birth_Year  AND &#xA;            BirthDefectInput_Totint.[sex]              = Birth_Defect_Reports.[Child_Gender]&#xA; );   &#xA;" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask" />
+      </DTS:ObjectData>
+    </DTS:Executable>
+    <DTS:Executable
+      DTS:refId="Package\Match 12"
+      DTS:CreationName="Microsoft.ExecuteSQLTask"
+      DTS:Description="Execute SQL Task"
+      DTS:DTSID="{c8554695-7dd6-4b6e-92ef-fe448b3f3d88}"
+      DTS:ExecutableType="Microsoft.ExecuteSQLTask"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="Match 12"
+      DTS:TaskContact="Execute SQL Task; Microsoft Corporation; SQL Server 2014; © 2014 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
+      DTS:ThreadHint="0">
+      <DTS:Variables />
+      <DTS:ObjectData>
+        <SQLTask:SqlTaskData
+          SQLTask:Connection="{6A1BC3C1-B3D9-484D-9047-A66377136580}"
+          SQLTask:SqlStatementSource="UPDATE [dbo].[BirthDefectInput_Totint]  &#xA; SET [Link_Status] = 'Linked',&#xA;     [Link_Step]   = 'Match Step 12: new cases',&#xA;        [Link_BXDEF_RPTID] = Birth_Defect_Reports.BXDEF_RPTID,&#xA;        [Link_DateTime] = getdate(),&#xA;        [Link_BirthDefectsEntityID] = Birth_Defect_Reports.BirthDefectsEntityID&#xA;FROM [dbo].[BirthDefectInput_Totint]   &#xA;    INNER JOIN dbo.Birth_Defect_Reports   &#xA;    ON     ( UPPER(BirthDefectInput_Totint.baby_first_name)    = UPPER(Birth_Defect_Reports.Child_FirstName) and&#xA;   (UPPER(BirthDefectInput_Totint.[Mother_last_name]) = UPPER(Birth_Defect_Reports.[Mother_last_name]) and&#xA;   Birth_Defect_Reports.[Mother_last_name] IS NOT NULL or  Birth_Defect_Reports.[Mother_last_name] != '') and&#xA;   BirthDefectInput_Totint.[Mother_ssn]       = Birth_Defect_Reports.[Mother_ssn] AND &#xA;            BirthDefectInput_Totint.Child_birth_month  = Birth_Defect_Reports.Child_Birth_Month AND &#xA;            BirthDefectInput_Totint.Child_birth_day    = Birth_Defect_Reports.Child_Birth_Day AND &#xA;            BirthDefectInput_Totint.Child_birth_year   = Birth_Defect_Reports.Child_Birth_Year  AND &#xA;            BirthDefectInput_Totint.[sex]              = Birth_Defect_Reports.[Child_Gender]&#xA; );   &#xA;" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask" />
+      </DTS:ObjectData>
+    </DTS:Executable>
+    <DTS:Executable
+      DTS:refId="Package\Match 13"
+      DTS:CreationName="Microsoft.ExecuteSQLTask"
+      DTS:Description="Execute SQL Task"
+      DTS:DTSID="{8521dd42-29a6-4832-926f-b6782a660a26}"
+      DTS:ExecutableType="Microsoft.ExecuteSQLTask"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="Match 13"
+      DTS:TaskContact="Execute SQL Task; Microsoft Corporation; SQL Server 2014; © 2014 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
+      DTS:ThreadHint="0">
+      <DTS:Variables />
+      <DTS:ObjectData>
+        <SQLTask:SqlTaskData
+          SQLTask:Connection="{6A1BC3C1-B3D9-484D-9047-A66377136580}"
+          SQLTask:SqlStatementSource="UPDATE [dbo].[BirthDefectInput_Totint]  &#xA; SET [Link_Status] = 'Linked',&#xA;     [Link_Step]   = 'Match Step 13: new cases',&#xA;        [Link_BXDEF_RPTID] = Birth_Defect_Reports.BXDEF_RPTID,&#xA;        [Link_DateTime] = getdate(),&#xA;        [Link_BirthDefectsEntityID] = Birth_Defect_Reports.BirthDefectsEntityID&#xA;FROM [dbo].[BirthDefectInput_Totint]   &#xA;    INNER JOIN dbo.Birth_Defect_Reports   &#xA;    ON     ( UPPER(BirthDefectInput_Totint.baby_first_name)    = UPPER(Birth_Defect_Reports.Child_FirstName) and&#xA;   (UPPER(BirthDefectInput_Totint.[Mother_last_name]) = UPPER(Birth_Defect_Reports.[Mother_last_name]) and&#xA;   Birth_Defect_Reports.[Mother_last_name] IS NOT NULL or  Birth_Defect_Reports.[Mother_last_name] != '') and&#xA;   BirthDefectInput_Totint.[Mother_ssn]       = Birth_Defect_Reports.[Mother_ssn] AND &#xA;            BirthDefectInput_Totint.Child_birth_month  = Birth_Defect_Reports.Child_Birth_Month AND &#xA;            BirthDefectInput_Totint.Child_birth_day    = Birth_Defect_Reports.Child_Birth_Day AND &#xA;            BirthDefectInput_Totint.Child_birth_year   = Birth_Defect_Reports.Child_Birth_Year  AND &#xA;            BirthDefectInput_Totint.[sex]              = Birth_Defect_Reports.[Child_Gender]&#xA; );   &#xA;" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask" />
+      </DTS:ObjectData>
+    </DTS:Executable>
+    <DTS:Executable
+      DTS:refId="Package\Match 14"
+      DTS:CreationName="Microsoft.ExecuteSQLTask"
+      DTS:Description="Execute SQL Task"
+      DTS:DTSID="{a4009c8b-5e05-46d4-a986-79283c4f1d42}"
+      DTS:ExecutableType="Microsoft.ExecuteSQLTask"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="Match 14"
+      DTS:TaskContact="Execute SQL Task; Microsoft Corporation; SQL Server 2014; © 2014 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
+      DTS:ThreadHint="0">
+      <DTS:Variables />
+      <DTS:ObjectData>
+        <SQLTask:SqlTaskData
+          SQLTask:Connection="{6A1BC3C1-B3D9-484D-9047-A66377136580}"
+          SQLTask:SqlStatementSource="UPDATE [dbo].[BirthDefectInput_Totint]  &#xA; SET [Link_Status] = 'Linked',&#xA;     [Link_Step]   = 'Match Step 14: new cases',&#xA;        [Link_BXDEF_RPTID] = Birth_Defect_Reports.BXDEF_RPTID,&#xA;        [Link_DateTime] = getdate(),&#xA;        [Link_BirthDefectsEntityID] = Birth_Defect_Reports.BirthDefectsEntityID&#xA;FROM [dbo].[BirthDefectInput_Totint]   &#xA;    INNER JOIN dbo.Birth_Defect_Reports   &#xA;    ON     ( UPPER(BirthDefectInput_Totint.baby_first_name)    = UPPER(Birth_Defect_Reports.Child_FirstName) and&#xA;   (UPPER(BirthDefectInput_Totint.[Mother_last_name]) = UPPER(Birth_Defect_Reports.[Mother_last_name]) and&#xA;   Birth_Defect_Reports.[Mother_last_name] IS NOT NULL or  Birth_Defect_Reports.[Mother_last_name] != '') and&#xA;   BirthDefectInput_Totint.[Mother_ssn]       = Birth_Defect_Reports.[Mother_ssn] AND &#xA;            BirthDefectInput_Totint.Child_birth_month  = Birth_Defect_Reports.Child_Birth_Month AND &#xA;            BirthDefectInput_Totint.Child_birth_day    = Birth_Defect_Reports.Child_Birth_Day AND &#xA;            BirthDefectInput_Totint.Child_birth_year   = Birth_Defect_Reports.Child_Birth_Year  AND &#xA;            BirthDefectInput_Totint.[sex]              = Birth_Defect_Reports.[Child_Gender]&#xA; );   &#xA;" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask" />
+      </DTS:ObjectData>
+    </DTS:Executable>
+    <DTS:Executable
+      DTS:refId="Package\Match 15"
+      DTS:CreationName="Microsoft.ExecuteSQLTask"
+      DTS:Description="Execute SQL Task"
+      DTS:DTSID="{570964b9-0004-4f8c-b093-3e262291498d}"
+      DTS:ExecutableType="Microsoft.ExecuteSQLTask"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="Match 15"
+      DTS:TaskContact="Execute SQL Task; Microsoft Corporation; SQL Server 2014; © 2014 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
+      DTS:ThreadHint="0">
+      <DTS:Variables />
+      <DTS:ObjectData>
+        <SQLTask:SqlTaskData
+          SQLTask:Connection="{6A1BC3C1-B3D9-484D-9047-A66377136580}"
+          SQLTask:SqlStatementSource="UPDATE [dbo].[BirthDefectInput_Totint]  &#xA; SET [Link_Status] = 'Linked',&#xA;     [Link_Step]   = 'Match Step 15: new cases',&#xA;        [Link_BXDEF_RPTID] = Birth_Defect_Reports.BXDEF_RPTID,&#xA;        [Link_DateTime] = getdate(),&#xA;        [Link_BirthDefectsEntityID] = Birth_Defect_Reports.BirthDefectsEntityID&#xA;FROM [dbo].[BirthDefectInput_Totint]   &#xA;    INNER JOIN dbo.Birth_Defect_Reports   &#xA;    ON     ( UPPER(BirthDefectInput_Totint.baby_first_name)    = UPPER(Birth_Defect_Reports.Child_FirstName) and&#xA;   (UPPER(BirthDefectInput_Totint.[Mother_last_name]) = UPPER(Birth_Defect_Reports.[Mother_last_name]) and&#xA;   Birth_Defect_Reports.[Mother_last_name] IS NOT NULL or  Birth_Defect_Reports.[Mother_last_name] != '') and&#xA;   BirthDefectInput_Totint.[Mother_ssn]       = Birth_Defect_Reports.[Mother_ssn] AND &#xA;            BirthDefectInput_Totint.Child_birth_month  = Birth_Defect_Reports.Child_Birth_Month AND &#xA;            BirthDefectInput_Totint.Child_birth_day    = Birth_Defect_Reports.Child_Birth_Day AND &#xA;            BirthDefectInput_Totint.Child_birth_year   = Birth_Defect_Reports.Child_Birth_Year  AND &#xA;            BirthDefectInput_Totint.[sex]              = Birth_Defect_Reports.[Child_Gender]&#xA; );   &#xA;" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask" />
+      </DTS:ObjectData>
+    </DTS:Executable>
+    <DTS:Executable
+      DTS:refId="Package\Match 16"
+      DTS:CreationName="Microsoft.ExecuteSQLTask"
+      DTS:Description="Execute SQL Task"
+      DTS:DTSID="{af6c13b1-0a9c-42c6-afc8-44dc5933142b}"
+      DTS:ExecutableType="Microsoft.ExecuteSQLTask"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="Match 16"
+      DTS:TaskContact="Execute SQL Task; Microsoft Corporation; SQL Server 2014; © 2014 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
+      DTS:ThreadHint="0">
+      <DTS:Variables />
+      <DTS:ObjectData>
+        <SQLTask:SqlTaskData
+          SQLTask:Connection="{6A1BC3C1-B3D9-484D-9047-A66377136580}"
+          SQLTask:SqlStatementSource="UPDATE [dbo].[BirthDefectInput_Totint]  &#xA; SET [Link_Status] = 'Linked',&#xA;     [Link_Step]   = 'Match Step 16: new cases',&#xA;        [Link_BXDEF_RPTID] = Birth_Defect_Reports.BXDEF_RPTID,&#xA;        [Link_DateTime] = getdate(),&#xA;        [Link_BirthDefectsEntityID] = Birth_Defect_Reports.BirthDefectsEntityID&#xA;FROM [dbo].[BirthDefectInput_Totint]   &#xA;    INNER JOIN dbo.Birth_Defect_Reports   &#xA;    ON     ( UPPER(BirthDefectInput_Totint.baby_first_name)    = UPPER(Birth_Defect_Reports.Child_FirstName) and&#xA;   (UPPER(BirthDefectInput_Totint.[Mother_last_name]) = UPPER(Birth_Defect_Reports.[Mother_last_name]) and&#xA;   Birth_Defect_Reports.[Mother_last_name] IS NOT NULL or  Birth_Defect_Reports.[Mother_last_name] != '') and&#xA;   BirthDefectInput_Totint.[Mother_ssn]       = Birth_Defect_Reports.[Mother_ssn] AND &#xA;            BirthDefectInput_Totint.Child_birth_month  = Birth_Defect_Reports.Child_Birth_Month AND &#xA;            BirthDefectInput_Totint.Child_birth_day    = Birth_Defect_Reports.Child_Birth_Day AND &#xA;            BirthDefectInput_Totint.Child_birth_year   = Birth_Defect_Reports.Child_Birth_Year  AND &#xA;            BirthDefectInput_Totint.[sex]              = Birth_Defect_Reports.[Child_Gender]&#xA; );   &#xA;" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask" />
+      </DTS:ObjectData>
+    </DTS:Executable>
+    <DTS:Executable
+      DTS:refId="Package\Match 2"
+      DTS:CreationName="Microsoft.ExecuteSQLTask"
+      DTS:Description="Execute SQL Task"
+      DTS:DTSID="{073231A9-91BE-4F69-B639-FD093C4D7024}"
+      DTS:ExecutableType="Microsoft.ExecuteSQLTask"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="Match 2"
+      DTS:TaskContact="Execute SQL Task; Microsoft Corporation; SQL Server 2014; © 2014 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
+      DTS:ThreadHint="0">
+      <DTS:Variables />
+      <DTS:ObjectData>
+        <SQLTask:SqlTaskData
+          SQLTask:Connection="{6A1BC3C1-B3D9-484D-9047-A66377136580}"
+          SQLTask:SqlStatementSource="UPDATE [dbo].[BirthDefectInput_Totint]  &#xA;&#x9;SET [Link_Status] = 'Linked',&#xA;&#x9;    [Link_Step]   = 'Match Step 2: new cases',&#xA;        [Link_BXDEF_RPTID] = Birth_Defect_Reports.BXDEF_RPTID,&#xA;        [Link_DateTime] = getdate(),&#xA;        [Link_BirthDefectsEntityID] = Birth_Defect_Reports.BirthDefectsEntityID&#xA;FROM [dbo].[BirthDefectInput_Totint]   &#xA;    INNER JOIN dbo.Birth_Defect_Reports   &#xA;    ON     (UPPER(BirthDefectInput_Totint.baby_last_name)     = UPPER(birth_Defect_Reports.Child_lastName) AND &#xA;            UPPER(BirthDefectInput_Totint.baby_first_name)    = UPPER(Birth_Defect_Reports.Child_FirstName) AND &#xA;            UPPER(BirthDefectInput_Totint.baby_middle_init)   = UPPER(Birth_Defect_Reports.Child_Midinit) AND &#xA;            BirthDefectInput_Totint.Child_birth_month  = Birth_Defect_Reports.Child_Birth_Month AND &#xA;            BirthDefectInput_Totint.Child_birth_day    = Birth_Defect_Reports.Child_Birth_Day AND &#xA;            BirthDefectInput_Totint.Child_birth_year   = Birth_Defect_Reports.Child_Birth_Year  AND &#xA;            BirthDefectInput_Totint.[sex]              = Birth_Defect_Reports.[Child_Gender]); &#x9; &#xA;" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask" />
+      </DTS:ObjectData>
+    </DTS:Executable>
+    <DTS:Executable
+      DTS:refId="Package\Match 3"
+      DTS:CreationName="Microsoft.ExecuteSQLTask"
+      DTS:Description="Execute SQL Task"
+      DTS:DTSID="{9d53e61c-b0d6-47f0-8560-697c218d2bdb}"
+      DTS:ExecutableType="Microsoft.ExecuteSQLTask"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="Match 3"
+      DTS:TaskContact="Execute SQL Task; Microsoft Corporation; SQL Server 2014; © 2014 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
+      DTS:ThreadHint="0">
+      <DTS:Variables />
+      <DTS:ObjectData>
+        <SQLTask:SqlTaskData
+          SQLTask:Connection="{6A1BC3C1-B3D9-484D-9047-A66377136580}"
+          SQLTask:SqlStatementSource="UPDATE [dbo].[BirthDefectInput_Totint]  &#xA;&#x9;SET [Link_Status] = 'Linked',&#xA;&#x9;    [Link_Step]   = 'Match Step 3: new cases',&#xA;        [Link_BXDEF_RPTID] = Birth_Defect_Reports.BXDEF_RPTID,&#xA;        [Link_DateTime] = getdate(),&#xA;        [Link_BirthDefectsEntityID] = Birth_Defect_Reports.BirthDefectsEntityID&#xA;FROM [dbo].[BirthDefectInput_Totint]   &#xA;    INNER JOIN dbo.Birth_Defect_Reports   &#xA;    ON     ( UPPER(BirthDefectInput_Totint.baby_first_name)    = UPPER(Birth_Defect_Reports.Child_FirstName) and&#xA;&#x9;&#x9;&#x9;(UPPER(BirthDefectInput_Totint.[Mother_last_name]) = UPPER(Birth_Defect_Reports.[Mother_last_name]) and&#xA;&#x9;&#x9;&#x9;Birth_Defect_Reports.[Mother_last_name] IS NOT NULL or  Birth_Defect_Reports.[Mother_last_name] != '') and&#xA;&#x9;&#x9;&#x9;BirthDefectInput_Totint.[Mother_ssn]       = Birth_Defect_Reports.[Mother_ssn] AND &#xA;            BirthDefectInput_Totint.Child_birth_month  = Birth_Defect_Reports.Child_Birth_Month AND &#xA;            BirthDefectInput_Totint.Child_birth_day    = Birth_Defect_Reports.Child_Birth_Day AND &#xA;            BirthDefectInput_Totint.Child_birth_year   = Birth_Defect_Reports.Child_Birth_Year  AND &#xA;            BirthDefectInput_Totint.[sex]              = Birth_Defect_Reports.[Child_Gender]&#xA;&#x9;); &#x9; &#xA;" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask" />
+      </DTS:ObjectData>
+    </DTS:Executable>
+    <DTS:Executable
+      DTS:refId="Package\Match 4"
+      DTS:CreationName="Microsoft.ExecuteSQLTask"
+      DTS:Description="Execute SQL Task"
+      DTS:DTSID="{cdd3d7e3-59cf-445f-a419-22481a51b115}"
+      DTS:ExecutableType="Microsoft.ExecuteSQLTask"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="Match 4"
+      DTS:TaskContact="Execute SQL Task; Microsoft Corporation; SQL Server 2014; © 2014 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
+      DTS:ThreadHint="0">
+      <DTS:Variables />
+      <DTS:ObjectData>
+        <SQLTask:SqlTaskData
+          SQLTask:Connection="{6A1BC3C1-B3D9-484D-9047-A66377136580}"
+          SQLTask:SqlStatementSource="UPDATE [dbo].[BirthDefectInput_Totint]  &#xA; SET [Link_Status] = 'Linked',&#xA;     [Link_Step]   = 'Match Step 4: new cases',&#xA;        [Link_BXDEF_RPTID] = Birth_Defect_Reports.BXDEF_RPTID,&#xA;        [Link_DateTime] = getdate(),&#xA;        [Link_BirthDefectsEntityID] = Birth_Defect_Reports.BirthDefectsEntityID&#xA;FROM [dbo].[BirthDefectInput_Totint]   &#xA;    INNER JOIN dbo.Birth_Defect_Reports   &#xA;    ON     ( UPPER(BirthDefectInput_Totint.baby_first_name)    = UPPER(Birth_Defect_Reports.Child_FirstName) and&#xA;   (UPPER(BirthDefectInput_Totint.[Mother_last_name]) = UPPER(Birth_Defect_Reports.[Mother_last_name]) and&#xA;   Birth_Defect_Reports.[Mother_last_name] IS NOT NULL or  Birth_Defect_Reports.[Mother_last_name] != '') and&#xA;   BirthDefectInput_Totint.[Mother_ssn]       = Birth_Defect_Reports.[Mother_ssn] AND &#xA;            BirthDefectInput_Totint.Child_birth_month  = Birth_Defect_Reports.Child_Birth_Month AND &#xA;            BirthDefectInput_Totint.Child_birth_day    = Birth_Defect_Reports.Child_Birth_Day AND &#xA;            BirthDefectInput_Totint.Child_birth_year   = Birth_Defect_Reports.Child_Birth_Year  AND &#xA;            BirthDefectInput_Totint.[sex]              = Birth_Defect_Reports.[Child_Gender]&#xA; );   &#xA;" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask" />
+      </DTS:ObjectData>
+    </DTS:Executable>
+    <DTS:Executable
+      DTS:refId="Package\Match 5"
+      DTS:CreationName="Microsoft.ExecuteSQLTask"
+      DTS:Description="Execute SQL Task"
+      DTS:DTSID="{2b57f18d-4bc9-489d-991e-c54196fd984e}"
+      DTS:ExecutableType="Microsoft.ExecuteSQLTask"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="Match 5"
+      DTS:TaskContact="Execute SQL Task; Microsoft Corporation; SQL Server 2014; © 2014 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
+      DTS:ThreadHint="0">
+      <DTS:Variables />
+      <DTS:ObjectData>
+        <SQLTask:SqlTaskData
+          SQLTask:Connection="{6A1BC3C1-B3D9-484D-9047-A66377136580}"
+          SQLTask:SqlStatementSource="UPDATE [dbo].[BirthDefectInput_Totint]  &#xA; SET [Link_Status] = 'Linked',&#xA;     [Link_Step]   = 'Match Step 5: new cases',&#xA;        [Link_BXDEF_RPTID] = Birth_Defect_Reports.BXDEF_RPTID,&#xA;        [Link_DateTime] = getdate(),&#xA;        [Link_BirthDefectsEntityID] = Birth_Defect_Reports.BirthDefectsEntityID&#xA;FROM [dbo].[BirthDefectInput_Totint]   &#xA;    INNER JOIN dbo.Birth_Defect_Reports   &#xA;    ON     ( UPPER(BirthDefectInput_Totint.baby_first_name)    = UPPER(Birth_Defect_Reports.Child_FirstName) and&#xA;   (UPPER(BirthDefectInput_Totint.[Mother_last_name]) = UPPER(Birth_Defect_Reports.[Mother_last_name]) and&#xA;   Birth_Defect_Reports.[Mother_last_name] IS NOT NULL or  Birth_Defect_Reports.[Mother_last_name] != '') and&#xA;   BirthDefectInput_Totint.[Mother_ssn]       = Birth_Defect_Reports.[Mother_ssn] AND &#xA;            BirthDefectInput_Totint.Child_birth_month  = Birth_Defect_Reports.Child_Birth_Month AND &#xA;            BirthDefectInput_Totint.Child_birth_day    = Birth_Defect_Reports.Child_Birth_Day AND &#xA;            BirthDefectInput_Totint.Child_birth_year   = Birth_Defect_Reports.Child_Birth_Year  AND &#xA;            BirthDefectInput_Totint.[sex]              = Birth_Defect_Reports.[Child_Gender]&#xA; );   &#xA;" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask" />
+      </DTS:ObjectData>
+    </DTS:Executable>
+    <DTS:Executable
+      DTS:refId="Package\Match 6"
+      DTS:CreationName="Microsoft.ExecuteSQLTask"
+      DTS:Description="Execute SQL Task"
+      DTS:DTSID="{fa20bde4-31f7-4d43-a1ea-bd48be17b0d6}"
+      DTS:ExecutableType="Microsoft.ExecuteSQLTask"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="Match 6"
+      DTS:TaskContact="Execute SQL Task; Microsoft Corporation; SQL Server 2014; © 2014 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
+      DTS:ThreadHint="0">
+      <DTS:Variables />
+      <DTS:ObjectData>
+        <SQLTask:SqlTaskData
+          SQLTask:Connection="{6A1BC3C1-B3D9-484D-9047-A66377136580}"
+          SQLTask:SqlStatementSource="UPDATE [dbo].[BirthDefectInput_Totint]  &#xA; SET [Link_Status] = 'Linked',&#xA;     [Link_Step]   = 'Match Step 6: new cases',&#xA;        [Link_BXDEF_RPTID] = Birth_Defect_Reports.BXDEF_RPTID,&#xA;        [Link_DateTime] = getdate(),&#xA;        [Link_BirthDefectsEntityID] = Birth_Defect_Reports.BirthDefectsEntityID&#xA;FROM [dbo].[BirthDefectInput_Totint]   &#xA;    INNER JOIN dbo.Birth_Defect_Reports   &#xA;    ON     ( UPPER(BirthDefectInput_Totint.baby_first_name)    = UPPER(Birth_Defect_Reports.Child_FirstName) and&#xA;   (UPPER(BirthDefectInput_Totint.[Mother_last_name]) = UPPER(Birth_Defect_Reports.[Mother_last_name]) and&#xA;   Birth_Defect_Reports.[Mother_last_name] IS NOT NULL or  Birth_Defect_Reports.[Mother_last_name] != '') and&#xA;   BirthDefectInput_Totint.[Mother_ssn]       = Birth_Defect_Reports.[Mother_ssn] AND &#xA;            BirthDefectInput_Totint.Child_birth_month  = Birth_Defect_Reports.Child_Birth_Month AND &#xA;            BirthDefectInput_Totint.Child_birth_day    = Birth_Defect_Reports.Child_Birth_Day AND &#xA;            BirthDefectInput_Totint.Child_birth_year   = Birth_Defect_Reports.Child_Birth_Year  AND &#xA;            BirthDefectInput_Totint.[sex]              = Birth_Defect_Reports.[Child_Gender]&#xA; );   &#xA;" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask" />
+      </DTS:ObjectData>
+    </DTS:Executable>
+    <DTS:Executable
+      DTS:refId="Package\Match 7"
+      DTS:CreationName="Microsoft.ExecuteSQLTask"
+      DTS:Description="Execute SQL Task"
+      DTS:DTSID="{b0d9f936-60e3-4d8f-933b-8306edb2bb53}"
+      DTS:ExecutableType="Microsoft.ExecuteSQLTask"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="Match 7"
+      DTS:TaskContact="Execute SQL Task; Microsoft Corporation; SQL Server 2014; © 2014 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
+      DTS:ThreadHint="0">
+      <DTS:Variables />
+      <DTS:ObjectData>
+        <SQLTask:SqlTaskData
+          SQLTask:Connection="{6A1BC3C1-B3D9-484D-9047-A66377136580}"
+          SQLTask:SqlStatementSource="UPDATE [dbo].[BirthDefectInput_Totint]  &#xA; SET [Link_Status] = 'Linked',&#xA;     [Link_Step]   = 'Match Step 7: new cases',&#xA;        [Link_BXDEF_RPTID] = Birth_Defect_Reports.BXDEF_RPTID,&#xA;        [Link_DateTime] = getdate(),&#xA;        [Link_BirthDefectsEntityID] = Birth_Defect_Reports.BirthDefectsEntityID&#xA;FROM [dbo].[BirthDefectInput_Totint]   &#xA;    INNER JOIN dbo.Birth_Defect_Reports   &#xA;    ON     ( UPPER(BirthDefectInput_Totint.baby_first_name)    = UPPER(Birth_Defect_Reports.Child_FirstName) and&#xA;   (UPPER(BirthDefectInput_Totint.[Mother_last_name]) = UPPER(Birth_Defect_Reports.[Mother_last_name]) and&#xA;   Birth_Defect_Reports.[Mother_last_name] IS NOT NULL or  Birth_Defect_Reports.[Mother_last_name] != '') and&#xA;   BirthDefectInput_Totint.[Mother_ssn]       = Birth_Defect_Reports.[Mother_ssn] AND &#xA;            BirthDefectInput_Totint.Child_birth_month  = Birth_Defect_Reports.Child_Birth_Month AND &#xA;            BirthDefectInput_Totint.Child_birth_day    = Birth_Defect_Reports.Child_Birth_Day AND &#xA;            BirthDefectInput_Totint.Child_birth_year   = Birth_Defect_Reports.Child_Birth_Year  AND &#xA;            BirthDefectInput_Totint.[sex]              = Birth_Defect_Reports.[Child_Gender]&#xA; );   &#xA;" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask" />
+      </DTS:ObjectData>
+    </DTS:Executable>
+    <DTS:Executable
+      DTS:refId="Package\Match 8"
+      DTS:CreationName="Microsoft.ExecuteSQLTask"
+      DTS:Description="Execute SQL Task"
+      DTS:DTSID="{21bbff97-4d34-48a4-bc0c-fb920626e766}"
+      DTS:ExecutableType="Microsoft.ExecuteSQLTask"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="Match 8"
+      DTS:TaskContact="Execute SQL Task; Microsoft Corporation; SQL Server 2014; © 2014 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
+      DTS:ThreadHint="0">
+      <DTS:Variables />
+      <DTS:ObjectData>
+        <SQLTask:SqlTaskData
+          SQLTask:Connection="{6A1BC3C1-B3D9-484D-9047-A66377136580}"
+          SQLTask:SqlStatementSource="UPDATE [dbo].[BirthDefectInput_Totint]  &#xA; SET [Link_Status] = 'Linked',&#xA;     [Link_Step]   = 'Match Step 8: new cases',&#xA;        [Link_BXDEF_RPTID] = Birth_Defect_Reports.BXDEF_RPTID,&#xA;        [Link_DateTime] = getdate(),&#xA;        [Link_BirthDefectsEntityID] = Birth_Defect_Reports.BirthDefectsEntityID&#xA;FROM [dbo].[BirthDefectInput_Totint]   &#xA;    INNER JOIN dbo.Birth_Defect_Reports   &#xA;    ON     ( UPPER(BirthDefectInput_Totint.baby_first_name)    = UPPER(Birth_Defect_Reports.Child_FirstName) and&#xA;   (UPPER(BirthDefectInput_Totint.[Mother_last_name]) = UPPER(Birth_Defect_Reports.[Mother_last_name]) and&#xA;   Birth_Defect_Reports.[Mother_last_name] IS NOT NULL or  Birth_Defect_Reports.[Mother_last_name] != '') and&#xA;   BirthDefectInput_Totint.[Mother_ssn]       = Birth_Defect_Reports.[Mother_ssn] AND &#xA;            BirthDefectInput_Totint.Child_birth_month  = Birth_Defect_Reports.Child_Birth_Month AND &#xA;            BirthDefectInput_Totint.Child_birth_day    = Birth_Defect_Reports.Child_Birth_Day AND &#xA;            BirthDefectInput_Totint.Child_birth_year   = Birth_Defect_Reports.Child_Birth_Year  AND &#xA;            BirthDefectInput_Totint.[sex]              = Birth_Defect_Reports.[Child_Gender]&#xA; );   &#xA;" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask" />
+      </DTS:ObjectData>
+    </DTS:Executable>
+    <DTS:Executable
+      DTS:refId="Package\Match 9"
+      DTS:CreationName="Microsoft.ExecuteSQLTask"
+      DTS:Description="Execute SQL Task"
+      DTS:DTSID="{2bc8efac-8a7f-445b-9784-a4ef31578b6a}"
+      DTS:ExecutableType="Microsoft.ExecuteSQLTask"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="Match 9"
+      DTS:TaskContact="Execute SQL Task; Microsoft Corporation; SQL Server 2014; © 2014 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
+      DTS:ThreadHint="0">
+      <DTS:Variables />
+      <DTS:ObjectData>
+        <SQLTask:SqlTaskData
+          SQLTask:Connection="{6A1BC3C1-B3D9-484D-9047-A66377136580}"
+          SQLTask:SqlStatementSource="UPDATE [dbo].[BirthDefectInput_Totint]  &#xA; SET [Link_Status] = 'Linked',&#xA;     [Link_Step]   = 'Match Step 9: new cases',&#xA;        [Link_BXDEF_RPTID] = Birth_Defect_Reports.BXDEF_RPTID,&#xA;        [Link_DateTime] = getdate(),&#xA;        [Link_BirthDefectsEntityID] = Birth_Defect_Reports.BirthDefectsEntityID&#xA;FROM [dbo].[BirthDefectInput_Totint]   &#xA;    INNER JOIN dbo.Birth_Defect_Reports   &#xA;    ON     ( UPPER(BirthDefectInput_Totint.baby_first_name)    = UPPER(Birth_Defect_Reports.Child_FirstName) and&#xA;   (UPPER(BirthDefectInput_Totint.[Mother_last_name]) = UPPER(Birth_Defect_Reports.[Mother_last_name]) and&#xA;   Birth_Defect_Reports.[Mother_last_name] IS NOT NULL or  Birth_Defect_Reports.[Mother_last_name] != '') and&#xA;   BirthDefectInput_Totint.[Mother_ssn]       = Birth_Defect_Reports.[Mother_ssn] AND &#xA;            BirthDefectInput_Totint.Child_birth_month  = Birth_Defect_Reports.Child_Birth_Month AND &#xA;            BirthDefectInput_Totint.Child_birth_day    = Birth_Defect_Reports.Child_Birth_Day AND &#xA;            BirthDefectInput_Totint.Child_birth_year   = Birth_Defect_Reports.Child_Birth_Year  AND &#xA;            BirthDefectInput_Totint.[sex]              = Birth_Defect_Reports.[Child_Gender]&#xA; );   &#xA;" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask" />
+      </DTS:ObjectData>
+    </DTS:Executable>
+    <DTS:Executable
+      DTS:refId="Package\Matching Existing Cases"
+      DTS:CreationName="Microsoft.Pipeline"
+      DTS:Description="Data Flow Task"
+      DTS:DTSID="{24BD9C86-78AA-47DE-9F6A-F37183D829EF}"
+      DTS:ExecutableType="Microsoft.Pipeline"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="Matching Existing Cases"
+      DTS:TaskContact="Performs high-performance data extraction, transformation and loading;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1">
+      <DTS:Variables />
+      <DTS:ObjectData>
+        <pipeline
+          version="1" />
+      </DTS:ObjectData>
+    </DTS:Executable>
+  </DTS:Executables>
+  <DTS:PrecedenceConstraints>
+    <DTS:PrecedenceConstraint
+      DTS:refId="Package.PrecedenceConstraints[Constraint]"
+      DTS:CreationName=""
+      DTS:DTSID="{D9ACD61F-052B-4C6E-8A73-27CD77735B32}"
+      DTS:From="Package\Matching Existing Cases"
+      DTS:LogicalAnd="True"
+      DTS:ObjectName="Constraint"
+      DTS:To="Package\Match 1" />
+    <DTS:PrecedenceConstraint
+      DTS:refId="Package.PrecedenceConstraints[Constraint 1]"
+      DTS:CreationName=""
+      DTS:DTSID="{AA4B50EE-D044-4FC5-A7EC-0C710030E326}"
+      DTS:From="Package\Match 1"
+      DTS:LogicalAnd="True"
+      DTS:ObjectName="Constraint 1"
+      DTS:To="Package\Match 2" />
+    <DTS:PrecedenceConstraint
+      DTS:refId="Package.PrecedenceConstraints[Constraint 10]"
+      DTS:CreationName=""
+      DTS:DTSID="{C1FE3DF8-8623-42FB-B713-36612BD30F3C}"
+      DTS:From="Package\Match 10"
+      DTS:LogicalAnd="True"
+      DTS:ObjectName="Constraint 10"
+      DTS:To="Package\Match 11" />
+    <DTS:PrecedenceConstraint
+      DTS:refId="Package.PrecedenceConstraints[Constraint 11]"
+      DTS:CreationName=""
+      DTS:DTSID="{99072D69-1517-4185-AA2A-27499FF066D8}"
+      DTS:From="Package\Match 11"
+      DTS:LogicalAnd="True"
+      DTS:ObjectName="Constraint 11"
+      DTS:To="Package\Match 12" />
+    <DTS:PrecedenceConstraint
+      DTS:refId="Package.PrecedenceConstraints[Constraint 12]"
+      DTS:CreationName=""
+      DTS:DTSID="{F988B4BE-912B-4601-B7BA-0898FEA0BA9C}"
+      DTS:From="Package\Match 15"
+      DTS:LogicalAnd="True"
+      DTS:ObjectName="Constraint 12"
+      DTS:To="Package\Match 16" />
+    <DTS:PrecedenceConstraint
+      DTS:refId="Package.PrecedenceConstraints[Constraint 13]"
+      DTS:CreationName=""
+      DTS:DTSID="{C5D8FE24-C84E-433E-BADD-7EFBD66A5B23}"
+      DTS:From="Package\Match 14"
+      DTS:LogicalAnd="True"
+      DTS:ObjectName="Constraint 13"
+      DTS:To="Package\Match 15" />
+    <DTS:PrecedenceConstraint
+      DTS:refId="Package.PrecedenceConstraints[Constraint 14]"
+      DTS:CreationName=""
+      DTS:DTSID="{62536B1A-FFA3-4A0D-BAF0-B5F1EA9ECABC}"
+      DTS:From="Package\Match 13"
+      DTS:LogicalAnd="True"
+      DTS:ObjectName="Constraint 14"
+      DTS:To="Package\Match 14" />
+    <DTS:PrecedenceConstraint
+      DTS:refId="Package.PrecedenceConstraints[Constraint 15]"
+      DTS:CreationName=""
+      DTS:DTSID="{A7A25130-ECDF-4C5D-90F5-FF5B9087988E}"
+      DTS:From="Package\Match 12"
+      DTS:LogicalAnd="True"
+      DTS:ObjectName="Constraint 15"
+      DTS:To="Package\Match 13" />
+    <DTS:PrecedenceConstraint
+      DTS:refId="Package.PrecedenceConstraints[Constraint 2]"
+      DTS:CreationName=""
+      DTS:DTSID="{C54D0F80-027A-46FE-8133-D0EFA54B63F0}"
+      DTS:From="Package\Match 2"
+      DTS:LogicalAnd="True"
+      DTS:ObjectName="Constraint 2"
+      DTS:To="Package\Match 3" />
+    <DTS:PrecedenceConstraint
+      DTS:refId="Package.PrecedenceConstraints[Constraint 3]"
+      DTS:CreationName=""
+      DTS:DTSID="{2C97C148-328B-485E-9D23-078CFE94BD9A}"
+      DTS:From="Package\Match 3"
+      DTS:LogicalAnd="True"
+      DTS:ObjectName="Constraint 3"
+      DTS:To="Package\Match 4" />
+    <DTS:PrecedenceConstraint
+      DTS:refId="Package.PrecedenceConstraints[Constraint 4]"
+      DTS:CreationName=""
+      DTS:DTSID="{D1D2441C-7962-4775-9810-3E5C2E9A3C56}"
+      DTS:From="Package\Match 4"
+      DTS:LogicalAnd="True"
+      DTS:ObjectName="Constraint 4"
+      DTS:To="Package\Match 5" />
+    <DTS:PrecedenceConstraint
+      DTS:refId="Package.PrecedenceConstraints[Constraint 5]"
+      DTS:CreationName=""
+      DTS:DTSID="{A1FB5672-9D3E-41E7-89D5-BF5087D645AB}"
+      DTS:From="Package\Match 5"
+      DTS:LogicalAnd="True"
+      DTS:ObjectName="Constraint 5"
+      DTS:To="Package\Match 6" />
+    <DTS:PrecedenceConstraint
+      DTS:refId="Package.PrecedenceConstraints[Constraint 6]"
+      DTS:CreationName=""
+      DTS:DTSID="{A6B3F31C-8691-437B-B6B7-14FF85790F55}"
+      DTS:From="Package\Match 6"
+      DTS:LogicalAnd="True"
+      DTS:ObjectName="Constraint 6"
+      DTS:To="Package\Match 7" />
+    <DTS:PrecedenceConstraint
+      DTS:refId="Package.PrecedenceConstraints[Constraint 7]"
+      DTS:CreationName=""
+      DTS:DTSID="{6F0B7BF2-E51F-4457-984C-AEC8C0ED5AD0}"
+      DTS:From="Package\Match 7"
+      DTS:LogicalAnd="True"
+      DTS:ObjectName="Constraint 7"
+      DTS:To="Package\Match 8" />
+    <DTS:PrecedenceConstraint
+      DTS:refId="Package.PrecedenceConstraints[Constraint 8]"
+      DTS:CreationName=""
+      DTS:DTSID="{60F5EB71-2896-4753-BF2B-B21282133588}"
+      DTS:From="Package\Match 8"
+      DTS:LogicalAnd="True"
+      DTS:ObjectName="Constraint 8"
+      DTS:To="Package\Match 9" />
+    <DTS:PrecedenceConstraint
+      DTS:refId="Package.PrecedenceConstraints[Constraint 9]"
+      DTS:CreationName=""
+      DTS:DTSID="{6A52CB52-584E-42DC-9F47-AAB1ADB15EFC}"
+      DTS:From="Package\Match 9"
+      DTS:LogicalAnd="True"
+      DTS:ObjectName="Constraint 9"
+      DTS:To="Package\Match 10" />
+  </DTS:PrecedenceConstraints>
+  <DTS:DesignTimeProperties><![CDATA[<?xml version="1.0"?>
+<!--This CDATA section contains the layout information of the package. The section includes information such as (x,y) coordinates, width, and height.-->
+<!--If you manually edit this section and make a mistake, you can delete it. -->
+<!--The package will still be able to load normally but the previous layout information will be lost and the designer will automatically re-arrange the elements on the design surface.-->
+<Objects
+  Version="sql12">
+  <!--Each node below will contain properties that do not affect runtime behavior.-->
+  <Package
+    design-time-name="Package">
+    <LayoutInfo>
+      <GraphLayout
+        Capacity="64" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml">
+        <NodeLayout
+          Size="118,42"
+          Id="Package\Match 1"
+          TopLeft="29,90" />
+        <NodeLayout
+          Size="124,42"
+          Id="Package\Match 10"
+          TopLeft="488,170" />
+        <NodeLayout
+          Size="124,42"
+          Id="Package\Match 11"
+          TopLeft="658,170" />
+        <NodeLayout
+          Size="124,42"
+          Id="Package\Match 12"
+          TopLeft="817,170" />
+        <NodeLayout
+          Size="124,42"
+          Id="Package\Match 13"
+          TopLeft="21,236" />
+        <NodeLayout
+          Size="124,42"
+          Id="Package\Match 14"
+          TopLeft="179,234" />
+        <NodeLayout
+          Size="124,42"
+          Id="Package\Match 15"
+          TopLeft="326,238" />
+        <NodeLayout
+          Size="124,42"
+          Id="Package\Match 16"
+          TopLeft="488,237" />
+        <NodeLayout
+          Size="118,42"
+          Id="Package\Match 2"
+          TopLeft="173,94" />
+        <NodeLayout
+          Size="118,42"
+          Id="Package\Match 3"
+          TopLeft="326,93" />
+        <NodeLayout
+          Size="118,42"
+          Id="Package\Match 4"
+          TopLeft="487,90" />
+        <NodeLayout
+          Size="118,42"
+          Id="Package\Match 5"
+          TopLeft="656,93" />
+        <NodeLayout
+          Size="118,42"
+          Id="Package\Match 6"
+          TopLeft="819,94" />
+        <NodeLayout
+          Size="118,42"
+          Id="Package\Match 7"
+          TopLeft="26,167" />
+        <NodeLayout
+          Size="118,42"
+          Id="Package\Match 8"
+          TopLeft="179,168" />
+        <NodeLayout
+          Size="118,42"
+          Id="Package\Match 9"
+          TopLeft="327,169" />
+        <NodeLayout
+          Size="194,42"
+          Id="Package\Matching Existing Cases"
+          TopLeft="203,10" />
+        <EdgeLayout
+          Id="Package.PrecedenceConstraints[Constraint]"
+          TopLeft="300,52">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="-212,38"
+              Start="0,0"
+              End="-212,30.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,15" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,15"
+                    Point2="0,19"
+                    Point3="-4,19" />
+                  <mssgle:LineSegment
+                    End="-208,19" />
+                  <mssgle:CubicBezierSegment
+                    Point1="-208,19"
+                    Point2="-212,19"
+                    Point3="-212,23" />
+                  <mssgle:LineSegment
+                    End="-212,30.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package.PrecedenceConstraints[Constraint 1]"
+          TopLeft="147,113">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="26,0"
+              Start="0,0"
+              End="18.5,0">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="18.5,0" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package.PrecedenceConstraints[Constraint 10]"
+          TopLeft="612,191">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="46,0"
+              Start="0,0"
+              End="38.5,0">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="38.5,0" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package.PrecedenceConstraints[Constraint 11]"
+          TopLeft="782,191">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="35,0"
+              Start="0,0"
+              End="27.5,0">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="27.5,0" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package.PrecedenceConstraints[Constraint 12]"
+          TopLeft="450,258.5">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="38,0"
+              Start="0,0"
+              End="30.5,0">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="30.5,0" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package.PrecedenceConstraints[Constraint 13]"
+          TopLeft="303,257">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="23,0"
+              Start="0,0"
+              End="15.5,0">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="15.5,0" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package.PrecedenceConstraints[Constraint 14]"
+          TopLeft="145,256">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="34,0"
+              Start="0,0"
+              End="26.5,0">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="26.5,0" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package.PrecedenceConstraints[Constraint 15]"
+          TopLeft="879,212">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="-796,24"
+              Start="0,0"
+              End="-796,16.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,8" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,8"
+                    Point2="0,12"
+                    Point3="-4,12" />
+                  <mssgle:LineSegment
+                    End="-792,12" />
+                  <mssgle:CubicBezierSegment
+                    Point1="-792,12"
+                    Point2="-796,12"
+                    Point3="-796,16" />
+                  <mssgle:LineSegment
+                    End="-796,16.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package.PrecedenceConstraints[Constraint 2]"
+          TopLeft="291,114.5">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="35,0"
+              Start="0,0"
+              End="27.5,0">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="27.5,0" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package.PrecedenceConstraints[Constraint 3]"
+          TopLeft="444,112.5">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="43,0"
+              Start="0,0"
+              End="35.5,0">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="35.5,0" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package.PrecedenceConstraints[Constraint 4]"
+          TopLeft="605,112.5">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="51,0"
+              Start="0,0"
+              End="43.5,0">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="43.5,0" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package.PrecedenceConstraints[Constraint 5]"
+          TopLeft="774,114.5">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="45,0"
+              Start="0,0"
+              End="37.5,0">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="37.5,0" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package.PrecedenceConstraints[Constraint 6]"
+          TopLeft="878,136">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="-793,31"
+              Start="0,0"
+              End="-793,23.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,11.5" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,11.5"
+                    Point2="0,15.5"
+                    Point3="-4,15.5" />
+                  <mssgle:LineSegment
+                    End="-789,15.5" />
+                  <mssgle:CubicBezierSegment
+                    Point1="-789,15.5"
+                    Point2="-793,15.5"
+                    Point3="-793,19.5" />
+                  <mssgle:LineSegment
+                    End="-793,23.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package.PrecedenceConstraints[Constraint 7]"
+          TopLeft="144,188.5">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="35,0"
+              Start="0,0"
+              End="27.5,0">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="27.5,0" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package.PrecedenceConstraints[Constraint 8]"
+          TopLeft="297,189.5">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="30,0"
+              Start="0,0"
+              End="22.5,0">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="22.5,0" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package.PrecedenceConstraints[Constraint 9]"
+          TopLeft="445,190.5">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="43,0"
+              Start="0,0"
+              End="35.5,0">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="35.5,0" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <AnnotationLayout
+          Text="**** Notes ****&#xA;1. Add filter to exclude &quot;linked&quot; for Matches"
+          ParentId="Package"
+          FontInfo="{assembly:Null}"
+          Size="261,58"
+          Id="bffbdead-e5e8-41b9-a41c-4215fa99c8bc"
+          TopLeft="422,25" />
+      </GraphLayout>
+    </LayoutInfo>
+  </Package>
+  <TaskHost
+    design-time-name="Package\Matching Existing Cases">
+    <LayoutInfo>
+      <GraphLayout
+        Capacity="8" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:mssgm="clr-namespace:Microsoft.SqlServer.Graph.Model;assembly=Microsoft.SqlServer.Graph">
+        <NodeLayout
+          Size="122,42"
+          Id="18"
+          TopLeft="86,103" />
+        <NodeLayout
+          Size="151,42"
+          Id="24"
+          TopLeft="51,12" />
+        <NodeLayout
+          Size="168,42"
+          Id="2"
+          TopLeft="298,14" />
+        <NodeLayout
+          Size="132,42"
+          Id="21"
+          TopLeft="343,104" />
+        <EdgeLayout
+          Id="531"
+          TopLeft="311,56">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="-164,47"
+              Start="0,0"
+              End="-164,39.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,19.5" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,19.5"
+                    Point2="0,23.5"
+                    Point3="-4,23.5" />
+                  <mssgle:LineSegment
+                    End="-160,23.5" />
+                  <mssgle:CubicBezierSegment
+                    Point1="-160,23.5"
+                    Point2="-164,23.5"
+                    Point3="-164,27.5" />
+                  <mssgle:LineSegment
+                    End="-164,39.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <mssgm:EdgeLabel
+              BoundingBox="-161.2750390625,28.5,158.550078125,16"
+              RelativePosition="Any" />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="533"
+          TopLeft="202,34">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="96,0"
+              Start="0,0"
+              End="88.5,0">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="88.5,0" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <mssgm:EdgeLabel
+              BoundingBox="36.25,5,16,16"
+              RelativePosition="Any" />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="532"
+          TopLeft="408.833333333333,56">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,48"
+              Start="0,0"
+              End="0,40.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,40.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <mssgm:EdgeLabel
+              BoundingBox="-31.196640625,12.25,62.39328125,16"
+              RelativePosition="Any" />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+      </GraphLayout>
+    </LayoutInfo>
+  </TaskHost>
+</Objects>]]></DTS:DesignTimeProperties>
+</DTS:Executable>

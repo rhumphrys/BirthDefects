@@ -1,0 +1,84 @@
+﻿<?xml version="1.0"?>
+<DTS:Executable xmlns:DTS="www.microsoft.com/SqlServer/Dts"
+  DTS:refId="Package"
+  DTS:CreationDate="10/10/2016 3:46:01 PM"
+  DTS:CreationName="Microsoft.Package"
+  DTS:CreatorComputerName="RHUMPHRYS-10733"
+  DTS:CreatorName="ALTARUM\rhumphrys"
+  DTS:DTSID="{8727221E-49E9-4463-8180-547C786B20B2}"
+  DTS:ExecutableType="Microsoft.Package"
+  DTS:LastModifiedProductVersion="12.0.5000.0"
+  DTS:LocaleID="1033"
+  DTS:ObjectName="Annotated_Process"
+  DTS:PackageType="5"
+  DTS:VersionBuild="38"
+  DTS:VersionGUID="{5A2C9A36-7062-41D5-8676-BC2CBA2F897B}">
+  <DTS:Property
+    DTS:Name="PackageFormatVersion">8</DTS:Property>
+  <DTS:Variables />
+  <DTS:Executables>
+    <DTS:Executable
+      DTS:refId="Package\Data Flow Task"
+      DTS:CreationName="Microsoft.Pipeline"
+      DTS:Description="Data Flow Task"
+      DTS:DTSID="{13EE6D8D-A8C1-443F-9782-12CF4F237CB3}"
+      DTS:ExecutableType="Microsoft.Pipeline"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="Data Flow Task"
+      DTS:TaskContact="Performs high-performance data extraction, transformation and loading;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1">
+      <DTS:Variables />
+      <DTS:ObjectData>
+        <pipeline
+          version="1" />
+      </DTS:ObjectData>
+    </DTS:Executable>
+  </DTS:Executables>
+  <DTS:DesignTimeProperties><![CDATA[<?xml version="1.0"?>
+<!--This CDATA section contains the layout information of the package. The section includes information such as (x,y) coordinates, width, and height.-->
+<!--If you manually edit this section and make a mistake, you can delete it. -->
+<!--The package will still be able to load normally but the previous layout information will be lost and the designer will automatically re-arrange the elements on the design surface.-->
+<Objects
+  Version="sql12">
+  <!--Each node below will contain properties that do not affect runtime behavior.-->
+  <Package
+    design-time-name="Package">
+    <LayoutInfo>
+      <GraphLayout
+        Capacity="8" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml">
+        <NodeLayout
+          Size="153,42"
+          Id="Package\Data Flow Task"
+          TopLeft="1536.22222222222,128.5" />
+        <AnnotationLayout
+          Text="***** Report Conversion Packages *****&#xA;1.   ProcessUMHospital&#xA;2.   ProcessEBC&#xA;3.   ProcessSpectrum&#xA;4.   ProcessUmOutpatient&#xA;5.   Sparrow&#xA;6.   Munson&#xA;7.   Hurley&#xA;8.   Henry Ford&#xA;9.   Assign_CaseID_Loader&#xA;10. Lakeland&#xA;11. Marquette&#xA;12. St. Johns&#xA;13. Process_Production_XML_CDA&#xA;14. Load_CDA_Totint&#xA;15. Process_Production_EHDI.dtsx&#xA;16. Process_Production_DW_CSHCS.dtsx&#xD;&#xA;17. Data Edits: &#xA;&#xA;Linkage process: Process_Match_Data_Extracts&#xA;1. New Case Linkage occurs in: Load_Child_Tables_Assign_CaseID_Loader&#xA;    a. TotInt (DefectIn) vs. Subsets of BirthDef cases external systems&#xA;2. Linkage to BRS and EDRS&#xA;    a. Package: Extract_BRS_EDRS.dtsx&#xA;    b. Link to BRS&#xA;         1. Download batch from IBISLegal: &#xA;         2. table: tmpRawData_IBISLEGAL_Inputtbl_IBISLEGAL_Staging&#xA;         3. BRS Link&#xA;3. Match_Steps.dtsx - 16 match steps&#xA;4. Jaro Winkler Record Linking_v1.dtsx - Probablistic Record Linking"
+          ParentId="Package"
+          FontInfo="{assembly:Null}"
+          Size="415,505"
+          Id="daeb95d3-830f-415e-a825-7fbe211dda97"
+          TopLeft="9.3055555555556,15.9166666666649" />
+        <AnnotationLayout
+          Text="1.       Henry ford –  Fixed width/append into table&#xA;2.       St john – fxed width DAT/append into table&#xA;3.       DMC – fixed width txt/append into table&#xA;4.       Marquette - fixed width txt/append into table&#xA;5.       Lakeland - fixed width txt/append into table&#xA;6.       Hurley - fixed&#xA;7.        Sparrow - fixed&#xA;8.        EBC - CSV&#xA;9.        UM - CSV&#xA;10.      &#xA;"
+          ParentId="Package"
+          FontInfo="{assembly:Null}"
+          Size="304,202"
+          Id="7dc26b45-3f3f-4003-a1c1-6a95ad855a71"
+          TopLeft="665.472222222222,24.25" />
+        <AnnotationLayout
+          Text="***** Case File Building Packages *****&#xA;1. CaseBuilder&#xA;       a. StatBuilder - 1.23.2017&#xA;       b. ActionCode - under dev.&#xA;       c.  UniqueDx&#xA;       d. UniquePx&#xA;       e. AdmitDat&#xA;       f. Syndrome&#xA;       g. BldMast&#xA;       h. PurgeLow&#xA;2."
+          ParentId="Package"
+          FontInfo="{assembly:Null}"
+          Size="233,202"
+          Id="141c5955-1604-4ae8-8c99-c40cc0ecdb68"
+          TopLeft="424.472222222222,20.75" />
+        <AnnotationLayout
+          Text="               ***** EHDI Integration *****&#xA;1. Load EHDI hospitals from csv or Excel&#xA;   * Load_EHDI_Hospitals.dtsx&#xA;   * Destination: Master Hospital Table with &#xA;      a flag for EHDI&#xA;2.  Process_Production_EHDI.dtsx"
+          ParentId="Package"
+          FontInfo="{assembly:Null}"
+          Size="260,122"
+          Id="b4be4895-326e-4aef-836a-cc86b90ab7af"
+          TopLeft="451,228" />
+      </GraphLayout>
+    </LayoutInfo>
+  </Package>
+</Objects>]]></DTS:DesignTimeProperties>
+</DTS:Executable>

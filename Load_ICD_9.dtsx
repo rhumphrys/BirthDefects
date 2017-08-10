@@ -1,0 +1,2413 @@
+<?xml version="1.0"?>
+<DTS:Executable xmlns:DTS="www.microsoft.com/SqlServer/Dts"
+  DTS:refId="Package"
+  DTS:CreationDate="4/11/2016 2:16:16 PM"
+  DTS:CreationName="Microsoft.Package"
+  DTS:CreatorComputerName="RAY-PC"
+  DTS:CreatorName="Ray-PC\Ray"
+  DTS:DTSID="{4FCDD163-00AC-482C-B3FF-28BF5AA314BB}"
+  DTS:ExecutableType="Microsoft.Package"
+  DTS:LastModifiedProductVersion="12.0.2430.0"
+  DTS:LocaleID="1033"
+  DTS:ObjectName="Load_ICD_9"
+  DTS:PackageType="5"
+  DTS:VersionBuild="17"
+  DTS:VersionGUID="{137232B1-7C2E-4234-9FA3-64C8DEEAE736}">
+  <DTS:Property
+    DTS:Name="PackageFormatVersion">8</DTS:Property>
+  <DTS:ConnectionManagers>
+    <DTS:ConnectionManager
+      DTS:refId="Package.ConnectionManagers[icd9 load]"
+      DTS:CreationName="FLATFILE"
+      DTS:DTSID="{FF4FE051-91A8-423E-B3F7-281266686E4A}"
+      DTS:ObjectName="icd9 load">
+      <DTS:ObjectData>
+        <DTS:ConnectionManager
+          DTS:Format="RaggedRight"
+          DTS:LocaleID="1033"
+          DTS:HeaderRowDelimiter="_x000D__x000A_"
+          DTS:RowDelimiter="_x000D__x000A_"
+          DTS:TextQualifier="_x003C_none_x003E_"
+          DTS:CodePage="1252"
+          DTS:ConnectionString="C:\temp\icd9.txt">
+          <DTS:FlatFileColumns>
+            <DTS:FlatFileColumn
+              DTS:ColumnDelimiter=""
+              DTS:ColumnWidth="120"
+              DTS:MaximumWidth="120"
+              DTS:DataType="129"
+              DTS:ObjectName="Column 0"
+              DTS:DTSID="{569C2563-1018-4F56-9965-4E8703958D47}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnDelimiter=""
+              DTS:ColumnWidth="6"
+              DTS:MaximumWidth="6"
+              DTS:DataType="129"
+              DTS:ObjectName="Column 1"
+              DTS:DTSID="{31A3DEA6-130F-4691-A884-25B07B737116}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnDelimiter=""
+              DTS:ColumnWidth="5"
+              DTS:MaximumWidth="5"
+              DTS:DataType="129"
+              DTS:ObjectName="Column 2"
+              DTS:DTSID="{4692921A-764D-414E-AC54-3FFAE5BE1225}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnDelimiter=""
+              DTS:ColumnWidth="5"
+              DTS:MaximumWidth="5"
+              DTS:DataType="129"
+              DTS:ObjectName="Column 3"
+              DTS:DTSID="{98195878-B50A-42F4-A507-65E42D0759C8}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnDelimiter=""
+              DTS:ColumnWidth="1"
+              DTS:MaximumWidth="1"
+              DTS:DataType="129"
+              DTS:ObjectName="Column 4"
+              DTS:DTSID="{1008B586-3326-4B34-A9FC-41048C369EF6}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnDelimiter=""
+              DTS:ColumnWidth="3"
+              DTS:MaximumWidth="3"
+              DTS:DataType="129"
+              DTS:ObjectName="Column 5"
+              DTS:DTSID="{1FCBDAA5-509E-4413-A363-F51359D4993E}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnDelimiter=""
+              DTS:ColumnWidth="3"
+              DTS:MaximumWidth="3"
+              DTS:DataType="129"
+              DTS:ObjectName="Column 6"
+              DTS:DTSID="{F56773D1-784B-4044-B734-AE96FEF3A8EF}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnDelimiter=""
+              DTS:ColumnWidth="1"
+              DTS:MaximumWidth="1"
+              DTS:DataType="129"
+              DTS:ObjectName="Column 7"
+              DTS:DTSID="{E926A884-5A8F-4ECD-BA3B-8F063AD5EDBB}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnDelimiter=""
+              DTS:ColumnWidth="2"
+              DTS:MaximumWidth="2"
+              DTS:DataType="129"
+              DTS:ObjectName="Column 8"
+              DTS:DTSID="{F6A564D4-572B-424C-BD97-DD2C426CD007}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnDelimiter=""
+              DTS:ColumnWidth="2"
+              DTS:MaximumWidth="2"
+              DTS:DataType="129"
+              DTS:ObjectName="Column 9"
+              DTS:DTSID="{1F4BBF71-2D03-47BC-9E2F-48A04F5A3859}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnDelimiter=""
+              DTS:ColumnWidth="4"
+              DTS:MaximumWidth="4"
+              DTS:DataType="129"
+              DTS:ObjectName="Column 10"
+              DTS:DTSID="{0856BFBE-446D-43E3-9978-1700131A39AE}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnDelimiter=""
+              DTS:ColumnWidth="2"
+              DTS:MaximumWidth="2"
+              DTS:DataType="129"
+              DTS:ObjectName="Column 11"
+              DTS:DTSID="{54FCD27E-D57F-48B0-99A3-8F20F193B7D1}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnDelimiter=""
+              DTS:ColumnWidth="2"
+              DTS:MaximumWidth="2"
+              DTS:DataType="129"
+              DTS:ObjectName="Column 12"
+              DTS:DTSID="{A55AFFC0-5D23-48B4-A5CD-AA7799A2AC38}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnDelimiter=""
+              DTS:ColumnWidth="4"
+              DTS:MaximumWidth="4"
+              DTS:DataType="129"
+              DTS:ObjectName="Column 13"
+              DTS:DTSID="{C5D8D6F9-48F7-4163-8520-28ED36E42A29}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x000D__x000A_"
+              DTS:MaximumWidth="50"
+              DTS:DataType="129"
+              DTS:TextQualified="True"
+              DTS:ObjectName="Column 14"
+              DTS:DTSID="{045B3C02-1EBC-45D0-8662-25D0C80662E6}"
+              DTS:CreationName="" />
+          </DTS:FlatFileColumns>
+        </DTS:ConnectionManager>
+      </DTS:ObjectData>
+    </DTS:ConnectionManager>
+  </DTS:ConnectionManagers>
+  <DTS:Variables />
+  <DTS:Executables>
+    <DTS:Executable
+      DTS:refId="Package\Convert and Load ICD9"
+      DTS:CreationName="STOCK:SEQUENCE"
+      DTS:Description="Sequence Container"
+      DTS:DTSID="{32E49AC3-A07B-47B9-A05A-70FE8A71ECC3}"
+      DTS:ExecutableType="STOCK:SEQUENCE"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="Convert and Load ICD9">
+      <DTS:Variables />
+      <DTS:Executables>
+        <DTS:Executable
+          DTS:refId="Package\Convert and Load ICD9\Load ICD9 Final table"
+          DTS:CreationName="Microsoft.Pipeline"
+          DTS:Description="Data Flow Task"
+          DTS:DTSID="{ED27A79B-2D30-4BD9-83E5-CA69A82A71CE}"
+          DTS:ExecutableType="Microsoft.Pipeline"
+          DTS:LocaleID="-1"
+          DTS:ObjectName="Load ICD9 Final table"
+          DTS:TaskContact="Performs high-performance data extraction, transformation and loading;Microsoft Corporation; Microsoft SQL Server; (C) 2007 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1">
+          <DTS:Variables />
+          <DTS:ObjectData>
+            <pipeline
+              version="1">
+              <components>
+                <component
+                  refId="Package\Convert and Load ICD9\Load ICD9 Final table\ICD9 Reference Table"
+                  componentClassID="Microsoft.OLEDBDestination"
+                  contactInfo="OLE DB Destination;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;4"
+                  description="OLE DB Destination"
+                  name="ICD9 Reference Table"
+                  usesDispositions="true"
+                  version="4">
+                  <properties>
+                    <property
+                      dataType="System.Int32"
+                      description="The number of seconds before a command times out.  A value of 0 indicates an infinite time-out."
+                      name="CommandTimeout">0</property>
+                    <property
+                      dataType="System.String"
+                      description="Specifies the name of the database object used to open a rowset."
+                      name="OpenRowset">[dbo].[ref_TotalICD9]</property>
+                    <property
+                      dataType="System.String"
+                      description="Specifies the variable that contains the name of the database object used to open a rowset."
+                      name="OpenRowsetVariable"></property>
+                    <property
+                      dataType="System.String"
+                      description="The SQL command to be executed."
+                      name="SqlCommand"
+                      UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor"></property>
+                    <property
+                      dataType="System.Int32"
+                      description="Specifies the column code page to use when code page information is unavailable from the data source."
+                      name="DefaultCodePage">1252</property>
+                    <property
+                      dataType="System.Boolean"
+                      description="Forces the use of the DefaultCodePage property value when describing character data."
+                      name="AlwaysUseDefaultCodePage">false</property>
+                    <property
+                      dataType="System.Int32"
+                      description="Specifies the mode used to access the database."
+                      name="AccessMode"
+                      typeConverter="AccessMode">3</property>
+                    <property
+                      dataType="System.Boolean"
+                      description="Indicates whether the values supplied for identity columns will be copied to the destination. If false, values for identity columns will be auto-generated at the destination. Applies only if fast load is turned on."
+                      name="FastLoadKeepIdentity">false</property>
+                    <property
+                      dataType="System.Boolean"
+                      description="Indicates whether the columns containing null will have null inserted in the destination. If false, columns containing null will have their default values inserted at the destination. Applies only if fast load is turned on."
+                      name="FastLoadKeepNulls">false</property>
+                    <property
+                      dataType="System.String"
+                      description="Specifies options to be used with fast load.  Applies only if fast load is turned on."
+                      name="FastLoadOptions">TABLOCK,CHECK_CONSTRAINTS</property>
+                    <property
+                      dataType="System.Int32"
+                      description="Specifies when commits are issued during data insertion.  A value of 0 specifies that one commit will be issued at the end of data insertion.  Applies only if fast load is turned on."
+                      name="FastLoadMaxInsertCommitSize">2147483647</property>
+                  </properties>
+                  <connections>
+                    <connection
+                      refId="Package\Convert and Load ICD9\Load ICD9 Final table\ICD9 Reference Table.Connections[OleDbConnection]"
+                      connectionManagerID="{73D7CC01-08B9-427D-82C3-7A98DDEB3748}:invalid"
+                      connectionManagerRefId="{73D7CC01-08B9-427D-82C3-7A98DDEB3748}:invalid"
+                      description="The OLE DB runtime connection used to access the database."
+                      name="OleDbConnection" />
+                  </connections>
+                  <inputs>
+                    <input
+                      refId="Package\Convert and Load ICD9\Load ICD9 Final table\ICD9 Reference Table.Inputs[OLE DB Destination Input]"
+                      errorOrTruncationOperation="Insert"
+                      errorRowDisposition="FailComponent"
+                      hasSideEffects="true"
+                      name="OLE DB Destination Input">
+                      <inputColumns>
+                        <inputColumn
+                          refId="Package\Convert and Load ICD9\Load ICD9 Final table\ICD9 Reference Table.Inputs[OLE DB Destination Input].Columns[label]"
+                          cachedDataType="wstr"
+                          cachedLength="120"
+                          cachedName="label"
+                          externalMetadataColumnId="Package\Convert and Load ICD9\Load ICD9 Final table\ICD9 Reference Table.Inputs[OLE DB Destination Input].ExternalColumns[label]"
+                          lineageId="Package\Convert and Load ICD9\Load ICD9 Final table\temp ICD9 Table.Outputs[OLE DB Source Output].Columns[label]" />
+                        <inputColumn
+                          refId="Package\Convert and Load ICD9\Load ICD9 Final table\ICD9 Reference Table.Inputs[OLE DB Destination Input].Columns[icd9dec]"
+                          cachedDataType="wstr"
+                          cachedLength="6"
+                          cachedName="icd9dec"
+                          externalMetadataColumnId="Package\Convert and Load ICD9\Load ICD9 Final table\ICD9 Reference Table.Inputs[OLE DB Destination Input].ExternalColumns[icd9dec]"
+                          lineageId="Package\Convert and Load ICD9\Load ICD9 Final table\temp ICD9 Table.Outputs[OLE DB Source Output].Columns[icd9dec]" />
+                        <inputColumn
+                          refId="Package\Convert and Load ICD9\Load ICD9 Final table\ICD9 Reference Table.Inputs[OLE DB Destination Input].Columns[icd9num]"
+                          cachedDataType="wstr"
+                          cachedLength="5"
+                          cachedName="icd9num"
+                          externalMetadataColumnId="Package\Convert and Load ICD9\Load ICD9 Final table\ICD9 Reference Table.Inputs[OLE DB Destination Input].ExternalColumns[icd9num]"
+                          lineageId="Package\Convert and Load ICD9\Load ICD9 Final table\temp ICD9 Table.Outputs[OLE DB Source Output].Columns[icd9num]" />
+                        <inputColumn
+                          refId="Package\Convert and Load ICD9\Load ICD9 Final table\ICD9 Reference Table.Inputs[OLE DB Destination Input].Columns[icd9code]"
+                          cachedDataType="wstr"
+                          cachedLength="5"
+                          cachedName="icd9code"
+                          externalMetadataColumnId="Package\Convert and Load ICD9\Load ICD9 Final table\ICD9 Reference Table.Inputs[OLE DB Destination Input].ExternalColumns[icd9code]"
+                          lineageId="Package\Convert and Load ICD9\Load ICD9 Final table\temp ICD9 Table.Outputs[OLE DB Source Output].Columns[icd9code]" />
+                        <inputColumn
+                          refId="Package\Convert and Load ICD9\Load ICD9 Final table\ICD9 Reference Table.Inputs[OLE DB Destination Input].Columns[reportable]"
+                          cachedDataType="wstr"
+                          cachedLength="1"
+                          cachedName="reportable"
+                          externalMetadataColumnId="Package\Convert and Load ICD9\Load ICD9 Final table\ICD9 Reference Table.Inputs[OLE DB Destination Input].ExternalColumns[reportable]"
+                          lineageId="Package\Convert and Load ICD9\Load ICD9 Final table\temp ICD9 Table.Outputs[OLE DB Source Output].Columns[reportable]" />
+                        <inputColumn
+                          refId="Package\Convert and Load ICD9\Load ICD9 Final table\ICD9 Reference Table.Inputs[OLE DB Destination Input].Columns[codegroup]"
+                          cachedDataType="wstr"
+                          cachedLength="3"
+                          cachedName="codegroup"
+                          externalMetadataColumnId="Package\Convert and Load ICD9\Load ICD9 Final table\ICD9 Reference Table.Inputs[OLE DB Destination Input].ExternalColumns[codegroup]"
+                          lineageId="Package\Convert and Load ICD9\Load ICD9 Final table\temp ICD9 Table.Outputs[OLE DB Source Output].Columns[codegroup]" />
+                        <inputColumn
+                          refId="Package\Convert and Load ICD9\Load ICD9 Final table\ICD9 Reference Table.Inputs[OLE DB Destination Input].Columns[earlyongroup]"
+                          cachedDataType="wstr"
+                          cachedLength="3"
+                          cachedName="earlyongroup"
+                          externalMetadataColumnId="Package\Convert and Load ICD9\Load ICD9 Final table\ICD9 Reference Table.Inputs[OLE DB Destination Input].ExternalColumns[earlyongroup]"
+                          lineageId="Package\Convert and Load ICD9\Load ICD9 Final table\temp ICD9 Table.Outputs[OLE DB Source Output].Columns[earlyongroup]" />
+                        <inputColumn
+                          refId="Package\Convert and Load ICD9\Load ICD9 Final table\ICD9 Reference Table.Inputs[OLE DB Destination Input].Columns[cshcseligibility]"
+                          cachedDataType="wstr"
+                          cachedLength="1"
+                          cachedName="cshcseligibility"
+                          externalMetadataColumnId="Package\Convert and Load ICD9\Load ICD9 Final table\ICD9 Reference Table.Inputs[OLE DB Destination Input].ExternalColumns[cshcseligibility]"
+                          lineageId="Package\Convert and Load ICD9\Load ICD9 Final table\temp ICD9 Table.Outputs[OLE DB Source Output].Columns[cshcseligibility]" />
+                        <inputColumn
+                          refId="Package\Convert and Load ICD9\Load ICD9 Final table\ICD9 Reference Table.Inputs[OLE DB Destination Input].Columns[startmonth]"
+                          cachedDataType="wstr"
+                          cachedLength="2"
+                          cachedName="startmonth"
+                          externalMetadataColumnId="Package\Convert and Load ICD9\Load ICD9 Final table\ICD9 Reference Table.Inputs[OLE DB Destination Input].ExternalColumns[startmonth]"
+                          lineageId="Package\Convert and Load ICD9\Load ICD9 Final table\temp ICD9 Table.Outputs[OLE DB Source Output].Columns[startmonth]" />
+                        <inputColumn
+                          refId="Package\Convert and Load ICD9\Load ICD9 Final table\ICD9 Reference Table.Inputs[OLE DB Destination Input].Columns[startday]"
+                          cachedDataType="wstr"
+                          cachedLength="2"
+                          cachedName="startday"
+                          externalMetadataColumnId="Package\Convert and Load ICD9\Load ICD9 Final table\ICD9 Reference Table.Inputs[OLE DB Destination Input].ExternalColumns[startday]"
+                          lineageId="Package\Convert and Load ICD9\Load ICD9 Final table\temp ICD9 Table.Outputs[OLE DB Source Output].Columns[startday]" />
+                        <inputColumn
+                          refId="Package\Convert and Load ICD9\Load ICD9 Final table\ICD9 Reference Table.Inputs[OLE DB Destination Input].Columns[startyear]"
+                          cachedDataType="wstr"
+                          cachedLength="4"
+                          cachedName="startyear"
+                          externalMetadataColumnId="Package\Convert and Load ICD9\Load ICD9 Final table\ICD9 Reference Table.Inputs[OLE DB Destination Input].ExternalColumns[startyear]"
+                          lineageId="Package\Convert and Load ICD9\Load ICD9 Final table\temp ICD9 Table.Outputs[OLE DB Source Output].Columns[startyear]" />
+                        <inputColumn
+                          refId="Package\Convert and Load ICD9\Load ICD9 Final table\ICD9 Reference Table.Inputs[OLE DB Destination Input].Columns[endmonth]"
+                          cachedDataType="wstr"
+                          cachedLength="2"
+                          cachedName="endmonth"
+                          externalMetadataColumnId="Package\Convert and Load ICD9\Load ICD9 Final table\ICD9 Reference Table.Inputs[OLE DB Destination Input].ExternalColumns[endmonth]"
+                          lineageId="Package\Convert and Load ICD9\Load ICD9 Final table\temp ICD9 Table.Outputs[OLE DB Source Output].Columns[endmonth]" />
+                        <inputColumn
+                          refId="Package\Convert and Load ICD9\Load ICD9 Final table\ICD9 Reference Table.Inputs[OLE DB Destination Input].Columns[endday]"
+                          cachedDataType="wstr"
+                          cachedLength="2"
+                          cachedName="endday"
+                          externalMetadataColumnId="Package\Convert and Load ICD9\Load ICD9 Final table\ICD9 Reference Table.Inputs[OLE DB Destination Input].ExternalColumns[endday]"
+                          lineageId="Package\Convert and Load ICD9\Load ICD9 Final table\temp ICD9 Table.Outputs[OLE DB Source Output].Columns[endday]" />
+                        <inputColumn
+                          refId="Package\Convert and Load ICD9\Load ICD9 Final table\ICD9 Reference Table.Inputs[OLE DB Destination Input].Columns[endyear]"
+                          cachedDataType="wstr"
+                          cachedLength="4"
+                          cachedName="endyear"
+                          externalMetadataColumnId="Package\Convert and Load ICD9\Load ICD9 Final table\ICD9 Reference Table.Inputs[OLE DB Destination Input].ExternalColumns[endyear]"
+                          lineageId="Package\Convert and Load ICD9\Load ICD9 Final table\temp ICD9 Table.Outputs[OLE DB Source Output].Columns[endyear]" />
+                        <inputColumn
+                          refId="Package\Convert and Load ICD9\Load ICD9 Final table\ICD9 Reference Table.Inputs[OLE DB Destination Input].Columns[icd9cm]"
+                          cachedDataType="wstr"
+                          cachedLength="5"
+                          cachedName="icd9cm"
+                          externalMetadataColumnId="Package\Convert and Load ICD9\Load ICD9 Final table\ICD9 Reference Table.Inputs[OLE DB Destination Input].ExternalColumns[icd9cm]"
+                          lineageId="Package\Convert and Load ICD9\Load ICD9 Final table\temp ICD9 Table.Outputs[OLE DB Source Output].Columns[icd9cm]" />
+                      </inputColumns>
+                      <externalMetadataColumns
+                        isUsed="True">
+                        <externalMetadataColumn
+                          refId="Package\Convert and Load ICD9\Load ICD9 Final table\ICD9 Reference Table.Inputs[OLE DB Destination Input].ExternalColumns[ID]"
+                          dataType="i4"
+                          name="ID" />
+                        <externalMetadataColumn
+                          refId="Package\Convert and Load ICD9\Load ICD9 Final table\ICD9 Reference Table.Inputs[OLE DB Destination Input].ExternalColumns[label]"
+                          dataType="wstr"
+                          length="120"
+                          name="label" />
+                        <externalMetadataColumn
+                          refId="Package\Convert and Load ICD9\Load ICD9 Final table\ICD9 Reference Table.Inputs[OLE DB Destination Input].ExternalColumns[icd9dec]"
+                          dataType="wstr"
+                          length="6"
+                          name="icd9dec" />
+                        <externalMetadataColumn
+                          refId="Package\Convert and Load ICD9\Load ICD9 Final table\ICD9 Reference Table.Inputs[OLE DB Destination Input].ExternalColumns[icd9num]"
+                          dataType="wstr"
+                          length="5"
+                          name="icd9num" />
+                        <externalMetadataColumn
+                          refId="Package\Convert and Load ICD9\Load ICD9 Final table\ICD9 Reference Table.Inputs[OLE DB Destination Input].ExternalColumns[icd9code]"
+                          dataType="wstr"
+                          length="5"
+                          name="icd9code" />
+                        <externalMetadataColumn
+                          refId="Package\Convert and Load ICD9\Load ICD9 Final table\ICD9 Reference Table.Inputs[OLE DB Destination Input].ExternalColumns[reportable]"
+                          dataType="wstr"
+                          length="1"
+                          name="reportable" />
+                        <externalMetadataColumn
+                          refId="Package\Convert and Load ICD9\Load ICD9 Final table\ICD9 Reference Table.Inputs[OLE DB Destination Input].ExternalColumns[codegroup]"
+                          dataType="wstr"
+                          length="3"
+                          name="codegroup" />
+                        <externalMetadataColumn
+                          refId="Package\Convert and Load ICD9\Load ICD9 Final table\ICD9 Reference Table.Inputs[OLE DB Destination Input].ExternalColumns[earlyongroup]"
+                          dataType="wstr"
+                          length="3"
+                          name="earlyongroup" />
+                        <externalMetadataColumn
+                          refId="Package\Convert and Load ICD9\Load ICD9 Final table\ICD9 Reference Table.Inputs[OLE DB Destination Input].ExternalColumns[cshcseligibility]"
+                          dataType="wstr"
+                          length="1"
+                          name="cshcseligibility" />
+                        <externalMetadataColumn
+                          refId="Package\Convert and Load ICD9\Load ICD9 Final table\ICD9 Reference Table.Inputs[OLE DB Destination Input].ExternalColumns[startmonth]"
+                          dataType="wstr"
+                          length="2"
+                          name="startmonth" />
+                        <externalMetadataColumn
+                          refId="Package\Convert and Load ICD9\Load ICD9 Final table\ICD9 Reference Table.Inputs[OLE DB Destination Input].ExternalColumns[startday]"
+                          dataType="wstr"
+                          length="2"
+                          name="startday" />
+                        <externalMetadataColumn
+                          refId="Package\Convert and Load ICD9\Load ICD9 Final table\ICD9 Reference Table.Inputs[OLE DB Destination Input].ExternalColumns[startyear]"
+                          dataType="wstr"
+                          length="4"
+                          name="startyear" />
+                        <externalMetadataColumn
+                          refId="Package\Convert and Load ICD9\Load ICD9 Final table\ICD9 Reference Table.Inputs[OLE DB Destination Input].ExternalColumns[endmonth]"
+                          dataType="wstr"
+                          length="2"
+                          name="endmonth" />
+                        <externalMetadataColumn
+                          refId="Package\Convert and Load ICD9\Load ICD9 Final table\ICD9 Reference Table.Inputs[OLE DB Destination Input].ExternalColumns[endday]"
+                          dataType="wstr"
+                          length="2"
+                          name="endday" />
+                        <externalMetadataColumn
+                          refId="Package\Convert and Load ICD9\Load ICD9 Final table\ICD9 Reference Table.Inputs[OLE DB Destination Input].ExternalColumns[endyear]"
+                          dataType="wstr"
+                          length="4"
+                          name="endyear" />
+                        <externalMetadataColumn
+                          refId="Package\Convert and Load ICD9\Load ICD9 Final table\ICD9 Reference Table.Inputs[OLE DB Destination Input].ExternalColumns[icd9cm]"
+                          dataType="wstr"
+                          length="5"
+                          name="icd9cm" />
+                        <externalMetadataColumn
+                          refId="Package\Convert and Load ICD9\Load ICD9 Final table\ICD9 Reference Table.Inputs[OLE DB Destination Input].ExternalColumns[rowguid]"
+                          dataType="guid"
+                          name="rowguid" />
+                        <externalMetadataColumn
+                          refId="Package\Convert and Load ICD9\Load ICD9 Final table\ICD9 Reference Table.Inputs[OLE DB Destination Input].ExternalColumns[LoadedDateTime]"
+                          dataType="dbTimeStamp"
+                          name="LoadedDateTime" />
+                      </externalMetadataColumns>
+                    </input>
+                  </inputs>
+                  <outputs>
+                    <output
+                      refId="Package\Convert and Load ICD9\Load ICD9 Final table\ICD9 Reference Table.Outputs[OLE DB Destination Error Output]"
+                      exclusionGroup="1"
+                      isErrorOut="true"
+                      name="OLE DB Destination Error Output"
+                      synchronousInputId="Package\Convert and Load ICD9\Load ICD9 Final table\ICD9 Reference Table.Inputs[OLE DB Destination Input]">
+                      <outputColumns>
+                        <outputColumn
+                          refId="Package\Convert and Load ICD9\Load ICD9 Final table\ICD9 Reference Table.Outputs[OLE DB Destination Error Output].Columns[ErrorCode]"
+                          dataType="i4"
+                          lineageId="Package\Convert and Load ICD9\Load ICD9 Final table\ICD9 Reference Table.Outputs[OLE DB Destination Error Output].Columns[ErrorCode]"
+                          name="ErrorCode"
+                          specialFlags="1" />
+                        <outputColumn
+                          refId="Package\Convert and Load ICD9\Load ICD9 Final table\ICD9 Reference Table.Outputs[OLE DB Destination Error Output].Columns[ErrorColumn]"
+                          dataType="i4"
+                          lineageId="Package\Convert and Load ICD9\Load ICD9 Final table\ICD9 Reference Table.Outputs[OLE DB Destination Error Output].Columns[ErrorColumn]"
+                          name="ErrorColumn"
+                          specialFlags="2" />
+                      </outputColumns>
+                      <externalMetadataColumns />
+                    </output>
+                  </outputs>
+                </component>
+                <component
+                  refId="Package\Convert and Load ICD9\Load ICD9 Final table\temp ICD9 Table"
+                  componentClassID="Microsoft.OLEDBSource"
+                  contactInfo="OLE DB Source;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;7"
+                  description="OLE DB Source"
+                  name="temp ICD9 Table"
+                  usesDispositions="true"
+                  version="7">
+                  <properties>
+                    <property
+                      dataType="System.Int32"
+                      description="The number of seconds before a command times out.  A value of 0 indicates an infinite time-out."
+                      name="CommandTimeout">0</property>
+                    <property
+                      dataType="System.String"
+                      description="Specifies the name of the database object used to open a rowset."
+                      name="OpenRowset">[dbo].[tmpref_TotalICD9]</property>
+                    <property
+                      dataType="System.String"
+                      description="Specifies the variable that contains the name of the database object used to open a rowset."
+                      name="OpenRowsetVariable"></property>
+                    <property
+                      dataType="System.String"
+                      description="The SQL command to be executed."
+                      name="SqlCommand"
+                      UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor"></property>
+                    <property
+                      dataType="System.String"
+                      description="The variable that contains the SQL command to be executed."
+                      name="SqlCommandVariable"></property>
+                    <property
+                      dataType="System.Int32"
+                      description="Specifies the column code page to use when code page information is unavailable from the data source."
+                      name="DefaultCodePage">1252</property>
+                    <property
+                      dataType="System.Boolean"
+                      description="Forces the use of the DefaultCodePage property value when describing character data."
+                      name="AlwaysUseDefaultCodePage">false</property>
+                    <property
+                      dataType="System.Int32"
+                      description="Specifies the mode used to access the database."
+                      name="AccessMode"
+                      typeConverter="AccessMode">0</property>
+                    <property
+                      dataType="System.String"
+                      description="The mappings between the parameters in the SQL command and variables."
+                      name="ParameterMapping"></property>
+                  </properties>
+                  <connections>
+                    <connection
+                      refId="Package\Convert and Load ICD9\Load ICD9 Final table\temp ICD9 Table.Connections[OleDbConnection]"
+                      connectionManagerID="{73D7CC01-08B9-427D-82C3-7A98DDEB3748}:invalid"
+                      connectionManagerRefId="{73D7CC01-08B9-427D-82C3-7A98DDEB3748}:invalid"
+                      description="The OLE DB runtime connection used to access the database."
+                      name="OleDbConnection" />
+                  </connections>
+                  <outputs>
+                    <output
+                      refId="Package\Convert and Load ICD9\Load ICD9 Final table\temp ICD9 Table.Outputs[OLE DB Source Output]"
+                      name="OLE DB Source Output">
+                      <outputColumns>
+                        <outputColumn
+                          refId="Package\Convert and Load ICD9\Load ICD9 Final table\temp ICD9 Table.Outputs[OLE DB Source Output].Columns[label]"
+                          dataType="wstr"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\Convert and Load ICD9\Load ICD9 Final table\temp ICD9 Table.Outputs[OLE DB Source Output].ExternalColumns[label]"
+                          length="120"
+                          lineageId="Package\Convert and Load ICD9\Load ICD9 Final table\temp ICD9 Table.Outputs[OLE DB Source Output].Columns[label]"
+                          name="label"
+                          truncationRowDisposition="FailComponent" />
+                        <outputColumn
+                          refId="Package\Convert and Load ICD9\Load ICD9 Final table\temp ICD9 Table.Outputs[OLE DB Source Output].Columns[icd9dec]"
+                          dataType="wstr"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\Convert and Load ICD9\Load ICD9 Final table\temp ICD9 Table.Outputs[OLE DB Source Output].ExternalColumns[icd9dec]"
+                          length="6"
+                          lineageId="Package\Convert and Load ICD9\Load ICD9 Final table\temp ICD9 Table.Outputs[OLE DB Source Output].Columns[icd9dec]"
+                          name="icd9dec"
+                          truncationRowDisposition="FailComponent" />
+                        <outputColumn
+                          refId="Package\Convert and Load ICD9\Load ICD9 Final table\temp ICD9 Table.Outputs[OLE DB Source Output].Columns[icd9num]"
+                          dataType="wstr"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\Convert and Load ICD9\Load ICD9 Final table\temp ICD9 Table.Outputs[OLE DB Source Output].ExternalColumns[icd9num]"
+                          length="5"
+                          lineageId="Package\Convert and Load ICD9\Load ICD9 Final table\temp ICD9 Table.Outputs[OLE DB Source Output].Columns[icd9num]"
+                          name="icd9num"
+                          truncationRowDisposition="FailComponent" />
+                        <outputColumn
+                          refId="Package\Convert and Load ICD9\Load ICD9 Final table\temp ICD9 Table.Outputs[OLE DB Source Output].Columns[icd9code]"
+                          dataType="wstr"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\Convert and Load ICD9\Load ICD9 Final table\temp ICD9 Table.Outputs[OLE DB Source Output].ExternalColumns[icd9code]"
+                          length="5"
+                          lineageId="Package\Convert and Load ICD9\Load ICD9 Final table\temp ICD9 Table.Outputs[OLE DB Source Output].Columns[icd9code]"
+                          name="icd9code"
+                          truncationRowDisposition="FailComponent" />
+                        <outputColumn
+                          refId="Package\Convert and Load ICD9\Load ICD9 Final table\temp ICD9 Table.Outputs[OLE DB Source Output].Columns[reportable]"
+                          dataType="wstr"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\Convert and Load ICD9\Load ICD9 Final table\temp ICD9 Table.Outputs[OLE DB Source Output].ExternalColumns[reportable]"
+                          length="1"
+                          lineageId="Package\Convert and Load ICD9\Load ICD9 Final table\temp ICD9 Table.Outputs[OLE DB Source Output].Columns[reportable]"
+                          name="reportable"
+                          truncationRowDisposition="FailComponent" />
+                        <outputColumn
+                          refId="Package\Convert and Load ICD9\Load ICD9 Final table\temp ICD9 Table.Outputs[OLE DB Source Output].Columns[codegroup]"
+                          dataType="wstr"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\Convert and Load ICD9\Load ICD9 Final table\temp ICD9 Table.Outputs[OLE DB Source Output].ExternalColumns[codegroup]"
+                          length="3"
+                          lineageId="Package\Convert and Load ICD9\Load ICD9 Final table\temp ICD9 Table.Outputs[OLE DB Source Output].Columns[codegroup]"
+                          name="codegroup"
+                          truncationRowDisposition="FailComponent" />
+                        <outputColumn
+                          refId="Package\Convert and Load ICD9\Load ICD9 Final table\temp ICD9 Table.Outputs[OLE DB Source Output].Columns[earlyongroup]"
+                          dataType="wstr"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\Convert and Load ICD9\Load ICD9 Final table\temp ICD9 Table.Outputs[OLE DB Source Output].ExternalColumns[earlyongroup]"
+                          length="3"
+                          lineageId="Package\Convert and Load ICD9\Load ICD9 Final table\temp ICD9 Table.Outputs[OLE DB Source Output].Columns[earlyongroup]"
+                          name="earlyongroup"
+                          truncationRowDisposition="FailComponent" />
+                        <outputColumn
+                          refId="Package\Convert and Load ICD9\Load ICD9 Final table\temp ICD9 Table.Outputs[OLE DB Source Output].Columns[cshcseligibility]"
+                          dataType="wstr"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\Convert and Load ICD9\Load ICD9 Final table\temp ICD9 Table.Outputs[OLE DB Source Output].ExternalColumns[cshcseligibility]"
+                          length="1"
+                          lineageId="Package\Convert and Load ICD9\Load ICD9 Final table\temp ICD9 Table.Outputs[OLE DB Source Output].Columns[cshcseligibility]"
+                          name="cshcseligibility"
+                          truncationRowDisposition="FailComponent" />
+                        <outputColumn
+                          refId="Package\Convert and Load ICD9\Load ICD9 Final table\temp ICD9 Table.Outputs[OLE DB Source Output].Columns[startmonth]"
+                          dataType="wstr"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\Convert and Load ICD9\Load ICD9 Final table\temp ICD9 Table.Outputs[OLE DB Source Output].ExternalColumns[startmonth]"
+                          length="2"
+                          lineageId="Package\Convert and Load ICD9\Load ICD9 Final table\temp ICD9 Table.Outputs[OLE DB Source Output].Columns[startmonth]"
+                          name="startmonth"
+                          truncationRowDisposition="FailComponent" />
+                        <outputColumn
+                          refId="Package\Convert and Load ICD9\Load ICD9 Final table\temp ICD9 Table.Outputs[OLE DB Source Output].Columns[startday]"
+                          dataType="wstr"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\Convert and Load ICD9\Load ICD9 Final table\temp ICD9 Table.Outputs[OLE DB Source Output].ExternalColumns[startday]"
+                          length="2"
+                          lineageId="Package\Convert and Load ICD9\Load ICD9 Final table\temp ICD9 Table.Outputs[OLE DB Source Output].Columns[startday]"
+                          name="startday"
+                          truncationRowDisposition="FailComponent" />
+                        <outputColumn
+                          refId="Package\Convert and Load ICD9\Load ICD9 Final table\temp ICD9 Table.Outputs[OLE DB Source Output].Columns[startyear]"
+                          dataType="wstr"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\Convert and Load ICD9\Load ICD9 Final table\temp ICD9 Table.Outputs[OLE DB Source Output].ExternalColumns[startyear]"
+                          length="4"
+                          lineageId="Package\Convert and Load ICD9\Load ICD9 Final table\temp ICD9 Table.Outputs[OLE DB Source Output].Columns[startyear]"
+                          name="startyear"
+                          truncationRowDisposition="FailComponent" />
+                        <outputColumn
+                          refId="Package\Convert and Load ICD9\Load ICD9 Final table\temp ICD9 Table.Outputs[OLE DB Source Output].Columns[endmonth]"
+                          dataType="wstr"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\Convert and Load ICD9\Load ICD9 Final table\temp ICD9 Table.Outputs[OLE DB Source Output].ExternalColumns[endmonth]"
+                          length="2"
+                          lineageId="Package\Convert and Load ICD9\Load ICD9 Final table\temp ICD9 Table.Outputs[OLE DB Source Output].Columns[endmonth]"
+                          name="endmonth"
+                          truncationRowDisposition="FailComponent" />
+                        <outputColumn
+                          refId="Package\Convert and Load ICD9\Load ICD9 Final table\temp ICD9 Table.Outputs[OLE DB Source Output].Columns[endday]"
+                          dataType="wstr"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\Convert and Load ICD9\Load ICD9 Final table\temp ICD9 Table.Outputs[OLE DB Source Output].ExternalColumns[endday]"
+                          length="2"
+                          lineageId="Package\Convert and Load ICD9\Load ICD9 Final table\temp ICD9 Table.Outputs[OLE DB Source Output].Columns[endday]"
+                          name="endday"
+                          truncationRowDisposition="FailComponent" />
+                        <outputColumn
+                          refId="Package\Convert and Load ICD9\Load ICD9 Final table\temp ICD9 Table.Outputs[OLE DB Source Output].Columns[endyear]"
+                          dataType="wstr"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\Convert and Load ICD9\Load ICD9 Final table\temp ICD9 Table.Outputs[OLE DB Source Output].ExternalColumns[endyear]"
+                          length="4"
+                          lineageId="Package\Convert and Load ICD9\Load ICD9 Final table\temp ICD9 Table.Outputs[OLE DB Source Output].Columns[endyear]"
+                          name="endyear"
+                          truncationRowDisposition="FailComponent" />
+                        <outputColumn
+                          refId="Package\Convert and Load ICD9\Load ICD9 Final table\temp ICD9 Table.Outputs[OLE DB Source Output].Columns[icd9cm]"
+                          dataType="wstr"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\Convert and Load ICD9\Load ICD9 Final table\temp ICD9 Table.Outputs[OLE DB Source Output].ExternalColumns[icd9cm]"
+                          length="5"
+                          lineageId="Package\Convert and Load ICD9\Load ICD9 Final table\temp ICD9 Table.Outputs[OLE DB Source Output].Columns[icd9cm]"
+                          name="icd9cm"
+                          truncationRowDisposition="FailComponent" />
+                      </outputColumns>
+                      <externalMetadataColumns
+                        isUsed="True">
+                        <externalMetadataColumn
+                          refId="Package\Convert and Load ICD9\Load ICD9 Final table\temp ICD9 Table.Outputs[OLE DB Source Output].ExternalColumns[label]"
+                          dataType="wstr"
+                          length="120"
+                          name="label" />
+                        <externalMetadataColumn
+                          refId="Package\Convert and Load ICD9\Load ICD9 Final table\temp ICD9 Table.Outputs[OLE DB Source Output].ExternalColumns[icd9dec]"
+                          dataType="wstr"
+                          length="6"
+                          name="icd9dec" />
+                        <externalMetadataColumn
+                          refId="Package\Convert and Load ICD9\Load ICD9 Final table\temp ICD9 Table.Outputs[OLE DB Source Output].ExternalColumns[icd9num]"
+                          dataType="wstr"
+                          length="5"
+                          name="icd9num" />
+                        <externalMetadataColumn
+                          refId="Package\Convert and Load ICD9\Load ICD9 Final table\temp ICD9 Table.Outputs[OLE DB Source Output].ExternalColumns[icd9code]"
+                          dataType="wstr"
+                          length="5"
+                          name="icd9code" />
+                        <externalMetadataColumn
+                          refId="Package\Convert and Load ICD9\Load ICD9 Final table\temp ICD9 Table.Outputs[OLE DB Source Output].ExternalColumns[reportable]"
+                          dataType="wstr"
+                          length="1"
+                          name="reportable" />
+                        <externalMetadataColumn
+                          refId="Package\Convert and Load ICD9\Load ICD9 Final table\temp ICD9 Table.Outputs[OLE DB Source Output].ExternalColumns[codegroup]"
+                          dataType="wstr"
+                          length="3"
+                          name="codegroup" />
+                        <externalMetadataColumn
+                          refId="Package\Convert and Load ICD9\Load ICD9 Final table\temp ICD9 Table.Outputs[OLE DB Source Output].ExternalColumns[earlyongroup]"
+                          dataType="wstr"
+                          length="3"
+                          name="earlyongroup" />
+                        <externalMetadataColumn
+                          refId="Package\Convert and Load ICD9\Load ICD9 Final table\temp ICD9 Table.Outputs[OLE DB Source Output].ExternalColumns[cshcseligibility]"
+                          dataType="wstr"
+                          length="1"
+                          name="cshcseligibility" />
+                        <externalMetadataColumn
+                          refId="Package\Convert and Load ICD9\Load ICD9 Final table\temp ICD9 Table.Outputs[OLE DB Source Output].ExternalColumns[startmonth]"
+                          dataType="wstr"
+                          length="2"
+                          name="startmonth" />
+                        <externalMetadataColumn
+                          refId="Package\Convert and Load ICD9\Load ICD9 Final table\temp ICD9 Table.Outputs[OLE DB Source Output].ExternalColumns[startday]"
+                          dataType="wstr"
+                          length="2"
+                          name="startday" />
+                        <externalMetadataColumn
+                          refId="Package\Convert and Load ICD9\Load ICD9 Final table\temp ICD9 Table.Outputs[OLE DB Source Output].ExternalColumns[startyear]"
+                          dataType="wstr"
+                          length="4"
+                          name="startyear" />
+                        <externalMetadataColumn
+                          refId="Package\Convert and Load ICD9\Load ICD9 Final table\temp ICD9 Table.Outputs[OLE DB Source Output].ExternalColumns[endmonth]"
+                          dataType="wstr"
+                          length="2"
+                          name="endmonth" />
+                        <externalMetadataColumn
+                          refId="Package\Convert and Load ICD9\Load ICD9 Final table\temp ICD9 Table.Outputs[OLE DB Source Output].ExternalColumns[endday]"
+                          dataType="wstr"
+                          length="2"
+                          name="endday" />
+                        <externalMetadataColumn
+                          refId="Package\Convert and Load ICD9\Load ICD9 Final table\temp ICD9 Table.Outputs[OLE DB Source Output].ExternalColumns[endyear]"
+                          dataType="wstr"
+                          length="4"
+                          name="endyear" />
+                        <externalMetadataColumn
+                          refId="Package\Convert and Load ICD9\Load ICD9 Final table\temp ICD9 Table.Outputs[OLE DB Source Output].ExternalColumns[icd9cm]"
+                          dataType="wstr"
+                          length="5"
+                          name="icd9cm" />
+                      </externalMetadataColumns>
+                    </output>
+                    <output
+                      refId="Package\Convert and Load ICD9\Load ICD9 Final table\temp ICD9 Table.Outputs[OLE DB Source Error Output]"
+                      isErrorOut="true"
+                      name="OLE DB Source Error Output">
+                      <outputColumns>
+                        <outputColumn
+                          refId="Package\Convert and Load ICD9\Load ICD9 Final table\temp ICD9 Table.Outputs[OLE DB Source Error Output].Columns[label]"
+                          dataType="wstr"
+                          length="120"
+                          lineageId="Package\Convert and Load ICD9\Load ICD9 Final table\temp ICD9 Table.Outputs[OLE DB Source Error Output].Columns[label]"
+                          name="label" />
+                        <outputColumn
+                          refId="Package\Convert and Load ICD9\Load ICD9 Final table\temp ICD9 Table.Outputs[OLE DB Source Error Output].Columns[icd9dec]"
+                          dataType="wstr"
+                          length="6"
+                          lineageId="Package\Convert and Load ICD9\Load ICD9 Final table\temp ICD9 Table.Outputs[OLE DB Source Error Output].Columns[icd9dec]"
+                          name="icd9dec" />
+                        <outputColumn
+                          refId="Package\Convert and Load ICD9\Load ICD9 Final table\temp ICD9 Table.Outputs[OLE DB Source Error Output].Columns[icd9num]"
+                          dataType="wstr"
+                          length="5"
+                          lineageId="Package\Convert and Load ICD9\Load ICD9 Final table\temp ICD9 Table.Outputs[OLE DB Source Error Output].Columns[icd9num]"
+                          name="icd9num" />
+                        <outputColumn
+                          refId="Package\Convert and Load ICD9\Load ICD9 Final table\temp ICD9 Table.Outputs[OLE DB Source Error Output].Columns[icd9code]"
+                          dataType="wstr"
+                          length="5"
+                          lineageId="Package\Convert and Load ICD9\Load ICD9 Final table\temp ICD9 Table.Outputs[OLE DB Source Error Output].Columns[icd9code]"
+                          name="icd9code" />
+                        <outputColumn
+                          refId="Package\Convert and Load ICD9\Load ICD9 Final table\temp ICD9 Table.Outputs[OLE DB Source Error Output].Columns[reportable]"
+                          dataType="wstr"
+                          length="1"
+                          lineageId="Package\Convert and Load ICD9\Load ICD9 Final table\temp ICD9 Table.Outputs[OLE DB Source Error Output].Columns[reportable]"
+                          name="reportable" />
+                        <outputColumn
+                          refId="Package\Convert and Load ICD9\Load ICD9 Final table\temp ICD9 Table.Outputs[OLE DB Source Error Output].Columns[codegroup]"
+                          dataType="wstr"
+                          length="3"
+                          lineageId="Package\Convert and Load ICD9\Load ICD9 Final table\temp ICD9 Table.Outputs[OLE DB Source Error Output].Columns[codegroup]"
+                          name="codegroup" />
+                        <outputColumn
+                          refId="Package\Convert and Load ICD9\Load ICD9 Final table\temp ICD9 Table.Outputs[OLE DB Source Error Output].Columns[earlyongroup]"
+                          dataType="wstr"
+                          length="3"
+                          lineageId="Package\Convert and Load ICD9\Load ICD9 Final table\temp ICD9 Table.Outputs[OLE DB Source Error Output].Columns[earlyongroup]"
+                          name="earlyongroup" />
+                        <outputColumn
+                          refId="Package\Convert and Load ICD9\Load ICD9 Final table\temp ICD9 Table.Outputs[OLE DB Source Error Output].Columns[cshcseligibility]"
+                          dataType="wstr"
+                          length="1"
+                          lineageId="Package\Convert and Load ICD9\Load ICD9 Final table\temp ICD9 Table.Outputs[OLE DB Source Error Output].Columns[cshcseligibility]"
+                          name="cshcseligibility" />
+                        <outputColumn
+                          refId="Package\Convert and Load ICD9\Load ICD9 Final table\temp ICD9 Table.Outputs[OLE DB Source Error Output].Columns[startmonth]"
+                          dataType="wstr"
+                          length="2"
+                          lineageId="Package\Convert and Load ICD9\Load ICD9 Final table\temp ICD9 Table.Outputs[OLE DB Source Error Output].Columns[startmonth]"
+                          name="startmonth" />
+                        <outputColumn
+                          refId="Package\Convert and Load ICD9\Load ICD9 Final table\temp ICD9 Table.Outputs[OLE DB Source Error Output].Columns[startday]"
+                          dataType="wstr"
+                          length="2"
+                          lineageId="Package\Convert and Load ICD9\Load ICD9 Final table\temp ICD9 Table.Outputs[OLE DB Source Error Output].Columns[startday]"
+                          name="startday" />
+                        <outputColumn
+                          refId="Package\Convert and Load ICD9\Load ICD9 Final table\temp ICD9 Table.Outputs[OLE DB Source Error Output].Columns[startyear]"
+                          dataType="wstr"
+                          length="4"
+                          lineageId="Package\Convert and Load ICD9\Load ICD9 Final table\temp ICD9 Table.Outputs[OLE DB Source Error Output].Columns[startyear]"
+                          name="startyear" />
+                        <outputColumn
+                          refId="Package\Convert and Load ICD9\Load ICD9 Final table\temp ICD9 Table.Outputs[OLE DB Source Error Output].Columns[endmonth]"
+                          dataType="wstr"
+                          length="2"
+                          lineageId="Package\Convert and Load ICD9\Load ICD9 Final table\temp ICD9 Table.Outputs[OLE DB Source Error Output].Columns[endmonth]"
+                          name="endmonth" />
+                        <outputColumn
+                          refId="Package\Convert and Load ICD9\Load ICD9 Final table\temp ICD9 Table.Outputs[OLE DB Source Error Output].Columns[endday]"
+                          dataType="wstr"
+                          length="2"
+                          lineageId="Package\Convert and Load ICD9\Load ICD9 Final table\temp ICD9 Table.Outputs[OLE DB Source Error Output].Columns[endday]"
+                          name="endday" />
+                        <outputColumn
+                          refId="Package\Convert and Load ICD9\Load ICD9 Final table\temp ICD9 Table.Outputs[OLE DB Source Error Output].Columns[endyear]"
+                          dataType="wstr"
+                          length="4"
+                          lineageId="Package\Convert and Load ICD9\Load ICD9 Final table\temp ICD9 Table.Outputs[OLE DB Source Error Output].Columns[endyear]"
+                          name="endyear" />
+                        <outputColumn
+                          refId="Package\Convert and Load ICD9\Load ICD9 Final table\temp ICD9 Table.Outputs[OLE DB Source Error Output].Columns[icd9cm]"
+                          dataType="wstr"
+                          length="5"
+                          lineageId="Package\Convert and Load ICD9\Load ICD9 Final table\temp ICD9 Table.Outputs[OLE DB Source Error Output].Columns[icd9cm]"
+                          name="icd9cm" />
+                        <outputColumn
+                          refId="Package\Convert and Load ICD9\Load ICD9 Final table\temp ICD9 Table.Outputs[OLE DB Source Error Output].Columns[ErrorCode]"
+                          dataType="i4"
+                          lineageId="Package\Convert and Load ICD9\Load ICD9 Final table\temp ICD9 Table.Outputs[OLE DB Source Error Output].Columns[ErrorCode]"
+                          name="ErrorCode"
+                          specialFlags="1" />
+                        <outputColumn
+                          refId="Package\Convert and Load ICD9\Load ICD9 Final table\temp ICD9 Table.Outputs[OLE DB Source Error Output].Columns[ErrorColumn]"
+                          dataType="i4"
+                          lineageId="Package\Convert and Load ICD9\Load ICD9 Final table\temp ICD9 Table.Outputs[OLE DB Source Error Output].Columns[ErrorColumn]"
+                          name="ErrorColumn"
+                          specialFlags="2" />
+                      </outputColumns>
+                      <externalMetadataColumns />
+                    </output>
+                  </outputs>
+                </component>
+              </components>
+              <paths>
+                <path
+                  refId="Package\Convert and Load ICD9\Load ICD9 Final table.Paths[OLE DB Source Output]"
+                  endId="Package\Convert and Load ICD9\Load ICD9 Final table\ICD9 Reference Table.Inputs[OLE DB Destination Input]"
+                  name="OLE DB Source Output"
+                  startId="Package\Convert and Load ICD9\Load ICD9 Final table\temp ICD9 Table.Outputs[OLE DB Source Output]" />
+              </paths>
+            </pipeline>
+          </DTS:ObjectData>
+        </DTS:Executable>
+        <DTS:Executable
+          DTS:refId="Package\Convert and Load ICD9\Load ICD9 txt file"
+          DTS:CreationName="Microsoft.Pipeline"
+          DTS:Description="Data Flow Task"
+          DTS:DTSID="{F7FCA28C-41A9-4E32-A6A5-448CAAAA8E62}"
+          DTS:ExecutableType="Microsoft.Pipeline"
+          DTS:LocaleID="-1"
+          DTS:ObjectName="Load ICD9 txt file"
+          DTS:TaskContact="Performs high-performance data extraction, transformation and loading;Microsoft Corporation; Microsoft SQL Server; (C) 2007 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1">
+          <DTS:Variables />
+          <DTS:ObjectData>
+            <pipeline
+              version="1">
+              <components>
+                <component
+                  refId="Package\Convert and Load ICD9\Load ICD9 txt file\Data Conversion"
+                  componentClassID="Microsoft.DataConvert"
+                  contactInfo="Data Conversion;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;0"
+                  description="Data Conversion"
+                  name="Data Conversion"
+                  usesDispositions="true">
+                  <inputs>
+                    <input
+                      refId="Package\Convert and Load ICD9\Load ICD9 txt file\Data Conversion.Inputs[Data Conversion Input]"
+                      name="Data Conversion Input">
+                      <inputColumns>
+                        <inputColumn
+                          refId="Package\Convert and Load ICD9\Load ICD9 txt file\Data Conversion.Inputs[Data Conversion Input].Columns[Column 0]"
+                          cachedCodepage="1252"
+                          cachedDataType="str"
+                          cachedLength="120"
+                          cachedName="Column 0"
+                          lineageId="Package\Convert and Load ICD9\Load ICD9 txt file\ICD9 txt file.Outputs[Flat File Source Output].Columns[Column 0]" />
+                        <inputColumn
+                          refId="Package\Convert and Load ICD9\Load ICD9 txt file\Data Conversion.Inputs[Data Conversion Input].Columns[Column 1]"
+                          cachedCodepage="1252"
+                          cachedDataType="str"
+                          cachedLength="6"
+                          cachedName="Column 1"
+                          lineageId="Package\Convert and Load ICD9\Load ICD9 txt file\ICD9 txt file.Outputs[Flat File Source Output].Columns[Column 1]" />
+                        <inputColumn
+                          refId="Package\Convert and Load ICD9\Load ICD9 txt file\Data Conversion.Inputs[Data Conversion Input].Columns[Column 2]"
+                          cachedCodepage="1252"
+                          cachedDataType="str"
+                          cachedLength="5"
+                          cachedName="Column 2"
+                          lineageId="Package\Convert and Load ICD9\Load ICD9 txt file\ICD9 txt file.Outputs[Flat File Source Output].Columns[Column 2]" />
+                        <inputColumn
+                          refId="Package\Convert and Load ICD9\Load ICD9 txt file\Data Conversion.Inputs[Data Conversion Input].Columns[Column 3]"
+                          cachedCodepage="1252"
+                          cachedDataType="str"
+                          cachedLength="5"
+                          cachedName="Column 3"
+                          lineageId="Package\Convert and Load ICD9\Load ICD9 txt file\ICD9 txt file.Outputs[Flat File Source Output].Columns[Column 3]" />
+                        <inputColumn
+                          refId="Package\Convert and Load ICD9\Load ICD9 txt file\Data Conversion.Inputs[Data Conversion Input].Columns[Column 4]"
+                          cachedCodepage="1252"
+                          cachedDataType="str"
+                          cachedLength="1"
+                          cachedName="Column 4"
+                          lineageId="Package\Convert and Load ICD9\Load ICD9 txt file\ICD9 txt file.Outputs[Flat File Source Output].Columns[Column 4]" />
+                        <inputColumn
+                          refId="Package\Convert and Load ICD9\Load ICD9 txt file\Data Conversion.Inputs[Data Conversion Input].Columns[Column 5]"
+                          cachedCodepage="1252"
+                          cachedDataType="str"
+                          cachedLength="3"
+                          cachedName="Column 5"
+                          lineageId="Package\Convert and Load ICD9\Load ICD9 txt file\ICD9 txt file.Outputs[Flat File Source Output].Columns[Column 5]" />
+                        <inputColumn
+                          refId="Package\Convert and Load ICD9\Load ICD9 txt file\Data Conversion.Inputs[Data Conversion Input].Columns[Column 6]"
+                          cachedCodepage="1252"
+                          cachedDataType="str"
+                          cachedLength="3"
+                          cachedName="Column 6"
+                          lineageId="Package\Convert and Load ICD9\Load ICD9 txt file\ICD9 txt file.Outputs[Flat File Source Output].Columns[Column 6]" />
+                        <inputColumn
+                          refId="Package\Convert and Load ICD9\Load ICD9 txt file\Data Conversion.Inputs[Data Conversion Input].Columns[Column 7]"
+                          cachedCodepage="1252"
+                          cachedDataType="str"
+                          cachedLength="1"
+                          cachedName="Column 7"
+                          lineageId="Package\Convert and Load ICD9\Load ICD9 txt file\ICD9 txt file.Outputs[Flat File Source Output].Columns[Column 7]" />
+                        <inputColumn
+                          refId="Package\Convert and Load ICD9\Load ICD9 txt file\Data Conversion.Inputs[Data Conversion Input].Columns[Column 8]"
+                          cachedCodepage="1252"
+                          cachedDataType="str"
+                          cachedLength="2"
+                          cachedName="Column 8"
+                          lineageId="Package\Convert and Load ICD9\Load ICD9 txt file\ICD9 txt file.Outputs[Flat File Source Output].Columns[Column 8]" />
+                        <inputColumn
+                          refId="Package\Convert and Load ICD9\Load ICD9 txt file\Data Conversion.Inputs[Data Conversion Input].Columns[Column 9]"
+                          cachedCodepage="1252"
+                          cachedDataType="str"
+                          cachedLength="2"
+                          cachedName="Column 9"
+                          lineageId="Package\Convert and Load ICD9\Load ICD9 txt file\ICD9 txt file.Outputs[Flat File Source Output].Columns[Column 9]" />
+                        <inputColumn
+                          refId="Package\Convert and Load ICD9\Load ICD9 txt file\Data Conversion.Inputs[Data Conversion Input].Columns[Column 10]"
+                          cachedCodepage="1252"
+                          cachedDataType="str"
+                          cachedLength="4"
+                          cachedName="Column 10"
+                          lineageId="Package\Convert and Load ICD9\Load ICD9 txt file\ICD9 txt file.Outputs[Flat File Source Output].Columns[Column 10]" />
+                        <inputColumn
+                          refId="Package\Convert and Load ICD9\Load ICD9 txt file\Data Conversion.Inputs[Data Conversion Input].Columns[Column 11]"
+                          cachedCodepage="1252"
+                          cachedDataType="str"
+                          cachedLength="2"
+                          cachedName="Column 11"
+                          lineageId="Package\Convert and Load ICD9\Load ICD9 txt file\ICD9 txt file.Outputs[Flat File Source Output].Columns[Column 11]" />
+                        <inputColumn
+                          refId="Package\Convert and Load ICD9\Load ICD9 txt file\Data Conversion.Inputs[Data Conversion Input].Columns[Column 12]"
+                          cachedCodepage="1252"
+                          cachedDataType="str"
+                          cachedLength="2"
+                          cachedName="Column 12"
+                          lineageId="Package\Convert and Load ICD9\Load ICD9 txt file\ICD9 txt file.Outputs[Flat File Source Output].Columns[Column 12]" />
+                        <inputColumn
+                          refId="Package\Convert and Load ICD9\Load ICD9 txt file\Data Conversion.Inputs[Data Conversion Input].Columns[Column 13]"
+                          cachedCodepage="1252"
+                          cachedDataType="str"
+                          cachedLength="4"
+                          cachedName="Column 13"
+                          lineageId="Package\Convert and Load ICD9\Load ICD9 txt file\ICD9 txt file.Outputs[Flat File Source Output].Columns[Column 13]" />
+                        <inputColumn
+                          refId="Package\Convert and Load ICD9\Load ICD9 txt file\Data Conversion.Inputs[Data Conversion Input].Columns[Column 14]"
+                          cachedCodepage="1252"
+                          cachedDataType="str"
+                          cachedLength="50"
+                          cachedName="Column 14"
+                          lineageId="Package\Convert and Load ICD9\Load ICD9 txt file\ICD9 txt file.Outputs[Flat File Source Output].Columns[Column 14]" />
+                      </inputColumns>
+                      <externalMetadataColumns />
+                    </input>
+                  </inputs>
+                  <outputs>
+                    <output
+                      refId="Package\Convert and Load ICD9\Load ICD9 txt file\Data Conversion.Outputs[Data Conversion Output]"
+                      exclusionGroup="1"
+                      name="Data Conversion Output"
+                      synchronousInputId="Package\Convert and Load ICD9\Load ICD9 txt file\Data Conversion.Inputs[Data Conversion Input]">
+                      <outputColumns>
+                        <outputColumn
+                          refId="Package\Convert and Load ICD9\Load ICD9 txt file\Data Conversion.Outputs[Data Conversion Output].Columns[Copy of Column 0]"
+                          dataType="wstr"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          length="120"
+                          lineageId="Package\Convert and Load ICD9\Load ICD9 txt file\Data Conversion.Outputs[Data Conversion Output].Columns[Copy of Column 0]"
+                          name="Copy of Column 0"
+                          truncationRowDisposition="FailComponent">
+                          <properties>
+                            <property
+                              containsID="true"
+                              dataType="System.Int32"
+                              description="Specifies the input column used as the source of data for the conversion."
+                              name="SourceInputColumnLineageID">#{Package\Convert and Load ICD9\Load ICD9 txt file\ICD9 txt file.Outputs[Flat File Source Output].Columns[Column 0]}</property>
+                            <property
+                              dataType="System.Boolean"
+                              description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                              name="FastParse">false</property>
+                          </properties>
+                        </outputColumn>
+                        <outputColumn
+                          refId="Package\Convert and Load ICD9\Load ICD9 txt file\Data Conversion.Outputs[Data Conversion Output].Columns[Copy of Column 1]"
+                          dataType="wstr"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          length="6"
+                          lineageId="Package\Convert and Load ICD9\Load ICD9 txt file\Data Conversion.Outputs[Data Conversion Output].Columns[Copy of Column 1]"
+                          name="Copy of Column 1"
+                          truncationRowDisposition="FailComponent">
+                          <properties>
+                            <property
+                              containsID="true"
+                              dataType="System.Int32"
+                              description="Specifies the input column used as the source of data for the conversion."
+                              name="SourceInputColumnLineageID">#{Package\Convert and Load ICD9\Load ICD9 txt file\ICD9 txt file.Outputs[Flat File Source Output].Columns[Column 1]}</property>
+                            <property
+                              dataType="System.Boolean"
+                              description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                              name="FastParse">false</property>
+                          </properties>
+                        </outputColumn>
+                        <outputColumn
+                          refId="Package\Convert and Load ICD9\Load ICD9 txt file\Data Conversion.Outputs[Data Conversion Output].Columns[Copy of Column 2]"
+                          dataType="wstr"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          length="5"
+                          lineageId="Package\Convert and Load ICD9\Load ICD9 txt file\Data Conversion.Outputs[Data Conversion Output].Columns[Copy of Column 2]"
+                          name="Copy of Column 2"
+                          truncationRowDisposition="FailComponent">
+                          <properties>
+                            <property
+                              containsID="true"
+                              dataType="System.Int32"
+                              description="Specifies the input column used as the source of data for the conversion."
+                              name="SourceInputColumnLineageID">#{Package\Convert and Load ICD9\Load ICD9 txt file\ICD9 txt file.Outputs[Flat File Source Output].Columns[Column 2]}</property>
+                            <property
+                              dataType="System.Boolean"
+                              description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                              name="FastParse">false</property>
+                          </properties>
+                        </outputColumn>
+                        <outputColumn
+                          refId="Package\Convert and Load ICD9\Load ICD9 txt file\Data Conversion.Outputs[Data Conversion Output].Columns[Copy of Column 3]"
+                          dataType="wstr"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          length="5"
+                          lineageId="Package\Convert and Load ICD9\Load ICD9 txt file\Data Conversion.Outputs[Data Conversion Output].Columns[Copy of Column 3]"
+                          name="Copy of Column 3"
+                          truncationRowDisposition="FailComponent">
+                          <properties>
+                            <property
+                              containsID="true"
+                              dataType="System.Int32"
+                              description="Specifies the input column used as the source of data for the conversion."
+                              name="SourceInputColumnLineageID">#{Package\Convert and Load ICD9\Load ICD9 txt file\ICD9 txt file.Outputs[Flat File Source Output].Columns[Column 3]}</property>
+                            <property
+                              dataType="System.Boolean"
+                              description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                              name="FastParse">false</property>
+                          </properties>
+                        </outputColumn>
+                        <outputColumn
+                          refId="Package\Convert and Load ICD9\Load ICD9 txt file\Data Conversion.Outputs[Data Conversion Output].Columns[Copy of Column 4]"
+                          dataType="wstr"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          length="1"
+                          lineageId="Package\Convert and Load ICD9\Load ICD9 txt file\Data Conversion.Outputs[Data Conversion Output].Columns[Copy of Column 4]"
+                          name="Copy of Column 4"
+                          truncationRowDisposition="FailComponent">
+                          <properties>
+                            <property
+                              containsID="true"
+                              dataType="System.Int32"
+                              description="Specifies the input column used as the source of data for the conversion."
+                              name="SourceInputColumnLineageID">#{Package\Convert and Load ICD9\Load ICD9 txt file\ICD9 txt file.Outputs[Flat File Source Output].Columns[Column 4]}</property>
+                            <property
+                              dataType="System.Boolean"
+                              description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                              name="FastParse">false</property>
+                          </properties>
+                        </outputColumn>
+                        <outputColumn
+                          refId="Package\Convert and Load ICD9\Load ICD9 txt file\Data Conversion.Outputs[Data Conversion Output].Columns[Copy of Column 5]"
+                          dataType="wstr"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          length="3"
+                          lineageId="Package\Convert and Load ICD9\Load ICD9 txt file\Data Conversion.Outputs[Data Conversion Output].Columns[Copy of Column 5]"
+                          name="Copy of Column 5"
+                          truncationRowDisposition="FailComponent">
+                          <properties>
+                            <property
+                              containsID="true"
+                              dataType="System.Int32"
+                              description="Specifies the input column used as the source of data for the conversion."
+                              name="SourceInputColumnLineageID">#{Package\Convert and Load ICD9\Load ICD9 txt file\ICD9 txt file.Outputs[Flat File Source Output].Columns[Column 5]}</property>
+                            <property
+                              dataType="System.Boolean"
+                              description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                              name="FastParse">false</property>
+                          </properties>
+                        </outputColumn>
+                        <outputColumn
+                          refId="Package\Convert and Load ICD9\Load ICD9 txt file\Data Conversion.Outputs[Data Conversion Output].Columns[Copy of Column 6]"
+                          dataType="wstr"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          length="3"
+                          lineageId="Package\Convert and Load ICD9\Load ICD9 txt file\Data Conversion.Outputs[Data Conversion Output].Columns[Copy of Column 6]"
+                          name="Copy of Column 6"
+                          truncationRowDisposition="FailComponent">
+                          <properties>
+                            <property
+                              containsID="true"
+                              dataType="System.Int32"
+                              description="Specifies the input column used as the source of data for the conversion."
+                              name="SourceInputColumnLineageID">#{Package\Convert and Load ICD9\Load ICD9 txt file\ICD9 txt file.Outputs[Flat File Source Output].Columns[Column 6]}</property>
+                            <property
+                              dataType="System.Boolean"
+                              description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                              name="FastParse">false</property>
+                          </properties>
+                        </outputColumn>
+                        <outputColumn
+                          refId="Package\Convert and Load ICD9\Load ICD9 txt file\Data Conversion.Outputs[Data Conversion Output].Columns[Copy of Column 7]"
+                          dataType="wstr"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          length="1"
+                          lineageId="Package\Convert and Load ICD9\Load ICD9 txt file\Data Conversion.Outputs[Data Conversion Output].Columns[Copy of Column 7]"
+                          name="Copy of Column 7"
+                          truncationRowDisposition="FailComponent">
+                          <properties>
+                            <property
+                              containsID="true"
+                              dataType="System.Int32"
+                              description="Specifies the input column used as the source of data for the conversion."
+                              name="SourceInputColumnLineageID">#{Package\Convert and Load ICD9\Load ICD9 txt file\ICD9 txt file.Outputs[Flat File Source Output].Columns[Column 7]}</property>
+                            <property
+                              dataType="System.Boolean"
+                              description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                              name="FastParse">false</property>
+                          </properties>
+                        </outputColumn>
+                        <outputColumn
+                          refId="Package\Convert and Load ICD9\Load ICD9 txt file\Data Conversion.Outputs[Data Conversion Output].Columns[Copy of Column 8]"
+                          dataType="wstr"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          length="2"
+                          lineageId="Package\Convert and Load ICD9\Load ICD9 txt file\Data Conversion.Outputs[Data Conversion Output].Columns[Copy of Column 8]"
+                          name="Copy of Column 8"
+                          truncationRowDisposition="FailComponent">
+                          <properties>
+                            <property
+                              containsID="true"
+                              dataType="System.Int32"
+                              description="Specifies the input column used as the source of data for the conversion."
+                              name="SourceInputColumnLineageID">#{Package\Convert and Load ICD9\Load ICD9 txt file\ICD9 txt file.Outputs[Flat File Source Output].Columns[Column 8]}</property>
+                            <property
+                              dataType="System.Boolean"
+                              description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                              name="FastParse">false</property>
+                          </properties>
+                        </outputColumn>
+                        <outputColumn
+                          refId="Package\Convert and Load ICD9\Load ICD9 txt file\Data Conversion.Outputs[Data Conversion Output].Columns[Copy of Column 9]"
+                          dataType="wstr"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          length="2"
+                          lineageId="Package\Convert and Load ICD9\Load ICD9 txt file\Data Conversion.Outputs[Data Conversion Output].Columns[Copy of Column 9]"
+                          name="Copy of Column 9"
+                          truncationRowDisposition="FailComponent">
+                          <properties>
+                            <property
+                              containsID="true"
+                              dataType="System.Int32"
+                              description="Specifies the input column used as the source of data for the conversion."
+                              name="SourceInputColumnLineageID">#{Package\Convert and Load ICD9\Load ICD9 txt file\ICD9 txt file.Outputs[Flat File Source Output].Columns[Column 9]}</property>
+                            <property
+                              dataType="System.Boolean"
+                              description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                              name="FastParse">false</property>
+                          </properties>
+                        </outputColumn>
+                        <outputColumn
+                          refId="Package\Convert and Load ICD9\Load ICD9 txt file\Data Conversion.Outputs[Data Conversion Output].Columns[Copy of Column 10]"
+                          dataType="wstr"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          length="4"
+                          lineageId="Package\Convert and Load ICD9\Load ICD9 txt file\Data Conversion.Outputs[Data Conversion Output].Columns[Copy of Column 10]"
+                          name="Copy of Column 10"
+                          truncationRowDisposition="FailComponent">
+                          <properties>
+                            <property
+                              containsID="true"
+                              dataType="System.Int32"
+                              description="Specifies the input column used as the source of data for the conversion."
+                              name="SourceInputColumnLineageID">#{Package\Convert and Load ICD9\Load ICD9 txt file\ICD9 txt file.Outputs[Flat File Source Output].Columns[Column 10]}</property>
+                            <property
+                              dataType="System.Boolean"
+                              description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                              name="FastParse">false</property>
+                          </properties>
+                        </outputColumn>
+                        <outputColumn
+                          refId="Package\Convert and Load ICD9\Load ICD9 txt file\Data Conversion.Outputs[Data Conversion Output].Columns[Copy of Column 11]"
+                          dataType="wstr"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          length="2"
+                          lineageId="Package\Convert and Load ICD9\Load ICD9 txt file\Data Conversion.Outputs[Data Conversion Output].Columns[Copy of Column 11]"
+                          name="Copy of Column 11"
+                          truncationRowDisposition="FailComponent">
+                          <properties>
+                            <property
+                              containsID="true"
+                              dataType="System.Int32"
+                              description="Specifies the input column used as the source of data for the conversion."
+                              name="SourceInputColumnLineageID">#{Package\Convert and Load ICD9\Load ICD9 txt file\ICD9 txt file.Outputs[Flat File Source Output].Columns[Column 11]}</property>
+                            <property
+                              dataType="System.Boolean"
+                              description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                              name="FastParse">false</property>
+                          </properties>
+                        </outputColumn>
+                        <outputColumn
+                          refId="Package\Convert and Load ICD9\Load ICD9 txt file\Data Conversion.Outputs[Data Conversion Output].Columns[Copy of Column 12]"
+                          dataType="wstr"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          length="2"
+                          lineageId="Package\Convert and Load ICD9\Load ICD9 txt file\Data Conversion.Outputs[Data Conversion Output].Columns[Copy of Column 12]"
+                          name="Copy of Column 12"
+                          truncationRowDisposition="FailComponent">
+                          <properties>
+                            <property
+                              containsID="true"
+                              dataType="System.Int32"
+                              description="Specifies the input column used as the source of data for the conversion."
+                              name="SourceInputColumnLineageID">#{Package\Convert and Load ICD9\Load ICD9 txt file\ICD9 txt file.Outputs[Flat File Source Output].Columns[Column 12]}</property>
+                            <property
+                              dataType="System.Boolean"
+                              description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                              name="FastParse">false</property>
+                          </properties>
+                        </outputColumn>
+                        <outputColumn
+                          refId="Package\Convert and Load ICD9\Load ICD9 txt file\Data Conversion.Outputs[Data Conversion Output].Columns[Copy of Column 13]"
+                          dataType="wstr"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          length="4"
+                          lineageId="Package\Convert and Load ICD9\Load ICD9 txt file\Data Conversion.Outputs[Data Conversion Output].Columns[Copy of Column 13]"
+                          name="Copy of Column 13"
+                          truncationRowDisposition="FailComponent">
+                          <properties>
+                            <property
+                              containsID="true"
+                              dataType="System.Int32"
+                              description="Specifies the input column used as the source of data for the conversion."
+                              name="SourceInputColumnLineageID">#{Package\Convert and Load ICD9\Load ICD9 txt file\ICD9 txt file.Outputs[Flat File Source Output].Columns[Column 13]}</property>
+                            <property
+                              dataType="System.Boolean"
+                              description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                              name="FastParse">false</property>
+                          </properties>
+                        </outputColumn>
+                        <outputColumn
+                          refId="Package\Convert and Load ICD9\Load ICD9 txt file\Data Conversion.Outputs[Data Conversion Output].Columns[Copy of Column 14]"
+                          dataType="wstr"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          length="5"
+                          lineageId="Package\Convert and Load ICD9\Load ICD9 txt file\Data Conversion.Outputs[Data Conversion Output].Columns[Copy of Column 14]"
+                          name="Copy of Column 14"
+                          truncationRowDisposition="FailComponent">
+                          <properties>
+                            <property
+                              containsID="true"
+                              dataType="System.Int32"
+                              description="Specifies the input column used as the source of data for the conversion."
+                              name="SourceInputColumnLineageID">#{Package\Convert and Load ICD9\Load ICD9 txt file\ICD9 txt file.Outputs[Flat File Source Output].Columns[Column 14]}</property>
+                            <property
+                              dataType="System.Boolean"
+                              description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                              name="FastParse">false</property>
+                          </properties>
+                        </outputColumn>
+                      </outputColumns>
+                      <externalMetadataColumns />
+                    </output>
+                    <output
+                      refId="Package\Convert and Load ICD9\Load ICD9 txt file\Data Conversion.Outputs[Data Conversion Error Output]"
+                      exclusionGroup="1"
+                      isErrorOut="true"
+                      name="Data Conversion Error Output"
+                      synchronousInputId="Package\Convert and Load ICD9\Load ICD9 txt file\Data Conversion.Inputs[Data Conversion Input]">
+                      <outputColumns>
+                        <outputColumn
+                          refId="Package\Convert and Load ICD9\Load ICD9 txt file\Data Conversion.Outputs[Data Conversion Error Output].Columns[ErrorCode]"
+                          dataType="i4"
+                          lineageId="Package\Convert and Load ICD9\Load ICD9 txt file\Data Conversion.Outputs[Data Conversion Error Output].Columns[ErrorCode]"
+                          name="ErrorCode"
+                          specialFlags="1" />
+                        <outputColumn
+                          refId="Package\Convert and Load ICD9\Load ICD9 txt file\Data Conversion.Outputs[Data Conversion Error Output].Columns[ErrorColumn]"
+                          dataType="i4"
+                          lineageId="Package\Convert and Load ICD9\Load ICD9 txt file\Data Conversion.Outputs[Data Conversion Error Output].Columns[ErrorColumn]"
+                          name="ErrorColumn"
+                          specialFlags="2" />
+                      </outputColumns>
+                      <externalMetadataColumns />
+                    </output>
+                  </outputs>
+                </component>
+                <component
+                  refId="Package\Convert and Load ICD9\Load ICD9 txt file\ICD9 txt file"
+                  componentClassID="Microsoft.FlatFileSource"
+                  contactInfo="Flat File Source;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;1"
+                  description="Flat File Source"
+                  localeId="1033"
+                  name="ICD9 txt file"
+                  usesDispositions="true"
+                  version="1">
+                  <properties>
+                    <property
+                      dataType="System.Boolean"
+                      description="Specifies whether zero-length columns are treated as null."
+                      name="RetainNulls">false</property>
+                    <property
+                      dataType="System.String"
+                      description="Specifies the name of an output column containing the file name. If no name is specified, no output column containing the file name will be generated."
+                      name="FileNameColumnName"></property>
+                  </properties>
+                  <connections>
+                    <connection
+                      refId="Package\Convert and Load ICD9\Load ICD9 txt file\ICD9 txt file.Connections[FlatFileConnection]"
+                      connectionManagerID="Package.ConnectionManagers[icd9 load]"
+                      connectionManagerRefId="Package.ConnectionManagers[icd9 load]"
+                      name="FlatFileConnection" />
+                  </connections>
+                  <outputs>
+                    <output
+                      refId="Package\Convert and Load ICD9\Load ICD9 txt file\ICD9 txt file.Outputs[Flat File Source Output]"
+                      name="Flat File Source Output">
+                      <outputColumns>
+                        <outputColumn
+                          refId="Package\Convert and Load ICD9\Load ICD9 txt file\ICD9 txt file.Outputs[Flat File Source Output].Columns[Column 0]"
+                          codePage="1252"
+                          dataType="str"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\Convert and Load ICD9\Load ICD9 txt file\ICD9 txt file.Outputs[Flat File Source Output].ExternalColumns[Column 0]"
+                          length="120"
+                          lineageId="Package\Convert and Load ICD9\Load ICD9 txt file\ICD9 txt file.Outputs[Flat File Source Output].Columns[Column 0]"
+                          name="Column 0"
+                          truncationRowDisposition="FailComponent">
+                          <properties>
+                            <property
+                              dataType="System.Boolean"
+                              description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                              name="FastParse">false</property>
+                            <property
+                              dataType="System.Boolean"
+                              description="Indicates whether the data is in binary format."
+                              name="UseBinaryFormat">false</property>
+                          </properties>
+                        </outputColumn>
+                        <outputColumn
+                          refId="Package\Convert and Load ICD9\Load ICD9 txt file\ICD9 txt file.Outputs[Flat File Source Output].Columns[Column 1]"
+                          codePage="1252"
+                          dataType="str"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\Convert and Load ICD9\Load ICD9 txt file\ICD9 txt file.Outputs[Flat File Source Output].ExternalColumns[Column 1]"
+                          length="6"
+                          lineageId="Package\Convert and Load ICD9\Load ICD9 txt file\ICD9 txt file.Outputs[Flat File Source Output].Columns[Column 1]"
+                          name="Column 1"
+                          truncationRowDisposition="FailComponent">
+                          <properties>
+                            <property
+                              dataType="System.Boolean"
+                              description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                              name="FastParse">false</property>
+                            <property
+                              dataType="System.Boolean"
+                              description="Indicates whether the data is in binary format."
+                              name="UseBinaryFormat">false</property>
+                          </properties>
+                        </outputColumn>
+                        <outputColumn
+                          refId="Package\Convert and Load ICD9\Load ICD9 txt file\ICD9 txt file.Outputs[Flat File Source Output].Columns[Column 2]"
+                          codePage="1252"
+                          dataType="str"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\Convert and Load ICD9\Load ICD9 txt file\ICD9 txt file.Outputs[Flat File Source Output].ExternalColumns[Column 2]"
+                          length="5"
+                          lineageId="Package\Convert and Load ICD9\Load ICD9 txt file\ICD9 txt file.Outputs[Flat File Source Output].Columns[Column 2]"
+                          name="Column 2"
+                          truncationRowDisposition="FailComponent">
+                          <properties>
+                            <property
+                              dataType="System.Boolean"
+                              description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                              name="FastParse">false</property>
+                            <property
+                              dataType="System.Boolean"
+                              description="Indicates whether the data is in binary format."
+                              name="UseBinaryFormat">false</property>
+                          </properties>
+                        </outputColumn>
+                        <outputColumn
+                          refId="Package\Convert and Load ICD9\Load ICD9 txt file\ICD9 txt file.Outputs[Flat File Source Output].Columns[Column 3]"
+                          codePage="1252"
+                          dataType="str"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\Convert and Load ICD9\Load ICD9 txt file\ICD9 txt file.Outputs[Flat File Source Output].ExternalColumns[Column 3]"
+                          length="5"
+                          lineageId="Package\Convert and Load ICD9\Load ICD9 txt file\ICD9 txt file.Outputs[Flat File Source Output].Columns[Column 3]"
+                          name="Column 3"
+                          truncationRowDisposition="FailComponent">
+                          <properties>
+                            <property
+                              dataType="System.Boolean"
+                              description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                              name="FastParse">false</property>
+                            <property
+                              dataType="System.Boolean"
+                              description="Indicates whether the data is in binary format."
+                              name="UseBinaryFormat">false</property>
+                          </properties>
+                        </outputColumn>
+                        <outputColumn
+                          refId="Package\Convert and Load ICD9\Load ICD9 txt file\ICD9 txt file.Outputs[Flat File Source Output].Columns[Column 4]"
+                          codePage="1252"
+                          dataType="str"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\Convert and Load ICD9\Load ICD9 txt file\ICD9 txt file.Outputs[Flat File Source Output].ExternalColumns[Column 4]"
+                          length="1"
+                          lineageId="Package\Convert and Load ICD9\Load ICD9 txt file\ICD9 txt file.Outputs[Flat File Source Output].Columns[Column 4]"
+                          name="Column 4"
+                          truncationRowDisposition="FailComponent">
+                          <properties>
+                            <property
+                              dataType="System.Boolean"
+                              description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                              name="FastParse">false</property>
+                            <property
+                              dataType="System.Boolean"
+                              description="Indicates whether the data is in binary format."
+                              name="UseBinaryFormat">false</property>
+                          </properties>
+                        </outputColumn>
+                        <outputColumn
+                          refId="Package\Convert and Load ICD9\Load ICD9 txt file\ICD9 txt file.Outputs[Flat File Source Output].Columns[Column 5]"
+                          codePage="1252"
+                          dataType="str"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\Convert and Load ICD9\Load ICD9 txt file\ICD9 txt file.Outputs[Flat File Source Output].ExternalColumns[Column 5]"
+                          length="3"
+                          lineageId="Package\Convert and Load ICD9\Load ICD9 txt file\ICD9 txt file.Outputs[Flat File Source Output].Columns[Column 5]"
+                          name="Column 5"
+                          truncationRowDisposition="FailComponent">
+                          <properties>
+                            <property
+                              dataType="System.Boolean"
+                              description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                              name="FastParse">false</property>
+                            <property
+                              dataType="System.Boolean"
+                              description="Indicates whether the data is in binary format."
+                              name="UseBinaryFormat">false</property>
+                          </properties>
+                        </outputColumn>
+                        <outputColumn
+                          refId="Package\Convert and Load ICD9\Load ICD9 txt file\ICD9 txt file.Outputs[Flat File Source Output].Columns[Column 6]"
+                          codePage="1252"
+                          dataType="str"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\Convert and Load ICD9\Load ICD9 txt file\ICD9 txt file.Outputs[Flat File Source Output].ExternalColumns[Column 6]"
+                          length="3"
+                          lineageId="Package\Convert and Load ICD9\Load ICD9 txt file\ICD9 txt file.Outputs[Flat File Source Output].Columns[Column 6]"
+                          name="Column 6"
+                          truncationRowDisposition="FailComponent">
+                          <properties>
+                            <property
+                              dataType="System.Boolean"
+                              description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                              name="FastParse">false</property>
+                            <property
+                              dataType="System.Boolean"
+                              description="Indicates whether the data is in binary format."
+                              name="UseBinaryFormat">false</property>
+                          </properties>
+                        </outputColumn>
+                        <outputColumn
+                          refId="Package\Convert and Load ICD9\Load ICD9 txt file\ICD9 txt file.Outputs[Flat File Source Output].Columns[Column 7]"
+                          codePage="1252"
+                          dataType="str"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\Convert and Load ICD9\Load ICD9 txt file\ICD9 txt file.Outputs[Flat File Source Output].ExternalColumns[Column 7]"
+                          length="1"
+                          lineageId="Package\Convert and Load ICD9\Load ICD9 txt file\ICD9 txt file.Outputs[Flat File Source Output].Columns[Column 7]"
+                          name="Column 7"
+                          truncationRowDisposition="FailComponent">
+                          <properties>
+                            <property
+                              dataType="System.Boolean"
+                              description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                              name="FastParse">false</property>
+                            <property
+                              dataType="System.Boolean"
+                              description="Indicates whether the data is in binary format."
+                              name="UseBinaryFormat">false</property>
+                          </properties>
+                        </outputColumn>
+                        <outputColumn
+                          refId="Package\Convert and Load ICD9\Load ICD9 txt file\ICD9 txt file.Outputs[Flat File Source Output].Columns[Column 8]"
+                          codePage="1252"
+                          dataType="str"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\Convert and Load ICD9\Load ICD9 txt file\ICD9 txt file.Outputs[Flat File Source Output].ExternalColumns[Column 8]"
+                          length="2"
+                          lineageId="Package\Convert and Load ICD9\Load ICD9 txt file\ICD9 txt file.Outputs[Flat File Source Output].Columns[Column 8]"
+                          name="Column 8"
+                          truncationRowDisposition="FailComponent">
+                          <properties>
+                            <property
+                              dataType="System.Boolean"
+                              description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                              name="FastParse">false</property>
+                            <property
+                              dataType="System.Boolean"
+                              description="Indicates whether the data is in binary format."
+                              name="UseBinaryFormat">false</property>
+                          </properties>
+                        </outputColumn>
+                        <outputColumn
+                          refId="Package\Convert and Load ICD9\Load ICD9 txt file\ICD9 txt file.Outputs[Flat File Source Output].Columns[Column 9]"
+                          codePage="1252"
+                          dataType="str"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\Convert and Load ICD9\Load ICD9 txt file\ICD9 txt file.Outputs[Flat File Source Output].ExternalColumns[Column 9]"
+                          length="2"
+                          lineageId="Package\Convert and Load ICD9\Load ICD9 txt file\ICD9 txt file.Outputs[Flat File Source Output].Columns[Column 9]"
+                          name="Column 9"
+                          truncationRowDisposition="FailComponent">
+                          <properties>
+                            <property
+                              dataType="System.Boolean"
+                              description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                              name="FastParse">false</property>
+                            <property
+                              dataType="System.Boolean"
+                              description="Indicates whether the data is in binary format."
+                              name="UseBinaryFormat">false</property>
+                          </properties>
+                        </outputColumn>
+                        <outputColumn
+                          refId="Package\Convert and Load ICD9\Load ICD9 txt file\ICD9 txt file.Outputs[Flat File Source Output].Columns[Column 10]"
+                          codePage="1252"
+                          dataType="str"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\Convert and Load ICD9\Load ICD9 txt file\ICD9 txt file.Outputs[Flat File Source Output].ExternalColumns[Column 10]"
+                          length="4"
+                          lineageId="Package\Convert and Load ICD9\Load ICD9 txt file\ICD9 txt file.Outputs[Flat File Source Output].Columns[Column 10]"
+                          name="Column 10"
+                          truncationRowDisposition="FailComponent">
+                          <properties>
+                            <property
+                              dataType="System.Boolean"
+                              description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                              name="FastParse">false</property>
+                            <property
+                              dataType="System.Boolean"
+                              description="Indicates whether the data is in binary format."
+                              name="UseBinaryFormat">false</property>
+                          </properties>
+                        </outputColumn>
+                        <outputColumn
+                          refId="Package\Convert and Load ICD9\Load ICD9 txt file\ICD9 txt file.Outputs[Flat File Source Output].Columns[Column 11]"
+                          codePage="1252"
+                          dataType="str"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\Convert and Load ICD9\Load ICD9 txt file\ICD9 txt file.Outputs[Flat File Source Output].ExternalColumns[Column 11]"
+                          length="2"
+                          lineageId="Package\Convert and Load ICD9\Load ICD9 txt file\ICD9 txt file.Outputs[Flat File Source Output].Columns[Column 11]"
+                          name="Column 11"
+                          truncationRowDisposition="FailComponent">
+                          <properties>
+                            <property
+                              dataType="System.Boolean"
+                              description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                              name="FastParse">false</property>
+                            <property
+                              dataType="System.Boolean"
+                              description="Indicates whether the data is in binary format."
+                              name="UseBinaryFormat">false</property>
+                          </properties>
+                        </outputColumn>
+                        <outputColumn
+                          refId="Package\Convert and Load ICD9\Load ICD9 txt file\ICD9 txt file.Outputs[Flat File Source Output].Columns[Column 12]"
+                          codePage="1252"
+                          dataType="str"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\Convert and Load ICD9\Load ICD9 txt file\ICD9 txt file.Outputs[Flat File Source Output].ExternalColumns[Column 12]"
+                          length="2"
+                          lineageId="Package\Convert and Load ICD9\Load ICD9 txt file\ICD9 txt file.Outputs[Flat File Source Output].Columns[Column 12]"
+                          name="Column 12"
+                          truncationRowDisposition="FailComponent">
+                          <properties>
+                            <property
+                              dataType="System.Boolean"
+                              description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                              name="FastParse">false</property>
+                            <property
+                              dataType="System.Boolean"
+                              description="Indicates whether the data is in binary format."
+                              name="UseBinaryFormat">false</property>
+                          </properties>
+                        </outputColumn>
+                        <outputColumn
+                          refId="Package\Convert and Load ICD9\Load ICD9 txt file\ICD9 txt file.Outputs[Flat File Source Output].Columns[Column 13]"
+                          codePage="1252"
+                          dataType="str"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\Convert and Load ICD9\Load ICD9 txt file\ICD9 txt file.Outputs[Flat File Source Output].ExternalColumns[Column 13]"
+                          length="4"
+                          lineageId="Package\Convert and Load ICD9\Load ICD9 txt file\ICD9 txt file.Outputs[Flat File Source Output].Columns[Column 13]"
+                          name="Column 13"
+                          truncationRowDisposition="FailComponent">
+                          <properties>
+                            <property
+                              dataType="System.Boolean"
+                              description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                              name="FastParse">false</property>
+                            <property
+                              dataType="System.Boolean"
+                              description="Indicates whether the data is in binary format."
+                              name="UseBinaryFormat">false</property>
+                          </properties>
+                        </outputColumn>
+                        <outputColumn
+                          refId="Package\Convert and Load ICD9\Load ICD9 txt file\ICD9 txt file.Outputs[Flat File Source Output].Columns[Column 14]"
+                          codePage="1252"
+                          dataType="str"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\Convert and Load ICD9\Load ICD9 txt file\ICD9 txt file.Outputs[Flat File Source Output].ExternalColumns[Column 14]"
+                          length="50"
+                          lineageId="Package\Convert and Load ICD9\Load ICD9 txt file\ICD9 txt file.Outputs[Flat File Source Output].Columns[Column 14]"
+                          name="Column 14"
+                          truncationRowDisposition="FailComponent">
+                          <properties>
+                            <property
+                              dataType="System.Boolean"
+                              description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                              name="FastParse">false</property>
+                            <property
+                              dataType="System.Boolean"
+                              description="Indicates whether the data is in binary format."
+                              name="UseBinaryFormat">false</property>
+                          </properties>
+                        </outputColumn>
+                      </outputColumns>
+                      <externalMetadataColumns
+                        isUsed="True">
+                        <externalMetadataColumn
+                          refId="Package\Convert and Load ICD9\Load ICD9 txt file\ICD9 txt file.Outputs[Flat File Source Output].ExternalColumns[Column 0]"
+                          codePage="1252"
+                          dataType="str"
+                          length="120"
+                          name="Column 0" />
+                        <externalMetadataColumn
+                          refId="Package\Convert and Load ICD9\Load ICD9 txt file\ICD9 txt file.Outputs[Flat File Source Output].ExternalColumns[Column 1]"
+                          codePage="1252"
+                          dataType="str"
+                          length="6"
+                          name="Column 1" />
+                        <externalMetadataColumn
+                          refId="Package\Convert and Load ICD9\Load ICD9 txt file\ICD9 txt file.Outputs[Flat File Source Output].ExternalColumns[Column 2]"
+                          codePage="1252"
+                          dataType="str"
+                          length="5"
+                          name="Column 2" />
+                        <externalMetadataColumn
+                          refId="Package\Convert and Load ICD9\Load ICD9 txt file\ICD9 txt file.Outputs[Flat File Source Output].ExternalColumns[Column 3]"
+                          codePage="1252"
+                          dataType="str"
+                          length="5"
+                          name="Column 3" />
+                        <externalMetadataColumn
+                          refId="Package\Convert and Load ICD9\Load ICD9 txt file\ICD9 txt file.Outputs[Flat File Source Output].ExternalColumns[Column 4]"
+                          codePage="1252"
+                          dataType="str"
+                          length="1"
+                          name="Column 4" />
+                        <externalMetadataColumn
+                          refId="Package\Convert and Load ICD9\Load ICD9 txt file\ICD9 txt file.Outputs[Flat File Source Output].ExternalColumns[Column 5]"
+                          codePage="1252"
+                          dataType="str"
+                          length="3"
+                          name="Column 5" />
+                        <externalMetadataColumn
+                          refId="Package\Convert and Load ICD9\Load ICD9 txt file\ICD9 txt file.Outputs[Flat File Source Output].ExternalColumns[Column 6]"
+                          codePage="1252"
+                          dataType="str"
+                          length="3"
+                          name="Column 6" />
+                        <externalMetadataColumn
+                          refId="Package\Convert and Load ICD9\Load ICD9 txt file\ICD9 txt file.Outputs[Flat File Source Output].ExternalColumns[Column 7]"
+                          codePage="1252"
+                          dataType="str"
+                          length="1"
+                          name="Column 7" />
+                        <externalMetadataColumn
+                          refId="Package\Convert and Load ICD9\Load ICD9 txt file\ICD9 txt file.Outputs[Flat File Source Output].ExternalColumns[Column 8]"
+                          codePage="1252"
+                          dataType="str"
+                          length="2"
+                          name="Column 8" />
+                        <externalMetadataColumn
+                          refId="Package\Convert and Load ICD9\Load ICD9 txt file\ICD9 txt file.Outputs[Flat File Source Output].ExternalColumns[Column 9]"
+                          codePage="1252"
+                          dataType="str"
+                          length="2"
+                          name="Column 9" />
+                        <externalMetadataColumn
+                          refId="Package\Convert and Load ICD9\Load ICD9 txt file\ICD9 txt file.Outputs[Flat File Source Output].ExternalColumns[Column 10]"
+                          codePage="1252"
+                          dataType="str"
+                          length="4"
+                          name="Column 10" />
+                        <externalMetadataColumn
+                          refId="Package\Convert and Load ICD9\Load ICD9 txt file\ICD9 txt file.Outputs[Flat File Source Output].ExternalColumns[Column 11]"
+                          codePage="1252"
+                          dataType="str"
+                          length="2"
+                          name="Column 11" />
+                        <externalMetadataColumn
+                          refId="Package\Convert and Load ICD9\Load ICD9 txt file\ICD9 txt file.Outputs[Flat File Source Output].ExternalColumns[Column 12]"
+                          codePage="1252"
+                          dataType="str"
+                          length="2"
+                          name="Column 12" />
+                        <externalMetadataColumn
+                          refId="Package\Convert and Load ICD9\Load ICD9 txt file\ICD9 txt file.Outputs[Flat File Source Output].ExternalColumns[Column 13]"
+                          codePage="1252"
+                          dataType="str"
+                          length="4"
+                          name="Column 13" />
+                        <externalMetadataColumn
+                          refId="Package\Convert and Load ICD9\Load ICD9 txt file\ICD9 txt file.Outputs[Flat File Source Output].ExternalColumns[Column 14]"
+                          codePage="1252"
+                          dataType="str"
+                          length="50"
+                          name="Column 14" />
+                      </externalMetadataColumns>
+                    </output>
+                    <output
+                      refId="Package\Convert and Load ICD9\Load ICD9 txt file\ICD9 txt file.Outputs[Flat File Source Error Output]"
+                      isErrorOut="true"
+                      name="Flat File Source Error Output">
+                      <outputColumns>
+                        <outputColumn
+                          refId="Package\Convert and Load ICD9\Load ICD9 txt file\ICD9 txt file.Outputs[Flat File Source Error Output].Columns[Flat File Source Error Output Column]"
+                          codePage="1252"
+                          dataType="text"
+                          description="Flat File Source Error Output Column"
+                          lineageId="Package\Convert and Load ICD9\Load ICD9 txt file\ICD9 txt file.Outputs[Flat File Source Error Output].Columns[Flat File Source Error Output Column]"
+                          name="Flat File Source Error Output Column" />
+                        <outputColumn
+                          refId="Package\Convert and Load ICD9\Load ICD9 txt file\ICD9 txt file.Outputs[Flat File Source Error Output].Columns[ErrorCode]"
+                          dataType="i4"
+                          lineageId="Package\Convert and Load ICD9\Load ICD9 txt file\ICD9 txt file.Outputs[Flat File Source Error Output].Columns[ErrorCode]"
+                          name="ErrorCode"
+                          specialFlags="1" />
+                        <outputColumn
+                          refId="Package\Convert and Load ICD9\Load ICD9 txt file\ICD9 txt file.Outputs[Flat File Source Error Output].Columns[ErrorColumn]"
+                          dataType="i4"
+                          lineageId="Package\Convert and Load ICD9\Load ICD9 txt file\ICD9 txt file.Outputs[Flat File Source Error Output].Columns[ErrorColumn]"
+                          name="ErrorColumn"
+                          specialFlags="2" />
+                      </outputColumns>
+                      <externalMetadataColumns />
+                    </output>
+                  </outputs>
+                </component>
+                <component
+                  refId="Package\Convert and Load ICD9\Load ICD9 txt file\Load tmpICD9 Table"
+                  componentClassID="Microsoft.OLEDBDestination"
+                  contactInfo="OLE DB Destination;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;4"
+                  description="OLE DB Destination"
+                  name="Load tmpICD9 Table"
+                  usesDispositions="true"
+                  validateExternalMetadata="False"
+                  version="4">
+                  <properties>
+                    <property
+                      dataType="System.Int32"
+                      description="The number of seconds before a command times out.  A value of 0 indicates an infinite time-out."
+                      name="CommandTimeout">0</property>
+                    <property
+                      dataType="System.String"
+                      description="Specifies the name of the database object used to open a rowset."
+                      name="OpenRowset">[dbo].[tmpref_TotalICD9]</property>
+                    <property
+                      dataType="System.String"
+                      description="Specifies the variable that contains the name of the database object used to open a rowset."
+                      name="OpenRowsetVariable"></property>
+                    <property
+                      dataType="System.String"
+                      description="The SQL command to be executed."
+                      name="SqlCommand"
+                      UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor"></property>
+                    <property
+                      dataType="System.Int32"
+                      description="Specifies the column code page to use when code page information is unavailable from the data source."
+                      name="DefaultCodePage">1252</property>
+                    <property
+                      dataType="System.Boolean"
+                      description="Forces the use of the DefaultCodePage property value when describing character data."
+                      name="AlwaysUseDefaultCodePage">false</property>
+                    <property
+                      dataType="System.Int32"
+                      description="Specifies the mode used to access the database."
+                      name="AccessMode"
+                      typeConverter="AccessMode">3</property>
+                    <property
+                      dataType="System.Boolean"
+                      description="Indicates whether the values supplied for identity columns will be copied to the destination. If false, values for identity columns will be auto-generated at the destination. Applies only if fast load is turned on."
+                      name="FastLoadKeepIdentity">false</property>
+                    <property
+                      dataType="System.Boolean"
+                      description="Indicates whether the columns containing null will have null inserted in the destination. If false, columns containing null will have their default values inserted at the destination. Applies only if fast load is turned on."
+                      name="FastLoadKeepNulls">false</property>
+                    <property
+                      dataType="System.String"
+                      description="Specifies options to be used with fast load.  Applies only if fast load is turned on."
+                      name="FastLoadOptions">TABLOCK,CHECK_CONSTRAINTS</property>
+                    <property
+                      dataType="System.Int32"
+                      description="Specifies when commits are issued during data insertion.  A value of 0 specifies that one commit will be issued at the end of data insertion.  Applies only if fast load is turned on."
+                      name="FastLoadMaxInsertCommitSize">2147483647</property>
+                  </properties>
+                  <connections>
+                    <connection
+                      refId="Package\Convert and Load ICD9\Load ICD9 txt file\Load tmpICD9 Table.Connections[OleDbConnection]"
+                      connectionManagerID="{73D7CC01-08B9-427D-82C3-7A98DDEB3748}:invalid"
+                      connectionManagerRefId="{73D7CC01-08B9-427D-82C3-7A98DDEB3748}:invalid"
+                      description="The OLE DB runtime connection used to access the database."
+                      name="OleDbConnection" />
+                  </connections>
+                  <inputs>
+                    <input
+                      refId="Package\Convert and Load ICD9\Load ICD9 txt file\Load tmpICD9 Table.Inputs[OLE DB Destination Input]"
+                      errorOrTruncationOperation="Insert"
+                      errorRowDisposition="FailComponent"
+                      hasSideEffects="true"
+                      name="OLE DB Destination Input">
+                      <inputColumns>
+                        <inputColumn
+                          refId="Package\Convert and Load ICD9\Load ICD9 txt file\Load tmpICD9 Table.Inputs[OLE DB Destination Input].Columns[Copy of Column 0]"
+                          cachedDataType="wstr"
+                          cachedLength="120"
+                          cachedName="Copy of Column 0"
+                          externalMetadataColumnId="Package\Convert and Load ICD9\Load ICD9 txt file\Load tmpICD9 Table.Inputs[OLE DB Destination Input].ExternalColumns[label]"
+                          lineageId="Package\Convert and Load ICD9\Load ICD9 txt file\Data Conversion.Outputs[Data Conversion Output].Columns[Copy of Column 0]" />
+                        <inputColumn
+                          refId="Package\Convert and Load ICD9\Load ICD9 txt file\Load tmpICD9 Table.Inputs[OLE DB Destination Input].Columns[Copy of Column 1]"
+                          cachedDataType="wstr"
+                          cachedLength="6"
+                          cachedName="Copy of Column 1"
+                          externalMetadataColumnId="Package\Convert and Load ICD9\Load ICD9 txt file\Load tmpICD9 Table.Inputs[OLE DB Destination Input].ExternalColumns[icd9dec]"
+                          lineageId="Package\Convert and Load ICD9\Load ICD9 txt file\Data Conversion.Outputs[Data Conversion Output].Columns[Copy of Column 1]" />
+                        <inputColumn
+                          refId="Package\Convert and Load ICD9\Load ICD9 txt file\Load tmpICD9 Table.Inputs[OLE DB Destination Input].Columns[Copy of Column 2]"
+                          cachedDataType="wstr"
+                          cachedLength="5"
+                          cachedName="Copy of Column 2"
+                          externalMetadataColumnId="Package\Convert and Load ICD9\Load ICD9 txt file\Load tmpICD9 Table.Inputs[OLE DB Destination Input].ExternalColumns[icd9num]"
+                          lineageId="Package\Convert and Load ICD9\Load ICD9 txt file\Data Conversion.Outputs[Data Conversion Output].Columns[Copy of Column 2]" />
+                        <inputColumn
+                          refId="Package\Convert and Load ICD9\Load ICD9 txt file\Load tmpICD9 Table.Inputs[OLE DB Destination Input].Columns[Copy of Column 3]"
+                          cachedDataType="wstr"
+                          cachedLength="5"
+                          cachedName="Copy of Column 3"
+                          externalMetadataColumnId="Package\Convert and Load ICD9\Load ICD9 txt file\Load tmpICD9 Table.Inputs[OLE DB Destination Input].ExternalColumns[icd9code]"
+                          lineageId="Package\Convert and Load ICD9\Load ICD9 txt file\Data Conversion.Outputs[Data Conversion Output].Columns[Copy of Column 3]" />
+                        <inputColumn
+                          refId="Package\Convert and Load ICD9\Load ICD9 txt file\Load tmpICD9 Table.Inputs[OLE DB Destination Input].Columns[Copy of Column 4]"
+                          cachedDataType="wstr"
+                          cachedLength="1"
+                          cachedName="Copy of Column 4"
+                          externalMetadataColumnId="Package\Convert and Load ICD9\Load ICD9 txt file\Load tmpICD9 Table.Inputs[OLE DB Destination Input].ExternalColumns[reportable]"
+                          lineageId="Package\Convert and Load ICD9\Load ICD9 txt file\Data Conversion.Outputs[Data Conversion Output].Columns[Copy of Column 4]" />
+                        <inputColumn
+                          refId="Package\Convert and Load ICD9\Load ICD9 txt file\Load tmpICD9 Table.Inputs[OLE DB Destination Input].Columns[Copy of Column 5]"
+                          cachedDataType="wstr"
+                          cachedLength="3"
+                          cachedName="Copy of Column 5"
+                          externalMetadataColumnId="Package\Convert and Load ICD9\Load ICD9 txt file\Load tmpICD9 Table.Inputs[OLE DB Destination Input].ExternalColumns[codegroup]"
+                          lineageId="Package\Convert and Load ICD9\Load ICD9 txt file\Data Conversion.Outputs[Data Conversion Output].Columns[Copy of Column 5]" />
+                        <inputColumn
+                          refId="Package\Convert and Load ICD9\Load ICD9 txt file\Load tmpICD9 Table.Inputs[OLE DB Destination Input].Columns[Copy of Column 6]"
+                          cachedDataType="wstr"
+                          cachedLength="3"
+                          cachedName="Copy of Column 6"
+                          externalMetadataColumnId="Package\Convert and Load ICD9\Load ICD9 txt file\Load tmpICD9 Table.Inputs[OLE DB Destination Input].ExternalColumns[earlyongroup]"
+                          lineageId="Package\Convert and Load ICD9\Load ICD9 txt file\Data Conversion.Outputs[Data Conversion Output].Columns[Copy of Column 6]" />
+                        <inputColumn
+                          refId="Package\Convert and Load ICD9\Load ICD9 txt file\Load tmpICD9 Table.Inputs[OLE DB Destination Input].Columns[Copy of Column 7]"
+                          cachedDataType="wstr"
+                          cachedLength="1"
+                          cachedName="Copy of Column 7"
+                          externalMetadataColumnId="Package\Convert and Load ICD9\Load ICD9 txt file\Load tmpICD9 Table.Inputs[OLE DB Destination Input].ExternalColumns[cshcseligibility]"
+                          lineageId="Package\Convert and Load ICD9\Load ICD9 txt file\Data Conversion.Outputs[Data Conversion Output].Columns[Copy of Column 7]" />
+                        <inputColumn
+                          refId="Package\Convert and Load ICD9\Load ICD9 txt file\Load tmpICD9 Table.Inputs[OLE DB Destination Input].Columns[Copy of Column 8]"
+                          cachedDataType="wstr"
+                          cachedLength="2"
+                          cachedName="Copy of Column 8"
+                          externalMetadataColumnId="Package\Convert and Load ICD9\Load ICD9 txt file\Load tmpICD9 Table.Inputs[OLE DB Destination Input].ExternalColumns[startmonth]"
+                          lineageId="Package\Convert and Load ICD9\Load ICD9 txt file\Data Conversion.Outputs[Data Conversion Output].Columns[Copy of Column 8]" />
+                        <inputColumn
+                          refId="Package\Convert and Load ICD9\Load ICD9 txt file\Load tmpICD9 Table.Inputs[OLE DB Destination Input].Columns[Copy of Column 9]"
+                          cachedDataType="wstr"
+                          cachedLength="2"
+                          cachedName="Copy of Column 9"
+                          externalMetadataColumnId="Package\Convert and Load ICD9\Load ICD9 txt file\Load tmpICD9 Table.Inputs[OLE DB Destination Input].ExternalColumns[startday]"
+                          lineageId="Package\Convert and Load ICD9\Load ICD9 txt file\Data Conversion.Outputs[Data Conversion Output].Columns[Copy of Column 9]" />
+                        <inputColumn
+                          refId="Package\Convert and Load ICD9\Load ICD9 txt file\Load tmpICD9 Table.Inputs[OLE DB Destination Input].Columns[Copy of Column 10]"
+                          cachedDataType="wstr"
+                          cachedLength="4"
+                          cachedName="Copy of Column 10"
+                          externalMetadataColumnId="Package\Convert and Load ICD9\Load ICD9 txt file\Load tmpICD9 Table.Inputs[OLE DB Destination Input].ExternalColumns[startyear]"
+                          lineageId="Package\Convert and Load ICD9\Load ICD9 txt file\Data Conversion.Outputs[Data Conversion Output].Columns[Copy of Column 10]" />
+                        <inputColumn
+                          refId="Package\Convert and Load ICD9\Load ICD9 txt file\Load tmpICD9 Table.Inputs[OLE DB Destination Input].Columns[Copy of Column 11]"
+                          cachedDataType="wstr"
+                          cachedLength="2"
+                          cachedName="Copy of Column 11"
+                          externalMetadataColumnId="Package\Convert and Load ICD9\Load ICD9 txt file\Load tmpICD9 Table.Inputs[OLE DB Destination Input].ExternalColumns[endmonth]"
+                          lineageId="Package\Convert and Load ICD9\Load ICD9 txt file\Data Conversion.Outputs[Data Conversion Output].Columns[Copy of Column 11]" />
+                        <inputColumn
+                          refId="Package\Convert and Load ICD9\Load ICD9 txt file\Load tmpICD9 Table.Inputs[OLE DB Destination Input].Columns[Copy of Column 12]"
+                          cachedDataType="wstr"
+                          cachedLength="2"
+                          cachedName="Copy of Column 12"
+                          externalMetadataColumnId="Package\Convert and Load ICD9\Load ICD9 txt file\Load tmpICD9 Table.Inputs[OLE DB Destination Input].ExternalColumns[endday]"
+                          lineageId="Package\Convert and Load ICD9\Load ICD9 txt file\Data Conversion.Outputs[Data Conversion Output].Columns[Copy of Column 12]" />
+                        <inputColumn
+                          refId="Package\Convert and Load ICD9\Load ICD9 txt file\Load tmpICD9 Table.Inputs[OLE DB Destination Input].Columns[Copy of Column 13]"
+                          cachedDataType="wstr"
+                          cachedLength="4"
+                          cachedName="Copy of Column 13"
+                          externalMetadataColumnId="Package\Convert and Load ICD9\Load ICD9 txt file\Load tmpICD9 Table.Inputs[OLE DB Destination Input].ExternalColumns[endyear]"
+                          lineageId="Package\Convert and Load ICD9\Load ICD9 txt file\Data Conversion.Outputs[Data Conversion Output].Columns[Copy of Column 13]" />
+                        <inputColumn
+                          refId="Package\Convert and Load ICD9\Load ICD9 txt file\Load tmpICD9 Table.Inputs[OLE DB Destination Input].Columns[Copy of Column 14]"
+                          cachedDataType="wstr"
+                          cachedLength="5"
+                          cachedName="Copy of Column 14"
+                          externalMetadataColumnId="Package\Convert and Load ICD9\Load ICD9 txt file\Load tmpICD9 Table.Inputs[OLE DB Destination Input].ExternalColumns[icd9cm]"
+                          lineageId="Package\Convert and Load ICD9\Load ICD9 txt file\Data Conversion.Outputs[Data Conversion Output].Columns[Copy of Column 14]" />
+                      </inputColumns>
+                      <externalMetadataColumns
+                        isUsed="True">
+                        <externalMetadataColumn
+                          refId="Package\Convert and Load ICD9\Load ICD9 txt file\Load tmpICD9 Table.Inputs[OLE DB Destination Input].ExternalColumns[label]"
+                          dataType="wstr"
+                          length="120"
+                          name="label" />
+                        <externalMetadataColumn
+                          refId="Package\Convert and Load ICD9\Load ICD9 txt file\Load tmpICD9 Table.Inputs[OLE DB Destination Input].ExternalColumns[icd9dec]"
+                          dataType="wstr"
+                          length="6"
+                          name="icd9dec" />
+                        <externalMetadataColumn
+                          refId="Package\Convert and Load ICD9\Load ICD9 txt file\Load tmpICD9 Table.Inputs[OLE DB Destination Input].ExternalColumns[icd9num]"
+                          dataType="wstr"
+                          length="5"
+                          name="icd9num" />
+                        <externalMetadataColumn
+                          refId="Package\Convert and Load ICD9\Load ICD9 txt file\Load tmpICD9 Table.Inputs[OLE DB Destination Input].ExternalColumns[icd9code]"
+                          dataType="wstr"
+                          length="5"
+                          name="icd9code" />
+                        <externalMetadataColumn
+                          refId="Package\Convert and Load ICD9\Load ICD9 txt file\Load tmpICD9 Table.Inputs[OLE DB Destination Input].ExternalColumns[reportable]"
+                          dataType="wstr"
+                          length="1"
+                          name="reportable" />
+                        <externalMetadataColumn
+                          refId="Package\Convert and Load ICD9\Load ICD9 txt file\Load tmpICD9 Table.Inputs[OLE DB Destination Input].ExternalColumns[codegroup]"
+                          dataType="wstr"
+                          length="3"
+                          name="codegroup" />
+                        <externalMetadataColumn
+                          refId="Package\Convert and Load ICD9\Load ICD9 txt file\Load tmpICD9 Table.Inputs[OLE DB Destination Input].ExternalColumns[earlyongroup]"
+                          dataType="wstr"
+                          length="3"
+                          name="earlyongroup" />
+                        <externalMetadataColumn
+                          refId="Package\Convert and Load ICD9\Load ICD9 txt file\Load tmpICD9 Table.Inputs[OLE DB Destination Input].ExternalColumns[cshcseligibility]"
+                          dataType="wstr"
+                          length="1"
+                          name="cshcseligibility" />
+                        <externalMetadataColumn
+                          refId="Package\Convert and Load ICD9\Load ICD9 txt file\Load tmpICD9 Table.Inputs[OLE DB Destination Input].ExternalColumns[startmonth]"
+                          dataType="wstr"
+                          length="2"
+                          name="startmonth" />
+                        <externalMetadataColumn
+                          refId="Package\Convert and Load ICD9\Load ICD9 txt file\Load tmpICD9 Table.Inputs[OLE DB Destination Input].ExternalColumns[startday]"
+                          dataType="wstr"
+                          length="2"
+                          name="startday" />
+                        <externalMetadataColumn
+                          refId="Package\Convert and Load ICD9\Load ICD9 txt file\Load tmpICD9 Table.Inputs[OLE DB Destination Input].ExternalColumns[startyear]"
+                          dataType="wstr"
+                          length="4"
+                          name="startyear" />
+                        <externalMetadataColumn
+                          refId="Package\Convert and Load ICD9\Load ICD9 txt file\Load tmpICD9 Table.Inputs[OLE DB Destination Input].ExternalColumns[endmonth]"
+                          dataType="wstr"
+                          length="2"
+                          name="endmonth" />
+                        <externalMetadataColumn
+                          refId="Package\Convert and Load ICD9\Load ICD9 txt file\Load tmpICD9 Table.Inputs[OLE DB Destination Input].ExternalColumns[endday]"
+                          dataType="wstr"
+                          length="2"
+                          name="endday" />
+                        <externalMetadataColumn
+                          refId="Package\Convert and Load ICD9\Load ICD9 txt file\Load tmpICD9 Table.Inputs[OLE DB Destination Input].ExternalColumns[endyear]"
+                          dataType="wstr"
+                          length="4"
+                          name="endyear" />
+                        <externalMetadataColumn
+                          refId="Package\Convert and Load ICD9\Load ICD9 txt file\Load tmpICD9 Table.Inputs[OLE DB Destination Input].ExternalColumns[icd9cm]"
+                          dataType="wstr"
+                          length="5"
+                          name="icd9cm" />
+                      </externalMetadataColumns>
+                    </input>
+                  </inputs>
+                  <outputs>
+                    <output
+                      refId="Package\Convert and Load ICD9\Load ICD9 txt file\Load tmpICD9 Table.Outputs[OLE DB Destination Error Output]"
+                      exclusionGroup="1"
+                      isErrorOut="true"
+                      name="OLE DB Destination Error Output"
+                      synchronousInputId="Package\Convert and Load ICD9\Load ICD9 txt file\Load tmpICD9 Table.Inputs[OLE DB Destination Input]">
+                      <outputColumns>
+                        <outputColumn
+                          refId="Package\Convert and Load ICD9\Load ICD9 txt file\Load tmpICD9 Table.Outputs[OLE DB Destination Error Output].Columns[ErrorCode]"
+                          dataType="i4"
+                          lineageId="Package\Convert and Load ICD9\Load ICD9 txt file\Load tmpICD9 Table.Outputs[OLE DB Destination Error Output].Columns[ErrorCode]"
+                          name="ErrorCode"
+                          specialFlags="1" />
+                        <outputColumn
+                          refId="Package\Convert and Load ICD9\Load ICD9 txt file\Load tmpICD9 Table.Outputs[OLE DB Destination Error Output].Columns[ErrorColumn]"
+                          dataType="i4"
+                          lineageId="Package\Convert and Load ICD9\Load ICD9 txt file\Load tmpICD9 Table.Outputs[OLE DB Destination Error Output].Columns[ErrorColumn]"
+                          name="ErrorColumn"
+                          specialFlags="2" />
+                      </outputColumns>
+                      <externalMetadataColumns />
+                    </output>
+                  </outputs>
+                </component>
+              </components>
+              <paths>
+                <path
+                  refId="Package\Convert and Load ICD9\Load ICD9 txt file.Paths[Data Conversion Output]"
+                  endId="Package\Convert and Load ICD9\Load ICD9 txt file\Load tmpICD9 Table.Inputs[OLE DB Destination Input]"
+                  name="Data Conversion Output"
+                  startId="Package\Convert and Load ICD9\Load ICD9 txt file\Data Conversion.Outputs[Data Conversion Output]" />
+                <path
+                  refId="Package\Convert and Load ICD9\Load ICD9 txt file.Paths[Flat File Source Output]"
+                  endId="Package\Convert and Load ICD9\Load ICD9 txt file\Data Conversion.Inputs[Data Conversion Input]"
+                  name="Flat File Source Output"
+                  startId="Package\Convert and Load ICD9\Load ICD9 txt file\ICD9 txt file.Outputs[Flat File Source Output]" />
+              </paths>
+            </pipeline>
+          </DTS:ObjectData>
+        </DTS:Executable>
+      </DTS:Executables>
+      <DTS:PrecedenceConstraints>
+        <DTS:PrecedenceConstraint
+          DTS:refId="Package\Convert and Load ICD9.PrecedenceConstraints[Constraint]"
+          DTS:CreationName=""
+          DTS:DTSID="{0808B6BB-6C35-4C95-B4C3-AFFD81160A96}"
+          DTS:From="Package\Convert and Load ICD9\Load ICD9 txt file"
+          DTS:LogicalAnd="True"
+          DTS:ObjectName="Constraint"
+          DTS:To="Package\Convert and Load ICD9\Load ICD9 Final table" />
+      </DTS:PrecedenceConstraints>
+    </DTS:Executable>
+  </DTS:Executables>
+  <DTS:DesignTimeProperties><![CDATA[<?xml version="1.0"?>
+<!--This CDATA section contains the layout information of the package. The section includes information such as (x,y) coordinates, width, and height.-->
+<!--If you manually edit this section and make a mistake, you can delete it. -->
+<!--The package will still be able to load normally but the previous layout information will be lost and the designer will automatically re-arrange the elements on the design surface.-->
+<Objects
+  Version="sql11">
+  <!--Each node below will contain properties that do not affect runtime behavior.-->
+  <Package
+    design-time-name="Package">
+    <LayoutInfo>
+      <GraphLayout
+        Capacity="4" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml">
+        <NodeLayout
+          Size="163,42"
+          Id="Package\Convert and Load ICD9\Load ICD9 txt file"
+          TopLeft="40,17" />
+        <NodeLayout
+          Size="182,42"
+          Id="Package\Convert and Load ICD9\Load ICD9 Final table"
+          TopLeft="38,84" />
+        <EdgeLayout
+          Id="Package\Convert and Load ICD9.PrecedenceConstraints[Constraint]"
+          TopLeft="125.25,59">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,25"
+              Start="0,0"
+              End="0,17.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,17.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <ContainerLayout
+          HeaderHeight="43"
+          IsExpanded="True"
+          PanelSize="266,187"
+          Size="266,230"
+          Id="Package\Convert and Load ICD9"
+          TopLeft="105,33" />
+      </GraphLayout>
+    </LayoutInfo>
+  </Package>
+  <TaskHost
+    design-time-name="Package\Convert and Load ICD9\Load ICD9 txt file">
+    <LayoutInfo>
+      <GraphLayout
+        Capacity="8" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:mssgm="clr-namespace:Microsoft.SqlServer.Graph.Model;assembly=Microsoft.SqlServer.Graph">
+        <NodeLayout
+          Size="137,42"
+          Id="Package\Convert and Load ICD9\Load ICD9 txt file\ICD9 txt file"
+          TopLeft="140,55" />
+        <NodeLayout
+          Size="158,42"
+          Id="Package\Convert and Load ICD9\Load ICD9 txt file\Data Conversion"
+          TopLeft="275,144" />
+        <EdgeLayout
+          Id="Package\Convert and Load ICD9\Load ICD9 txt file.Paths[Flat File Source Output]"
+          TopLeft="208.5,97">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="145.5,47"
+              Start="0,0"
+              End="145.5,39.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,19.5" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,19.5"
+                    Point2="0,23.5"
+                    Point3="4,23.5" />
+                  <mssgle:LineSegment
+                    End="141.5,23.5" />
+                  <mssgle:CubicBezierSegment
+                    Point1="141.5,23.5"
+                    Point2="145.5,23.5"
+                    Point3="145.5,27.5" />
+                  <mssgle:LineSegment
+                    End="145.5,39.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <mssgm:EdgeLabel
+              BoundingBox="45.21052734375,28.5,55.0789453125,11.228515625"
+              RelativePosition="Any" />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <NodeLayout
+          Size="178,42"
+          Id="Package\Convert and Load ICD9\Load ICD9 txt file\Load tmpICD9 Table"
+          TopLeft="339,264" />
+        <EdgeLayout
+          Id="Package\Convert and Load ICD9\Load ICD9 txt file.Paths[Data Conversion Output]"
+          TopLeft="354,186">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="74,78"
+              Start="0,0"
+              End="74,70.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,35" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,35"
+                    Point2="0,39"
+                    Point3="4,39" />
+                  <mssgle:LineSegment
+                    End="70,39" />
+                  <mssgle:CubicBezierSegment
+                    Point1="70,39"
+                    Point2="74,39"
+                    Point3="74,43" />
+                  <mssgle:LineSegment
+                    End="74,70.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <mssgm:EdgeLabel
+              BoundingBox="9.46052734374999,44,55.0789453125,11.228515625"
+              RelativePosition="Any" />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+      </GraphLayout>
+    </LayoutInfo>
+  </TaskHost>
+  <PipelineComponentMetadata
+    design-time-name="Package\Convert and Load ICD9\Load ICD9 txt file\Load tmpICD9 Table">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+      <Property>
+        <Name>TableInfoObjectType</Name>
+        <Value
+          type="q2:string">Table</Value>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+  <TaskHost
+    design-time-name="Package\Convert and Load ICD9\Load ICD9 Final table">
+    <LayoutInfo>
+      <GraphLayout
+        Capacity="4" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:mssgm="clr-namespace:Microsoft.SqlServer.Graph.Model;assembly=Microsoft.SqlServer.Graph">
+        <NodeLayout
+          Size="161,42"
+          Id="Package\Convert and Load ICD9\Load ICD9 Final table\temp ICD9 Table"
+          TopLeft="166,46" />
+        <NodeLayout
+          Size="184,42"
+          Id="Package\Convert and Load ICD9\Load ICD9 Final table\ICD9 Reference Table"
+          TopLeft="242,161" />
+        <EdgeLayout
+          Id="Package\Convert and Load ICD9\Load ICD9 Final table.Paths[OLE DB Source Output]"
+          TopLeft="246.5,88">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="87.5,73"
+              Start="0,0"
+              End="87.5,65.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,32.5" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,32.5"
+                    Point2="0,36.5"
+                    Point3="4,36.5" />
+                  <mssgle:LineSegment
+                    End="83.5,36.5" />
+                  <mssgle:CubicBezierSegment
+                    Point1="83.5,36.5"
+                    Point2="87.5,36.5"
+                    Point3="87.5,40.5" />
+                  <mssgle:LineSegment
+                    End="87.5,65.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <mssgm:EdgeLabel
+              BoundingBox="16.21052734375,41.5,55.0789453125,11.228515625"
+              RelativePosition="Any" />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+      </GraphLayout>
+    </LayoutInfo>
+  </TaskHost>
+  <PipelineComponentMetadata
+    design-time-name="Package\Convert and Load ICD9\Load ICD9 Final table\temp ICD9 Table">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+      <Property>
+        <Name>TableInfoObjectType</Name>
+        <Value
+          type="q2:string">Table</Value>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+  <PipelineComponentMetadata
+    design-time-name="Package\Convert and Load ICD9\Load ICD9 Final table\ICD9 Reference Table">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+      <Property>
+        <Name>TableInfoObjectType</Name>
+        <Value
+          type="q2:string">Table</Value>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+</Objects>]]></DTS:DesignTimeProperties>
+</DTS:Executable>
